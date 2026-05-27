@@ -3,1216 +3,838 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Permai Polyclinics — Inventory Intelligence</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<title>Permai Polyclinics — Intelligence Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-:root {
-  --bg:        #0a0e1a;
-  --surface:   #111827;
-  --card:      #161f30;
-  --border:    #1e2d42;
-  --accent:    #00d4aa;
-  --accent2:   #ff6b6b;
-  --accent3:   #ffd166;
-  --text:      #e2eaf4;
-  --muted:     #6b7fa3;
-  --danger:    #ff4757;
-  --warning:   #ffa502;
-  --ok:        #2ed573;
-  --font-head: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-  --font-mono: 'DM Mono', monospace;
+:root{
+  --bg:#0a0e1a;--surface:#111827;--card:#161f30;--border:#1e2d42;
+  --accent:#00d4aa;--accent3:#ffd166;--text:#e2eaf4;--muted:#6b7fa3;
+  --danger:#ff4757;--warning:#ffa502;--ok:#2ed573;--info:#4fc3f7;--purple:#a29bfe;
+  --fh:'Syne',sans-serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace;
 }
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.6;
-  min-height: 100vh;
-}
-
-/* ── Layout ── */
-.shell {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  grid-template-rows: 56px 1fr;
-  min-height: 100vh;
-}
-
-/* ── Top bar ── */
-.topbar {
-  grid-column: 1 / -1;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 24px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.topbar-brand {
-  font-family: var(--font-head);
-  font-weight: 800;
-  font-size: 16px;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.brand-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 12px var(--accent);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(0.85); }
-}
-
-.topbar-meta {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--muted);
-}
-
-.topbar-meta span { display: flex; align-items: center; gap: 6px; }
-
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-.status-badge.ok     { background: rgba(46,213,115,.12); color: var(--ok); border: 1px solid rgba(46,213,115,.25); }
-.status-badge.warn   { background: rgba(255,165,2,.12);  color: var(--warning); border: 1px solid rgba(255,165,2,.25); }
-.status-badge.danger { background: rgba(255,71,87,.12);  color: var(--danger); border: 1px solid rgba(255,71,87,.25); }
-
-/* ── Sidebar ── */
-.sidebar {
-  background: var(--surface);
-  border-right: 1px solid var(--border);
-  padding: 20px 0;
-  position: sticky;
-  top: 56px;
-  height: calc(100vh - 56px);
-  overflow-y: auto;
-}
-
-.nav-section {
-  padding: 0 12px;
-  margin-bottom: 8px;
-}
-
-.nav-label {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding: 0 8px;
-  margin-bottom: 4px;
-}
-
-.nav-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 400;
-  transition: all 0.15s;
-  border: 1px solid transparent;
-}
-
-.nav-item:hover { background: var(--card); color: var(--text); }
-.nav-item.active {
-  background: rgba(0,212,170,.08);
-  color: var(--accent);
-  border-color: rgba(0,212,170,.2);
-  font-weight: 500;
-}
-
-.nav-icon { font-size: 16px; width: 20px; text-align: center; }
-
-.nav-badge {
-  margin-left: auto;
-  background: var(--danger);
-  color: #fff;
-  border-radius: 10px;
-  padding: 1px 7px;
-  font-size: 10px;
-  font-family: var(--font-mono);
-}
-
-/* ── Main content ── */
-.main {
-  padding: 28px;
-  overflow-y: auto;
-  background: var(--bg);
-}
-
-/* ── Page views ── */
-.view { display: none; }
-.view.active { display: block; }
-
-/* ── Section heading ── */
-.section-head {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-.section-head h2 {
-  font-family: var(--font-head);
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-.section-head .sub {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--muted);
-}
-
-/* ── Stat cards ── */
-.stat-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
-  margin-bottom: 28px;
-}
-
-.stat-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.2s, border-color 0.2s;
-}
-.stat-card:hover { transform: translateY(-2px); border-color: var(--muted); }
-
-.stat-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-}
-.stat-card.accent::before  { background: var(--accent); }
-.stat-card.danger::before  { background: var(--danger); }
-.stat-card.warning::before { background: var(--warning); }
-.stat-card.info::before    { background: #4fc3f7; }
-
-.stat-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  margin-bottom: 10px;
-  font-family: var(--font-mono);
-}
-.stat-value {
-  font-family: var(--font-head);
-  font-size: 32px;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.03em;
-}
-.stat-value.accent  { color: var(--accent); }
-.stat-value.danger  { color: var(--danger); }
-.stat-value.warning { color: var(--warning); }
-.stat-value.info    { color: #4fc3f7; }
-.stat-sub {
-  margin-top: 6px;
-  font-size: 11px;
-  color: var(--muted);
-}
-
-/* ── Two-col grid ── */
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-@media (max-width: 1100px) { .two-col, .three-col { grid-template-columns: 1fr; } }
-
-/* ── Panel ── */
-.panel {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.panel-head {
-  padding: 16px 20px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.panel-title {
-  font-family: var(--font-head);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-
-.panel-badge {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--muted);
-}
-
-.panel-body { padding: 20px; }
-
-/* ── Chart containers ── */
-.chart-wrap {
-  position: relative;
-  height: 220px;
-}
-
-/* ── Table ── */
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.data-table th {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  padding: 8px 12px;
-  text-align: left;
-  border-bottom: 1px solid var(--border);
-  white-space: nowrap;
-}
-.data-table td {
-  padding: 9px 12px;
-  border-bottom: 1px solid rgba(30,45,66,.6);
-  font-size: 12px;
-  vertical-align: middle;
-}
-.data-table tr:last-child td { border-bottom: none; }
-.data-table tr:hover td { background: rgba(255,255,255,.02); }
-
-.med-name { font-weight: 500; color: var(--text); max-width: 280px; }
-.med-name small { display: block; color: var(--muted); font-size: 10px; font-family: var(--font-mono); margin-top: 1px; }
-
-.qty-bar-wrap { display: flex; align-items: center; gap: 8px; }
-.qty-bar {
-  height: 4px;
-  border-radius: 4px;
-  background: var(--accent);
-  opacity: 0.7;
-  min-width: 2px;
-}
-.qty-num { font-family: var(--font-mono); font-size: 11px; color: var(--accent); }
-
-.pill {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 20px;
-  font-size: 10px;
-  font-family: var(--font-mono);
-  font-weight: 500;
-}
-.pill.danger  { background: rgba(255,71,87,.15);   color: var(--danger);  border: 1px solid rgba(255,71,87,.3); }
-.pill.warning { background: rgba(255,165,2,.15);   color: var(--warning); border: 1px solid rgba(255,165,2,.3); }
-.pill.ok      { background: rgba(46,213,115,.12);  color: var(--ok);      border: 1px solid rgba(46,213,115,.25); }
-.pill.muted   { background: rgba(107,127,163,.1);  color: var(--muted);   border: 1px solid rgba(107,127,163,.2); }
-.pill.accent  { background: rgba(0,212,170,.1);    color: var(--accent);  border: 1px solid rgba(0,212,170,.25); }
-
-/* ── Reorder table specifics ── */
-.stock-bar-wrap { display: flex; align-items: center; gap: 6px; min-width: 120px; }
-.stock-bar-track {
-  flex: 1;
-  height: 6px;
-  background: var(--border);
-  border-radius: 6px;
-  overflow: hidden;
-}
-.stock-bar-fill {
-  height: 100%;
-  border-radius: 6px;
-  transition: width 0.4s;
-}
-
-/* ── Search ── */
-.search-row {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 20px;
-  align-items: center;
-}
-.search-input {
-  flex: 1;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 9px 14px;
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 13px;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.search-input:focus { border-color: var(--accent); }
-.search-input::placeholder { color: var(--muted); }
-
-.filter-btn {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 8px 14px;
-  color: var(--muted);
-  cursor: pointer;
-  font-size: 12px;
-  font-family: var(--font-body);
-  transition: all 0.15s;
-}
-.filter-btn:hover, .filter-btn.active {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: rgba(0,212,170,.06);
-}
-
-/* ── Loading / error states ── */
-.loading-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
-  gap: 16px;
-}
-.spinner {
-  width: 36px; height: 36px;
-  border: 3px solid var(--border);
-  border-top-color: var(--accent);
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-.error-box {
-  background: rgba(255,71,87,.08);
-  border: 1px solid rgba(255,71,87,.25);
-  border-radius: 12px;
-  padding: 24px;
-  text-align: center;
-  max-width: 480px;
-  margin: 60px auto;
-}
-.error-box h3 { color: var(--danger); margin-bottom: 8px; font-family: var(--font-head); }
-.error-box p  { color: var(--muted); font-size: 13px; }
-
-/* ── Trend arrow ── */
-.trend { font-size: 10px; }
-.trend.up   { color: var(--ok); }
-.trend.down { color: var(--danger); }
-.trend.flat { color: var(--muted); }
-
-/* ── Month tabs ── */
-.month-tag {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--muted);
-  background: var(--border);
-  border-radius: 4px;
-  padding: 1px 5px;
-}
-
-/* ── Cost chip ── */
-.cost { font-family: var(--font-mono); font-size: 11px; color: var(--accent3); }
-
-/* ── Scrollable table wrapper ── */
-.table-scroll { overflow-x: auto; }
-.table-scroll .data-table { min-width: 700px; }
-
-/* ── Empty state ── */
-.empty { text-align: center; padding: 40px; color: var(--muted); font-size: 13px; }
-
-/* ── Fade in ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.fade-in { animation: fadeUp 0.35s ease forwards; }
-
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:14px;line-height:1.6;min-height:100vh}
+.shell{display:grid;grid-template-columns:236px 1fr;grid-template-rows:54px 1fr;min-height:100vh}
+/* topbar */
+.topbar{grid-column:1/-1;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;position:sticky;top:0;z-index:100}
+.brand{font-family:var(--fh);font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.meta{display:flex;gap:14px;font-family:var(--fm);font-size:11px;color:var(--muted);align-items:center}
+/* sidebar */
+.sidebar{background:var(--surface);border-right:1px solid var(--border);padding:14px 0;position:sticky;top:54px;height:calc(100vh - 54px);overflow-y:auto}
+.nl{font-family:var(--fm);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 20px;margin:14px 0 4px}
+.ni{display:flex;align-items:center;gap:9px;padding:7px 10px;margin:0 8px;border-radius:7px;cursor:pointer;color:var(--muted);font-size:13px;transition:all .15s;border:1px solid transparent}
+.ni:hover{background:var(--card);color:var(--text)}
+.ni.active{background:rgba(0,212,170,.08);color:var(--accent);border-color:rgba(0,212,170,.2);font-weight:500}
+.ni-icon{font-size:14px;width:18px;text-align:center}
+.nb{margin-left:auto;border-radius:10px;padding:1px 6px;font-size:10px;font-family:var(--fm);font-weight:600}
+.nb-r{background:rgba(255,71,87,.2);color:var(--danger)}
+.nb-o{background:rgba(255,165,2,.2);color:var(--warning)}
+.nb-t{background:rgba(0,212,170,.15);color:var(--accent)}
+/* main */
+.main{padding:22px;overflow-y:auto}
+.view{display:none}.view.active{display:block}
+@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.fi{animation:fu .3s ease forwards}
+/* stat grid */
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:12px;margin-bottom:20px}
+.sc{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px;position:relative;overflow:hidden;transition:transform .2s}
+.sc:hover{transform:translateY(-2px)}
+.sc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.sc-g::before{background:var(--ok)}.sc-r::before{background:var(--danger)}
+.sc-o::before{background:var(--warning)}.sc-b::before{background:var(--info)}
+.sc-t::before{background:var(--accent)}.sc-y::before{background:var(--accent3)}
+.sc-p::before{background:var(--purple)}
+.sl{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:7px;font-family:var(--fm)}
+.sv{font-family:var(--fh);font-size:28px;font-weight:800;line-height:1;letter-spacing:-.03em}
+.sv-g{color:var(--ok)}.sv-r{color:var(--danger)}.sv-o{color:var(--warning)}
+.sv-b{color:var(--info)}.sv-t{color:var(--accent)}.sv-y{color:var(--accent3)}.sv-p{color:var(--purple)}
+.ss{margin-top:5px;font-size:11px;color:var(--muted)}
+/* panels */
+.panel{background:var(--card);border:1px solid var(--border);border-radius:11px;overflow:hidden;margin-bottom:18px}
+.ph{padding:13px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.pt{font-family:var(--fh);font-size:13px;font-weight:600}
+.pb{font-family:var(--fm);font-size:10px;color:var(--muted)}
+.pbd{padding:16px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+@media(max-width:1100px){.g2,.g3{grid-template-columns:1fr}}
+.cw{position:relative;height:210px}
+/* section head */
+.sh{display:flex;align-items:baseline;gap:10px;margin-bottom:18px}
+.sh h2{font-family:var(--fh);font-size:19px;font-weight:700;letter-spacing:-.02em}
+.sh .sub{font-family:var(--fm);font-size:11px;color:var(--muted)}
+/* alert banners */
+.ab{border-radius:9px;padding:12px 16px;margin-bottom:16px;display:flex;align-items:flex-start;gap:11px;border:1px solid}
+.ab-r{background:rgba(255,71,87,.07);border-color:rgba(255,71,87,.25)}
+.ab-o{background:rgba(255,165,2,.07);border-color:rgba(255,165,2,.25)}
+.ab-b{background:rgba(79,195,247,.07);border-color:rgba(79,195,247,.25)}
+.ab-g{background:rgba(46,213,115,.07);border-color:rgba(46,213,115,.25)}
+.ab-icon{font-size:18px;flex-shrink:0;margin-top:2px}
+.ab-title{font-weight:600;font-size:13px;margin-bottom:2px}
+.ab-body{font-size:12px;color:var(--muted);line-height:1.5}
+/* tables */
+.ts{overflow-x:auto}
+.dt{width:100%;border-collapse:collapse;min-width:600px}
+.dt th{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:8px 11px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap}
+.dt td{padding:8px 11px;border-bottom:1px solid rgba(30,45,66,.6);font-size:12px;vertical-align:middle}
+.dt tr:last-child td{border-bottom:none}
+.dt tr:hover td{background:rgba(255,255,255,.02)}
+tr.rc td{background:rgba(255,71,87,.04)}
+tr.ru td{background:rgba(255,165,2,.03)}
+/* pills */
+.p{display:inline-block;padding:2px 7px;border-radius:20px;font-size:10px;font-family:var(--fm);font-weight:500;white-space:nowrap}
+.pr{background:rgba(255,71,87,.15);color:var(--danger);border:1px solid rgba(255,71,87,.3)}
+.po{background:rgba(255,165,2,.15);color:var(--warning);border:1px solid rgba(255,165,2,.3)}
+.pg{background:rgba(46,213,115,.12);color:var(--ok);border:1px solid rgba(46,213,115,.25)}
+.pb2{background:rgba(79,195,247,.12);color:var(--info);border:1px solid rgba(79,195,247,.25)}
+.pt2{background:rgba(0,212,170,.1);color:var(--accent);border:1px solid rgba(0,212,170,.25)}
+.py{background:rgba(255,209,102,.12);color:var(--accent3);border:1px solid rgba(255,209,102,.3)}
+.pp{background:rgba(162,155,254,.12);color:var(--purple);border:1px solid rgba(162,155,254,.3)}
+.pm{background:rgba(107,127,163,.1);color:var(--muted);border:1px solid rgba(107,127,163,.2)}
+/* search */
+.sr{display:flex;gap:8px;margin-bottom:14px;align-items:center;flex-wrap:wrap}
+.si{flex:1;min-width:180px;background:var(--card);border:1px solid var(--border);border-radius:7px;padding:7px 12px;color:var(--text);font-family:var(--fb);font-size:13px;outline:none;transition:border-color .2s}
+.si:focus{border-color:var(--accent)}
+.si::placeholder{color:var(--muted)}
+.fb{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:6px 12px;color:var(--muted);cursor:pointer;font-size:12px;font-family:var(--fb);transition:all .15s;white-space:nowrap}
+.fb:hover,.fb.active{border-color:var(--accent);color:var(--accent);background:rgba(0,212,170,.06)}
+.fb.fr.active{border-color:var(--danger);color:var(--danger);background:rgba(255,71,87,.06)}
+.fb.fo.active{border-color:var(--warning);color:var(--warning);background:rgba(255,165,2,.06)}
+/* misc */
+.mn{font-weight:500;max-width:250px}
+.mn small{display:block;color:var(--muted);font-size:10px;font-family:var(--fm);margin-top:1px}
+.cost{font-family:var(--fm);font-size:11px;color:var(--accent3)}
+.qn{font-family:var(--fm);font-size:11px;color:var(--accent)}
+.empty{text-align:center;padding:36px;color:var(--muted);font-size:13px}
+/* heatmap */
+.hm{display:grid;gap:3px}
+.hm-cell{border-radius:3px;height:28px;display:flex;align-items:center;justify-content:center;font-size:10px;font-family:var(--fm);color:rgba(255,255,255,.7);transition:opacity .2s}
+.hm-cell:hover{opacity:.8;cursor:default}
+/* loading */
+.ls{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:14px}
+.sp{width:34px;height:34px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.eb{background:rgba(255,71,87,.08);border:1px solid rgba(255,71,87,.25);border-radius:11px;padding:22px;text-align:center;max-width:460px;margin:60px auto}
+.eb h3{color:var(--danger);margin-bottom:8px;font-family:var(--fh)}
+/* traffic light */
+.tl{display:inline-flex;align-items:center;gap:5px;font-family:var(--fm);font-size:11px;font-weight:600}
+/* bar mini */
+.bm{display:inline-flex;gap:1px;align-items:flex-end;height:18px}
+.bm-b{width:4px;border-radius:1px;background:var(--accent);opacity:.65}
 </style>
 </head>
 <body>
+<div class="shell">
 
-<div class="shell" id="app">
+<header class="topbar">
+  <div class="brand"><div class="dot"></div>Permai Polyclinics Fortuna</div>
+  <div class="meta">
+    <span id="meta-date">—</span>
+    <span style="color:var(--ok)">● Live</span>
+  </div>
+</header>
 
-  <!-- TOP BAR -->
-  <header class="topbar">
-    <div class="topbar-brand">
-      <div class="brand-dot"></div>
-      Permai Polyclinics Fortuna
+<nav class="sidebar">
+  <div class="nl">Overview</div>
+  <div class="ni active" onclick="V('overview',this)"><span class="ni-icon">⬛</span>Dashboard</div>
+
+  <div class="nl">Action Required</div>
+  <div class="ni" onclick="V('reorder',this)"><span class="ni-icon">🚨</span>Reorder Alerts<span class="nb nb-r" id="b-reorder">—</span></div>
+  <div class="ni" onclick="V('expiry',this)"><span class="ni-icon">⏰</span>Expiring Soon<span class="nb nb-o" id="b-expiry">—</span></div>
+  <div class="ni" onclick="V('deadstock',this)"><span class="ni-icon">💀</span>Dead Stock<span class="nb nb-o" id="b-dead">—</span></div>
+
+  <div class="nl">Inventory</div>
+  <div class="ni" onclick="V('fastmovers',this)"><span class="ni-icon">⚡</span>Fast Movers</div>
+  <div class="ni" onclick="V('overstock',this)"><span class="ni-icon">📦</span>Overstocked<span class="nb nb-o" id="b-over">—</span></div>
+  <div class="ni" onclick="V('allstock',this)"><span class="ni-icon">🗂</span>All Stock</div>
+
+  <div class="nl">Operations</div>
+  <div class="ni" onclick="V('operations',this)"><span class="ni-icon">🕐</span>Peak Hours & Days</div>
+  <div class="ni" onclick="V('doctors',this)"><span class="ni-icon">👨‍⚕️</span>Doctor Analytics</div>
+  <div class="ni" onclick="V('staff',this)"><span class="ni-icon">👥</span>Staff Workload</div>
+  <div class="ni" onclick="V('patients',this)"><span class="ni-icon">🧑</span>Patients</div>
+  <div class="ni" onclick="V('combos',this)"><span class="ni-icon">🔗</span>Medicine Combos</div>
+  <div class="ni" onclick="V('spikes',this)"><span class="ni-icon">📡</span>Spike Detection<span class="nb nb-r" id="b-spikes">—</span></div>
+
+  <div class="nl">Business</div>
+  <div class="ni" onclick="V('revenue',this)"><span class="ni-icon">💰</span>Revenue & Margin</div>
+  <div class="ni" onclick="V('categories',this)"><span class="ni-icon">🏷</span>Categories</div>
+</nav>
+
+<main class="main">
+  <div id="ls" class="ls"><div class="sp"></div><div style="color:var(--muted);font-family:var(--fm);font-size:12px">Loading clinic data...</div></div>
+  <div id="views" style="display:none">
+
+  <!-- OVERVIEW -->
+  <div class="view active fi" id="view-overview">
+    <div class="sh"><h2>Dashboard</h2><span class="sub" id="ov-date">—</span></div>
+    <div id="ov-banners"></div>
+    <div class="sg" id="ov-stats"></div>
+    <div class="g2">
+      <div class="panel"><div class="ph"><span class="pt">Monthly Dispensing Volume</span><span class="pb">units</span></div><div class="pbd"><div class="cw"><canvas id="c-monthly"></canvas></div></div></div>
+      <div class="panel"><div class="ph"><span class="pt">Stock Health</span><span class="pb">medicine count</span></div><div class="pbd"><div class="cw"><canvas id="c-health"></canvas></div></div></div>
     </div>
-    <div class="topbar-meta">
-      <span id="meta-generated">—</span>
-      <span id="meta-status"><span class="status-badge ok">● Live</span></span>
+    <div class="g2">
+      <div class="panel"><div class="ph"><span class="pt">Revenue by Month</span><span class="pb">MYR</span></div><div class="pbd"><div class="cw"><canvas id="c-rev-month"></canvas></div></div></div>
+      <div class="panel"><div class="ph"><span class="pt">Patients by Month</span><span class="pb">unique patients</span></div><div class="pbd"><div class="cw"><canvas id="c-pat-month"></canvas></div></div></div>
     </div>
-  </header>
+    <div class="panel"><div class="ph"><span class="pt">🚨 Needs Immediate Action</span><span class="pb">OOS or &lt;7 days remaining</span></div>
+      <div class="ts"><table class="dt"><thead><tr><th>Medicine</th><th>Stock</th><th>Days Left</th><th>Usage/Mo</th><th>Action</th></tr></thead><tbody id="t-critical"></tbody></table></div>
+    </div>
+  </div>
 
-  <!-- SIDEBAR -->
-  <nav class="sidebar">
-    <div class="nav-section">
-      <div class="nav-label">Overview</div>
-      <div class="nav-item active" onclick="showView('overview', this)">
-        <span class="nav-icon">⬛</span> Dashboard
+  <!-- REORDER -->
+  <div class="view fi" id="view-reorder">
+    <div class="sh"><h2>Reorder Alerts</h2><span class="sub" id="ro-sub">—</span></div>
+    <div class="sg" id="ro-stats"></div>
+    <div class="sr">
+      <input class="si" id="s-ro" placeholder="Search medicine..." oninput="fRO()">
+      <button class="fb fr active" onclick="sRF('all',this)">All (<span id="fc-all">0</span>)</button>
+      <button class="fb fr" onclick="sRF('critical',this)">🔴 Critical (<span id="fc-critical">0</span>)</button>
+      <button class="fb fo" onclick="sRF('urgent',this)">🟠 Urgent (<span id="fc-urgent">0</span>)</button>
+      <button class="fb" onclick="sRF('high',this)">🟡 High (<span id="fc-high">0</span>)</button>
+      <button class="fb" onclick="sRF('medium',this)">⚪ Medium (<span id="fc-medium">0</span>)</button>
+      <button class="fb" onclick="sRF('low',this)">Low (<span id="fc-low">0</span>)</button>
+    </div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>Priority</th><th>Medicine</th><th>Stock</th><th>Required</th><th>Days Left</th><th>Usage/Mo</th><th>Order Qty</th><th>Est. Cost</th><th>Rev. Risk</th></tr></thead>
+      <tbody id="t-ro"></tbody>
+    </table></div></div>
+  </div>
+
+  <!-- EXPIRY -->
+  <div class="view fi" id="view-expiry">
+    <div class="sh"><h2>Expiring Soon</h2><span class="sub">within 6 months</span></div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>Medicine</th><th>Expiry Date</th><th>Days Left</th><th>Stock</th><th>Value at Risk</th><th>Action</th></tr></thead>
+      <tbody id="t-expiry"></tbody>
+    </table></div></div>
+  </div>
+
+  <!-- DEAD STOCK -->
+  <div class="view fi" id="view-deadstock">
+    <div class="sh"><h2>Dead Stock</h2><span class="sub">untouched or never dispensed</span></div>
+    <div class="ab ab-o"><div class="ab-icon">💀</div><div>
+      <div class="ab-title">Capital frozen in unused medicines</div>
+      <div class="ab-body">These medicines have not been dispensed recently or ever. Review whether to return to supplier, discount, or remove from inventory to free up cash.</div>
+    </div></div>
+    <div class="sg" id="ds-stats"></div>
+    <div class="sr">
+      <button class="fb active" onclick="sDF('never',this)">Never Dispensed</button>
+      <button class="fb" onclick="sDF('90',this)">Not used 90+ days</button>
+      <button class="fb" onclick="sDF('60',this)">Not used 60+ days</button>
+      <button class="fb" onclick="sDF('30',this)">Not used 30+ days</button>
+    </div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>Medicine</th><th>Stock Qty</th><th>Last Dispensed</th><th>Cost Price</th><th>Capital Tied</th><th>Status</th></tr></thead>
+      <tbody id="t-dead"></tbody>
+    </table></div></div>
+  </div>
+
+  <!-- FAST MOVERS -->
+  <div class="view fi" id="view-fastmovers">
+    <div class="sh"><h2>Fast Movers</h2><span class="sub">top 30 by monthly velocity</span></div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>#</th><th>Medicine</th><th>Rec/Mo</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Trend</th><th>Days Left</th><th>Status</th></tr></thead>
+      <tbody id="t-fm"></tbody>
+    </table></div></div>
+  </div>
+
+  <!-- OVERSTOCK -->
+  <div class="view fi" id="view-overstock">
+    <div class="sh"><h2>Overstocked</h2><span class="sub">6+ months supply on hand</span></div>
+    <div class="ab ab-o"><div class="ab-icon">⚠️</div><div>
+      <div class="ab-title">Too much capital in slow-moving stock</div>
+      <div class="ab-body">Pause ordering these items. Monitor expiry dates closely.</div>
+    </div></div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>Medicine</th><th>Stock</th><th>Usage/Mo</th><th>Months Supply</th><th>Capital Tied</th><th>Expiry</th></tr></thead>
+      <tbody id="t-over"></tbody>
+    </table></div></div>
+  </div>
+
+  <!-- ALL STOCK -->
+  <div class="view fi" id="view-allstock">
+    <div class="sh"><h2>All Stock</h2><span class="sub" id="as-sub">—</span></div>
+    <div class="sr">
+      <input class="si" id="s-as" placeholder="Search medicine..." oninput="fAS()">
+      <button class="fb active" onclick="sAF('all',this)">All</button>
+      <button class="fb pg" onclick="sAF('ok',this)">✅ OK</button>
+      <button class="fb fr" onclick="sAF('reorder',this)">Needs Reorder</button>
+      <button class="fb" onclick="sAF('zero',this)">Zero Stock</button>
+    </div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>Medicine</th><th>Available</th><th>Required</th><th>Days Left</th><th>Cost</th><th>Sell</th><th>Margin</th><th>Expiry</th><th>Status</th></tr></thead>
+      <tbody id="t-as"></tbody>
+    </table></div></div>
+  </div>
+
+  <!-- OPERATIONS -->
+  <div class="view fi" id="view-operations">
+    <div class="sh"><h2>Peak Hours & Days</h2><span class="sub">visit patterns from Feb–May 2026</span></div>
+    <div class="g2">
+      <div class="panel"><div class="ph"><span class="pt">Visits by Day of Week</span><span class="pb">total visits</span></div><div class="pbd"><div class="cw"><canvas id="c-dow"></canvas></div></div></div>
+      <div class="panel"><div class="ph"><span class="pt">Revenue by Day of Week</span><span class="pb">MYR</span></div><div class="pbd"><div class="cw"><canvas id="c-dow-rev"></canvas></div></div></div>
+    </div>
+    <div class="panel"><div class="ph"><span class="pt">Peak Hours Heatmap</span><span class="pb">visits by hour of day</span></div>
+      <div class="pbd"><div id="heatmap-hours"></div>
+        <div style="margin-top:12px;font-size:11px;color:var(--muted);font-family:var(--fm)">
+          Darker = more visits. Clinic appears to be open late (peak at 7–9pm).
+        </div>
       </div>
     </div>
-    <div class="nav-section">
-      <div class="nav-label">Inventory</div>
-      <div class="nav-item" onclick="showView('reorder', this)">
-        <span class="nav-icon">🔴</span> Reorder Alerts
-        <span class="nav-badge" id="badge-reorder">—</span>
-      </div>
-      <div class="nav-item" onclick="showView('fastmovers', this)">
-        <span class="nav-icon">⚡</span> Fast Movers
-      </div>
-      <div class="nav-item" onclick="showView('allstock', this)">
-        <span class="nav-icon">📦</span> All Stock
-      </div>
+    <div class="panel"><div class="ph"><span class="pt">Hourly Visits Chart</span><span class="pb">8am – 11pm</span></div><div class="pbd"><div class="cw" style="height:200px"><canvas id="c-hours"></canvas></div></div></div>
+  </div>
+
+  <!-- DOCTORS -->
+  <div class="view fi" id="view-doctors">
+    <div class="sh"><h2>Doctor Analytics</h2><span class="sub">prescribing patterns & revenue</span></div>
+    <div class="sg" id="doc-stats"></div>
+    <div class="g2">
+      <div class="panel"><div class="ph"><span class="pt">Revenue per Doctor</span><span class="pb">MYR total</span></div><div class="pbd"><div class="cw"><canvas id="c-doc-rev"></canvas></div></div></div>
+      <div class="panel"><div class="ph"><span class="pt">Avg Medicines per Visit</span><span class="pb">prescription complexity</span></div><div class="pbd"><div class="cw"><canvas id="c-doc-meds"></canvas></div></div></div>
     </div>
-    <div class="nav-section">
-      <div class="nav-label">Analytics</div>
-      <div class="nav-item" onclick="showView('trends', this)">
-        <span class="nav-icon">📈</span> Trends
-      </div>
-      <div class="nav-item" onclick="showView('revenue', this)">
-        <span class="nav-icon">💰</span> Revenue
-      </div>
+    <div class="panel"><div class="ph"><span class="pt">Doctor Breakdown</span><span class="pb">all metrics</span></div>
+      <div class="ts"><table class="dt">
+        <thead><tr><th>Doctor</th><th>Visits</th><th>Total Revenue</th><th>Rev / Visit</th><th>Avg Meds / Visit</th><th>Top Medicine</th></tr></thead>
+        <tbody id="t-docs"></tbody>
+      </table></div>
     </div>
-  </nav>
+  </div>
 
-  <!-- MAIN -->
-  <main class="main" id="main-content">
-
-    <!-- LOADING -->
-    <div id="loading-screen" class="loading-screen">
-      <div class="spinner"></div>
-      <div style="color:var(--muted); font-family:var(--font-mono); font-size:12px;">Loading inventory data...</div>
+  <!-- STAFF -->
+  <div class="view fi" id="view-staff">
+    <div class="sh"><h2>Staff Workload</h2><span class="sub">dispensing activity per staff member</span></div>
+    <div class="panel"><div class="ph"><span class="pt">Dispensing Count by Staff</span><span class="pb">total line items dispensed</span></div><div class="pbd"><div class="cw" style="height:240px"><canvas id="c-staff"></canvas></div></div></div>
+    <div class="panel"><div class="ph"><span class="pt">Staff Summary</span></div>
+      <div class="ts"><table class="dt">
+        <thead><tr><th>Staff</th><th>Line Items Dispensed</th><th>Unique Visits</th><th>Total Units</th><th>Workload Share</th></tr></thead>
+        <tbody id="t-staff"></tbody>
+      </table></div>
     </div>
+  </div>
 
-    <!-- VIEWS (hidden until data loads) -->
-    <div id="views" style="display:none">
+  <!-- PATIENTS -->
+  <div class="view fi" id="view-patients">
+    <div class="sh"><h2>Patients</h2><span class="sub">retention & visit patterns</span></div>
+    <div class="sg" id="pat-stats"></div>
+    <div class="g2">
+      <div class="panel"><div class="ph"><span class="pt">New Patients by Month</span><span class="pb">first visit</span></div><div class="pbd"><div class="cw"><canvas id="c-pat-new"></canvas></div></div></div>
+      <div class="panel"><div class="ph"><span class="pt">New vs Returning Patients</span><span class="pb">over all months</span></div><div class="pbd"><div class="cw"><canvas id="c-pat-ret"></canvas></div></div></div>
+    </div>
+    <div class="ab ab-b"><div class="ab-icon">💡</div><div>
+      <div class="ab-title">Retention rate is 15% across 4 months — this is expected for a new clinic</div>
+      <div class="ab-body">A new clinic typically sees many one-time patients. As the clinic matures and builds a patient base, this number should rise to 30–50%. Track this monthly.</div>
+    </div></div>
+  </div>
 
-      <!-- OVERVIEW -->
-      <div class="view active fade-in" id="view-overview">
-        <div class="section-head">
-          <h2>Dashboard</h2>
-          <span class="sub" id="overview-date">—</span>
-        </div>
+  <!-- COMBOS -->
+  <div class="view fi" id="view-combos">
+    <div class="sh"><h2>Medicine Combinations</h2><span class="sub">most frequently co-prescribed in same visit</span></div>
+    <div class="ab ab-b"><div class="ab-icon">💡</div><div>
+      <div class="ab-title">If Medicine A runs out, Medicine B likely follows</div>
+      <div class="ab-body">These pairs are consistently prescribed together. Use this for smarter reordering — if one is low, check the other too.</div>
+    </div></div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>#</th><th>Medicine A</th><th>Medicine B</th><th>Times Co-Prescribed</th><th>Insight</th></tr></thead>
+      <tbody id="t-combos"></tbody>
+    </table></div></div>
+  </div>
 
-        <div class="stat-grid">
-          <div class="stat-card accent">
-            <div class="stat-label">Total Medicines</div>
-            <div class="stat-value accent" id="stat-total">—</div>
-            <div class="stat-sub">Active in inventory</div>
-          </div>
-          <div class="stat-card danger">
-            <div class="stat-label">Reorder Needed</div>
-            <div class="stat-value danger" id="stat-reorder">—</div>
-            <div class="stat-sub">Below required stock</div>
-          </div>
-          <div class="stat-card warning">
-            <div class="stat-label">Out of Stock</div>
-            <div class="stat-value warning" id="stat-oos">—</div>
-            <div class="stat-sub">Zero units available</div>
-          </div>
-          <div class="stat-card info">
-            <div class="stat-label">Est. Monthly Revenue</div>
-            <div class="stat-value info" style="font-size:24px" id="stat-revenue">—</div>
-            <div class="stat-sub">Based on current velocity</div>
-          </div>
-        </div>
+  <!-- SPIKES -->
+  <div class="view fi" id="view-spikes">
+    <div class="sh"><h2>Spike Detection</h2><span class="sub">unusual usage vs previous 30 days</span></div>
+    <div class="ab ab-r"><div class="ab-icon">📡</div><div>
+      <div class="ab-title">Abnormal demand detected in these medicines</div>
+      <div class="ab-body">These medicines have seen significantly higher usage in the last 30 days vs the previous 30 days. Could indicate seasonal illness, outbreak, or growing patient base. Ensure sufficient stock.</div>
+    </div></div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>Medicine</th><th>Prev 30 Days</th><th>Recent 30 Days</th><th>Change</th><th>Current Stock</th><th>Days Left</th><th>Risk</th></tr></thead>
+      <tbody id="t-spikes"></tbody>
+    </table></div></div>
+  </div>
 
-        <div class="two-col">
-          <div class="panel">
-            <div class="panel-head">
-              <span class="panel-title">Monthly Dispensing Volume</span>
-              <span class="panel-badge">units / month</span>
-            </div>
-            <div class="panel-body">
-              <div class="chart-wrap"><canvas id="chart-monthly"></canvas></div>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel-head">
-              <span class="panel-title">Stock Health</span>
-              <span class="panel-badge">medicine count</span>
-            </div>
-            <div class="panel-body">
-              <div class="chart-wrap"><canvas id="chart-health"></canvas></div>
-            </div>
-          </div>
-        </div>
+  <!-- REVENUE -->
+  <div class="view fi" id="view-revenue">
+    <div class="sh"><h2>Revenue & Margin</h2><span class="sub">estimated from selling price × velocity</span></div>
+    <div class="sg" id="rev-stats"></div>
+    <div class="g2">
+      <div class="panel"><div class="ph"><span class="pt">Top 10 Revenue Drivers</span></div><div class="pbd"><div class="cw" style="height:250px"><canvas id="c-rev-bar"></canvas></div></div></div>
+      <div class="panel"><div class="ph"><span class="pt">Revenue Distribution</span></div><div class="pbd"><div class="cw" style="height:250px"><canvas id="c-rev-donut"></canvas></div></div></div>
+    </div>
+    <div class="panel"><div class="ph"><span class="pt">Top 20 by Revenue — with Margin & Profit</span></div>
+      <div class="ts"><table class="dt">
+        <thead><tr><th>#</th><th>Medicine</th><th>Sell</th><th>Cost</th><th>Margin</th><th>Units/Mo</th><th>Revenue/Mo</th><th>Profit/Mo</th></tr></thead>
+        <tbody id="t-rev"></tbody>
+      </table></div>
+    </div>
+    <div class="panel"><div class="ph"><span class="pt">⚠ Low Margin Items — Worth Reviewing</span><span class="pb">high usage, below 30% margin</span></div>
+      <div class="ts"><table class="dt">
+        <thead><tr><th>Medicine</th><th>Margin</th><th>Sell</th><th>Cost</th><th>Units/Mo</th></tr></thead>
+        <tbody id="t-lm"></tbody>
+      </table></div>
+    </div>
+  </div>
 
-        <div class="panel" style="margin-bottom:20px">
-          <div class="panel-head">
-            <span class="panel-title">Top 10 Fast Movers</span>
-            <span class="panel-badge">avg monthly units</span>
-          </div>
-          <div class="panel-body">
-            <div class="chart-wrap" style="height:260px"><canvas id="chart-fastmover-bar"></canvas></div>
-          </div>
-        </div>
-      </div>
+  <!-- CATEGORIES -->
+  <div class="view fi" id="view-categories">
+    <div class="sh"><h2>Categories</h2><span class="sub">revenue & volume by therapeutic category</span></div>
+    <div class="panel"><div class="pbd"><div class="cw" style="height:300px"><canvas id="c-cats"></canvas></div></div></div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>Category</th><th>Medicines</th><th>Units/Mo</th><th>Revenue/Mo</th><th>Revenue Share</th></tr></thead>
+      <tbody id="t-cats"></tbody>
+    </table></div></div>
+  </div>
 
-      <!-- REORDER ALERTS -->
-      <div class="view fade-in" id="view-reorder">
-        <div class="section-head">
-          <h2>Reorder Alerts</h2>
-          <span class="sub" id="reorder-count-label">—</span>
-        </div>
-        <div class="search-row">
-          <input class="search-input" id="search-reorder" placeholder="Search medicine name..." oninput="filterTable('reorder')">
-          <button class="filter-btn active" onclick="filterReorder('all', this)">All</button>
-          <button class="filter-btn" onclick="filterReorder('oos', this)">Out of Stock</button>
-          <button class="filter-btn" onclick="filterReorder('low', this)">Low Stock</button>
-        </div>
-        <div class="panel">
-          <div class="table-scroll">
-            <table class="data-table" id="table-reorder">
-              <thead>
-                <tr>
-                  <th>Medicine</th>
-                  <th>Stock</th>
-                  <th>Required</th>
-                  <th>Stock Level</th>
-                  <th>Order Qty</th>
-                  <th>Unit Cost</th>
-                  <th>Est. Order Cost</th>
-                  <th>Velocity</th>
-                </tr>
-              </thead>
-              <tbody id="tbody-reorder"></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- FAST MOVERS -->
-      <div class="view fade-in" id="view-fastmovers">
-        <div class="section-head">
-          <h2>Fast Movers</h2>
-          <span class="sub">Top 30 by monthly usage</span>
-        </div>
-        <div class="panel">
-          <div class="table-scroll">
-            <table class="data-table" id="table-fastmovers">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Medicine</th>
-                  <th>Rec. Monthly</th>
-                  <th>Feb</th><th>Mar</th><th>Apr</th><th>May</th>
-                  <th>Trend</th>
-                  <th>Method</th>
-                </tr>
-              </thead>
-              <tbody id="tbody-fastmovers"></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- ALL STOCK -->
-      <div class="view fade-in" id="view-allstock">
-        <div class="section-head">
-          <h2>All Stock</h2>
-          <span class="sub" id="allstock-count">—</span>
-        </div>
-        <div class="search-row">
-          <input class="search-input" id="search-allstock" placeholder="Search medicine name..." oninput="filterTable('allstock')">
-          <button class="filter-btn active" onclick="filterAllStock('all', this)">All</button>
-          <button class="filter-btn" onclick="filterAllStock('active', this)">Has Stock</button>
-          <button class="filter-btn" onclick="filterAllStock('zero', this)">Zero Stock</button>
-        </div>
-        <div class="panel">
-          <div class="table-scroll">
-            <table class="data-table" id="table-allstock">
-              <thead>
-                <tr>
-                  <th>Medicine</th>
-                  <th>Available</th>
-                  <th>Required</th>
-                  <th>Cost Price</th>
-                  <th>Sell Price</th>
-                  <th>Margin</th>
-                  <th>Expiry</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody id="tbody-allstock"></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- TRENDS -->
-      <div class="view fade-in" id="view-trends">
-        <div class="section-head">
-          <h2>Trends</h2>
-          <span class="sub">Feb – May 2026</span>
-        </div>
-        <div class="two-col">
-          <div class="panel">
-            <div class="panel-head"><span class="panel-title">Monthly Volume Growth</span></div>
-            <div class="panel-body">
-              <div class="chart-wrap" style="height:240px"><canvas id="chart-trend-volume"></canvas></div>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel-head"><span class="panel-title">New Medicines Introduced</span></div>
-            <div class="panel-body">
-              <div class="chart-wrap" style="height:240px"><canvas id="chart-trend-new"></canvas></div>
-            </div>
-          </div>
-        </div>
-        <div class="panel">
-          <div class="panel-head">
-            <span class="panel-title">Top 10 Growing Medicines</span>
-            <span class="panel-badge">Feb → Apr growth</span>
-          </div>
-          <div class="table-scroll panel-body" style="padding:0">
-            <table class="data-table">
-              <thead>
-                <tr><th>#</th><th>Medicine</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May (proj)</th><th>Growth</th></tr>
-              </thead>
-              <tbody id="tbody-growing"></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- REVENUE -->
-      <div class="view fade-in" id="view-revenue">
-        <div class="section-head">
-          <h2>Revenue</h2>
-          <span class="sub">Estimated from selling price × velocity</span>
-        </div>
-        <div class="stat-grid" style="grid-template-columns: repeat(3, 1fr)">
-          <div class="stat-card accent">
-            <div class="stat-label">Est. Monthly Revenue</div>
-            <div class="stat-value accent" style="font-size:26px" id="rev-monthly">—</div>
-            <div class="stat-sub">All active medicines</div>
-          </div>
-          <div class="stat-card warning">
-            <div class="stat-label">Top 10 Revenue Share</div>
-            <div class="stat-value warning" style="font-size:26px" id="rev-top10-pct">—</div>
-            <div class="stat-sub">% of total revenue</div>
-          </div>
-          <div class="stat-card info">
-            <div class="stat-label">Medicines with Revenue</div>
-            <div class="stat-value info" style="font-size:26px" id="rev-count">—</div>
-            <div class="stat-sub">Non-zero revenue items</div>
-          </div>
-        </div>
-        <div class="two-col">
-          <div class="panel">
-            <div class="panel-head"><span class="panel-title">Top 10 by Revenue</span></div>
-            <div class="panel-body">
-              <div class="chart-wrap" style="height:260px"><canvas id="chart-revenue-bar"></canvas></div>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel-head"><span class="panel-title">Revenue Distribution</span></div>
-            <div class="panel-body">
-              <div class="chart-wrap" style="height:260px"><canvas id="chart-revenue-donut"></canvas></div>
-            </div>
-          </div>
-        </div>
-        <div class="panel">
-          <div class="panel-head"><span class="panel-title">Top 20 Revenue Items</span></div>
-          <div class="table-scroll panel-body" style="padding:0">
-            <table class="data-table">
-              <thead>
-                <tr><th>#</th><th>Medicine</th><th>Sell Price</th><th>Monthly Units</th><th>Est. Revenue/Mo</th><th>Cost/Mo</th><th>Est. Margin</th></tr>
-              </thead>
-              <tbody id="tbody-revenue"></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /views -->
-  </main>
+  </div><!-- /views -->
+</main>
 </div>
 
 <script>
-// ── Configuration ──────────────────────────────────────────────────────────
-// Option A: Load from a public Google Drive link (replace with your JSON file ID)
-// Option B: Set DATA_URL to a relative path for local testing
-const GDRIVE_FILE_ID = 'PASTE_GOOGLE_DRIVE_FILE_ID_HERE';
-const DATA_URL = GDRIVE_FILE_ID !== 'PASTE_GOOGLE_DRIVE_FILE_ID_HERE'
-  ? `https://drive.google.com/uc?export=download&id=${GDRIVE_FILE_ID}`
-  : 'analysis_latest.json'; // same directory as index.html
+const GDRIVE_FILE_ID='PASTE_GOOGLE_DRIVE_FILE_ID_HERE';
+const DATA_URL=GDRIVE_FILE_ID!=='PASTE_GOOGLE_DRIVE_FILE_ID_HERE'
+  ?`https://drive.google.com/uc?export=download&id=${GDRIVE_FILE_ID}`
+  :'analysis_latest.json';
 
-// ── State ──────────────────────────────────────────────────────────────────
-let DATA = null;
-let reorderFilter = 'all';
-let allStockFilter = 'all';
+let D=null,roFilter='all',asFilter='all',dsFilter='never';
+const CH={};
 
-// ── Nav ────────────────────────────────────────────────────────────────────
-function showView(name, el) {
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  document.getElementById('view-' + name).classList.add('active');
-  el.classList.add('active');
-}
-
-// ── Load data ──────────────────────────────────────────────────────────────
-async function loadData() {
-  try {
-    const res = await fetch(DATA_URL);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    DATA = await res.json();
-    document.getElementById('loading-screen').style.display = 'none';
-    document.getElementById('views').style.display = 'block';
+async function loadData(){
+  try{
+    const r=await fetch(DATA_URL);
+    if(!r.ok) throw new Error(`HTTP ${r.status}`);
+    D=await r.json();
+    document.getElementById('ls').style.display='none';
+    document.getElementById('views').style.display='block';
     render();
-  } catch (e) {
-    document.getElementById('loading-screen').innerHTML = `
-      <div class="error-box">
-        <h3>⚠ Could not load data</h3>
-        <p>Make sure <code>analysis_latest.json</code> is available at the configured URL,
-        or update <code>GDRIVE_FILE_ID</code> in the dashboard script.</p>
-        <p style="margin-top:10px; font-family:var(--font-mono); font-size:11px; color:var(--danger)">${e.message}</p>
-      </div>`;
+  }catch(e){
+    document.getElementById('ls').innerHTML=`<div class="eb"><h3>⚠ Could not load data</h3><p>Make sure analysis_latest.json is available.</p><p style="margin-top:8px;font-family:var(--fm);font-size:11px;color:var(--danger)">${e.message}</p></div>`;
   }
 }
 
-// ── Render all ─────────────────────────────────────────────────────────────
-function render() {
-  const s = DATA.summary;
-  const months = DATA.months_analyzed || [];
-
-  // Top bar
-  const gen = new Date(DATA.generated_at);
-  document.getElementById('meta-generated').textContent =
-    'Updated ' + gen.toLocaleDateString('en-MY', {day:'numeric',month:'short',year:'numeric'}) +
-    ' ' + gen.toLocaleTimeString('en-MY', {hour:'2-digit',minute:'2-digit'});
-
-  // Stat cards
-  document.getElementById('stat-total').textContent   = s.total_medicines;
-  document.getElementById('stat-reorder').textContent = s.needing_reorder;
-  document.getElementById('stat-oos').textContent     = s.out_of_stock;
-  document.getElementById('stat-revenue').textContent = 'MYR ' + fmt(s.estimated_monthly_revenue);
-  document.getElementById('badge-reorder').textContent = s.needing_reorder;
-  document.getElementById('overview-date').textContent = 'Inventory as of ' + DATA.inventory_date;
-  document.getElementById('allstock-count').textContent = s.total_medicines + ' medicines';
-
-  // ── Charts ─────────────────────────────────────────────────────────────
-  const monthLabels = Object.keys(DATA.monthly_totals).sort();
-  const monthVals   = monthLabels.map(m => DATA.monthly_totals[m]);
-
-  // Monthly volume
-  makeLineChart('chart-monthly', monthLabels.map(m => m.substring(5)), monthVals, 'Units Dispensed', '#00d4aa');
-
-  // Stock health donut
-  const ok    = s.total_medicines - s.needing_reorder;
-  const low   = s.needing_reorder - s.out_of_stock;
-  const oos   = s.out_of_stock;
-  makeDonut('chart-health',
-    ['Adequate', 'Low Stock', 'Out of Stock'],
-    [ok, low, oos],
-    ['#2ed573', '#ffa502', '#ff4757']);
-
-  // Fast mover bar
-  const fm = DATA.fast_movers.slice(0, 10);
-  makeBarChart('chart-fastmover-bar',
-    fm.map(i => truncate(i.description, 28)),
-    fm.map(i => i.recommended_monthly),
-    'Monthly Units', '#00d4aa', true);
-
-  // ── Tables ───────────────────────────────────────────────────────────
-  renderReorderTable(DATA.reorder_items);
-  renderFastMoversTable(DATA.fast_movers.slice(0, 30));
-  renderAllStockTable(DATA.all_items);
-  renderTrends();
-  renderRevenue();
+function V(name,el){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));
+  document.getElementById('view-'+name).classList.add('active');
+  el.classList.add('active');
 }
 
-// ── Reorder table ──────────────────────────────────────────────────────────
-function renderReorderTable(items) {
-  const maxQty = Math.max(...items.map(i => i.order_qty || 0), 1);
-  document.getElementById('reorder-count-label').textContent =
-    items.length + ' items below required stock';
+function render(){
+  const s=D.summary,a=D.analytics||{};
+  const gen=new Date(D.generated_at);
+  document.getElementById('meta-date').textContent='Updated '+gen.toLocaleDateString('en-MY',{day:'numeric',month:'short'})+' '+gen.toLocaleTimeString('en-MY',{hour:'2-digit',minute:'2-digit'});
+  document.getElementById('ov-date').textContent='Inventory as of '+D.inventory_date;
 
-  const rows = items.map(item => {
-    const pct     = Math.min((item.available_stock / Math.max(item.required_stock, 1)) * 100, 100);
-    const barColor = pct === 0 ? '#ff4757' : pct < 50 ? '#ffa502' : '#2ed573';
-    const statusCls = pct === 0 ? 'danger' : 'warning';
-    const statusTxt = pct === 0 ? 'Out of Stock' : 'Low';
-    const cost      = item.latest_cost_price || 0;
-    const orderCost = cost * (item.order_qty || 0);
+  // badges
+  document.getElementById('b-reorder').textContent=s.critical_items||0;
+  document.getElementById('b-expiry').textContent=s.expiring_soon||0;
+  document.getElementById('b-dead').textContent=(s.never_dispensed_count||0)+(a.dead_90||[]).length;
+  document.getElementById('b-over').textContent=s.overstock_items||0;
+  document.getElementById('b-spikes').textContent=(a.spikes||[]).length;
 
-    return `<tr data-name="${esc(item.description)}" data-status="${pct === 0 ? 'oos' : 'low'}">
-      <td><div class="med-name">${esc(truncate(item.description, 50))}<small>${esc(item.brand || '')}</small></div></td>
-      <td><span class="qty-num">${item.available_stock}</span></td>
-      <td style="color:var(--muted)">${item.required_stock}</td>
-      <td>
-        <div class="stock-bar-wrap">
-          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
-          <span style="font-family:var(--font-mono);font-size:10px;color:var(--muted);width:32px">${Math.round(pct)}%</span>
-        </div>
-      </td>
-      <td><span class="qty-num">${item.order_qty || 0}</span></td>
-      <td class="cost">MYR ${fmt(cost)}</td>
-      <td class="cost">MYR ${fmt(orderCost)}</td>
-      <td><span class="pill ${statusCls}">${statusTxt}</span></td>
+  rOverview();rReorder();rExpiry();rDeadStock();rFastMovers();rOverstock();rAllStock();
+  rOperations();rDoctors();rStaff();rPatients();rCombos();rSpikes();rRevenue();rCategories();
+}
+
+// ── OVERVIEW ──────────────────────────────────────────────────────
+function rOverview(){
+  const s=D.summary,a=D.analytics||{};
+  // Banners
+  let b='';
+  if(s.critical_items>0) b+=`<div class="ab ab-r"><div class="ab-icon">🚨</div><div><div class="ab-title">${s.critical_items} medicines critically low or out of stock — MYR ${fmt(s.revenue_at_risk||0)} revenue at risk</div><div class="ab-body">Order immediately to avoid turning patients away. <span style="color:var(--accent);cursor:pointer" onclick="V('reorder',document.querySelector('[onclick*=reorder]'))">→ View reorder alerts</span></div></div></div>`;
+  if((a.spikes||[]).length>0) b+=`<div class="ab ab-r"><div class="ab-icon">📡</div><div><div class="ab-title">${a.spikes.length} medicines showing unusual demand spikes</div><div class="ab-body">Check stock levels on these items — demand may be higher than expected. <span style="color:var(--accent);cursor:pointer" onclick="V('spikes',document.querySelector('[onclick*=spikes]'))">→ View spikes</span></div></div></div>`;
+  if(s.dead_capital>0) b+=`<div class="ab ab-o"><div class="ab-icon">💀</div><div><div class="ab-title">MYR ${fmt(s.dead_capital)} frozen in dead stock — ${s.never_dispensed_count} items never dispensed</div><div class="ab-body">Cash sitting on shelves doing nothing. Review and consider returning to supplier. <span style="color:var(--accent);cursor:pointer" onclick="V('deadstock',document.querySelector('[onclick*=deadstock]'))">→ View dead stock</span></div></div></div>`;
+  document.getElementById('ov-banners').innerHTML=b;
+
+  // Stats
+  document.getElementById('ov-stats').innerHTML=`
+    <div class="sc sc-t"><div class="sl">Total Medicines</div><div class="sv sv-t">${s.total_medicines}</div><div class="ss">Active in inventory</div></div>
+    <div class="sc sc-r"><div class="sl">🔴 Critical / OOS</div><div class="sv sv-r">${s.critical_items||0}</div><div class="ss">Order today</div></div>
+    <div class="sc sc-o"><div class="sl">Reorder Needed</div><div class="sv sv-o">${s.needing_reorder}</div><div class="ss">Below required stock</div></div>
+    <div class="sc sc-r"><div class="sl">Revenue at Risk</div><div class="sv sv-r" style="font-size:18px;margin-top:4px">MYR ${fmt(s.revenue_at_risk||0)}</div><div class="ss">OOS items</div></div>
+    <div class="sc sc-g"><div class="sl">Est. Monthly Revenue</div><div class="sv sv-g" style="font-size:18px;margin-top:4px">MYR ${fmt(s.estimated_monthly_revenue)}</div><div class="ss">Current velocity</div></div>
+    <div class="sc sc-b"><div class="sl">Total Patients</div><div class="sv sv-b">${s.total_patients||0}</div><div class="ss">${s.retention_rate||0}% multi-month retention</div></div>
+    <div class="sc sc-y"><div class="sl">Total Stock Value</div><div class="sv sv-y" style="font-size:18px;margin-top:4px">MYR ${fmt(s.total_stock_value||0)}</div><div class="ss">At cost price</div></div>
+    <div class="sc sc-p"><div class="sl">Spike Alerts</div><div class="sv sv-p">${(D.analytics?.spikes||[]).length}</div><div class="ss">Unusual demand</div></div>`;
+
+  // Charts
+  const mL=Object.keys(D.monthly_totals).sort();
+  mkLine('c-monthly',mL.map(m=>m.slice(5)),mL.map(m=>D.monthly_totals[m]),'Units','#00d4aa');
+
+  const crit=D.all_items.filter(i=>i.urgency==='critical').length;
+  const urg=D.all_items.filter(i=>i.urgency==='urgent').length;
+  const high=D.all_items.filter(i=>i.urgency==='high').length;
+  const med=D.all_items.filter(i=>i.urgency==='medium').length;
+  const low=D.all_items.filter(i=>i.urgency==='low'&&i.needs_reorder).length;
+  const ok=D.all_items.filter(i=>!i.needs_reorder).length;
+  mkDonut('c-health',['OK','Low','Medium','High','Urgent','Critical'],[ok,low,med,high,urg,crit],['#2ed573','#6b7fa3','#4fc3f7','#ffd166','#ffa502','#ff4757']);
+
+  const an=D.analytics||{};
+  const mR=an.monthly_revenue||{};const mP=an.monthly_patients||{};
+  const rL=Object.keys(mR).sort();
+  mkBar('c-rev-month',rL.map(m=>m.slice(5)),rL.map(m=>mR[m]),'Revenue MYR','#ffd166',false);
+  mkBar('c-pat-month',Object.keys(mP).sort().map(m=>m.slice(5)),Object.keys(mP).sort().map(m=>mP[m]),'Patients','#4fc3f7',false);
+
+  // Critical table
+  const critItems=D.all_items.filter(i=>i.urgency==='critical').sort((a,b)=>a.days_of_stock-b.days_of_stock).slice(0,12);
+  document.getElementById('t-critical').innerHTML=critItems.map(i=>{
+    const dl=i.days_of_stock===0?'<span class="p pr">OUT OF STOCK</span>':`<span style="color:var(--danger);font-family:var(--fm);font-weight:600">${i.days_of_stock.toFixed(0)}d</span>`;
+    return`<tr class="rc"><td><div class="mn">${esc(tr(i.description,48))}<small>${esc(i.brand||'')}</small></div></td><td><span class="qn">${i.available_stock}</span></td><td>${dl}</td><td><span class="qn">${i.recommended_monthly}/mo</span></td><td><span class="p pr">Order ${i.order_qty}</span></td></tr>`;
+  }).join('')||'<tr><td colspan="5" class="empty">No critical items 🎉</td></tr>';
+}
+
+// ── REORDER ───────────────────────────────────────────────────────
+let roItems=[];
+function rReorder(){
+  roItems=D.reorder_items.sort((a,b)=>{const o={critical:0,urgent:1,high:2,medium:3,low:4};return(o[a.urgency]??5)-(o[b.urgency]??5);});
+  const counts={all:roItems.length,critical:0,urgent:0,high:0,medium:0,low:0};
+  roItems.forEach(i=>{if(counts[i.urgency]!==undefined)counts[i.urgency]++;else counts.low++;});
+  ['all','critical','urgent','high','medium','low'].forEach(k=>{const e=document.getElementById('fc-'+k);if(e)e.textContent=counts[k]||0;});
+  document.getElementById('ro-sub').textContent=`${roItems.length} items below required stock`;
+  const totCost=roItems.reduce((a,i)=>a+(i.order_qty||0)*(i.latest_cost_price||0),0);
+  const revRisk=roItems.filter(i=>i.available_stock===0).reduce((a,i)=>a+i.monthly_revenue,0);
+  document.getElementById('ro-stats').innerHTML=`
+    <div class="sc sc-r"><div class="sl">🔴 Critical</div><div class="sv sv-r">${counts.critical}</div><div class="ss">OOS or &lt;7 days</div></div>
+    <div class="sc sc-o"><div class="sl">🟠 Urgent</div><div class="sv sv-o">${counts.urgent}</div><div class="ss">7–14 days left</div></div>
+    <div class="sc sc-b"><div class="sl">Est. Order Cost</div><div class="sv sv-b" style="font-size:18px;margin-top:4px">MYR ${fmt(totCost)}</div><div class="ss">Latest cost price</div></div>
+    <div class="sc sc-r"><div class="sl">Revenue at Risk</div><div class="sv sv-r" style="font-size:18px;margin-top:4px">MYR ${fmt(revRisk)}</div><div class="ss">Fully OOS items</div></div>`;
+  renderROTable();
+}
+function renderROTable(){
+  const q=(document.getElementById('s-ro')||{}).value||'';
+  const filtered=roItems.filter(i=>(roFilter==='all'||i.urgency===roFilter)&&i.description.toLowerCase().includes(q.toLowerCase()));
+  const up={critical:'<span class="p pr">🔴 Critical</span>',urgent:'<span class="p po">🟠 Urgent</span>',high:'<span class="p py">🟡 High</span>',medium:'<span class="p pb2">⚪ Medium</span>',low:'<span class="p pm">Low</span>'};
+  document.getElementById('t-ro').innerHTML=filtered.map(i=>{
+    const d=i.days_of_stock;
+    const dl=d===0?'<span class="p pr">OOS</span>':`<span style="color:var(--${d<7?'danger':d<14?'warning':'ok'});font-family:var(--fm);font-weight:600">${d===999?'∞':d.toFixed(0)+'d'}</span>`;
+    const oc=(i.order_qty||0)*(i.latest_cost_price||0);
+    const rr=i.available_stock===0&&i.monthly_revenue>0?`<span style="color:var(--danger);font-family:var(--fm);font-size:11px">MYR ${fmt(i.monthly_revenue)}</span>`:'—';
+    return`<tr class="${i.urgency==='critical'?'rc':i.urgency==='urgent'?'ru':''}">
+      <td>${up[i.urgency]||'<span class="p pm">Low</span>'}</td>
+      <td><div class="mn">${esc(tr(i.description,46))}<small>${esc(i.brand||'')}</small></div></td>
+      <td><span class="qn">${i.available_stock}</span></td><td style="color:var(--muted)">${i.required_stock}</td>
+      <td>${dl}</td><td><span class="qn">${i.recommended_monthly}/mo</span></td>
+      <td><span class="p pt2">${i.order_qty||0}</span></td>
+      <td class="cost">MYR ${fmt(oc)}</td><td>${rr}</td>
     </tr>`;
-  });
+  }).join('')||'<tr><td colspan="9" class="empty">No items match.</td></tr>';
+}
+function sRF(f,btn){roFilter=f;document.querySelectorAll('#view-reorder .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderROTable();}
+function fRO(){renderROTable();}
 
-  document.getElementById('tbody-reorder').innerHTML = rows.join('') || '<tr><td colspan="8" class="empty">No items need reordering.</td></tr>';
+// ── EXPIRY ────────────────────────────────────────────────────────
+function rExpiry(){
+  const items=D.all_items.filter(i=>i.expiry_days!=null&&i.expiry_days<180).sort((a,b)=>a.expiry_days-b.expiry_days);
+  document.getElementById('t-expiry').innerHTML=items.length?items.map(i=>{
+    const d=i.expiry_days;
+    const cls=d<0?'pr':d<30?'pr':d<90?'po':'py';
+    const lbl=d<0?'EXPIRED':`${d}d`;
+    const val=i.available_stock*(i.latest_cost_price||0);
+    const act=d<0?'<span class="p pr">Dispose immediately</span>':d<30?'<span class="p pr">Return/use urgently</span>':d<90?'<span class="p po">Use first</span>':'<span class="p py">Monitor</span>';
+    return`<tr><td><div class="mn">${esc(tr(i.description,50))}</div></td><td style="font-family:var(--fm);font-size:11px">${i.nearest_expiry||'—'}</td><td><span class="p ${cls}">${lbl}</span></td><td><span class="qn">${i.available_stock}</span></td><td class="cost">MYR ${fmt(val)}</td><td>${act}</td></tr>`;
+  }).join(''):'<tr><td colspan="6" class="empty">No medicines expiring within 6 months ✅</td></tr>';
 }
 
-// ── Fast movers table ──────────────────────────────────────────────────────
-function renderFastMoversTable(items) {
-  const maxRec = Math.max(...items.map(i => i.recommended_monthly), 1);
-
-  const rows = items.map((item, idx) => {
-    const b = item.monthly_breakdown || {};
-    const months = Object.keys(b).sort();
-    const vals   = months.map(m => b[m] || 0);
-
-    // Trend: compare first two vs last two non-zero
-    const nonZero = vals.filter(v => v > 0);
-    let trendCls = 'flat', trendTxt = '→';
-    if (nonZero.length >= 2) {
-      const first = nonZero.slice(0, Math.ceil(nonZero.length/2)).reduce((a,b) => a+b, 0) / Math.ceil(nonZero.length/2);
-      const last  = nonZero.slice(-Math.ceil(nonZero.length/2)).reduce((a,b) => a+b, 0) / Math.ceil(nonZero.length/2);
-      if (last > first * 1.15)       { trendCls = 'up';   trendTxt = '↑ Growing'; }
-      else if (last < first * 0.85)  { trendCls = 'down'; trendTxt = '↓ Declining'; }
-      else                            { trendCls = 'flat'; trendTxt = '→ Stable'; }
-    }
-
-    const allM = ['2026-02','2026-03','2026-04','2026-05'];
-    const methodPill = item.velocity_method === 'weighted_recent' ? 'accent' :
-                       item.velocity_method === 'avg_present_months' ? 'warning' : 'muted';
-
-    return `<tr>
-      <td style="color:var(--muted);font-family:var(--font-mono)">${idx+1}</td>
-      <td><div class="med-name">${esc(truncate(item.description, 50))}</div></td>
-      <td>
-        <div class="qty-bar-wrap">
-          <div class="qty-bar" style="width:${Math.round((item.recommended_monthly/maxRec)*100)}px"></div>
-          <span class="qty-num">${item.recommended_monthly}</span>
-        </div>
-      </td>
-      ${allM.map(m => `<td style="font-family:var(--font-mono);font-size:11px;color:${b[m] ? 'var(--text)' : 'var(--border)'}">${b[m] || '—'}</td>`).join('')}
-      <td><span class="trend ${trendCls}">${trendTxt}</span></td>
-      <td><span class="pill ${methodPill}" style="font-size:9px">${item.velocity_method}</span></td>
-    </tr>`;
-  });
-
-  document.getElementById('tbody-fastmovers').innerHTML = rows.join('');
+// ── DEAD STOCK ────────────────────────────────────────────────────
+function rDeadStock(){
+  const a=D.analytics||{};
+  const nd=a.never_dispensed||[];
+  const d90=new Set(a.dead_90||[]);
+  const d60=new Set(a.dead_60||[]);
+  const d30=new Set(a.dead_30||[]);
+  const ndCapital=nd.reduce((s,desc)=>{const i=D.all_items.find(x=>x.description===desc);return s+(i?(i.available_stock*(i.latest_cost_price||0)):0);},0);
+  const d90Capital=[...d90].reduce((s,desc)=>{const i=D.all_items.find(x=>x.description===desc);return s+(i?(i.available_stock*(i.latest_cost_price||0)):0);},0);
+  document.getElementById('ds-stats').innerHTML=`
+    <div class="sc sc-r"><div class="sl">Never Dispensed</div><div class="sv sv-r">${nd.length}</div><div class="ss">Items with stock, never used</div></div>
+    <div class="sc sc-o"><div class="sl">Not Used 90+ Days</div><div class="sv sv-o">${d90.size}</div><div class="ss">Dead stock</div></div>
+    <div class="sc sc-y"><div class="sl">Capital in Never-Used</div><div class="sv sv-y" style="font-size:18px;margin-top:4px">MYR ${fmt(ndCapital)}</div><div class="ss">Frozen cash</div></div>
+    <div class="sc sc-o"><div class="sl">Capital in 90d Dead</div><div class="sv sv-o" style="font-size:18px;margin-top:4px">MYR ${fmt(d90Capital)}</div><div class="ss">Frozen cash</div></div>`;
+  renderDSTable();
 }
-
-// ── All stock table ────────────────────────────────────────────────────────
-let allStockItems = [];
-function renderAllStockTable(items) {
-  allStockItems = items;
-  renderAllStockRows(items);
+function renderDSTable(){
+  const a=D.analytics||{};
+  let items=[];
+  if(dsFilter==='never'){
+    const nd=new Set(a.never_dispensed||[]);
+    items=D.all_items.filter(i=>nd.has(i.description)&&i.available_stock>0).map(i=>({...i,last:'Never',deadLabel:'Never dispensed'}));
+  } else {
+    const days=parseInt(dsFilter);
+    const deadSet=new Set(days===90?a.dead_90:days===60?a.dead_60:a.dead_30);
+    items=D.all_items.filter(i=>deadSet.has(i.description)&&i.available_stock>0).map(i=>({...i,last:`${days}+ days ago`,deadLabel:`Not used ${days}+ days`}));
+  }
+  items.sort((a,b)=>(b.available_stock*(b.latest_cost_price||0))-(a.available_stock*(a.latest_cost_price||0)));
+  document.getElementById('t-dead').innerHTML=items.length?items.map(i=>{
+    const cap=i.available_stock*(i.latest_cost_price||0);
+    return`<tr><td><div class="mn">${esc(tr(i.description,50))}<small>${esc(i.brand||'')}</small></div></td>
+    <td><span class="qn">${i.available_stock}</span></td>
+    <td style="font-family:var(--fm);font-size:11px;color:var(--muted)">${i.last}</td>
+    <td class="cost">MYR ${fmt(i.latest_cost_price||0)}</td>
+    <td class="cost" style="color:var(--warning)">MYR ${fmt(cap)}</td>
+    <td><span class="p po">Review / Return</span></td></tr>`;
+  }).join(''):'<tr><td colspan="6" class="empty">No items in this category.</td></tr>';
 }
+function sDF(f,btn){dsFilter=f;document.querySelectorAll('#view-deadstock .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderDSTable();}
 
-function renderAllStockRows(items) {
-  const rows = items.slice(0, 200).map(item => {
-    const cost   = item.latest_cost_price || 0;
-    const sell   = item.selling_price || 0;
-    const margin = sell > 0 && cost > 0 ? Math.round(((sell - cost) / sell) * 100) : null;
-    const margCls = margin === null ? 'muted' : margin > 50 ? 'ok' : margin > 25 ? 'warning' : 'danger';
-    const stockCls = item.available_stock === 0 ? 'danger' : item.needs_reorder ? 'warning' : 'ok';
-
-    return `<tr data-name="${esc(item.description)}" data-zero="${item.available_stock === 0}">
-      <td><div class="med-name">${esc(truncate(item.description, 48))}<small>${esc(item.brand || '')} ${esc(item.manufacturer || '')}</small></div></td>
-      <td><span class="pill ${stockCls}">${item.available_stock}</span></td>
-      <td style="color:var(--muted)">${item.required_stock}</td>
-      <td class="cost">MYR ${fmt(cost)}</td>
-      <td class="cost">MYR ${fmt(sell)}</td>
-      <td>${margin !== null ? `<span class="pill ${margCls}">${margin}%</span>` : '<span class="pill muted">—</span>'}</td>
-      <td style="font-family:var(--font-mono);font-size:10px;color:var(--muted)">${item.nearest_expiry || '—'}</td>
-      <td><span class="pill ${item.available_stock === 0 ? 'danger' : item.needs_reorder ? 'warning' : 'ok'}">${item.available_stock === 0 ? 'OOS' : item.needs_reorder ? 'Reorder' : 'OK'}</span></td>
-    </tr>`;
-  });
-  document.getElementById('tbody-allstock').innerHTML = rows.join('') || '<tr><td colspan="8" class="empty">No items.</td></tr>';
-  document.getElementById('allstock-count').textContent = items.length + ' medicines';
-}
-
-// ── Trends ────────────────────────────────────────────────────────────────
-function renderTrends() {
-  const monthLabels = Object.keys(DATA.monthly_totals).sort();
-  const monthVals   = monthLabels.map(m => DATA.monthly_totals[m]);
-
-  makeLineChart('chart-trend-volume', monthLabels.map(m => m.substring(5)), monthVals, 'Total Units', '#00d4aa', true);
-
-  // New medicines per month
-  const months = ['2026-02','2026-03','2026-04','2026-05'];
-  const newPerMonth = months.map(mo => {
-    return DATA.all_items.filter(i => {
-      const b = i.monthly_breakdown || {};
-      const prevMonths = months.slice(0, months.indexOf(mo));
-      return (b[mo] || 0) > 0 && prevMonths.every(pm => !b[pm] || b[pm] === 0);
-    }).length;
-  });
-  makeBarChart('chart-trend-new', months.map(m => m.substring(5)), newPerMonth, 'New Medicines', '#ffd166', false);
-
-  // Growing table
-  const growing = DATA.all_items
-    .filter(i => {
-      const b = i.monthly_breakdown || {};
-      const feb = b['2026-02'] || 0; const apr = b['2026-04'] || 0;
-      return feb > 0 && apr > feb * 1.2;
-    })
-    .sort((a, b) => {
-      const ga = ((a.monthly_breakdown['2026-04'] || 0) - (a.monthly_breakdown['2026-02'] || 0)) / (a.monthly_breakdown['2026-02'] || 1);
-      const gb = ((b.monthly_breakdown['2026-04'] || 0) - (b.monthly_breakdown['2026-02'] || 0)) / (b.monthly_breakdown['2026-02'] || 1);
-      return gb - ga;
-    })
-    .slice(0, 10);
-
-  document.getElementById('tbody-growing').innerHTML = growing.map((item, i) => {
-    const b    = item.monthly_breakdown || {};
-    const pct  = Math.round(((b['2026-04'] || 0) - (b['2026-02'] || 0)) / (b['2026-02'] || 1) * 100);
-    return `<tr>
-      <td style="color:var(--muted);font-family:var(--font-mono)">${i+1}</td>
-      <td><div class="med-name">${esc(truncate(item.description, 48))}</div></td>
-      <td style="font-family:var(--font-mono)">${b['2026-02'] || '—'}</td>
-      <td style="font-family:var(--font-mono)">${b['2026-03'] || '—'}</td>
-      <td style="font-family:var(--font-mono)">${b['2026-04'] || '—'}</td>
-      <td style="font-family:var(--font-mono)">${b['2026-05'] ? Math.round(b['2026-05']) : '—'}</td>
-      <td><span class="pill ok">+${pct}%</span></td>
-    </tr>`;
+// ── FAST MOVERS ───────────────────────────────────────────────────
+function rFastMovers(){
+  const items=D.fast_movers.slice(0,30);
+  const maxV=Math.max(...items.map(i=>i.recommended_monthly),1);
+  document.getElementById('t-fm').innerHTML=items.map((i,idx)=>{
+    const b=i.monthly_breakdown||{};
+    const ms=['2026-02','2026-03','2026-04','2026-05'];
+    const vals=ms.map(m=>b[m]||0),nz=vals.filter(v=>v>0);
+    let tc='pm',tt='→ Stable';
+    if(nz.length>=2){const f=nz.slice(0,Math.ceil(nz.length/2)).reduce((a,b)=>a+b,0)/Math.ceil(nz.length/2);const l=nz.slice(-Math.ceil(nz.length/2)).reduce((a,b)=>a+b,0)/Math.ceil(nz.length/2);if(l>f*1.15){tc='pg';tt='↑ Growing';}else if(l<f*.85){tc='pr';tt='↓ Falling';}}
+    const d=i.days_of_stock;
+    const dl=d===999?'<span class="p pg">OK</span>':d===0?'<span class="p pr">OOS</span>':d<7?`<span class="p pr">${d.toFixed(0)}d</span>`:d<14?`<span class="p po">${d.toFixed(0)}d</span>`:`<span class="p pg">${d.toFixed(0)}d</span>`;
+    return`<tr><td style="color:var(--muted);font-family:var(--fm)">${idx+1}</td>
+    <td><div class="mn">${esc(tr(i.description,44))}</div></td>
+    <td><div style="display:flex;align-items:center;gap:5px"><div style="height:3px;border-radius:3px;background:var(--accent);opacity:.7;width:${Math.round(i.recommended_monthly/maxV*70)}px"></div><span class="qn">${i.recommended_monthly}</span></div></td>
+    ${ms.map(m=>`<td style="font-family:var(--fm);font-size:11px;color:${b[m]?'var(--text)':'var(--border)'}">${b[m]||'—'}</td>`).join('')}
+    <td><span class="p ${tc}">${tt}</span></td><td>${dl}</td>
+    <td>${i.available_stock<i.required_stock?'<span class="p pr">Reorder</span>':'<span class="p pg">OK</span>'}</td></tr>`;
   }).join('');
 }
 
-// ── Revenue ───────────────────────────────────────────────────────────────
-function renderRevenue() {
-  const items = DATA.top_revenue_items || [];
-  const total = DATA.summary.estimated_monthly_revenue;
-  const top10 = items.slice(0, 10).reduce((s, i) => s + i.monthly_revenue, 0);
-  const withRev = DATA.all_items.filter(i => i.monthly_revenue > 0).length;
+// ── OVERSTOCK ─────────────────────────────────────────────────────
+function rOverstock(){
+  const items=D.all_items.filter(i=>i.is_overstock).sort((a,b)=>b.months_supply-a.months_supply);
+  document.getElementById('t-over').innerHTML=items.map(i=>{
+    const cap=i.available_stock*(i.latest_cost_price||0);
+    const cls=i.months_supply>12?'pr':i.months_supply>6?'po':'py';
+    return`<tr><td><div class="mn">${esc(tr(i.description,50))}<small>${esc(i.brand||'')}</small></div></td>
+    <td><span class="qn">${i.available_stock}</span></td><td><span class="qn">${i.recommended_monthly}/mo</span></td>
+    <td><span class="p ${cls}">${i.months_supply}mo</span></td>
+    <td class="cost">MYR ${fmt(cap)}</td>
+    <td style="font-family:var(--fm);font-size:11px;color:var(--muted)">${i.nearest_expiry||'—'}</td></tr>`;
+  }).join('')||'<tr><td colspan="6" class="empty">No overstocked items.</td></tr>';
+}
 
-  document.getElementById('rev-monthly').textContent   = 'MYR ' + fmt(total);
-  document.getElementById('rev-top10-pct').textContent = Math.round((top10 / total) * 100) + '%';
-  document.getElementById('rev-count').textContent     = withRev;
+// ── ALL STOCK ─────────────────────────────────────────────────────
+function rAllStock(){
+  document.getElementById('as-sub').textContent=D.all_items.length+' medicines';
+  fAS();
+}
+function fAS(){
+  const q=(document.getElementById('s-as')||{}).value||'';
+  let items=D.all_items;
+  if(asFilter==='ok')items=items.filter(i=>!i.needs_reorder);
+  if(asFilter==='reorder')items=items.filter(i=>i.needs_reorder);
+  if(asFilter==='zero')items=items.filter(i=>i.available_stock===0);
+  if(q)items=items.filter(i=>i.description.toLowerCase().includes(q.toLowerCase()));
+  document.getElementById('t-as').innerHTML=items.slice(0,200).map(i=>{
+    const d=i.days_of_stock;
+    const dl=d===999?'—':d===0?'<span class="p pr">OOS</span>':d<7?`<span class="p pr">${d.toFixed(0)}d</span>`:d<14?`<span class="p po">${d.toFixed(0)}d</span>`:`<span style="font-family:var(--fm);font-size:11px;color:var(--muted)">${d.toFixed(0)}d</span>`;
+    const m=i.margin_pct;const mc=m===null?'pm':m<30?'pr':m<50?'po':'pg';
+    const sc=i.available_stock===0?'pr':i.needs_reorder?'po':'pg';
+    return`<tr><td><div class="mn">${esc(tr(i.description,46))}<small>${esc(i.brand||'')} ${esc(i.manufacturer||'')}</small></div></td>
+    <td><span class="p ${sc}">${i.available_stock}</span></td><td style="color:var(--muted)">${i.required_stock}</td>
+    <td>${dl}</td><td class="cost">MYR ${fmt(i.latest_cost_price||0)}</td><td class="cost">MYR ${fmt(i.selling_price||0)}</td>
+    <td>${m!==null?`<span class="p ${mc}">${m}%</span>`:'<span class="p pm">—</span>'}</td>
+    <td style="font-family:var(--fm);font-size:10px;color:var(--muted)">${i.nearest_expiry||'—'}</td>
+    <td><span class="p ${sc}">${i.available_stock===0?'OOS':i.needs_reorder?'Reorder':'OK'}</span></td></tr>`;
+  }).join('')||'<tr><td colspan="9" class="empty">No items.</td></tr>';
+}
+function sAF(f,btn){asFilter=f;document.querySelectorAll('#view-allstock .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');fAS();}
 
-  const top10items = items.slice(0, 10);
-  makeBarChart('chart-revenue-bar',
-    top10items.map(i => truncate(i.description, 24)),
-    top10items.map(i => i.monthly_revenue),
-    'MYR / month', '#ffd166', true);
+// ── OPERATIONS ────────────────────────────────────────────────────
+function rOperations(){
+  const a=D.analytics||{};
+  const dow=a.dow||{};const hrs=a.hours||{};
+  const days=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+  mkBar('c-dow',days,days.map(d=>dow[d]?.visits||0),'Visits','#00d4aa',false);
+  mkBar('c-dow-rev',days,days.map(d=>dow[d]?.revenue||0),'Revenue MYR','#ffd166',false);
 
-  const top5 = items.slice(0, 5);
-  const others = total - top5.reduce((s, i) => s + i.monthly_revenue, 0);
-  makeDonut('chart-revenue-donut',
-    [...top5.map(i => truncate(i.description, 22)), 'Others'],
-    [...top5.map(i => i.monthly_revenue), others],
-    ['#00d4aa','#ffd166','#ff6b6b','#4fc3f7','#a29bfe','#636e72']);
+  // Heatmap (7am-11pm)
+  const maxH=Math.max(...Object.values(hrs).map(h=>h.visits||0),1);
+  const hmap=document.getElementById('heatmap-hours');
+  let html='<div style="display:grid;grid-template-columns:repeat(17,1fr);gap:3px">';
+  for(let h=7;h<=23;h++){
+    const v=hrs[h]?.visits||0;
+    const pct=v/maxH;
+    const bg=`rgba(0,212,170,${0.08+pct*0.82})`;
+    html+=`<div class="hm-cell" style="background:${bg};border:1px solid rgba(0,212,170,${0.1+pct*0.3})" title="${h}:00 — ${v} visits"><span style="font-size:9px">${h}:00</span></div>`;
+  }
+  html+='</div>';
+  hmap.innerHTML=html;
 
-  document.getElementById('tbody-revenue').innerHTML = items.slice(0, 20).map((item, i) => {
-    const cost = (item.avg_cost_price || item.latest_cost_price || 0) * item.recommended_monthly;
-    const margin = item.monthly_revenue > 0 && cost > 0
-      ? Math.round(((item.monthly_revenue - cost) / item.monthly_revenue) * 100) : null;
-    const mCls = margin === null ? 'muted' : margin > 50 ? 'ok' : margin > 25 ? 'warning' : 'danger';
-    return `<tr>
-      <td style="color:var(--muted);font-family:var(--font-mono)">${i+1}</td>
-      <td><div class="med-name">${esc(truncate(item.description, 48))}</div></td>
-      <td class="cost">MYR ${fmt(item.selling_price || 0)}</td>
-      <td><span class="qty-num">${item.recommended_monthly}</span></td>
-      <td class="cost" style="color:var(--accent)">MYR ${fmt(item.monthly_revenue)}</td>
-      <td class="cost">MYR ${fmt(cost)}</td>
-      <td>${margin !== null ? `<span class="pill ${mCls}">${margin}%</span>` : '<span class="pill muted">—</span>'}</td>
-    </tr>`;
+  // Line chart 7am-11pm
+  const hLabels=[];const hVals=[];
+  for(let h=7;h<=23;h++){hLabels.push(`${h}:00`);hVals.push(hrs[h]?.visits||0);}
+  mkLine('c-hours',hLabels,hVals,'Visits','#00d4aa');
+}
+
+// ── DOCTORS ───────────────────────────────────────────────────────
+function rDoctors(){
+  const a=D.analytics||{};
+  const docs=a.doctors||{};
+  const realDocs=Object.entries(docs).filter(([k])=>k!=='OTC'&&k.trim()).sort((a,b)=>b[1].total_revenue-a[1].total_revenue);
+  const topDoc=realDocs[0];
+  document.getElementById('doc-stats').innerHTML=`
+    <div class="sc sc-t"><div class="sl">Doctors / Locums</div><div class="sv sv-t">${realDocs.length}</div><div class="ss">Incl. OTC</div></div>
+    <div class="sc sc-g"><div class="sl">Top Doctor</div><div class="sv sv-g" style="font-size:14px;margin-top:6px">${topDoc?topDoc[0].split('(')[0].trim():'-'}</div><div class="ss">MYR ${topDoc?fmt(topDoc[1].total_revenue):0}</div></div>
+    <div class="sc sc-b"><div class="sl">Avg Rev / Visit</div><div class="sv sv-b" style="font-size:18px;margin-top:4px">MYR ${topDoc?fmt(topDoc[1].avg_revenue_per_visit):0}</div><div class="ss">${topDoc?topDoc[0].split('(')[0].trim():''}</div></div>`;
+
+  const labels=realDocs.map(([k])=>k.split('(')[0].trim());
+  mkBar('c-doc-rev',labels,realDocs.map(([,v])=>v.total_revenue),'Revenue MYR','#00d4aa',true);
+  mkBar('c-doc-meds',labels,realDocs.map(([,v])=>v.avg_meds_per_visit),'Avg Meds','#ffd166',true);
+
+  document.getElementById('t-docs').innerHTML=realDocs.map(([doc,v])=>`<tr>
+    <td style="font-weight:500">${esc(doc.split('(')[0].trim())}<br><small style="font-family:var(--fm);color:var(--muted);font-size:10px">${esc(doc.match(/\(([^)]+)\)/)?.[1]||'')}</small></td>
+    <td><span class="qn">${v.visits}</span></td>
+    <td class="cost">MYR ${fmt(v.total_revenue)}</td>
+    <td class="cost">MYR ${fmt(v.avg_revenue_per_visit)}</td>
+    <td><span class="p pb2">${v.avg_meds_per_visit} meds</span></td>
+    <td style="font-size:11px;color:var(--muted)">${esc(tr(v.top_medicines?.[0]||'—',36))}</td>
+  </tr>`).join('');
+}
+
+// ── STAFF ─────────────────────────────────────────────────────────
+function rStaff(){
+  const a=D.analytics||{};
+  const staff=Object.entries(a.staff||{}).sort((a,b)=>b[1].dispensing_count-a[1].dispensing_count);
+  const total=staff.reduce((s,[,v])=>s+v.dispensing_count,0);
+  mkBar('c-staff',staff.map(([k])=>k),staff.map(([,v])=>v.dispensing_count),'Items Dispensed','#a29bfe',true);
+  document.getElementById('t-staff').innerHTML=staff.map(([name,v])=>{
+    const pct=Math.round(v.dispensing_count/total*100);
+    return`<tr><td style="font-weight:500">${esc(name)}</td>
+    <td><span class="qn">${v.dispensing_count}</span></td>
+    <td><span class="qn">${v.unique_visits}</span></td>
+    <td><span class="qn">${v.total_units}</span></td>
+    <td><div style="display:flex;align-items:center;gap:7px">
+      <div style="height:4px;border-radius:4px;background:var(--purple);opacity:.7;width:${pct*1.2}px"></div>
+      <span style="font-family:var(--fm);font-size:11px;color:var(--muted)">${pct}%</span>
+    </div></td></tr>`;
   }).join('');
 }
 
-// ── Filtering ─────────────────────────────────────────────────────────────
-function filterTable(which) {
-  const query = document.getElementById('search-' + which).value.toLowerCase();
-  const tbody  = document.getElementById('tbody-' + which);
-  tbody.querySelectorAll('tr').forEach(tr => {
-    const name = (tr.dataset.name || '').toLowerCase();
-    const status = tr.dataset.status || '';
-    let show = name.includes(query);
-    if (which === 'reorder' && reorderFilter !== 'all') show = show && status === reorderFilter;
-    if (which === 'allstock' && allStockFilter !== 'all') {
-      show = show && (allStockFilter === 'zero' ? tr.dataset.zero === 'true' : tr.dataset.zero === 'false');
-    }
-    tr.style.display = show ? '' : 'none';
+// ── PATIENTS ─────────────────────────────────────────────────────
+function rPatients(){
+  const a=D.analytics||{};
+  const p=a.patients||{};
+  document.getElementById('pat-stats').innerHTML=`
+    <div class="sc sc-b"><div class="sl">Total Unique Patients</div><div class="sv sv-b">${p.total_unique||0}</div><div class="ss">Feb–May 2026</div></div>
+    <div class="sc sc-g"><div class="sl">Multi-Month Patients</div><div class="sv sv-g">${p.returning_multi_month||0}</div><div class="ss">Visited 2+ months</div></div>
+    <div class="sc sc-t"><div class="sl">Retention Rate</div><div class="sv sv-t">${p.retention_rate||0}%</div><div class="ss">Returning patients</div></div>
+    <div class="sc sc-y"><div class="sl">Avg Revisit Cycle</div><div class="sv sv-y" style="font-size:20px;margin-top:4px">${p.avg_revisit_days||0}d</div><div class="ss">Days between visits</div></div>`;
+
+  const nb=p.new_by_month||{};
+  const mL=Object.keys(nb).sort();
+  mkBar('c-pat-new',mL.map(m=>m.slice(5)),mL.map(m=>nb[m]),'New Patients','#4fc3f7',false);
+  mkDonut('c-pat-ret',['Single Visit','Returning'],[p.new_single_month||0,p.returning_multi_month||0],['#6b7fa3','#00d4aa']);
+}
+
+// ── COMBOS ────────────────────────────────────────────────────────
+function rCombos(){
+  const combos=(D.analytics?.combos||[]);
+  document.getElementById('t-combos').innerHTML=combos.map((c,i)=>`<tr>
+    <td style="color:var(--muted);font-family:var(--fm)">${i+1}</td>
+    <td><div class="mn">${esc(tr(c.med_a,44))}</div></td>
+    <td><div class="mn">${esc(tr(c.med_b,44))}</div></td>
+    <td><span class="p pt2">${c.count}×</span></td>
+    <td style="font-size:11px;color:var(--muted)">If one is low, check the other</td>
+  </tr>`).join('')||'<tr><td colspan="5" class="empty">No combination data.</td></tr>';
+}
+
+// ── SPIKES ────────────────────────────────────────────────────────
+function rSpikes(){
+  const spikes=(D.analytics?.spikes||[]);
+  document.getElementById('t-spikes').innerHTML=spikes.map(s=>{
+    const item=D.all_items.find(i=>i.description===s.medicine)||{};
+    const chg=s.change_pct===999?'New demand':'+'+s.change_pct+'%';
+    const cls=s.change_pct>200||s.change_pct===999?'pr':s.change_pct>100?'po':'py';
+    const d=item.days_of_stock||0;
+    const risk=d===0?'<span class="p pr">Out of stock!</span>':d<7?'<span class="p pr">Order now</span>':d<14?'<span class="p po">Order soon</span>':'<span class="p pg">OK for now</span>';
+    return`<tr><td><div class="mn">${esc(tr(s.medicine,48))}</div></td>
+    <td style="font-family:var(--fm)">${s.prev_30d}</td>
+    <td style="font-family:var(--fm);color:var(--warning)">${s.recent_30d}</td>
+    <td><span class="p ${cls}">${chg}</span></td>
+    <td><span class="qn">${item.available_stock||0}</span></td>
+    <td>${d===0?'<span class="p pr">OOS</span>':`<span style="font-family:var(--fm);font-size:11px">${d===999?'∞':d.toFixed(0)+'d'}</span>`}</td>
+    <td>${risk}</td></tr>`;
+  }).join('')||'<tr><td colspan="7" class="empty">No unusual spikes detected.</td></tr>';
+}
+
+// ── REVENUE ───────────────────────────────────────────────────────
+function rRevenue(){
+  const items=D.top_revenue_items||[];
+  const total=D.summary.estimated_monthly_revenue;
+  const top10=items.slice(0,10).reduce((a,i)=>a+i.monthly_revenue,0);
+  const withRev=D.all_items.filter(i=>i.monthly_revenue>0).length;
+  const totalProfit=items.reduce((a,i)=>{const c=(i.avg_cost_price||i.latest_cost_price||0)*i.recommended_monthly;return a+(i.monthly_revenue-c);},0);
+  document.getElementById('rev-stats').innerHTML=`
+    <div class="sc sc-g"><div class="sl">Est. Monthly Revenue</div><div class="sv sv-g" style="font-size:18px;margin-top:4px">MYR ${fmt(total)}</div><div class="ss">Current velocity</div></div>
+    <div class="sc sc-t"><div class="sl">Est. Monthly Profit</div><div class="sv sv-t" style="font-size:18px;margin-top:4px">MYR ${fmt(totalProfit)}</div><div class="ss">Revenue minus cost</div></div>
+    <div class="sc sc-y"><div class="sl">Top 10 Revenue Share</div><div class="sv sv-y">${Math.round(top10/total*100)}%</div><div class="ss">Concentration</div></div>
+    <div class="sc sc-b"><div class="sl">Revenue Medicines</div><div class="sv sv-b">${withRev}</div><div class="ss">With sell price set</div></div>`;
+  mkBar('c-rev-bar',items.slice(0,10).map(i=>tr(i.description,22)),items.slice(0,10).map(i=>i.monthly_revenue),'MYR/mo','#ffd166',true);
+  const top5=items.slice(0,5),oth=total-top5.reduce((a,i)=>a+i.monthly_revenue,0);
+  mkDonut('c-rev-donut',[...top5.map(i=>tr(i.description,18)),'Others'],[...top5.map(i=>i.monthly_revenue),oth],['#00d4aa','#ffd166','#ff6b6b','#4fc3f7','#a29bfe','#636e72']);
+  document.getElementById('t-rev').innerHTML=items.slice(0,20).map((i,idx)=>{
+    const c=i.avg_cost_price||i.latest_cost_price||0;
+    const cm=c*i.recommended_monthly;const pr=i.monthly_revenue-cm;
+    const m=i.margin_pct;const mc=m===null?'pm':m<30?'pr':m<50?'po':'pg';
+    return`<tr><td style="color:var(--muted);font-family:var(--fm)">${idx+1}</td>
+    <td><div class="mn">${esc(tr(i.description,44))}</div></td>
+    <td class="cost">MYR ${fmt(i.selling_price||0)}</td><td class="cost">MYR ${fmt(c)}</td>
+    <td>${m!==null?`<span class="p ${mc}">${m}%</span>`:'<span class="p pm">—</span>'}</td>
+    <td><span class="qn">${i.recommended_monthly}/mo</span></td>
+    <td class="cost" style="color:var(--ok)">MYR ${fmt(i.monthly_revenue)}</td>
+    <td class="cost" style="color:${pr>0?'var(--accent)':'var(--danger)'}">MYR ${fmt(pr)}</td></tr>`;
+  }).join('');
+  const lm=D.all_items.filter(i=>i.margin_pct!==null&&i.margin_pct<30&&i.recommended_monthly>=20).sort((a,b)=>a.margin_pct-b.margin_pct);
+  document.getElementById('t-lm').innerHTML=lm.map(i=>`<tr>
+    <td><div class="mn">${esc(tr(i.description,46))}</div></td>
+    <td><span class="p pr">${i.margin_pct}%</span></td>
+    <td class="cost">MYR ${fmt(i.selling_price||0)}</td><td class="cost">MYR ${fmt(i.latest_cost_price||0)}</td>
+    <td><span class="qn">${i.recommended_monthly}/mo</span></td></tr>`).join('')||'<tr><td colspan="5" class="empty">No high-usage low-margin items ✅</td></tr>';
+}
+
+// ── CATEGORIES ────────────────────────────────────────────────────
+function rCategories(){
+  const cats={};
+  D.all_items.forEach(i=>{
+    const c=(i.category&&i.category!=='nan'&&i.category!=='None')?i.category:'Uncategorised';
+    if(!cats[c])cats[c]={count:0,revenue:0,units:0};
+    cats[c].count++;cats[c].revenue+=i.monthly_revenue||0;cats[c].units+=i.recommended_monthly||0;
   });
+  const sorted=Object.entries(cats).sort((a,b)=>b[1].revenue-a[1].revenue).filter(([,v])=>v.revenue>0).slice(0,15);
+  const totR=sorted.reduce((a,[,v])=>a+v.revenue,0);
+  mkBar('c-cats',sorted.map(([k])=>k),sorted.map(([,v])=>v.revenue),'MYR/mo','#4fc3f7',true);
+  document.getElementById('t-cats').innerHTML=sorted.map(([cat,v])=>`<tr>
+    <td style="font-weight:500">${esc(cat)}</td><td style="font-family:var(--fm)">${v.count}</td>
+    <td><span class="qn">${Math.round(v.units)}/mo</span></td>
+    <td class="cost">MYR ${fmt(v.revenue)}</td>
+    <td><div style="display:flex;align-items:center;gap:7px">
+      <div style="height:4px;border-radius:4px;background:var(--info);opacity:.7;width:${Math.round(v.revenue/totR*120)}px"></div>
+      <span style="font-family:var(--fm);font-size:11px;color:var(--muted)">${Math.round(v.revenue/totR*100)}%</span>
+    </div></td></tr>`).join('');
 }
 
-function filterReorder(type, btn) {
-  reorderFilter = type;
-  document.querySelectorAll('#view-reorder .filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  filterTable('reorder');
+// ── Charts ────────────────────────────────────────────────────────
+function mkLine(id,labels,data,label,color,fill=false){
+  if(CH[id])CH[id].destroy();
+  CH[id]=new Chart(document.getElementById(id).getContext('2d'),{type:'line',data:{labels,datasets:[{label,data,borderColor:color,backgroundColor:fill?color+'22':'transparent',pointBackgroundColor:color,pointRadius:5,borderWidth:2.5,tension:.35,fill}]},options:cO(false)});
 }
-
-function filterAllStock(type, btn) {
-  const items = type === 'active' ? DATA.all_items.filter(i => i.available_stock > 0)
-              : type === 'zero'   ? DATA.all_items.filter(i => i.available_stock === 0)
-              : DATA.all_items;
-  document.querySelectorAll('#view-allstock .filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  allStockFilter = type;
-  renderAllStockRows(items);
-  const q = document.getElementById('search-allstock').value;
-  if (q) filterTable('allstock');
+function mkBar(id,labels,data,label,color,h=false){
+  if(CH[id])CH[id].destroy();
+  CH[id]=new Chart(document.getElementById(id).getContext('2d'),{type:'bar',data:{labels,datasets:[{label,data,backgroundColor:color+'bb',borderColor:color,borderWidth:1,borderRadius:4}]},options:{...cO(h),indexAxis:h?'y':'x'}});
 }
-
-// ── Chart helpers ─────────────────────────────────────────────────────────
-const chartInstances = {};
-
-function makeLineChart(id, labels, data, label, color, fill=false) {
-  if (chartInstances[id]) chartInstances[id].destroy();
-  const ctx = document.getElementById(id).getContext('2d');
-  chartInstances[id] = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels,
-      datasets: [{
-        label,
-        data,
-        borderColor: color,
-        backgroundColor: fill ? color + '22' : 'transparent',
-        pointBackgroundColor: color,
-        pointRadius: 5,
-        borderWidth: 2.5,
-        tension: 0.35,
-        fill,
-      }]
-    },
-    options: chartOpts(false)
-  });
+function mkDonut(id,labels,data,colors){
+  if(CH[id])CH[id].destroy();
+  CH[id]=new Chart(document.getElementById(id).getContext('2d'),{type:'doughnut',data:{labels,datasets:[{data,backgroundColor:colors.map(c=>c+'cc'),borderColor:colors,borderWidth:1.5,hoverOffset:6}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'right',labels:{color:'#6b7fa3',font:{size:11},boxWidth:12,padding:8}},tooltip:tS()}}});
 }
+function cO(h){return{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:tS()},scales:{x:{ticks:{color:'#6b7fa3',font:{size:10},maxRotation:h?0:35},grid:{color:'#1e2d42'}},y:{ticks:{color:'#6b7fa3',font:{size:10}},grid:{color:'#1e2d42'}}}};}
+function tS(){return{backgroundColor:'#161f30',titleColor:'#e2eaf4',bodyColor:'#6b7fa3',borderColor:'#1e2d42',borderWidth:1,cornerRadius:8,padding:10};}
 
-function makeBarChart(id, labels, data, label, color, horizontal=false) {
-  if (chartInstances[id]) chartInstances[id].destroy();
-  const ctx = document.getElementById(id).getContext('2d');
-  chartInstances[id] = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels,
-      datasets: [{
-        label,
-        data,
-        backgroundColor: color + 'bb',
-        borderColor: color,
-        borderWidth: 1,
-        borderRadius: 4,
-      }]
-    },
-    options: {
-      ...chartOpts(horizontal),
-      indexAxis: horizontal ? 'y' : 'x',
-    }
-  });
-}
+// ── Utils ─────────────────────────────────────────────────────────
+function fmt(n){if(!n&&n!==0)return'—';return Number(n).toLocaleString('en-MY',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function tr(s,n){return s&&s.length>n?s.substring(0,n)+'…':(s||'');}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
-function makeDonut(id, labels, data, colors) {
-  if (chartInstances[id]) chartInstances[id].destroy();
-  const ctx = document.getElementById(id).getContext('2d');
-  chartInstances[id] = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels,
-      datasets: [{
-        data,
-        backgroundColor: colors.map(c => c + 'cc'),
-        borderColor: colors,
-        borderWidth: 1.5,
-        hoverOffset: 6,
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      cutout: '60%',
-      plugins: {
-        legend: {
-          position: 'right',
-          labels: { color: '#6b7fa3', font: { size: 11 }, boxWidth: 12, padding: 10 }
-        },
-        tooltip: tooltipStyle()
-      }
-    }
-  });
-}
-
-function chartOpts(horizontal) {
-  return {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: tooltipStyle(),
-    },
-    scales: {
-      x: {
-        ticks: { color: '#6b7fa3', font: { size: 10 }, maxRotation: horizontal ? 0 : 35 },
-        grid: { color: '#1e2d42' },
-      },
-      y: {
-        ticks: { color: '#6b7fa3', font: { size: 10 } },
-        grid: { color: '#1e2d42' },
-      }
-    }
-  };
-}
-
-function tooltipStyle() {
-  return {
-    backgroundColor: '#161f30',
-    titleColor: '#e2eaf4',
-    bodyColor: '#6b7fa3',
-    borderColor: '#1e2d42',
-    borderWidth: 1,
-    cornerRadius: 8,
-    padding: 10,
-  };
-}
-
-// ── Utilities ──────────────────────────────────────────────────────────────
-function fmt(n) {
-  if (!n && n !== 0) return '—';
-  return Number(n).toLocaleString('en-MY', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-}
-function truncate(str, n) { return str && str.length > n ? str.substring(0, n) + '…' : (str || ''); }
-function esc(str) { return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
-// ── Boot ───────────────────────────────────────────────────────────────────
 loadData();
 </script>
 </body>
