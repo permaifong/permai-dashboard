@@ -777,7 +777,7 @@ body {
 const GDRIVE_FILE_ID = 'PASTE_GOOGLE_DRIVE_FILE_ID_HERE';
 const DATA_URL = GDRIVE_FILE_ID !== 'PASTE_GOOGLE_DRIVE_FILE_ID_HERE'
   ? `https://drive.google.com/uc?export=download&id=${GDRIVE_FILE_ID}`
-  : 'data/analysis_latest.json'; // local fallback
+  : 'analysis_latest.json'; // same directory as index.html
 
 // ── State ──────────────────────────────────────────────────────────────────
 let DATA = null;
