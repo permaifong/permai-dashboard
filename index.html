@@ -131,7 +131,7 @@ tr.ru td{background:rgba(255,165,2,.03)}
 
 <header class="topbar">
   <div class="brand"><div class="dot"></div>Permai Polyclinics Fortuna</div>
-  <div class="meta">
+  <div style="display:flex;align-items:center;gap:12px"><button onclick="downloadLatestPO()" style="background:rgba(0,212,170,.12);border:1px solid rgba(0,212,170,.3);border-radius:7px;padding:6px 14px;color:var(--accent);font-family:var(--fb);font-size:12px;cursor:pointer;font-weight:500" title="Download latest Purchase Order">⬇ Download PO</button><div class="meta">
     <span id="meta-date">—</span>
     <span style="color:var(--ok)">● Live</span>
   </div>
@@ -395,6 +395,7 @@ tr.ru td{background:rgba(255,165,2,.03)}
 
 <script>
 const GDRIVE_FILE_ID='PASTE_GOOGLE_DRIVE_FILE_ID_HERE';
+const GITHUB_REPO='permaifong/permai-dashboard';
 const DATA_URL=GDRIVE_FILE_ID!=='PASTE_GOOGLE_DRIVE_FILE_ID_HERE'
   ?`https://drive.google.com/uc?export=download&id=${GDRIVE_FILE_ID}`
   :'analysis_latest.json';
@@ -835,6 +836,17 @@ function fmt(n){if(!n&&n!==0)return'—';return Number(n).toLocaleString('en-MY'
 function tr(s,n){return s&&s.length>n?s.substring(0,n)+'…':(s||'');}
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
+function downloadLatestPO(){
+  if(D && D.latest_po_filename){
+    const url=`https://raw.githubusercontent.com/${GITHUB_REPO}/main/${D.latest_po_filename}`;
+    const a=document.createElement("a");
+    a.href=url;
+    a.download=D.latest_po_filename;
+    a.click();
+  } else {
+    alert("No PO available yet. Run the pipeline first.");
+  }
+}
 loadData();
 </script>
 </body>
