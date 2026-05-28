@@ -757,8 +757,9 @@ function rPatients(){
   }
   const a=D.analytics||{};
   const p=a.patients||{};
+  const patRange=ms.length?`${({"01":"Jan","02":"Feb","03":"Mar","04":"Apr","05":"May","06":"Jun","07":"Jul","08":"Aug","09":"Sep","10":"Oct","11":"Nov","12":"Dec"})[ms[0].slice(5)]||ms[0]}–${({"01":"Jan","02":"Feb","03":"Mar","04":"Apr","05":"May","06":"Jun","07":"Jul","08":"Aug","09":"Sep","10":"Oct","11":"Nov","12":"Dec"})[ms[ms.length-1].slice(5)]||ms[ms.length-1]} ${ms[0].slice(0,4)}`:'';
   document.getElementById('pat-stats').innerHTML=`
-    <div class="sc sc-b"><div class="sl">Total Unique Patients</div><div class="sv sv-b">${p.total_unique||0}</div><div class="ss">Feb–May 2026</div></div>
+    <div class="sc sc-b"><div class="sl">Total Unique Patients</div><div class="sv sv-b">${p.total_unique||0}</div><div class="ss">${patRange}</div></div>
     <div class="sc sc-g"><div class="sl">Multi-Month Patients</div><div class="sv sv-g">${p.returning_multi_month||0}</div><div class="ss">Visited 2+ months</div></div>
     <div class="sc sc-t"><div class="sl">Retention Rate</div><div class="sv sv-t">${p.retention_rate||0}%</div><div class="ss">Returning patients</div></div>
     <div class="sc sc-y"><div class="sl">Avg Revisit Cycle</div><div class="sv sv-y" style="font-size:20px;margin-top:4px">${p.avg_revisit_days||0}d</div><div class="ss">Days between visits</div></div>`;
