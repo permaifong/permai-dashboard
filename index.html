@@ -253,7 +253,7 @@ tr.ru td{background:rgba(255,165,2,.03)}
   <div class="view fi" id="view-fastmovers">
     <div class="sh"><h2>Fast Movers</h2><span class="sub">top 30 by monthly velocity</span></div>
     <div class="panel"><div class="ts"><table class="dt">
-      <thead><tr><th>#</th><th>Medicine</th><th>Rec/Mo</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Trend</th><th>Days Left</th><th>Status</th></tr></thead>
+      <thead id="fm-thead"><tr><th>#</th><th>Medicine</th><th>Rec/Mo</th><th>—</th><th>—</th><th>—</th><th>—</th><th>Trend</th><th>Days Left</th><th>Status</th></tr></thead>
       <tbody id="t-fm"></tbody>
     </table></div></div>
   </div>
@@ -289,7 +289,7 @@ tr.ru td{background:rgba(255,165,2,.03)}
 
   <!-- OPERATIONS -->
   <div class="view fi" id="view-operations">
-    <div class="sh"><h2>Peak Hours & Days</h2><span class="sub">visit patterns from Feb–May 2026</span></div>
+    <div class="sh"><h2>Peak Hours & Days</h2><span class="sub" id="ops-sub">visit patterns</span></div>
     <div class="g2">
       <div class="panel"><div class="ph"><span class="pt">Visits by Day of Week</span><span class="pb">total visits</span></div><div class="pbd"><div class="cw"><canvas id="c-dow"></canvas></div></div></div>
       <div class="panel"><div class="ph"><span class="pt">Revenue by Day of Week</span><span class="pb">MYR</span></div><div class="pbd"><div class="cw"><canvas id="c-dow-rev"></canvas></div></div></div>
@@ -596,11 +596,19 @@ function sDF(f,btn){dsFilter=f;document.querySelectorAll('#view-deadstock .fb').
 
 // ── FAST MOVERS ───────────────────────────────────────────────────
 function rFastMovers(){
+  // Update month column headers dynamically
+  const ms=D.months_analyzed||[];
+  const thead=document.getElementById("fm-thead");
+  if(thead && ms.length){
+    const shortLabels=ms.map(m=>m.slice(5)); // "2026-02" -> "02"
+    const monthNames={"01":"Jan","02":"Feb","03":"Mar","04":"Apr","05":"May","06":"Jun","07":"Jul","08":"Aug","09":"Sep","10":"Oct","11":"Nov","12":"Dec"};
+    thead.innerHTML=`<tr><th>#</th><th>Medicine</th><th>Rec/Mo</th>${shortLabels.map(l=>`<th>${monthNames[l]||l}</th>`).join("")}<th>Trend</th><th>Days Left</th><th>Status</th></tr>`;
+  }
   const items=D.fast_movers.slice(0,30);
   const maxV=Math.max(...items.map(i=>i.recommended_monthly),1);
   document.getElementById('t-fm').innerHTML=items.map((i,idx)=>{
     const b=i.monthly_breakdown||{};
-    const ms=['2026-02','2026-03','2026-04','2026-05'];
+    const ms=D.months_analyzed||['2026-02','2026-03','2026-04','2026-05'];
     const vals=ms.map(m=>b[m]||0),nz=vals.filter(v=>v>0);
     let tc='pm',tt='→ Stable';
     if(nz.length>=2){const f=nz.slice(0,Math.ceil(nz.length/2)).reduce((a,b)=>a+b,0)/Math.ceil(nz.length/2);const l=nz.slice(-Math.ceil(nz.length/2)).reduce((a,b)=>a+b,0)/Math.ceil(nz.length/2);if(l>f*1.15){tc='pg';tt='↑ Growing';}else if(l<f*.85){tc='pr';tt='↓ Falling';}}
@@ -658,6 +666,15 @@ function sAF(f,btn){asFilter=f;document.querySelectorAll('#view-allstock .fb').f
 
 // ── OPERATIONS ────────────────────────────────────────────────────
 function rOperations(){
+  const ms=D.months_analyzed||[];
+  if(ms.length){
+    const monthNames={"01":"Jan","02":"Feb","03":"Mar","04":"Apr","05":"May","06":"Jun","07":"Jul","08":"Aug","09":"Sep","10":"Oct","11":"Nov","12":"Dec"};
+    const first=monthNames[ms[0].slice(5)]||ms[0];
+    const last=monthNames[ms[ms.length-1].slice(5)]||ms[ms.length-1];
+    const yr=ms[0].slice(0,4);
+    const sub=document.getElementById("ops-sub");
+    if(sub) sub.textContent=`visit patterns from ${first}–${last} ${yr}`;
+  }
   const a=D.analytics||{};
   const dow=a.dow||{};const hrs=a.hours||{};
   const days=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
@@ -729,6 +746,15 @@ function rStaff(){
 
 // ── PATIENTS ─────────────────────────────────────────────────────
 function rPatients(){
+  const ms=D.months_analyzed||[];
+  if(ms.length){
+    const monthNames={"01":"Jan","02":"Feb","03":"Mar","04":"Apr","05":"May","06":"Jun","07":"Jul","08":"Aug","09":"Sep","10":"Oct","11":"Nov","12":"Dec"};
+    const first=monthNames[ms[0].slice(5)]||ms[0];
+    const last=monthNames[ms[ms.length-1].slice(5)]||ms[ms.length-1];
+    const yr=ms[0].slice(0,4);
+    const el=document.getElementById("pat-date-range");
+    if(el) el.textContent=`${first}–${last} ${yr}`;
+  }
   const a=D.analytics||{};
   const p=a.patients||{};
   document.getElementById('pat-stats').innerHTML=`
