@@ -24,8 +24,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:14px
 .meta{display:flex;gap:14px;font-family:var(--fm);font-size:11px;color:var(--muted);align-items:center}
 /* sidebar */
 .sidebar{background:var(--surface);border-right:1px solid var(--border);padding:14px 0;position:sticky;top:54px;height:calc(100vh - 54px);overflow-y:auto}
-.nl{font-family:var(--fm);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 20px;margin:14px 0 4px}
-.ni{display:flex;align-items:center;gap:9px;padding:7px 10px;margin:0 8px;border-radius:7px;cursor:pointer;color:var(--muted);font-size:13px;transition:all .15s;border:1px solid transparent}
+.nl{font-family:var(--fm);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#7a8fa8;padding:0 20px;margin:14px 0 4px}
+.ni{display:flex;align-items:center;gap:9px;padding:7px 10px;margin:0 8px;border-radius:7px;cursor:pointer;color:#a8b8cc;font-size:13px;transition:all .15s;border:1px solid transparent}
 .ni:hover{background:var(--card);color:var(--text)}
 .ni.active{background:rgba(0,212,170,.08);color:var(--accent);border-color:rgba(0,212,170,.2);font-weight:500}
 .ni-icon{font-size:14px;width:18px;text-align:center}
@@ -182,8 +182,6 @@ tr.ru td{background:rgba(255,165,2,.03)}
 
   <div class="nl">Intelligence</div>
   <div class="ni" onclick="V('stockout',this)"><span class="ni-icon">🔮</span>Stockout Forecast</div>
-  <div class="ni" onclick="V('expiryheat',this)"><span class="ni-icon">🌡</span>Expiry Heatmap</div>
-  <div class="ni" onclick="V('slowmovers',this)"><span class="ni-icon">🧊</span>Slow Movers</div>
 </nav>
 
 <main class="main">
@@ -230,18 +228,17 @@ tr.ru td{background:rgba(255,165,2,.03)}
   <!-- EXPIRY -->
   <div class="view fi" id="view-expiry">
     <div class="sh"><h2>Expiring Soon</h2><span class="sub">within 6 months</span></div>
-    <div class="panel"><div class="ts"><table class="dt">
-      <thead><tr><th>Medicine</th><th>Expiry Date</th><th>Days Left</th><th>Stock</th><th>Value at Risk</th><th>Action</th></tr></thead>
-      <tbody id="t-expiry"></tbody>
-    </table></div></div>
+    <div class="sg" id="eh-stats"></div>
+    <div class="panel"><div class="ph"><span class="pt">Expiry Timeline</span><span class="pb">MYR value at risk by month</span></div><div class="pbd"><div class="cw" style="height:200px"><canvas id="c-eh"></canvas></div></div></div>
+    <div id="eh-buckets"></div>
   </div>
 
   <!-- DEAD STOCK -->
   <div class="view fi" id="view-deadstock">
-    <div class="sh"><h2>Dead Stock</h2><span class="sub">untouched or never dispensed</span></div>
+    <div class="sh"><h2>Dead Stock & Slow Movers</h2><span class="sub">untouched, never dispensed, or capital recovery</span></div>
     <div class="ab ab-o"><div class="ab-icon">💀</div><div>
-      <div class="ab-title">Capital frozen in unused medicines</div>
-      <div class="ab-body">These medicines have not been dispensed recently or ever. Review whether to return to supplier, discount, or remove from inventory to free up cash.</div>
+      <div class="ab-title">Capital frozen in unused or slow-moving medicines</div>
+      <div class="ab-body">Review whether to return to supplier, discount, or reduce future orders to free up cash.</div>
     </div></div>
     <div class="sg" id="ds-stats"></div>
     <div class="sr">
@@ -463,33 +460,6 @@ tr.ru td{background:rgba(255,165,2,.03)}
     </table></div></div>
   </div>
 
-  <!-- EXPIRY HEATMAP -->
-  <div class="view fi" id="view-expiryheat">
-    <div class="sh"><h2>Expiry Heatmap</h2><span class="sub">stock value at risk by expiry window</span></div>
-    <div class="sg" id="eh-stats"></div>
-    <div id="eh-buckets"></div>
-    <div class="panel"><div class="ph"><span class="pt">Expiry Timeline</span><span class="pb">MYR value at risk by month</span></div><div class="pbd"><div class="cw" style="height:220px"><canvas id="c-eh"></canvas></div></div></div>
-  </div>
-
-  <!-- SLOW MOVERS -->
-  <div class="view fi" id="view-slowmovers">
-    <div class="sh"><h2>Slow Movers</h2><span class="sub">capital recovery opportunities</span></div>
-    <div class="sg" id="sm-stats"></div>
-    <div class="ab ab-o"><div class="ab-icon">🧊</div><div>
-      <div class="ab-title">Capital frozen in slow-moving stock</div>
-      <div class="ab-body">These items have not moved in 30+ days despite having stock. Consider returning to supplier, discounting, or reducing future orders to free up cash.</div>
-    </div></div>
-    <div class="sr">
-      <button class="fb active" onclick="sSMF('30',this)">Not moved 30+ days (<span id="sm-c30">0</span>)</button>
-      <button class="fb" onclick="sSMF('60',this)">60+ days (<span id="sm-c60">0</span>)</button>
-      <button class="fb" onclick="sSMF('90',this)">90+ days (<span id="sm-c90">0</span>)</button>
-    </div>
-    <div class="panel"><div class="ts"><table class="dt">
-      <thead><tr><th>Medicine</th><th>Stock</th><th>Capital Tied</th><th>Last Movement</th><th>Usage/Mo</th><th>Expiry</th><th>Action</th></tr></thead>
-      <tbody id="t-sm"></tbody>
-    </table></div></div>
-  </div>
-
   </div><!-- /views -->
 </main>
 </div>
@@ -539,7 +509,7 @@ function render(){
 
   rOverview();rReorder();rExpiry();rDeadStock();rFastMovers();rOverstock();rAllStock();
   rOperations();rDoctors();rStaff();rPatients();rCombos();rSpikes();rRevenue();rCategories();
-  rConcentration();rRevPerVisit();rStockout();rExpiryHeat();rSlowMovers();
+  rConcentration();rRevPerVisit();rStockout();
 }
 
 // ── OVERVIEW ──────────────────────────────────────────────────────
@@ -630,15 +600,7 @@ function fRO(){renderROTable();}
 
 // ── EXPIRY ────────────────────────────────────────────────────────
 function rExpiry(){
-  const items=D.all_items.filter(i=>i.expiry_days!=null&&i.expiry_days<180).sort((a,b)=>a.expiry_days-b.expiry_days);
-  document.getElementById('t-expiry').innerHTML=items.length?items.map(i=>{
-    const d=i.expiry_days;
-    const cls=d<0?'pr':d<30?'pr':d<90?'po':'py';
-    const lbl=d<0?'EXPIRED':`${d}d`;
-    const val=i.available_stock*(i.latest_cost_price||0);
-    const act=d<0?'<span class="p pr">Dispose immediately</span>':d<30?'<span class="p pr">Return/use urgently</span>':d<90?'<span class="p po">Use first</span>':'<span class="p py">Monitor</span>';
-    return`<tr><td><div class="mn">${esc(tr(i.description,50))}</div></td><td style="font-family:var(--fm);font-size:11px">${i.nearest_expiry||'—'}</td><td><span class="p ${cls}">${lbl}</span></td><td><span class="qn">${i.available_stock}</span></td><td class="cost">MYR ${fmt(val)}</td><td>${act}</td></tr>`;
-  }).join(''):'<tr><td colspan="6" class="empty">No medicines expiring within 6 months ✅</td></tr>';
+  rExpiryHeat();
 }
 
 // ── DEAD STOCK ────────────────────────────────────────────────────
@@ -1158,7 +1120,7 @@ function renderSMTable(){
       <td>${action}</td></tr>`;
   }).join('')||'<tr><td colspan="7" class="empty">No slow movers in this window.</td></tr>';
 }
-function sSMF(f,btn){smFilter=f;document.querySelectorAll('#view-slowmovers .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderSMTable();}
+function sSMF(f,btn){smFilter=f;document.querySelectorAll('#view-deadstock .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderSMTable();}
 
 function downloadLatestPO(){
   if(D && D.latest_po_filename){
