@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Permai Polyclinics — Intelligence Dashboard</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 :root{
   --bg:#0a0e1a;--surface:#111827;--card:#161f30;--border:#1e2d42;
   --accent:#00d4aa;--accent3:#ffd166;--text:#e2eaf4;--muted:#6b7fa3;
   --danger:#ff4757;--warning:#ffa502;--ok:#2ed573;--info:#4fc3f7;--purple:#a29bfe;
-  --fh:'Avenir',Helvetica,Arial,sans-serif;--fb:'Avenir',Helvetica,Arial,sans-serif;--fm:'DM Mono',monospace;
+  --fh:'Syne',sans-serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:14px;line-height:1.6;min-height:100vh}
@@ -24,8 +24,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:14px
 .meta{display:flex;gap:14px;font-family:var(--fm);font-size:11px;color:var(--muted);align-items:center}
 /* sidebar */
 .sidebar{background:var(--surface);border-right:1px solid var(--border);padding:14px 0;position:sticky;top:54px;height:calc(100vh - 54px);overflow-y:auto}
-.nl{font-family:var(--fm);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#7a8fa8;padding:0 20px;margin:14px 0 4px}
-.ni{display:flex;align-items:center;gap:9px;padding:7px 10px;margin:0 8px;border-radius:7px;cursor:pointer;color:#a8b8cc;font-size:13px;transition:all .15s;border:1px solid transparent}
+.nl{font-family:var(--fm);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 20px;margin:14px 0 4px}
+.ni{display:flex;align-items:center;gap:9px;padding:7px 10px;margin:0 8px;border-radius:7px;cursor:pointer;color:var(--muted);font-size:13px;transition:all .15s;border:1px solid transparent}
 .ni:hover{background:var(--card);color:var(--text)}
 .ni.active{background:rgba(0,212,170,.08);color:var(--accent);border-color:rgba(0,212,170,.2);font-weight:500}
 .ni-icon{font-size:14px;width:18px;text-align:center}
@@ -177,11 +177,6 @@ tr.ru td{background:rgba(255,165,2,.03)}
   <div class="nl">Business</div>
   <div class="ni" onclick="V('revenue',this)"><span class="ni-icon">💰</span>Revenue & Margin</div>
   <div class="ni" onclick="V('categories',this)"><span class="ni-icon">🏷</span>Categories</div>
-  <div class="ni" onclick="V('concentration',this)"><span class="ni-icon">⚠️</span>Revenue Risk</div>
-  <div class="ni" onclick="V('revpervisit',this)"><span class="ni-icon">📈</span>Rev per Visit</div>
-
-  <div class="nl">Intelligence</div>
-  <div class="ni" onclick="V('stockout',this)"><span class="ni-icon">🔮</span>Stockout Forecast</div>
 </nav>
 
 <main class="main">
@@ -228,17 +223,18 @@ tr.ru td{background:rgba(255,165,2,.03)}
   <!-- EXPIRY -->
   <div class="view fi" id="view-expiry">
     <div class="sh"><h2>Expiring Soon</h2><span class="sub">within 6 months</span></div>
-    <div class="sg" id="eh-stats"></div>
-    <div class="panel"><div class="ph"><span class="pt">Expiry Timeline</span><span class="pb">MYR value at risk by month</span></div><div class="pbd"><div class="cw" style="height:200px"><canvas id="c-eh"></canvas></div></div></div>
-    <div id="eh-buckets"></div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>Medicine</th><th>Expiry Date</th><th>Days Left</th><th>Stock</th><th>Value at Risk</th><th>Action</th></tr></thead>
+      <tbody id="t-expiry"></tbody>
+    </table></div></div>
   </div>
 
   <!-- DEAD STOCK -->
   <div class="view fi" id="view-deadstock">
-    <div class="sh"><h2>Dead Stock & Slow Movers</h2><span class="sub">untouched, never dispensed, or capital recovery</span></div>
+    <div class="sh"><h2>Dead Stock</h2><span class="sub">untouched or never dispensed</span></div>
     <div class="ab ab-o"><div class="ab-icon">💀</div><div>
-      <div class="ab-title">Capital frozen in unused or slow-moving medicines</div>
-      <div class="ab-body">Review whether to return to supplier, discount, or reduce future orders to free up cash.</div>
+      <div class="ab-title">Capital frozen in unused medicines</div>
+      <div class="ab-body">These medicines have not been dispensed recently or ever. Review whether to return to supplier, discount, or remove from inventory to free up cash.</div>
     </div></div>
     <div class="sg" id="ds-stats"></div>
     <div class="sr">
@@ -408,58 +404,6 @@ tr.ru td{background:rgba(255,165,2,.03)}
     </table></div></div>
   </div>
 
-  <!-- REVENUE RISK / CONCENTRATION -->
-  <div class="view fi" id="view-concentration">
-    <div class="sh"><h2>Revenue Risk</h2><span class="sub">concentration & dependency analysis</span></div>
-    <div class="sg" id="conc-stats"></div>
-    <div class="ab ab-o"><div class="ab-icon">⚠️</div><div>
-      <div class="ab-title">High revenue concentration detected</div>
-      <div class="ab-body">A small number of medicines drive the majority of revenue. Any supply disruption to these items has outsized impact on the clinic's monthly income.</div>
-    </div></div>
-    <div class="g2">
-      <div class="panel"><div class="ph"><span class="pt">Top Items — Revenue Share</span><span class="pb">cumulative %</span></div><div class="pbd"><div class="cw" style="height:260px"><canvas id="c-conc-bar"></canvas></div></div></div>
-      <div class="panel"><div class="ph"><span class="pt">Revenue by Category</span><span class="pb">MYR/month</span></div><div class="pbd"><div class="cw" style="height:260px"><canvas id="c-conc-cat"></canvas></div></div></div>
-    </div>
-    <div class="panel"><div class="ph"><span class="pt">High-Dependency Items</span><span class="pb">items where stockout = significant revenue loss</span></div>
-      <div class="ts"><table class="dt">
-        <thead><tr><th>#</th><th>Medicine</th><th>Rev/Mo</th><th>Rev Share</th><th>Cumulative</th><th>Stock</th><th>Days Left</th><th>Risk</th></tr></thead>
-        <tbody id="t-conc"></tbody>
-      </table></div>
-    </div>
-  </div>
-
-  <!-- REV PER VISIT -->
-  <div class="view fi" id="view-revpervisit">
-    <div class="sh"><h2>Revenue per Visit</h2><span class="sub">prescription completeness over time</span></div>
-    <div class="sg" id="rpv-stats"></div>
-    <div class="ab ab-b"><div class="ab-icon">💡</div><div>
-      <div class="ab-title">Revenue per visit tracks prescription completeness</div>
-      <div class="ab-body">A rising trend means doctors are prescribing more completely per visit. A falling trend may indicate patients are declining certain medicines or doctors are under-prescribing.</div>
-    </div></div>
-    <div class="panel"><div class="ph"><span class="pt">Revenue per Patient Visit by Month</span><span class="pb">MYR</span></div><div class="pbd"><div class="cw" style="height:240px"><canvas id="c-rpv"></canvas></div></div></div>
-    <div class="panel"><div class="ph"><span class="pt">Rev per Visit by Doctor</span><span class="pb">average across all months</span></div><div class="pbd"><div class="cw" style="height:220px"><canvas id="c-rpv-doc"></canvas></div></div></div>
-  </div>
-
-  <!-- STOCKOUT FORECAST -->
-  <div class="view fi" id="view-stockout">
-    <div class="sh"><h2>Stockout Forecast</h2><span class="sub">projected run-out dates at current velocity</span></div>
-    <div class="sg" id="so-stats"></div>
-    <div class="ab ab-r"><div class="ab-icon">🔮</div><div>
-      <div class="ab-title">Projected stockout dates based on current usage velocity</div>
-      <div class="ab-body">These items will run out within 30 days if no reorder is placed. Dates are estimates — actual usage may vary.</div>
-    </div></div>
-    <div class="sr">
-      <button class="fb fr active" onclick="sSOF('7',this)">🔴 Out in 7 days (<span id="so-c7">0</span>)</button>
-      <button class="fb fo" onclick="sSOF('14',this)">🟠 Out in 14 days (<span id="so-c14">0</span>)</button>
-      <button class="fb" onclick="sSOF('30',this)">🟡 Out in 30 days (<span id="so-c30">0</span>)</button>
-      <button class="fb" onclick="sSOF('all',this)">All (<span id="so-call">0</span>)</button>
-    </div>
-    <div class="panel"><div class="ts"><table class="dt">
-      <thead><tr><th>Medicine</th><th>Stock Now</th><th>Usage/Day</th><th>Days Left</th><th>Est. Stockout Date</th><th>Order Qty</th><th>Priority</th></tr></thead>
-      <tbody id="t-stockout"></tbody>
-    </table></div></div>
-  </div>
-
   </div><!-- /views -->
 </main>
 </div>
@@ -471,12 +415,13 @@ const DATA_URL=GDRIVE_FILE_ID!=='PASTE_GOOGLE_DRIVE_FILE_ID_HERE'
   ?`https://drive.google.com/uc?export=download&id=${GDRIVE_FILE_ID}`
   :'analysis_latest.json';
 
-let D=null,roFilter='all',asFilter='all',dsFilter='never',soFilter='7',smFilter='30';
+let D=null,roFilter='all',asFilter='all',dsFilter='never';
 const CH={};
 
 async function loadData(){
   try{
-    const r=await fetch(DATA_URL);
+    const bustUrl=DATA_URL+(DATA_URL.includes('?')?'&':'?')+'t='+Date.now();
+    const r=await fetch(bustUrl);
     if(!r.ok) throw new Error(`HTTP ${r.status}`);
     D=await r.json();
     document.getElementById('ls').style.display='none';
@@ -509,7 +454,6 @@ function render(){
 
   rOverview();rReorder();rExpiry();rDeadStock();rFastMovers();rOverstock();rAllStock();
   rOperations();rDoctors();rStaff();rPatients();rCombos();rSpikes();rRevenue();rCategories();
-  rConcentration();rRevPerVisit();rStockout();
 }
 
 // ── OVERVIEW ──────────────────────────────────────────────────────
@@ -600,7 +544,15 @@ function fRO(){renderROTable();}
 
 // ── EXPIRY ────────────────────────────────────────────────────────
 function rExpiry(){
-  rExpiryHeat();
+  const items=D.all_items.filter(i=>i.expiry_days!=null&&i.expiry_days<180).sort((a,b)=>a.expiry_days-b.expiry_days);
+  document.getElementById('t-expiry').innerHTML=items.length?items.map(i=>{
+    const d=i.expiry_days;
+    const cls=d<0?'pr':d<30?'pr':d<90?'po':'py';
+    const lbl=d<0?'EXPIRED':`${d}d`;
+    const val=i.available_stock*(i.latest_cost_price||0);
+    const act=d<0?'<span class="p pr">Dispose immediately</span>':d<30?'<span class="p pr">Return/use urgently</span>':d<90?'<span class="p po">Use first</span>':'<span class="p py">Monitor</span>';
+    return`<tr><td><div class="mn">${esc(tr(i.description,50))}</div></td><td style="font-family:var(--fm);font-size:11px">${i.nearest_expiry||'—'}</td><td><span class="p ${cls}">${lbl}</span></td><td><span class="qn">${i.available_stock}</span></td><td class="cost">MYR ${fmt(val)}</td><td>${act}</td></tr>`;
+  }).join(''):'<tr><td colspan="6" class="empty">No medicines expiring within 6 months ✅</td></tr>';
 }
 
 // ── DEAD STOCK ────────────────────────────────────────────────────
@@ -925,202 +877,6 @@ function tS(){return{backgroundColor:'#161f30',titleColor:'#e2eaf4',bodyColor:'#
 function fmt(n){if(!n&&n!==0)return'—';return Number(n).toLocaleString('en-MY',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function tr(s,n){return s&&s.length>n?s.substring(0,n)+'…':(s||'');}
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-
-// ── REVENUE CONCENTRATION ─────────────────────────────────────────
-function rConcentration(){
-  const items=(D.top_revenue_items||[]).filter(i=>i.monthly_revenue>0).sort((a,b)=>b.monthly_revenue-a.monthly_revenue);
-  const total=items.reduce((s,i)=>s+i.monthly_revenue,0)||1;
-  const top1pct=Math.round(items[0]?.monthly_revenue/total*100)||0;
-  const top5rev=items.slice(0,5).reduce((s,i)=>s+i.monthly_revenue,0);
-  const top5pct=Math.round(top5rev/total*100);
-  const top10pct=Math.round(items.slice(0,10).reduce((s,i)=>s+i.monthly_revenue,0)/total*100);
-  document.getElementById('conc-stats').innerHTML=`
-    <div class="sc sc-r"><div class="sl">Top 1 Item Share</div><div class="sv sv-r">${top1pct}%</div><div class="ss">${(items[0]?.description||'').substring(0,22)}</div></div>
-    <div class="sc sc-o"><div class="sl">Top 5 Items Share</div><div class="sv sv-o">${top5pct}%</div><div class="ss">of total revenue</div></div>
-    <div class="sc sc-y"><div class="sl">Top 10 Items Share</div><div class="sv sv-y">${top10pct}%</div><div class="ss">of total revenue</div></div>
-    <div class="sc sc-b"><div class="sl">Total Monthly Rev</div><div class="sv sv-b" style="font-size:18px;margin-top:4px">MYR ${fmt(total)}</div><div class="ss">est. from velocity</div></div>`;
-  const top15=items.slice(0,15);
-  mkBar('c-conc-bar',top15.map(i=>tr(i.description,20)),top15.map(i=>Math.round(i.monthly_revenue/total*100)),'Revenue %','#ffd166',true);
-  const cats={};
-  D.all_items.forEach(i=>{
-    const c=(i.category&&i.category!=='nan'&&i.category!=='None')?i.category:'Uncategorised';
-    if(!cats[c])cats[c]=0;cats[c]+=i.monthly_revenue||0;
-  });
-  const sc=Object.entries(cats).filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]).slice(0,10);
-  mkBar('c-conc-cat',sc.map(([k])=>k),sc.map(([,v])=>Math.round(v)),'MYR/mo','#4fc3f7',true);
-  let cum=0;
-  document.getElementById('t-conc').innerHTML=items.slice(0,20).map((i,idx)=>{
-    cum+=i.monthly_revenue;
-    const share=Math.round(i.monthly_revenue/total*100);
-    const cumPct=Math.round(cum/total*100);
-    const d=i.days_of_stock;
-    const risk=d===0?'<span class="p pr">OOS — Revenue Lost</span>':d<7?'<span class="p pr">Critical</span>':d<14?'<span class="p po">Urgent</span>':'<span class="p pg">OK</span>';
-    const dl=d===0?'<span class="p pr">OOS</span>':d===999?'—':`${d.toFixed(0)}d`;
-    return`<tr><td style="color:var(--muted);font-family:var(--fm)">${idx+1}</td>
-    <td><div class="mn">${esc(tr(i.description,44))}</div></td>
-    <td class="cost" style="color:var(--ok)">MYR ${fmt(i.monthly_revenue)}</td>
-    <td><span class="p py">${share}%</span></td>
-    <td><div style="display:flex;align-items:center;gap:6px"><div style="height:4px;border-radius:4px;background:var(--accent3);opacity:.7;width:${Math.min(cumPct,1)*100}px;width:${Math.round(cumPct*1.2)}px"></div><span style="font-family:var(--fm);font-size:11px;color:var(--muted)">${cumPct}%</span></div></td>
-    <td><span class="qn">${i.available_stock}</span></td>
-    <td style="font-family:var(--fm);font-size:11px">${dl}</td>
-    <td>${risk}</td></tr>`;
-  }).join('')||'<tr><td colspan="8" class="empty">No data.</td></tr>';
-}
-
-// ── REV PER VISIT ─────────────────────────────────────────────────
-function rRevPerVisit(){
-  const an=D.analytics||{};
-  const mR=an.monthly_revenue||{};
-  const mV=an.monthly_visits||{};
-  const months=Object.keys(mR).sort();
-  const rpv=months.map(m=>{const v=mV[m]||0;return v>0?Math.round((mR[m]||0)/v):0;});
-  const avgRpv=rpv.filter(v=>v>0).reduce((a,b)=>a+b,0)/Math.max(rpv.filter(v=>v>0).length,1);
-  const docs=an.doctors||{};
-  const realDocs=Object.entries(docs).filter(([k])=>k!=='OTC'&&k.trim());
-  const mn={"01":"Jan","02":"Feb","03":"Mar","04":"Apr","05":"May","06":"Jun","07":"Jul","08":"Aug","09":"Sep","10":"Oct","11":"Nov","12":"Dec"};
-  const mLabels=months.map(m=>mn[m.slice(5)]||m.slice(5));
-  const trend=rpv.length>=2?(rpv[rpv.length-1]>rpv[0]?'↑ Growing':'↓ Falling'):'—';
-  const trendCls=trend.startsWith('↑')?'pg':'pr';
-  document.getElementById('rpv-stats').innerHTML=`
-    <div class="sc sc-t"><div class="sl">Avg Rev / Visit</div><div class="sv sv-t" style="font-size:20px;margin-top:4px">MYR ${fmt(avgRpv)}</div><div class="ss">all months avg</div></div>
-    <div class="sc sc-g"><div class="sl">Latest Month</div><div class="sv sv-g" style="font-size:20px;margin-top:4px">MYR ${fmt(rpv[rpv.length-1]||0)}</div><div class="ss">${mLabels[mLabels.length-1]||'—'}</div></div>
-    <div class="sc sc-b"><div class="sl">Trend</div><div class="sv" style="font-size:20px;margin-top:4px"><span class="p ${trendCls}">${trend}</span></div><div class="ss">first vs last month</div></div>
-    <div class="sc sc-y"><div class="sl">Total Visits</div><div class="sv sv-y">${Object.values(mV).reduce((a,b)=>a+b,0)}</div><div class="ss">all months</div></div>`;
-  mkLine('c-rpv',mLabels,rpv,'MYR per visit','#00d4aa',true);
-  const docLabels=realDocs.map(([k])=>k.split('(')[0].trim());
-  const docRpv=realDocs.map(([,v])=>Math.round(v.avg_revenue_per_visit||0));
-  mkBar('c-rpv-doc',docLabels,docRpv,'MYR / visit','#a29bfe',true);
-}
-
-// ── STOCKOUT FORECAST ─────────────────────────────────────────────
-let soItems=[];
-function rStockout(){
-  soItems=D.all_items
-    .filter(i=>i.recommended_monthly>0&&i.days_of_stock!==999)
-    .sort((a,b)=>a.days_of_stock-b.days_of_stock);
-  const c7=soItems.filter(i=>i.days_of_stock<=7).length;
-  const c14=soItems.filter(i=>i.days_of_stock<=14).length;
-  const c30=soItems.filter(i=>i.days_of_stock<=30).length;
-  document.getElementById('so-c7').textContent=c7;
-  document.getElementById('so-c14').textContent=c14;
-  document.getElementById('so-c30').textContent=c30;
-  document.getElementById('so-call').textContent=soItems.length;
-  document.getElementById('so-stats').innerHTML=`
-    <div class="sc sc-r"><div class="sl">Out in 7 Days</div><div class="sv sv-r">${c7}</div><div class="ss">Order immediately</div></div>
-    <div class="sc sc-o"><div class="sl">Out in 14 Days</div><div class="sv sv-o">${c14}</div><div class="ss">Order this week</div></div>
-    <div class="sc sc-y"><div class="sl">Out in 30 Days</div><div class="sv sv-y">${c30}</div><div class="ss">Plan reorder</div></div>
-    <div class="sc sc-b"><div class="sl">Tracked Items</div><div class="sv sv-b">${soItems.length}</div><div class="ss">with velocity data</div></div>`;
-  renderSOTable();
-}
-function renderSOTable(){
-  const days=soFilter==='all'?9999:parseInt(soFilter);
-  const filtered=soItems.filter(i=>i.days_of_stock<=days);
-  const today=new Date();
-  document.getElementById('t-stockout').innerHTML=filtered.map(i=>{
-    const usagePerDay=(i.recommended_monthly/30).toFixed(1);
-    const d=i.days_of_stock;
-    const stockoutDate=d===0?'Already OOS':new Date(today.getTime()+d*86400000).toLocaleDateString('en-MY',{day:'numeric',month:'short',year:'numeric'});
-    const priCls=d===0?'pr':d<=7?'pr':d<=14?'po':'py';
-    const priLbl=d===0?'OOS':d<=7?'Critical':d<=14?'Urgent':'Plan';
-    const dl=d===0?'<span class="p pr">OOS</span>':`<span style="font-family:var(--fm);font-weight:600;color:var(--${d<=7?'danger':d<=14?'warning':'accent3'})">${d.toFixed(0)}d</span>`;
-    return`<tr class="${d<=7?'rc':d<=14?'ru':''}">
-      <td><div class="mn">${esc(tr(i.description,46))}<small>${esc(i.brand||'')}</small></div></td>
-      <td><span class="qn">${i.available_stock}</span></td>
-      <td style="font-family:var(--fm);font-size:11px;color:var(--muted)">${usagePerDay}/day</td>
-      <td>${dl}</td>
-      <td style="font-family:var(--fm);font-size:11px;${d<=7?'color:var(--danger)':''}">${stockoutDate}</td>
-      <td><span class="p pt2">${i.order_qty||0}</span></td>
-      <td><span class="p ${priCls}">${priLbl}</span></td></tr>`;
-  }).join('')||'<tr><td colspan="7" class="empty">No items in this window.</td></tr>';
-}
-function sSOF(f,btn){soFilter=f;document.querySelectorAll('#view-stockout .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderSOTable();}
-
-// ── EXPIRY HEATMAP ────────────────────────────────────────────────
-function rExpiryHeat(){
-  const items=D.all_items.filter(i=>i.expiry_days!=null&&i.expiry_days<180).sort((a,b)=>a.expiry_days-b.expiry_days);
-  const buckets=[
-    {label:'Already Expired',max:-1,min:-9999,cls:'pr',color:'var(--danger)'},
-    {label:'0–30 days',max:30,min:0,cls:'pr',color:'var(--danger)'},
-    {label:'31–60 days',max:60,min:31,cls:'po',color:'var(--warning)'},
-    {label:'61–90 days',max:90,min:61,cls:'py',color:'var(--accent3)'},
-    {label:'91–120 days',max:120,min:91,cls:'pb2',color:'var(--info)'},
-    {label:'121–180 days',max:180,min:121,cls:'pt2',color:'var(--accent)'},
-  ];
-  let totalAtRisk=0,expiredVal=0,urgent30Val=0;
-  const bucketData=buckets.map(b=>{
-    const its=items.filter(i=>i.expiry_days>=b.min&&i.expiry_days<=b.max);
-    const val=its.reduce((s,i)=>s+(i.available_stock*(i.latest_cost_price||0)),0);
-    if(b.max<=0)expiredVal+=val;
-    if(b.max<=30)urgent30Val+=val;
-    totalAtRisk+=val;
-    return{...b,items:its,val};
-  });
-  document.getElementById('eh-stats').innerHTML=`
-    <div class="sc sc-r"><div class="sl">Already Expired</div><div class="sv sv-r">${bucketData[0].items.length}</div><div class="ss">MYR ${fmt(expiredVal)}</div></div>
-    <div class="sc sc-o"><div class="sl">Expiring &lt;30 Days</div><div class="sv sv-o">${bucketData[1].items.length}</div><div class="ss">MYR ${fmt(bucketData[1].val)}</div></div>
-    <div class="sc sc-y"><div class="sl">Expiring &lt;90 Days</div><div class="sv sv-y">${bucketData[1].items.length+bucketData[2].items.length}</div><div class="ss">MYR ${fmt(bucketData[1].val+bucketData[2].val)}</div></div>
-    <div class="sc sc-b"><div class="sl">Total Value at Risk</div><div class="sv sv-b" style="font-size:18px;margin-top:4px">MYR ${fmt(totalAtRisk)}</div><div class="ss">within 6 months</div></div>`;
-  document.getElementById('eh-buckets').innerHTML=bucketData.filter(b=>b.items.length>0).map(b=>`
-    <div class="panel" style="margin-bottom:12px">
-      <div class="ph"><span class="pt"><span class="p ${b.cls}">${b.label}</span> — ${b.items.length} items</span><span class="pb">MYR ${fmt(b.val)} at risk</span></div>
-      <div class="ts"><table class="dt"><thead><tr><th>Medicine</th><th>Stock</th><th>Expiry Date</th><th>Days Left</th><th>Value at Risk</th><th>Action</th></tr></thead>
-      <tbody>${b.items.slice(0,8).map(i=>{
-        const val=i.available_stock*(i.latest_cost_price||0);
-        const act=i.expiry_days<0?'<span class="p pr">Dispose now</span>':i.expiry_days<30?'<span class="p pr">Return/use urgently</span>':i.expiry_days<90?'<span class="p po">Prioritise use</span>':'<span class="p py">Monitor</span>';
-        return`<tr><td><div class="mn">${esc(tr(i.description,44))}</div></td><td><span class="qn">${i.available_stock}</span></td><td style="font-family:var(--fm);font-size:11px">${i.nearest_expiry||'—'}</td><td><span class="p ${b.cls}">${i.expiry_days<0?'EXPIRED':i.expiry_days+'d'}</span></td><td class="cost">MYR ${fmt(val)}</td><td>${act}</td></tr>`;
-      }).join('')}${b.items.length>8?`<tr><td colspan="6" style="text-align:center;color:var(--muted);font-size:11px;padding:8px">+ ${b.items.length-8} more items</td></tr>`:''}</tbody></table></div>
-    </div>`).join('');
-  const monthBuckets={};
-  items.forEach(i=>{
-    if(i.expiry_days<0)return;
-    const m=Math.ceil(i.expiry_days/30);
-    const key=`Month ${m}`;
-    if(!monthBuckets[key])monthBuckets[key]=0;
-    monthBuckets[key]+=i.available_stock*(i.latest_cost_price||0);
-  });
-  const mKeys=Object.keys(monthBuckets).sort((a,b)=>parseInt(a.split(' ')[1])-parseInt(b.split(' ')[1]));
-  mkBar('c-eh',mKeys,mKeys.map(k=>Math.round(monthBuckets[k])),'MYR at risk','#ff4757',false);
-}
-
-// ── SLOW MOVERS ───────────────────────────────────────────────────
-function rSlowMovers(){
-  const a=D.analytics||{};
-  const d30=new Set(a.dead_30||[]);
-  const d60=new Set(a.dead_60||[]);
-  const d90=new Set(a.dead_90||[]);
-  const cap30=[...d30].reduce((s,desc)=>{const i=D.all_items.find(x=>x.description===desc);return s+(i?(i.available_stock*(i.latest_cost_price||0)):0);},0);
-  const cap60=[...d60].reduce((s,desc)=>{const i=D.all_items.find(x=>x.description===desc);return s+(i?(i.available_stock*(i.latest_cost_price||0)):0);},0);
-  const cap90=[...d90].reduce((s,desc)=>{const i=D.all_items.find(x=>x.description===desc);return s+(i?(i.available_stock*(i.latest_cost_price||0)):0);},0);
-  document.getElementById('sm-c30').textContent=d30.size;
-  document.getElementById('sm-c60').textContent=d60.size;
-  document.getElementById('sm-c90').textContent=d90.size;
-  document.getElementById('sm-stats').innerHTML=`
-    <div class="sc sc-o"><div class="sl">Slow 30+ Days</div><div class="sv sv-o">${d30.size}</div><div class="ss">MYR ${fmt(cap30)}</div></div>
-    <div class="sc sc-r"><div class="sl">Slow 60+ Days</div><div class="sv sv-r">${d60.size}</div><div class="ss">MYR ${fmt(cap60)}</div></div>
-    <div class="sc sc-r"><div class="sl">Slow 90+ Days</div><div class="sv sv-r">${d90.size}</div><div class="ss">MYR ${fmt(cap90)}</div></div>
-    <div class="sc sc-y"><div class="sl">Capital to Recover</div><div class="sv sv-y" style="font-size:18px;margin-top:4px">MYR ${fmt(cap30)}</div><div class="ss">30+ day slow movers</div></div>`;
-  renderSMTable();
-}
-function renderSMTable(){
-  const a=D.analytics||{};
-  const days=parseInt(smFilter);
-  const deadSet=new Set(days===90?a.dead_90:days===60?a.dead_60:a.dead_30);
-  const items=D.all_items.filter(i=>deadSet.has(i.description)&&i.available_stock>0)
-    .sort((a,b)=>(b.available_stock*(b.latest_cost_price||0))-(a.available_stock*(a.latest_cost_price||0)));
-  document.getElementById('t-sm').innerHTML=items.map(i=>{
-    const cap=i.available_stock*(i.latest_cost_price||0);
-    const action=cap>500?'<span class="p pr">Return to supplier</span>':cap>100?'<span class="p po">Discount / review</span>':'<span class="p pm">Monitor</span>';
-    return`<tr>
-      <td><div class="mn">${esc(tr(i.description,46))}<small>${esc(i.brand||'')}</small></div></td>
-      <td><span class="qn">${i.available_stock}</span></td>
-      <td class="cost" style="color:var(--warning)">MYR ${fmt(cap)}</td>
-      <td style="font-family:var(--fm);font-size:11px;color:var(--muted)">${smFilter}+ days ago</td>
-      <td><span class="qn">${i.recommended_monthly||0}/mo</span></td>
-      <td style="font-family:var(--fm);font-size:10px;color:var(--muted)">${i.nearest_expiry||'—'}</td>
-      <td>${action}</td></tr>`;
-  }).join('')||'<tr><td colspan="7" class="empty">No slow movers in this window.</td></tr>';
-}
-function sSMF(f,btn){smFilter=f;document.querySelectorAll('#view-deadstock .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderSMTable();}
 
 function downloadLatestPO(){
   if(D && D.latest_po_filename){
