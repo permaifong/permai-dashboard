@@ -1015,20 +1015,15 @@ function rOverview(){
   const profitPerDay=(s.estimated_monthly_revenue-D.all_items.reduce((s,i)=>s+(i.recommended_monthly*(i.latest_cost_price||0)),0))/daysInMonth;
   const topSeller=D.top_revenue_items&&D.top_revenue_items[0];
 
-  // ── Banners
-  let b='';
-  if(s.critical_items>0){
-    const rarList=oosItems.length>0?`<br><span style="font-family:var(--fm);font-size:10px;color:var(--muted)">${oosItems.slice(0,3).map(i=>`${tr(i.description,28)}: MYR ${fmt(i.monthly_revenue)}/mo`).join(' • ')}</span>`:'';
-    b+=`<div class="ab ab-r"><div class="ab-icon">🚨</div><div><div class="ab-title">${s.critical_items} medicines critically low or out of stock — MYR ${fmt(s.revenue_at_risk||0)} revenue at risk</div><div class="ab-body">Order immediately to avoid turning patients away.${rarList} <span style="color:var(--accent);cursor:pointer" onclick="V('reorder',document.querySelector('[onclick*=reorder]'))">→ View reorder alerts</span></div></div></div>`;
-  }
-  if(spikes2w.length>0){
-    const ups=spikes2w.filter(x=>x.dir==='up').length;
-    const downs=spikes2w.filter(x=>x.dir==='down').length;
-    b+=`<div class="ab ab-o"><div class="ab-icon">⚠️</div><div><div class="ab-title">${spikes2w.length} medicines with unusual movement vs 3-month average (${ups} surging, ${downs} dropping)</div><div class="ab-body">${spikes2w.slice(0,3).map(x=>`${tr(x.desc,30)}: ${x.dir==='up'?'↑':'↓'} ${Math.round(Math.abs(x.ratio-1)*100)}% vs avg`).join(' • ')}</div></div></div>`;
-  }
-  if((a.spikes||[]).length>0) b+=`<div class="ab ab-r"><div class="ab-icon">📡</div><div><div class="ab-title">${a.spikes.length} medicines showing unusual demand spikes</div><div class="ab-body">Check stock levels — demand may be higher than expected. <span style="color:var(--accent);cursor:pointer" onclick="V('spikes',document.querySelector('[onclick*=spikes]'))">→ View spikes</span></div></div></div>`;
-  if(s.dead_capital>0) b+=`<div class="ab ab-o"><div class="ab-icon">💀</div><div><div class="ab-title">MYR ${fmt(s.dead_capital)} frozen in dead stock — ${s.never_dispensed_count} items never dispensed</div><div class="ab-body">Cash sitting on shelves doing nothing. <span style="color:var(--accent);cursor:pointer" onclick="V('deadstock',document.querySelector('[onclick*=deadstock]'))">→ View dead stock</span></div></div></div>`;
-  document.getElementById('ov-banners').innerHTML=b;
+  // ── Compact notification bar
+  const _alerts=[];
+  if(s.critical_items>0) _alerts.push({icon:'🚨',label:`${s.critical_items} critical · MYR ${fmt(s.revenue_at_risk||0)} at risk`,color:'var(--danger)',view:'reorder'});
+  if(spikes2w.length>0){const _u=spikes2w.filter(x=>x.dir==='up').length,_d=spikes2w.filter(x=>x.dir==='down').length;_alerts.push({icon:'⚠️',label:`${spikes2w.length} unusual (${_u}↑ ${_d}↓)`,color:'var(--warning)',view:'spikes'});}
+  if((a.spikes||[]).length>0) _alerts.push({icon:'📡',label:`${a.spikes.length} demand spikes`,color:'var(--warning)',view:'spikes'});
+  if(s.dead_capital>0) _alerts.push({icon:'💀',label:`MYR ${fmt(s.dead_capital)} dead stock`,color:'var(--muted)',view:'deadstock'});
+  document.getElementById('ov-banners').innerHTML=_alerts.length
+    ?`<div style="background:var(--card);border:1px solid var(--border);border-radius:9px;padding:7px 14px;margin-bottom:16px;display:flex;align-items:center;gap:2px;flex-wrap:wrap">${_alerts.map((al,i)=>`<span onclick="V('${al.view}',document.querySelector('[onclick*=${al.view}]'))" style="display:inline-flex;align-items:center;gap:4px;cursor:pointer;padding:3px 9px;border-radius:6px;font-size:12px;color:${al.color};font-family:var(--fm);font-weight:600;white-space:nowrap;transition:background .12s" onmouseover="this.style.background='rgba(0,0,0,.05)'" onmouseout="this.style.background=''">${al.icon} ${al.label}</span>${i<_alerts.length-1?'<span style="color:var(--border);padding:0 2px;user-select:none">│</span>':''}`).join('')}</div>`
+    :'';
 
   // ── Stat cards
   document.getElementById('ov-stats').innerHTML=`
