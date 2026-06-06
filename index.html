@@ -1118,11 +1118,16 @@ function rOverview(){
   const roWeek=D.all_items.filter(i=>i.available_stock>0&&i.days_of_stock>0&&i.days_of_stock<=7).sort((a,b)=>a.days_of_stock-b.days_of_stock);
   const roMonth=D.all_items.filter(i=>i.available_stock>0&&i.days_of_stock>0&&i.days_of_stock<=30).sort((a,b)=>a.days_of_stock-b.days_of_stock);
   const roRow=i=>`<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border)"><span style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;color:var(--text)">${esc(tr(i.description,46))}</span><span style="font-family:var(--fm);font-size:11px;font-weight:700;color:${i.days_of_stock<=3?'var(--danger)':i.days_of_stock<=7?'var(--warning)':'var(--muted)'};white-space:nowrap;margin-left:8px">${i.days_of_stock.toFixed(0)}d</span></div>`;
+  // Actual MTD profit: sum real daily revenues × current margin rate
+  const actualMTDRevenue=Object.values(a.daily_revenue||{}).reduce((s,v)=>s+v,0);
+  const marginRate=mtdRevenue>0?mtdProfit/mtdRevenue:0;
+  const actualMTDProfit=actualMTDRevenue*marginRate;
+  const monthShort=today.toLocaleDateString('en-MY',{month:'short'});
   document.getElementById('ov-stats').innerHTML=`
-    <div class="sc sc-g" style="min-height:90px"><div class="sl">Profit / Day</div><div class="sv sv-g" style="font-size:22px;margin-top:4px">MYR ${fmt(profitPerDay)}</div><div class="ss">Est. daily net profit</div></div>
-    <div class="sc sc-t" style="min-height:90px"><div class="sl">Profit This Month</div><div class="sv sv-t" style="font-size:22px;margin-top:4px">MYR ${fmt(profitThisMonth)}</div><div class="ss">MTD net profit</div></div>
+    <div class="sc sc-g" style="min-height:90px"><div class="sl">Profit / Day</div><div class="sv sv-g" style="font-size:22px;margin-top:4px">MYR ${fmt(profitPerDay)}</div><div class="ss">Est. daily net (steady-state)</div></div>
+    <div class="sc sc-t" style="min-height:90px"><div class="sl">${monthShort} Profit So Far</div><div class="sv sv-t" style="font-size:22px;margin-top:4px">MYR ${fmt(actualMTDProfit)}</div><div class="ss">Actual ${dayOfMonth}d · proj. full month: MYR ${fmt(profitThisMonth)}</div></div>
     <div class="sc sc-y" style="min-height:90px"><div class="sl">Last Month Profit</div><div class="sv sv-y" style="font-size:22px;margin-top:4px">MYR ${fmt(lastMonthProfit)}</div><div class="ss">${prevMLabel}</div></div>
-    <div class="sc sc-r" style="min-height:90px"><div class="sl">Min Sales / Day (${today.toLocaleDateString('en-MY',{month:'short'})})</div><div class="sv sv-r" style="font-size:22px;margin-top:4px">${worstRev===Infinity?'—':'MYR '+fmt(worstRev)}</div><div class="ss">${worstLabel}</div></div>`;
+    <div class="sc sc-r" style="min-height:90px"><div class="sl">Min Sales / Day (${monthShort})</div><div class="sv sv-r" style="font-size:22px;margin-top:4px">${worstRev===Infinity?'—':'MYR '+fmt(worstRev)}</div><div class="ss">${worstLabel}</div></div>`;
   document.getElementById('row-list-today').innerHTML=roToday.length?roToday.map(roRow).join(''):'<div style="font-size:12px;color:var(--ok);padding:8px 0">All good — nothing running out today ✓</div>';
   document.getElementById('row-list-week').innerHTML=roWeek.length?roWeek.map(roRow).join(''):'<div style="font-size:12px;color:var(--ok);padding:8px 0">All good — nothing running out this week ✓</div>';
   document.getElementById('row-list-month').innerHTML=roMonth.length?roMonth.map(roRow).join(''):'<div style="font-size:12px;color:var(--ok);padding:8px 0">All good — nothing running out this month ✓</div>';
