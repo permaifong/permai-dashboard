@@ -34,6 +34,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:14px
 .nb-r{background:rgba(255,71,87,.2);color:var(--danger)}
 .nb-o{background:rgba(255,165,2,.2);color:var(--warning)}
 .nb-t{background:rgba(0,212,170,.15);color:var(--accent)}
+.atab{background:none;border:none;border-bottom:2px solid transparent;padding:8px 16px;cursor:pointer;font-family:var(--fb);font-size:13px;color:var(--muted);margin-bottom:-1px;border-radius:7px 7px 0 0;transition:all .15s}
+.atab:hover{color:var(--text);background:var(--card)}.atab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500}
 /* main */
 .main{padding:22px;overflow-y:auto}
 .view{display:none}.view.active{display:block}
@@ -159,9 +161,7 @@ tr.ru td{background:rgba(255,165,2,.03)}
 
   <div class="nl">Action Required</div>
   <div class="ni" onclick="V('ordering',this)"><span class="ni-icon">📋</span>Ordering<span class="nb nb-r" id="b-ordering">—</span></div>
-  <div class="ni" onclick="V('reorder',this)"><span class="ni-icon">🚨</span>Reorder Alerts<span class="nb nb-r" id="b-reorder">—</span></div>
-  <div class="ni" onclick="V('expiry',this)"><span class="ni-icon">⏰</span>Expiring Soon<span class="nb nb-o" id="b-expiry">—</span></div>
-  <div class="ni" onclick="V('deadstock',this)"><span class="ni-icon">💀</span>Dead Stock<span class="nb nb-o" id="b-dead">—</span></div>
+  <div class="ni" onclick="V('alerts',this)"><span class="ni-icon">⚠️</span>Alerts<span class="nb nb-r" id="b-alerts">—</span></div>
 
   <div class="nl">Inventory</div>
   <div class="ni" onclick="V('fastmovers',this)"><span class="ni-icon">⚡</span>Fast Movers</div>
@@ -190,10 +190,6 @@ tr.ru td{background:rgba(255,165,2,.03)}
     <div class="sh"><h2>Dashboard</h2><span class="sub" id="ov-date">—</span></div>
     <div id="ov-banners"></div>
     <div class="sg" id="ov-stats"></div>
-    <div class="panel" style="margin-bottom:18px">
-      <div class="ph"><span class="pt">🏆 Top 5 Best Sellers</span><span class="pb">by monthly revenue</span></div>
-      <table class="dt"><thead><tr><th style="width:32px">#</th><th>Medicine</th><th style="text-align:right">Units/Mo</th><th style="text-align:right">Revenue/Mo</th></tr></thead><tbody id="t-bestsellers"></tbody></table>
-    </div>
     <div class="g2">
     <div class="panel" style="cursor:pointer" onclick="document.getElementById('health-info').style.display=document.getElementById('health-info').style.display==='none'?'block':'none'">
       <div class="ph"><span class="pt">Stock Health</span><span class="pb" style="color:var(--accent)">click for insights ↓</span></div>
@@ -209,6 +205,10 @@ tr.ru td{background:rgba(255,165,2,.03)}
         </div>
       </div>
     </div>
+    </div>
+    <div class="panel" style="margin-bottom:18px">
+      <div class="ph"><span class="pt">🏆 Top 5 Best Sellers</span><span class="pb">by units/month</span></div>
+      <table class="dt"><thead><tr><th style="width:32px">#</th><th>Medicine</th><th style="text-align:right">Units/Mo</th><th style="text-align:right">Revenue/Mo</th></tr></thead><tbody id="t-bestsellers"></tbody></table>
     </div>
     <div class="g2">
       <div class="panel"><div class="ph"><span class="pt">Revenue by Month</span><span class="pb">MYR</span></div><div class="pbd"><div class="cw"><canvas id="c-rev-month"></canvas></div></div></div>
@@ -231,74 +231,79 @@ tr.ru td{background:rgba(255,165,2,.03)}
     </table></div></div>
   </div>
 
-  <!-- REORDER -->
-  <div class="view fi" id="view-reorder">
-    <div class="sh"><h2>Reorder Alerts</h2><span class="sub" id="ro-sub">—</span></div>
-    <div class="sg" id="ro-stats"></div>
-    <div class="sr">
-      <input class="si" id="s-ro" placeholder="Search medicine..." oninput="fRO()">
-      <button class="fb fr active" onclick="sRF('all',this)">All (<span id="fc-all">0</span>)</button>
-      <button class="fb fr" onclick="sRF('critical',this)">🔴 Critical (<span id="fc-critical">0</span>)</button>
-      <button class="fb fo" onclick="sRF('urgent',this)">🟠 Urgent (<span id="fc-urgent">0</span>)</button>
-      <button class="fb" onclick="sRF('high',this)">🟡 High (<span id="fc-high">0</span>)</button>
-      <button class="fb" onclick="sRF('medium',this)">⚪ Medium (<span id="fc-medium">0</span>)</button>
-      <button class="fb" onclick="sRF('low',this)">Low (<span id="fc-low">0</span>)</button>
+  <!-- ALERTS (Reorder + Expiry + Dead Stock) -->
+  <div class="view fi" id="view-alerts">
+    <div class="sh"><h2>Alerts</h2><span class="sub">reorder · expiry · dead stock</span></div>
+    <div style="display:flex;gap:0;margin-bottom:18px;border-bottom:1px solid var(--border)">
+      <button class="atab active" onclick="showAlertsTab('reorder',this)">🚨 Reorder Alerts</button>
+      <button class="atab" onclick="showAlertsTab('expiry',this)">⏰ Expiring Soon</button>
+      <button class="atab" onclick="showAlertsTab('dead',this)">💀 Dead Stock</button>
     </div>
-    <div class="sr" style="margin-top:-4px">
-      <select class="si" id="s-ro-cat" onchange="sRCF(this.value)" style="flex:0;min-width:210px">
-        <option value="all">All Categories</option>
-        <option value="Anti-Hypertensives">Anti-Hypertensives</option>
-        <option value="Anti-diabetic">Anti-diabetic</option>
-        <option value="Cardiovascular">Cardiovascular</option>
-        <option value="Anti-Hyperlipidemia">Anti-Hyperlipidemia</option>
-        <option value="Cold/cough/respiratory">Cold/cough/respiratory</option>
-        <option value="Gastro-intestinal">Gastro-intestinal</option>
-        <option value="ENT">ENT</option>
-        <option value="CNS">CNS</option>
-        <option value="Antibiotics">Antibiotics</option>
-        <option value="Painkillers">Painkillers</option>
-        <option value="Anti-inflammatory">Anti-inflammatory</option>
-        <option value="Hormonal &amp; OCP">Hormonal &amp; OCP</option>
-        <option value="Topical agent">Topical agent</option>
-        <option value="Eye/nasal drops &amp; spray">Eye/nasal drops &amp; spray</option>
-        <option value="BPH/Gout/Vitamin/ED">BPH/Gout/Vitamin/ED</option>
-        <option value="Uncategorized">Uncategorized</option>
-      </select>
-      <button class="fb" id="ro-sort-btn" onclick="toggleROSort()">Sort: Urgency</button>
+    <!-- Reorder tab -->
+    <div id="atab-reorder">
+      <div class="sg" id="ro-stats"></div>
+      <div class="sr">
+        <input class="si" id="s-ro" placeholder="Search medicine..." oninput="fRO()">
+        <button class="fb fr active" onclick="sRF('all',this)">All (<span id="fc-all">0</span>)</button>
+        <button class="fb fr" onclick="sRF('critical',this)">🔴 Critical (<span id="fc-critical">0</span>)</button>
+        <button class="fb fo" onclick="sRF('urgent',this)">🟠 Urgent (<span id="fc-urgent">0</span>)</button>
+        <button class="fb" onclick="sRF('high',this)">🟡 High (<span id="fc-high">0</span>)</button>
+        <button class="fb" onclick="sRF('medium',this)">⚪ Medium (<span id="fc-medium">0</span>)</button>
+        <button class="fb" onclick="sRF('low',this)">Low (<span id="fc-low">0</span>)</button>
+      </div>
+      <div class="sr" style="margin-top:-4px">
+        <select class="si" id="s-ro-cat" onchange="sRCF(this.value)" style="flex:0;min-width:210px">
+          <option value="all">All Categories</option>
+          <option value="Anti-Hypertensives">Anti-Hypertensives</option>
+          <option value="Anti-diabetic">Anti-diabetic</option>
+          <option value="Cardiovascular">Cardiovascular</option>
+          <option value="Anti-Hyperlipidemia">Anti-Hyperlipidemia</option>
+          <option value="Cold/cough/respiratory">Cold/cough/respiratory</option>
+          <option value="Gastro-intestinal">Gastro-intestinal</option>
+          <option value="ENT">ENT</option>
+          <option value="CNS">CNS</option>
+          <option value="Antibiotics">Antibiotics</option>
+          <option value="Painkillers">Painkillers</option>
+          <option value="Anti-inflammatory">Anti-inflammatory</option>
+          <option value="Hormonal &amp; OCP">Hormonal &amp; OCP</option>
+          <option value="Topical agent">Topical agent</option>
+          <option value="Eye/nasal drops &amp; spray">Eye/nasal drops &amp; spray</option>
+          <option value="BPH/Gout/Vitamin/ED">BPH/Gout/Vitamin/ED</option>
+          <option value="Uncategorized">Uncategorized</option>
+        </select>
+        <button class="fb" id="ro-sort-btn" onclick="toggleROSort()">Sort: Urgency</button>
+      </div>
+      <div class="panel"><div class="ts"><table class="dt">
+        <thead><tr><th>Priority</th><th>Medicine</th><th>Stock</th><th>Required</th><th>Days Left</th><th>Usage/Mo</th><th>Order Qty</th><th>Est. Cost</th><th>Rev. Risk</th></tr></thead>
+        <tbody id="t-ro"></tbody>
+      </table></div></div>
+      <span id="ro-sub" style="display:none"></span>
     </div>
-    <div class="panel"><div class="ts"><table class="dt">
-      <thead><tr><th>Priority</th><th>Medicine</th><th>Stock</th><th>Required</th><th>Days Left</th><th>Usage/Mo</th><th>Order Qty</th><th>Est. Cost</th><th>Rev. Risk</th></tr></thead>
-      <tbody id="t-ro"></tbody>
-    </table></div></div>
-  </div>
-
-  <!-- EXPIRY -->
-  <div class="view fi" id="view-expiry">
-    <div class="sh"><h2>Expiring Soon</h2><span class="sub">within 6 months</span></div>
-    <div class="panel"><div class="ts"><table class="dt">
-      <thead><tr><th>Medicine</th><th>Expiry Date</th><th>Days Left</th><th>Stock</th><th>Value at Risk</th><th>Action</th></tr></thead>
-      <tbody id="t-expiry"></tbody>
-    </table></div></div>
-  </div>
-
-  <!-- DEAD STOCK -->
-  <div class="view fi" id="view-deadstock">
-    <div class="sh"><h2>Dead Stock</h2><span class="sub">untouched or never dispensed</span></div>
-    <div class="ab ab-o"><div class="ab-icon">💀</div><div>
-      <div class="ab-title">Capital frozen in unused medicines</div>
-      <div class="ab-body">These medicines have not been dispensed recently or ever. Review whether to return to supplier, discount, or remove from inventory to free up cash.</div>
-    </div></div>
-    <div class="sg" id="ds-stats"></div>
-    <div class="sr">
-      <button class="fb active" onclick="sDF('never',this)">Never Dispensed</button>
-      <button class="fb" onclick="sDF('90',this)">Not used 90+ days</button>
-      <button class="fb" onclick="sDF('60',this)">Not used 60+ days</button>
-      <button class="fb" onclick="sDF('30',this)">Not used 30+ days</button>
+    <!-- Expiry tab -->
+    <div id="atab-expiry" style="display:none">
+      <div class="panel"><div class="ts"><table class="dt">
+        <thead><tr><th>Medicine</th><th>Expiry Date</th><th>Days Left</th><th>Stock</th><th>Value at Risk</th><th>Action</th></tr></thead>
+        <tbody id="t-expiry"></tbody>
+      </table></div></div>
     </div>
-    <div class="panel"><div class="ts"><table class="dt">
-      <thead><tr><th>Medicine</th><th>Stock Qty</th><th>Last Dispensed</th><th>Cost Price</th><th>Capital Tied</th><th>Status</th></tr></thead>
-      <tbody id="t-dead"></tbody>
-    </table></div></div>
+    <!-- Dead Stock tab -->
+    <div id="atab-dead" style="display:none">
+      <div class="ab ab-o"><div class="ab-icon">💀</div><div>
+        <div class="ab-title">Capital frozen in unused medicines</div>
+        <div class="ab-body">These medicines have not been dispensed recently or ever. Review whether to return to supplier, discount, or remove from inventory to free up cash.</div>
+      </div></div>
+      <div class="sg" id="ds-stats"></div>
+      <div class="sr">
+        <button class="fb active" onclick="sDF('never',this)">Never Dispensed</button>
+        <button class="fb" onclick="sDF('90',this)">Not used 90+ days</button>
+        <button class="fb" onclick="sDF('60',this)">Not used 60+ days</button>
+        <button class="fb" onclick="sDF('30',this)">Not used 30+ days</button>
+      </div>
+      <div class="panel"><div class="ts"><table class="dt">
+        <thead><tr><th>Medicine</th><th>Stock Qty</th><th>Last Dispensed</th><th>Cost Price</th><th>Capital Tied</th><th>Status</th></tr></thead>
+        <tbody id="t-dead"></tbody>
+      </table></div></div>
+    </div>
   </div>
 
   <!-- FAST MOVERS -->
@@ -945,6 +950,13 @@ function V(name,el){
   document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));
   document.getElementById('view-'+name).classList.add('active');
   el.classList.add('active');
+  const badge=el.querySelector('.nb');
+  if(badge) badge.textContent='';
+}
+function showAlertsTab(tab,btn){
+  ['reorder','expiry','dead'].forEach(t=>{const e=document.getElementById('atab-'+t);if(e)e.style.display=t===tab?'':'none';});
+  document.querySelectorAll('.atab').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
 }
 
 function render(){
@@ -954,9 +966,9 @@ function render(){
   document.getElementById('ov-date').textContent='Inventory as of '+D.inventory_date;
 
   // badges
-  document.getElementById('b-reorder').textContent=s.critical_items||0;
-  document.getElementById('b-expiry').textContent=s.expiring_soon||0;
-  document.getElementById('b-dead').textContent=(s.never_dispensed_count||0)+(a.dead_90||[]).length;
+  const _expiryCount=D.all_items.filter(i=>i.expiry_days!=null&&i.expiry_days<180).length;
+  const _alertsCount=(s.critical_items||0)+_expiryCount+(s.never_dispensed_count||0);
+  document.getElementById('b-alerts').textContent=_alertsCount||0;
   document.getElementById('b-over').textContent=s.overstock_items||0;
   document.getElementById('b-spikes').textContent=(a.spikes||[]).length;
 
@@ -1016,10 +1028,10 @@ function rOverview(){
 
   // ── Compact notification bar
   const _alerts=[];
-  if(s.critical_items>0) _alerts.push({icon:'🚨',label:`${s.critical_items} critical · MYR ${fmt(s.revenue_at_risk||0)} at risk`,color:'var(--danger)',view:'reorder'});
+  if(s.critical_items>0) _alerts.push({icon:'🚨',label:`${s.critical_items} critical · MYR ${fmt(s.revenue_at_risk||0)} at risk`,color:'var(--danger)',view:'alerts'});
   if(spikes2w.length>0){const _u=spikes2w.filter(x=>x.dir==='up').length,_d=spikes2w.filter(x=>x.dir==='down').length;_alerts.push({icon:'⚠️',label:`${spikes2w.length} unusual (${_u}↑ ${_d}↓)`,color:'var(--warning)',view:'spikes'});}
   if((a.spikes||[]).length>0) _alerts.push({icon:'📡',label:`${a.spikes.length} demand spikes`,color:'var(--warning)',view:'spikes'});
-  if(s.dead_capital>0) _alerts.push({icon:'💀',label:`MYR ${fmt(s.dead_capital)} dead stock`,color:'var(--muted)',view:'deadstock'});
+  if(s.dead_capital>0) _alerts.push({icon:'💀',label:`MYR ${fmt(s.dead_capital)} dead stock`,color:'var(--muted)',view:'alerts'});
   document.getElementById('ov-banners').innerHTML=_alerts.length
     ?`<div style="background:var(--card);border:1px solid var(--border);border-radius:9px;padding:7px 14px;margin-bottom:16px;display:flex;align-items:center;gap:2px;flex-wrap:wrap">${_alerts.map((al,i)=>`<span onclick="V('${al.view}',document.querySelector('[onclick*=${al.view}]'))" style="display:inline-flex;align-items:center;gap:4px;cursor:pointer;padding:3px 9px;border-radius:6px;font-size:12px;color:${al.color};font-family:var(--fm);font-weight:600;white-space:nowrap;transition:background .12s" onmouseover="this.style.background='rgba(0,0,0,.05)'" onmouseout="this.style.background=''">${al.icon} ${al.label}</span>${i<_alerts.length-1?'<span style="color:var(--border);padding:0 2px;user-select:none">│</span>':''}`).join('')}</div>`
     :'';
@@ -1052,7 +1064,7 @@ function rOverview(){
   mkBar('c-pat-month',Object.keys(mP).sort().map(m=>m.slice(5)),Object.keys(mP).sort().map(m=>mP[m]),'Patients','#1565a8',false);
 
   // Best sellers
-  const bs=(D.top_revenue_items||[]).slice(0,5);
+  const bs=[...(D.fast_movers||[])].sort((a,b)=>b.recommended_monthly-a.recommended_monthly).slice(0,5);
   document.getElementById('t-bestsellers').innerHTML=bs.length?bs.map((i,idx)=>`<tr>
     <td style="color:var(--muted);font-family:var(--fm);font-weight:700;font-size:13px">${idx+1}</td>
     <td><div class="mn">${esc(tr(i.description,54))}</div></td>
@@ -1152,7 +1164,7 @@ function renderROTable(){
     </tr>`;
   }).join('')||'<tr><td colspan="9" class="empty">No items match.</td></tr>';
 }
-function sRF(f,btn){roFilter=f;document.querySelectorAll('#view-reorder .sr:first-child .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderROTable();}
+function sRF(f,btn){roFilter=f;document.querySelectorAll('#atab-reorder .sr:first-child .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderROTable();}
 function fRO(){renderROTable();}
 function sRCF(v){roCatFilter=v;renderROTable();}
 function toggleROSort(){roSortBy=roSortBy==='urgency'?'movement':'urgency';const btn=document.getElementById('ro-sort-btn');if(btn){btn.textContent='Sort: '+(roSortBy==='urgency'?'Urgency':'Movement');btn.classList.toggle('active',roSortBy==='movement');}renderROTable();}
@@ -1208,7 +1220,7 @@ function renderDSTable(){
     <td><span class="p po">Review / Return</span></td></tr>`;
   }).join(''):'<tr><td colspan="6" class="empty">No items in this category.</td></tr>';
 }
-function sDF(f,btn){dsFilter=f;document.querySelectorAll('#view-deadstock .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderDSTable();}
+function sDF(f,btn){dsFilter=f;document.querySelectorAll('#atab-dead .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderDSTable();}
 
 // ── FAST MOVERS ───────────────────────────────────────────────────
 function rFastMovers(){
