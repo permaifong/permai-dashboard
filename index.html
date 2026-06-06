@@ -342,7 +342,7 @@ tr.ru td{background:rgba(255,165,2,.03)}
       <button class="fb" onclick="sAF('zero',this)">Zero Stock</button>
     </div>
     <div class="panel"><div class="ts"><table class="dt">
-      <thead><tr><th>Medicine</th><th>Available</th><th>Required</th><th>Days Left</th><th>Cost</th><th>Sell</th><th>Margin</th><th>Expiry</th><th>Status</th></tr></thead>
+      <thead id="as-thead"><tr><th>Medicine</th><th>Available</th><th>Required</th><th>Days Left</th><th>Cost</th><th>Sell</th><th>Margin</th><th>Expiry</th><th>Status</th><th>🔥 Popularity</th></tr></thead>
       <tbody id="t-as"></tbody>
     </table></div></div>
   </div>
@@ -481,7 +481,7 @@ const DATA_URL=GDRIVE_FILE_ID!=='PASTE_GOOGLE_DRIVE_FILE_ID_HERE'
   ?`https://drive.google.com/uc?export=download&id=${GDRIVE_FILE_ID}`
   :'analysis_latest.json';
 
-let D=null,roFilter='all',roCatFilter='all',roSortBy='urgency',asFilter='all',asCatFilter='all',dsFilter='never';
+let D=null,roFilter='all',roCatFilter='all',roSortBy='urgency',asFilter='all',asCatFilter='all',dsFilter='never',asSortCol=-1,asSortAsc=true;
 const CH={};
 const MEDICINE_CATEGORIES = {
   "ANTAROL 20MG TAB 250'S PROPRANOLOL IMEKS": "Anti-Hypertensives",
@@ -1366,16 +1366,24 @@ function rOverstock(){
 // ── ALL STOCK ─────────────────────────────────────────────────────
 function rAllStock(){
   document.getElementById('as-sub').textContent=D.all_items.length+' medicines';
-  // Log unmatched names so mismatches are visible in DevTools console
-  const norm=_getCatNorm();
-  const unmatched=D.all_items.filter(i=>!norm[_norm(i.description)]);
-  if(unmatched.length){
-    console.log(`[Category] ${unmatched.length} unmatched medicines (showing first 15):`);
-    unmatched.slice(0,15).forEach(i=>console.log('  JSON:', JSON.stringify(i.description)));
-  } else {
-    console.log('[Category] All medicines matched ✓');
-  }
   fAS();
+  initASSortable();
+}
+function initASSortable(){
+  const thead=document.getElementById('as-thead');
+  if(!thead||thead.dataset.sortable)return;
+  thead.dataset.sortable='1';
+  thead.querySelectorAll('th').forEach((th,ci)=>{
+    th.classList.add('th-s');
+    const sa=document.createElement('span');sa.className='sa';th.appendChild(sa);
+    th.addEventListener('click',()=>{
+      const asc=asSortCol!==ci||!asSortAsc;
+      thead.querySelectorAll('th').forEach(h=>h.classList.remove('asc','desc'));
+      th.classList.add(asc?'asc':'desc');
+      asSortCol=ci;asSortAsc=asc;
+      fAS();
+    });
+  });
 }
 function fAS(){
   const q=(document.getElementById('s-as')||{}).value||'';
@@ -1385,31 +1393,72 @@ function fAS(){
   if(asFilter==='zero')items=items.filter(i=>i.available_stock===0);
   if(q)items=items.filter(i=>i.description.toLowerCase().includes(q.toLowerCase()));
 
+  // Popularity: percentile rank of recommended_monthly across all items with movement
+  const velArr=D.all_items.map(i=>i.recommended_monthly||0).filter(v=>v>0).sort((a,b)=>a-b);
+  const pLvl=i=>{
+    const v=i.recommended_monthly||0;
+    if(!v)return 0;
+    let lo=0,hi=velArr.length;
+    while(lo<hi){const mid=(lo+hi)>>1;velArr[mid]<=v?lo=mid+1:hi=mid;}
+    const pct=lo/velArr.length;
+    return pct>=.85?5:pct>=.65?4:pct>=.40?3:pct>=.20?2:1;
+  };
+  const pDots=lv=>{
+    if(!lv)return`<span style="color:var(--border);letter-spacing:1px;font-size:12px">○○○○○</span>`;
+    const col=lv>=5?'#c0392b':lv>=4?'#d35400':lv>=3?'#c47f17':'#9b9490';
+    return`<span style="color:${col};letter-spacing:1px;font-size:12px">${'●'.repeat(lv)}${'○'.repeat(5-lv)}</span>`;
+  };
+
   const catOrder=['Anti-Hypertensives','Anti-diabetic','Cardiovascular','Anti-Hyperlipidemia','Cold/cough/respiratory','Gastro-intestinal','ENT','CNS','Antibiotics','Painkillers','Anti-inflammatory','Hormonal & OCP','Topical agent','Eye/nasal drops & spray','BPH/Gout/Vitamin/ED','Uncategorized'];
   const groups=Object.fromEntries(catOrder.map(c=>[c,[]]));
   items.forEach(i=>{const c=getCategory(i.description);(groups[c]||groups['Uncategorized']).push(i);});
+
+  // Per-category sort based on clicked column
+  const sortGrp=grp=>{
+    if(asSortCol<0)return grp;
+    return[...grp].sort((a,b)=>{
+      let av,bv;
+      switch(asSortCol){
+        case 0:av=a.description;bv=b.description;break;
+        case 1:av=a.available_stock;bv=b.available_stock;break;
+        case 2:av=a.required_stock;bv=b.required_stock;break;
+        case 3:av=a.days_of_stock===999?99999:a.days_of_stock;bv=b.days_of_stock===999?99999:b.days_of_stock;break;
+        case 4:av=a.latest_cost_price||0;bv=b.latest_cost_price||0;break;
+        case 5:av=a.selling_price||0;bv=b.selling_price||0;break;
+        case 6:av=a.margin_pct??-1;bv=b.margin_pct??-1;break;
+        case 7:av=a.nearest_expiry||'9999';bv=b.nearest_expiry||'9999';break;
+        case 8:av=a.available_stock===0?0:a.needs_reorder?1:2;bv=b.available_stock===0?0:b.needs_reorder?1:2;break;
+        case 9:av=pLvl(a);bv=pLvl(b);break;
+        default:return 0;
+      }
+      if(typeof av==='string')return asSortAsc?av.localeCompare(bv):bv.localeCompare(av);
+      return asSortAsc?av-bv:bv-av;
+    });
+  };
 
   const mkRow=i=>{
     const d=i.days_of_stock;
     const dl=d===999?'—':d===0?'<span class="p pr">OOS</span>':d<7?`<span class="p pr">${d.toFixed(0)}d</span>`:d<14?`<span class="p po">${d.toFixed(0)}d</span>`:`<span style="font-family:var(--fm);font-size:11px;color:var(--muted)">${d.toFixed(0)}d</span>`;
     const m=i.margin_pct;const mc=m===null?'pm':m<30?'pr':m<50?'po':'pg';
     const sc=i.available_stock===0?'pr':i.needs_reorder?'po':'pg';
+    const lv=pLvl(i);
     return`<tr><td><div class="mn">${esc(tr(i.description,46))}<small>${esc(i.brand||'')} ${esc(i.manufacturer||'')}</small></div></td>
     <td><span class="p ${sc}">${i.available_stock}</span></td><td style="color:var(--muted)">${i.required_stock}</td>
     <td>${dl}</td><td class="cost">MYR ${fmt(i.latest_cost_price||0)}</td><td class="cost">MYR ${fmt(i.selling_price||0)}</td>
     <td>${m!==null?`<span class="p ${mc}">${m}%</span>`:'<span class="p pm">—</span>'}</td>
     <td style="font-family:var(--fm);font-size:10px;color:var(--muted)">${i.nearest_expiry||'—'}</td>
-    <td><span class="p ${sc}">${i.available_stock===0?'OOS':i.needs_reorder?'Reorder':'OK'}</span></td></tr>`;
+    <td><span class="p ${sc}">${i.available_stock===0?'OOS':i.needs_reorder?'Reorder':'OK'}</span></td>
+    <td data-sort="${lv}" style="white-space:nowrap">${pDots(lv)}</td></tr>`;
   };
 
   let html='';
   catOrder.forEach(cat=>{
-    const grp=groups[cat];
+    const grp=sortGrp(groups[cat]);
     if(!grp||!grp.length)return;
-    html+=`<tr><td colspan="9" style="background:rgba(10,124,110,.09);padding:9px 14px 8px;font-family:var(--fh);font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;border-top:2px solid rgba(10,124,110,.18);border-bottom:1px solid rgba(10,124,110,.15)">${esc(cat)}<span style="font-weight:500;font-family:var(--fm);margin-left:7px;color:var(--muted);font-size:10px">(${grp.length})</span></td></tr>`;
+    html+=`<tr><td colspan="10" style="background:rgba(10,124,110,.09);padding:9px 14px 8px;font-family:var(--fh);font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;border-top:2px solid rgba(10,124,110,.18);border-bottom:1px solid rgba(10,124,110,.15)">${esc(cat)}<span style="font-weight:500;font-family:var(--fm);margin-left:7px;color:var(--muted);font-size:10px">(${grp.length})</span></td></tr>`;
     html+=grp.map(mkRow).join('');
   });
-  document.getElementById('t-as').innerHTML=html||'<tr><td colspan="9" class="empty">No items.</td></tr>';
+  document.getElementById('t-as').innerHTML=html||'<tr><td colspan="10" class="empty">No items.</td></tr>';
 }
 function sAF(f,btn){asFilter=f;document.querySelectorAll('#view-allstock .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');fAS();}
 
