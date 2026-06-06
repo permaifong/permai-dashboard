@@ -1405,7 +1405,7 @@ function fAS(){
   };
   const pDots=lv=>{
     if(!lv)return`<span style="color:var(--border);letter-spacing:1px;font-size:12px">○○○○○</span>`;
-    const col=lv>=5?'#c0392b':lv>=4?'#d35400':lv>=3?'#c47f17':'#9b9490';
+    const col=lv>=5?'#0a6b5e':lv>=4?'#0a7c6e':lv>=3?'#27ae60':lv>=2?'#52be80':'#9b9490';
     return`<span style="color:${col};letter-spacing:1px;font-size:12px">${'●'.repeat(lv)}${'○'.repeat(5-lv)}</span>`;
   };
 
