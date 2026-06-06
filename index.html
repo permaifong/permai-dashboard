@@ -199,9 +199,10 @@ tr.ru td{background:rgba(255,165,2,.03)}
     <div class="sg" id="ov-stats"></div>
     <div class="g2">
     <div class="panel">
-      <div class="ph"><span class="pt">Stock Health</span><span class="pb">current inventory snapshot</span></div>
-      <div class="pbd"><div class="cw" style="height:185px"><canvas id="c-health"></canvas></div>
-        <div id="health-summary" style="margin-top:12px"></div>
+      <div class="ph"><span class="pt">Stock Health</span><span class="pb">current inventory snapshot — click to drill in</span></div>
+      <div class="pbd">
+        <div id="health-bar"></div>
+        <div id="health-summary" style="margin-top:10px"></div>
       </div>
     </div>
     <div class="panel">
@@ -969,6 +970,18 @@ function showAlertsTab(tab,btn){
   document.querySelectorAll('#view-alerts .atab').forEach(b=>b.classList.remove('active'));
   if(btn)btn.classList.add('active');
 }
+function goHealth(urgency){
+  if(urgency==='ok'){
+    V('allstock',document.querySelector('.ni[onclick*="allstock"]'));
+    const btn=document.querySelector('#view-allstock .fb[onclick*="\'ok\'"]');
+    if(btn)sAF('ok',btn);
+  } else {
+    V('alerts',document.querySelector('.ni[onclick*="\'alerts\'"]'));
+    showAlertsTab('reorder',document.querySelector('#view-alerts .atab'));
+    const btn=document.querySelector(`#ro-filter-btns .fb[onclick*="'${urgency}'"]`);
+    if(btn)sRF(urgency,btn);
+  }
+}
 function showROTab(tab,btn){
   ['today','week','month'].forEach(t=>{const e=document.getElementById('row-list-'+t);if(e)e.style.display=t===tab?'flex':'none';});
   document.querySelectorAll('#ro-tabs .atab').forEach(b=>b.classList.remove('active'));
@@ -1127,46 +1140,33 @@ function rOverview(){
   document.getElementById('row-count').textContent=`${roWeek.length} medicine${roWeek.length!==1?'s':''}`;
 
 
-  // Stock Health — donut with urgency colours + mini-stats
+  // Stock Health — stacked bar + clickable mini-stats
   const crit=D.all_items.filter(i=>i.urgency==='critical').length;
   const urg=D.all_items.filter(i=>i.urgency==='urgent').length;
   const high=D.all_items.filter(i=>i.urgency==='high').length;
   const med=D.all_items.filter(i=>i.urgency==='medium').length;
   const low=D.all_items.filter(i=>i.urgency==='low'&&i.needs_reorder).length;
   const ok=D.all_items.filter(i=>!i.needs_reorder).length;
-  mkDonut('c-health',
-    ['OK','Low','Medium','High','Urgent','Critical'],
-    [ok,low,med,high,urg,crit],
-    ['#1a7a4a','#9b9490','#1565a8','#c47f17','#d35400','#c0392b']
-  );
+  const shTotal=crit+urg+high+med+low+ok||1;
+  const shSeg=(n,col,lbl,urg)=>n?`<div onclick="goHealth('${urg}')" title="${lbl}: ${n} (${(n/shTotal*100).toFixed(0)}%)" style="width:${(n/shTotal*100).toFixed(2)}%;background:${col};cursor:pointer;transition:filter .15s" onmouseenter="this.style.filter='brightness(1.2)'" onmouseleave="this.style.filter=''"></div>`:'';
+  document.getElementById('health-bar').innerHTML=`
+    <div style="height:28px;border-radius:7px;overflow:hidden;display:flex;gap:1px;background:var(--border)">
+      ${shSeg(crit,'#c0392b','Critical','critical')}${shSeg(urg,'#d35400','Urgent','urgent')}${shSeg(high,'#c47f17','High','high')}${shSeg(med,'#1565a8','Medium','medium')}${shSeg(low,'#9b9490','Low','low')}${shSeg(ok,'#1a7a4a','OK','ok')}
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:8px">
+      ${[['#c0392b','Critical',crit,'critical'],['#d35400','Urgent',urg,'urgent'],['#c47f17','High',high,'high'],['#1565a8','Medium',med,'medium'],['#9b9490','Low',low,'low'],['#1a7a4a','OK',ok,'ok']].map(([c,l,n,u])=>`<span onclick="goHealth('${u}')" style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px;cursor:pointer" onmouseenter="this.style.color='${c}'" onmouseleave="this.style.color='var(--muted)'"><span style="width:9px;height:9px;border-radius:2px;background:${c};flex-shrink:0"></span>${l} <b style="color:var(--text)">${n}</b></span>`).join('')}
+    </div>`;
+  const shTile=(bg,bc,col,count,label,u,big)=>`<div onclick="goHealth('${u}')" style="text-align:center;padding:${big?'8':'6'}px 4px;background:${bg};border-radius:8px;border:1px solid ${bc};cursor:pointer;transition:transform .12s;user-select:none" onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform=''"><div style="font-size:${big?22:18}px;font-weight:${big?800:700};color:${col};font-family:var(--fh);line-height:1">${count}</div><div style="font-size:9px;color:${col};font-family:var(--fm);letter-spacing:.05em;margin-top:3px">${label}</div></div>`;
   document.getElementById('health-summary').innerHTML=`
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px">
-      <div style="text-align:center;padding:8px 4px;background:rgba(192,57,43,.08);border-radius:8px;border:1px solid rgba(192,57,43,.25)">
-        <div style="font-size:22px;font-weight:800;color:#c0392b;font-family:var(--fh);line-height:1">${crit}</div>
-        <div style="font-size:9px;color:#c0392b;font-family:var(--fm);letter-spacing:.05em;margin-top:3px">CRITICAL</div>
-      </div>
-      <div style="text-align:center;padding:8px 4px;background:rgba(211,84,0,.07);border-radius:8px;border:1px solid rgba(211,84,0,.22)">
-        <div style="font-size:22px;font-weight:800;color:#d35400;font-family:var(--fh);line-height:1">${urg}</div>
-        <div style="font-size:9px;color:#d35400;font-family:var(--fm);letter-spacing:.05em;margin-top:3px">URGENT</div>
-      </div>
-      <div style="text-align:center;padding:8px 4px;background:rgba(26,122,74,.07);border-radius:8px;border:1px solid rgba(26,122,74,.22)">
-        <div style="font-size:22px;font-weight:800;color:#1a7a4a;font-family:var(--fh);line-height:1">${ok}</div>
-        <div style="font-size:9px;color:#1a7a4a;font-family:var(--fm);letter-spacing:.05em;margin-top:3px">HEALTHY</div>
-      </div>
+      ${shTile('rgba(192,57,43,.08)','rgba(192,57,43,.25)','#c0392b',crit,'CRITICAL','critical',true)}
+      ${shTile('rgba(211,84,0,.07)','rgba(211,84,0,.22)','#d35400',urg,'URGENT','urgent',true)}
+      ${shTile('rgba(26,122,74,.07)','rgba(26,122,74,.22)','#1a7a4a',ok,'HEALTHY','ok',true)}
     </div>
     <div style="margin-top:8px;display:grid;grid-template-columns:repeat(3,1fr);gap:7px">
-      <div style="text-align:center;padding:6px 4px;background:rgba(196,127,23,.07);border-radius:8px;border:1px solid rgba(196,127,23,.2)">
-        <div style="font-size:18px;font-weight:700;color:#c47f17;font-family:var(--fh);line-height:1">${high}</div>
-        <div style="font-size:9px;color:#c47f17;font-family:var(--fm);letter-spacing:.05em;margin-top:3px">HIGH</div>
-      </div>
-      <div style="text-align:center;padding:6px 4px;background:rgba(21,101,168,.07);border-radius:8px;border:1px solid rgba(21,101,168,.2)">
-        <div style="font-size:18px;font-weight:700;color:#1565a8;font-family:var(--fh);line-height:1">${med}</div>
-        <div style="font-size:9px;color:#1565a8;font-family:var(--fm);letter-spacing:.05em;margin-top:3px">MEDIUM</div>
-      </div>
-      <div style="text-align:center;padding:6px 4px;background:rgba(107,101,96,.07);border-radius:8px;border:1px solid rgba(107,101,96,.2)">
-        <div style="font-size:18px;font-weight:700;color:#6b6560;font-family:var(--fh);line-height:1">${low}</div>
-        <div style="font-size:9px;color:#6b6560;font-family:var(--fm);letter-spacing:.05em;margin-top:3px">LOW</div>
-      </div>
+      ${shTile('rgba(196,127,23,.07)','rgba(196,127,23,.2)','#c47f17',high,'HIGH','high',false)}
+      ${shTile('rgba(21,101,168,.07)','rgba(21,101,168,.2)','#1565a8',med,'MEDIUM','medium',false)}
+      ${shTile('rgba(107,101,96,.07)','rgba(107,101,96,.2)','#6b6560',low,'LOW','low',false)}
     </div>`;
 
   const mR=a.monthly_revenue||{};const mP=a.monthly_patients||{};
