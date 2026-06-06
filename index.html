@@ -1134,7 +1134,7 @@ function rReorder(){
 function renderROTable(){
   const q=(document.getElementById('s-ro')||{}).value||'';
   let filtered=roItems.filter(i=>(roFilter==='all'||i.urgency===roFilter)&&i.description.toLowerCase().includes(q.toLowerCase()));
-  if(roCatFilter!=='all') filtered=filtered.filter(i=>(MEDICINE_CATEGORIES[i.description]||'Uncategorized')===roCatFilter);
+  if(roCatFilter!=='all') filtered=filtered.filter(i=>getCategory(i.description)===roCatFilter);
   if(roSortBy==='movement') filtered=[...filtered].sort((a,b)=>b.recommended_monthly-a.recommended_monthly);
   const up={critical:'<span class="p pr">🔴 Critical</span>',urgent:'<span class="p po">🟠 Urgent</span>',high:'<span class="p py">🟡 High</span>',medium:'<span class="p pb2">⚪ Medium</span>',low:'<span class="p pm">Low</span>'};
   document.getElementById('t-ro').innerHTML=filtered.map(i=>{
@@ -1257,6 +1257,15 @@ function rOverstock(){
 // ── ALL STOCK ─────────────────────────────────────────────────────
 function rAllStock(){
   document.getElementById('as-sub').textContent=D.all_items.length+' medicines';
+  // Log unmatched names so mismatches are visible in DevTools console
+  const norm=_getCatNorm();
+  const unmatched=D.all_items.filter(i=>!norm[_norm(i.description)]);
+  if(unmatched.length){
+    console.log(`[Category] ${unmatched.length} unmatched medicines (showing first 15):`);
+    unmatched.slice(0,15).forEach(i=>console.log('  JSON:', JSON.stringify(i.description)));
+  } else {
+    console.log('[Category] All medicines matched ✓');
+  }
   fAS();
 }
 function fAS(){
@@ -1269,7 +1278,7 @@ function fAS(){
 
   const catOrder=['Anti-Hypertensives','Anti-diabetic','Cardiovascular','Anti-Hyperlipidemia','Cold/cough/respiratory','Gastro-intestinal','ENT','CNS','Antibiotics','Painkillers','Anti-inflammatory','Hormonal & OCP','Topical agent','Eye/nasal drops & spray','BPH/Gout/Vitamin/ED','Uncategorized'];
   const groups=Object.fromEntries(catOrder.map(c=>[c,[]]));
-  items.forEach(i=>{const c=MEDICINE_CATEGORIES[i.description]||'Uncategorized';(groups[c]||groups['Uncategorized']).push(i);});
+  items.forEach(i=>{const c=getCategory(i.description);(groups[c]||groups['Uncategorized']).push(i);});
 
   const mkRow=i=>{
     const d=i.days_of_stock;
@@ -1566,6 +1575,15 @@ function fmt(n){if(!n&&n!==0)return'—';return Number(n).toLocaleString('en-MY'
 function tr(s,n){return s&&s.length>n?s.substring(0,n)+'…':(s||'');}
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function patientId(name){let h=5381;const s=String(name||'');for(let i=0;i<s.length;i++)h=((h<<5)+h)^s.charCodeAt(i);return'PT-'+(((h>>>0)%9000)+1000);}
+function _norm(s){return String(s||'').trim().toUpperCase().replace(/\s+/g,' ');}
+let _catNorm=null;
+function _getCatNorm(){
+  if(_catNorm)return _catNorm;
+  _catNorm={};
+  Object.entries(MEDICINE_CATEGORIES).forEach(([k,v])=>{_catNorm[_norm(k)]=v;});
+  return _catNorm;
+}
+function getCategory(desc){return _getCatNorm()[_norm(desc)]||'Uncategorized';}
 
 function downloadLatestPO(){
   if(D && D.latest_po_filename){
