@@ -6,6 +6,7 @@
 <title>Permai Polyclinics — Intelligence Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <style>
 :root{
   --bg:#f5f3ef;--surface:#ffffff;--card:#faf9f7;--border:#e0dbd3;
@@ -157,6 +158,7 @@ tr.ru td{background:rgba(255,165,2,.03)}
   <div class="ni active" onclick="V('overview',this)"><span class="ni-icon">⬛</span>Dashboard</div>
 
   <div class="nl">Action Required</div>
+  <div class="ni" onclick="V('ordering',this)"><span class="ni-icon">📋</span>Ordering<span class="nb nb-r" id="b-ordering">—</span></div>
   <div class="ni" onclick="V('reorder',this)"><span class="ni-icon">🚨</span>Reorder Alerts<span class="nb nb-r" id="b-reorder">—</span></div>
   <div class="ni" onclick="V('expiry',this)"><span class="ni-icon">⏰</span>Expiring Soon<span class="nb nb-o" id="b-expiry">—</span></div>
   <div class="ni" onclick="V('deadstock',this)"><span class="ni-icon">💀</span>Dead Stock<span class="nb nb-o" id="b-dead">—</span></div>
@@ -211,6 +213,21 @@ tr.ru td{background:rgba(255,165,2,.03)}
     <div class="panel"><div class="ph"><span class="pt">🚨 Needs Immediate Action</span><span class="pb">OOS or &lt;7 days remaining</span></div>
       <div class="ts"><table class="dt"><thead><tr><th>Medicine</th><th>Stock</th><th>Days Left</th><th>Usage/Mo</th><th>Action</th></tr></thead><tbody id="t-critical"></tbody></table></div>
     </div>
+  </div>
+
+  <!-- ORDERING -->
+  <div class="view fi" id="view-ordering">
+    <div class="sh" style="justify-content:space-between;align-items:center;margin-bottom:18px">
+      <div style="display:flex;align-items:baseline;gap:10px">
+        <h2>Ordering</h2>
+        <span class="sub" id="ord-sub">—</span>
+      </div>
+      <button onclick="exportOrderingExcel()" style="background:rgba(10,124,110,.1);border:1px solid rgba(10,124,110,.3);border-radius:7px;padding:6px 14px;color:var(--accent);font-family:var(--fb);font-size:12px;cursor:pointer;font-weight:500;white-space:nowrap">⬇ Download PO</button>
+    </div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>#</th><th>Medicine</th><th>Current Stock</th><th>Order Qty</th><th>Reason</th></tr></thead>
+      <tbody id="t-ordering"></tbody>
+    </table></div></div>
   </div>
 
   <!-- REORDER -->
@@ -961,7 +978,7 @@ function render(){
   document.getElementById('b-over').textContent=s.overstock_items||0;
   document.getElementById('b-spikes').textContent=(a.spikes||[]).length;
 
-  rOverview();rReorder();rExpiry();rDeadStock();rFastMovers();rOverstock();rAllStock();
+  rOverview();rOrdering();rReorder();rExpiry();rDeadStock();rFastMovers();rOverstock();rAllStock();
   rOperations();rDoctors();rStaff();rPatients();rCombos();rSpikes();rRevenue();rCategories();
 }
 
@@ -1061,6 +1078,59 @@ function rOverview(){
     const dl=i.days_of_stock===0?'<span class="p pr">OUT OF STOCK</span>':`<span style="color:var(--danger);font-family:var(--fm);font-weight:600">${i.days_of_stock.toFixed(0)}d</span>`;
     return`<tr class="rc"><td><div class="mn">${esc(tr(i.description,48))}<small>${esc(i.brand||'')}</small></div></td><td><span class="qn">${i.available_stock}</span></td><td>${dl}</td><td><span class="qn">${i.recommended_monthly}/mo</span></td><td><span class="p pr">Order ${i.order_qty}</span></td></tr>`;
   }).join('')||'<tr><td colspan="5" class="empty">No critical items 🎉</td></tr>';
+}
+
+// ── ORDERING ─────────────────────────────────────────────────────
+function rOrdering(){
+  const urgOrder={critical:0,urgent:1,high:2,medium:3,low:4};
+  const items=[...D.reorder_items].sort((a,b)=>(urgOrder[a.urgency]??5)-(urgOrder[b.urgency]??5));
+  document.getElementById('b-ordering').textContent=items.length;
+  document.getElementById('ord-sub').textContent=`${items.length} medicines to order`;
+  const urgCls={critical:'pr',urgent:'po',high:'py',medium:'pb2',low:'pm'};
+  document.getElementById('t-ordering').innerHTML=items.length?items.map((i,idx)=>{
+    const d=i.days_of_stock;
+    const reason=i.available_stock===0?'Out of stock'
+      :d<7?`${d}d left — critical`
+      :d<14?`${d}d left — urgent`
+      :d<30?`${d}d left — low`
+      :'Below minimum stock';
+    return`<tr class="${i.urgency==='critical'?'rc':i.urgency==='urgent'?'ru':''}">
+      <td style="color:var(--muted);font-family:var(--fm);width:36px">${idx+1}</td>
+      <td><div class="mn">${esc(tr(i.description,54))}<small>${esc(i.brand||'')}</small></div></td>
+      <td>${i.available_stock===0?'<span class="p pr">OOS</span>':`<span class="qn">${i.available_stock}</span>`}</td>
+      <td><span class="p pt2" style="font-size:12px;font-weight:700">${i.order_qty||0}</span></td>
+      <td><span class="p ${urgCls[i.urgency]||'pm'}">${reason}</span></td>
+    </tr>`;
+  }).join(''):'<tr><td colspan="5" class="empty">Nothing to order 🎉</td></tr>';
+}
+function exportOrderingExcel(){
+  if(!window.XLSX){alert('Excel library not loaded yet. Please wait and try again.');return;}
+  const urgOrder={critical:0,urgent:1,high:2,medium:3,low:4};
+  const items=[...D.reorder_items].sort((a,b)=>(urgOrder[a.urgency]??5)-(urgOrder[b.urgency]??5));
+  const today=new Date().toLocaleDateString('en-MY',{day:'numeric',month:'long',year:'numeric'});
+  const rows=[
+    [`Permai Polyclinics Fortuna — Purchase Order`],
+    [`Generated: ${today}  |  ${items.length} items`],
+    [],
+    ['#','Medicine','Current Stock','Order Qty','Reason','Unit Cost (MYR)','Est. Total (MYR)']
+  ];
+  items.forEach((i,idx)=>{
+    const d=i.days_of_stock;
+    const reason=i.available_stock===0?'Out of stock':d<7?`${d}d left - critical`:d<14?`${d}d left - urgent`:d<30?`${d}d left - low`:'Below minimum stock';
+    const cost=i.latest_cost_price||0;
+    rows.push([idx+1,i.description,i.available_stock,i.order_qty||0,reason,cost,Math.round((i.order_qty||0)*cost*100)/100]);
+  });
+  // Total row
+  const totalCost=items.reduce((s,i)=>s+(i.order_qty||0)*(i.latest_cost_price||0),0);
+  rows.push([]);
+  rows.push(['','','','','TOTAL ESTIMATED COST','',Math.round(totalCost*100)/100]);
+
+  const ws=XLSX.utils.aoa_to_sheet(rows);
+  ws['!cols']=[{wch:4},{wch:52},{wch:14},{wch:10},{wch:28},{wch:16},{wch:18}];
+  const wb=XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb,ws,'Purchase Order');
+  const fname='PO_Permai_'+new Date().toISOString().slice(0,10).replace(/-/g,'')+'.xlsx';
+  XLSX.writeFile(wb,fname);
 }
 
 // ── REORDER ───────────────────────────────────────────────────────
