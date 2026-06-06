@@ -1781,11 +1781,62 @@ function buildContextualTips(){
   // Critical count
   if((s.critical_items||0)>0) tips.push(`${s.critical_items} medicine${s.critical_items!==1?'s are':' is'} critically low — check the Ordering section today.`);
   // Generic fallbacks (always shown when data-driven tips run out)
-  tips.push('Chronic disease patients (BP, diabetes, cholesterol) are your most reliable revenue — never let their refill items run out.');
-  tips.push('Bundle vitamins and supplements with chronic consults to increase average basket size.');
-  tips.push('Patients who haven\'t returned in 60+ days — a quick follow-up call often brings them back.');
-  tips.push('Top 20 patients drive outsized revenue — give them priority slots and remember their names.');
-  tips.push('High-volume, low-margin medicines are worth re-negotiating cost price with your supplier.');
+  const generic=[
+    // Inventory & stock
+    'Chronic disease patients (BP, diabetes, cholesterol) are your most reliable revenue — never let their refill items run out.',
+    'Stock for 4–6 weeks, not 2. Supplier delays and shipping gaps are common — buffer stock saves you.',
+    'Check expiry dates on slow movers monthly. A write-off hurts more than a discount.',
+    'Items expiring in under 3 months — offer them at cost to a neighbouring clinic rather than waste them.',
+    'Order quantities should match 2-week usage, not gut feel. Use the Order Qty column as your baseline.',
+    'Never let your top 10 revenue items drop below 2 weeks of stock — that\'s your non-negotiable safety floor.',
+    'If a medicine keeps going out of stock, the reorder point is too low — raise it.',
+    'Overstock ties up cash. Anything with 90+ days of stock is worth reviewing on your next order.',
+    // Revenue & margin
+    'Bundle vitamins and supplements with chronic disease consults to increase average basket size.',
+    'Selling price review: if cost prices have risen but selling prices haven\'t changed, margin is quietly shrinking.',
+    'High-volume, low-margin medicines are worth re-negotiating cost price with your supplier — even a 5% saving adds up.',
+    'Branded vs generic: offering both gives patients a choice and you a margin lever.',
+    'MYR 1 more per consult across 20 patients a day = MYR 600/mo in extra revenue. Small tweaks compound.',
+    'Top 20 patients drive outsized revenue — give them priority slots and remember their names.',
+    'A loyal chronic patient is worth thousands per year. Retention is cheaper than acquisition.',
+    // Patient retention
+    'Patients who haven\'t returned in 60+ days — a quick call often brings them back.',
+    'Patients who collect medicine same-day are less likely to skip doses — it builds loyalty too.',
+    'A short wait time is one of the top reasons patients recommend a clinic to friends and family.',
+    'Remember patient names. It\'s the single highest-ROI thing any clinic can do.',
+    'Patients often stay because of the doctor, but leave because of the front desk. Front desk matters.',
+    'Offer 2-month supply for stable chronic patients — fewer trips for them, more predictable revenue for you.',
+    // Supplier & procurement
+    'Compare at least two supplier quotes before confirming a large order — prices shift frequently.',
+    'Build a relationship with your top 2–3 suppliers. Credit terms and priority allocation matter during shortages.',
+    'If a medicine is perpetually backordered by one supplier, find a secondary source before the next stockout.',
+    'Pay suppliers on time — clinics with good payment history get priority during national shortages.',
+    'Ask suppliers for near-expiry stock at a discount if you can move it within 60 days.',
+    // Malaysian context
+    'Before Hari Raya, stock up on antihistamines, antacids, and analgesics — demand spikes every year.',
+    'Chinese New Year travel season drives demand for diarrhoea, motion sickness, and flu medicines — order early.',
+    'School holidays often bring in more paediatric URTIs — check your paediatric antibiotic and syrup stock.',
+    'Haze season in Sabah: stock up on antihistamines, nasal sprays, and nebuliser solutions in advance.',
+    'Monsoon season brings more dengue and leptospirosis risk — ensure relevant testing and treatment are stocked.',
+    'The hypertension-diabetes-dyslipidaemia triad is the backbone of most GP revenue in Malaysia — treat it seriously.',
+    'Panel insurance patients often have broader formulary coverage — make sure your common brands match their lists.',
+    // Operations & staff
+    'Morning slots yield higher revenue on average — consider extending morning hours if patient demand supports it.',
+    'Check Medicine Combos regularly — frequent co-prescriptions may benefit from pre-packing to speed up dispensing.',
+    'A medicine dispensing error is costly in every sense. Double-check high-alert medicines like warfarin and metformin.',
+    'OTC items near the counter drive impulse purchases — rotate the display each season.',
+    'If a doctor is consistently low on revenue per visit, look at prescription volume and medicine mix — not just consult count.',
+    'Staff who know the stock well dispense faster and make fewer errors. Regular stock briefings pay off.',
+    'Dead stock is a decision waiting to be made. Return, discount, or donate — just don\'t let it sit.',
+    'A clean, well-organised dispensary is faster and safer. Time spent tidying is time saved on every future dispense.',
+    // Business health
+    'Profit per day is your most honest KPI. Track it weekly, not just monthly.',
+    'If last month\'s profit was higher, find out why — then repeat it.',
+    'A medicine with high revenue but zero margin is just moving money. Know your gross margin per item.',
+    'Cash flow and profit are different things. Stock that isn\'t moving is cash that isn\'t working.',
+    'The best time to negotiate a better supplier deal is when you don\'t urgently need stock.',
+  ];
+  generic.forEach(t=>tips.push(t));
   return tips;
 }
 function initTips(){
