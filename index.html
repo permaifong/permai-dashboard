@@ -1243,7 +1243,7 @@ function rFastMovers(){
     const monthNames={"01":"Jan","02":"Feb","03":"Mar","04":"Apr","05":"May","06":"Jun","07":"Jul","08":"Aug","09":"Sep","10":"Oct","11":"Nov","12":"Dec"};
     const _now=new Date();
     const _curM=`${_now.getFullYear()}-${String(_now.getMonth()+1).padStart(2,'0')}`;
-    thead.innerHTML=`<tr><th>#</th><th>Medicine</th><th>Rec/Mo</th>${ms.map((m,mi)=>{const l=m.slice(5);const nm=monthNames[l]||l;return`<th>${nm+(mi===ms.length-1&&m===_curM?' (proj)':'')}</th>`;}).join("")}<th>Trend</th><th>Days Left</th><th>Status</th></tr>`;
+    thead.innerHTML=`<tr><th>#</th><th>Medicine</th><th>Rec/Mo</th>${ms.map((m,mi)=>{const l=m.slice(5);const nm=monthNames[l]||l;return`<th>${nm+(mi===ms.length-1&&m===_curM?' (actual)':'')}</th>`;}).join("")}<th>Trend</th><th>Days Left</th><th>Status</th></tr>`;
   }
   const items=D.fast_movers.slice(0,30);
   const maxV=Math.max(...items.map(i=>i.recommended_monthly),1);
