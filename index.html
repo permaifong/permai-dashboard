@@ -1202,7 +1202,7 @@ function rOrdering(){
     const d=i.days_of_stock;
     const dl=`<span style="color:var(--${d===0||d<7?'danger':d<14?'warning':'ok'});font-family:var(--fm);font-weight:600">${d===999?'∞':d.toFixed(0)+'d'}</span>`;
     const usage2wk=Math.round((i.recommended_monthly||0)/2);
-    const oq=Math.ceil((i.recommended_monthly||0)/2);
+    const oq=i.order_qty||0;
     const ec=oq*(i.latest_cost_price||0);
     const urgN={critical:0,urgent:1,high:2,medium:3,low:4};
     return`<tr class="${i.urgency==='critical'?'rc':i.urgency==='urgent'?'ru':''}">
@@ -1226,7 +1226,7 @@ function exportOrderingExcel(){
   const items=[...D.reorder_items].sort((a,b)=>(urgOrder[a.urgency]??5)-(urgOrder[b.urgency]??5));
   const today=new Date().toLocaleDateString('en-MY',{day:'numeric',month:'long',year:'numeric'});
   const poRef='PO-'+new Date().toISOString().slice(0,10).replace(/-/g,'');
-  const grandTotal=items.reduce((s,i)=>s+Math.ceil((i.recommended_monthly||0)/2)*(i.latest_cost_price||0),0);
+  const grandTotal=items.reduce((s,i)=>s+(i.order_qty||0)*(i.latest_cost_price||0),0);
   const fmt2=v=>v.toLocaleString('en-MY',{minimumFractionDigits:2,maximumFractionDigits:2});
   const N=11;
   const COL=['#','Medicine','Brand','UOM','Days Left','Curr. Stock','Usage/2wk','Order Qty (2wk)','Unit Cost (MYR)','Est. Total (MYR)','Notes'];
@@ -1253,7 +1253,7 @@ function exportOrderingExcel(){
   ['critical','urgent','high','medium','low'].forEach(u=>{
     const grp=items.filter(i=>i.urgency===u);
     if(!grp.length)return;
-    const gc=grp.reduce((a,i)=>a+Math.ceil((i.recommended_monthly||0)/2)*(i.latest_cost_price||0),0);
+    const gc=grp.reduce((a,i)=>a+(i.order_qty||0)*(i.latest_cost_price||0),0);
     row(urgLabel[u],grp.length,Math.round(gc*100)/100);
     const bg=urgBg[u];
     st(rr-1,0,fillSt(bg,{font:{bold:true},alignment:{horizontal:'left',vertical:'center'}}));
@@ -1271,7 +1271,7 @@ function exportOrderingExcel(){
   ['critical','urgent','high','medium','low'].forEach(u=>{
     const grp=items.filter(i=>i.urgency===u);
     if(!grp.length)return;
-    const gc=grp.reduce((a,i)=>a+Math.ceil((i.recommended_monthly||0)/2)*(i.latest_cost_price||0),0);
+    const gc=grp.reduce((a,i)=>a+(i.order_qty||0)*(i.latest_cost_price||0),0);
     // Section banner
     row(`${urgLabel[u]} — ${grp.length} item${grp.length!==1?'s':''} — Est. MYR ${fmt2(Math.round(gc*100)/100)}`);
     mg(rr-1,0,rr-1,N-1);
@@ -1283,7 +1283,7 @@ function exportOrderingExcel(){
     grp.forEach(i=>{
       const d=i.days_of_stock;
       const dLabel=d===0?'0d':d===999?'∞':d.toFixed(0)+'d';
-      const oq=Math.ceil((i.recommended_monthly||0)/2);
+      const oq=i.order_qty||0;
       const cost=i.latest_cost_price||0;
       const stripe=rowNum%2!==0?'F0F7FF':null;
       row(++rowNum,i.description||'',i.brand||'',i.uom||'',dLabel,i.available_stock,Math.round((i.recommended_monthly||0)/2),oq,cost,Math.round(oq*cost*100)/100,'');
