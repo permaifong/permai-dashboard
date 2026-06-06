@@ -196,7 +196,13 @@ tr.ru td{background:rgba(255,165,2,.03)}
   <div class="view active fi" id="view-overview">
     <div class="sh"><h2>Dashboard</h2><span class="sub" id="ov-date">—</span></div>
     <div id="ov-banners"></div>
-    <div class="sg" id="ov-stats"></div>
+    <div style="display:flex;gap:12px;margin-bottom:20px;align-items:stretch">
+      <div class="sg" id="ov-stats" style="flex:1;margin-bottom:0"></div>
+      <div class="sc sc-b" id="tip-card" style="width:220px;flex-shrink:0;display:flex;flex-direction:column;min-height:90px">
+        <div class="sl">💡 Live Insight</div>
+        <div id="tip-text" style="font-size:12px;color:var(--text);line-height:1.55;transition:opacity .4s ease;flex:1;margin-top:6px"></div>
+      </div>
+    </div>
     <div class="g2">
     <div class="panel">
       <div class="ph"><span class="pt">Stock Health</span><span class="pb">current inventory snapshot — click to drill in</span></div>
@@ -207,10 +213,6 @@ tr.ru td{background:rgba(255,165,2,.03)}
     </div>
     <div class="panel">
       <div class="ph"><span class="pt">⚠ Running Out</span><span class="pb" id="row-count">—</span></div>
-      <div id="tip-bar" style="padding:7px 14px 6px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:7px;min-height:36px">
-        <span style="font-size:12px;margin-top:2px;flex-shrink:0;opacity:.7">💡</span>
-        <span id="tip-text" style="font-size:11px;color:var(--muted);line-height:1.45;transition:opacity .4s ease"></span>
-      </div>
       <div id="ro-tabs" style="display:flex;gap:0;border-bottom:1px solid var(--border);padding:0 8px">
         <button class="atab" id="rotab-today" onclick="showROTab('today',this)">Today</button>
         <button class="atab active" id="rotab-week" onclick="showROTab('week',this)">This Week</button>
@@ -1748,31 +1750,55 @@ function rSpikes(){
   mkSortable('t-spikes');
 }
 
-// ── SALES TIPS ────────────────────────────────────────────────────
-const TIPS=[
-  'Top sellers running low = lost revenue. Keep your top 5 always stocked.',
-  'Patients on chronic meds (BP, diabetes) are your most predictable revenue — prioritise their refills.',
-  'Offering a 2-month supply on stable chronic meds reduces visit friction and improves adherence.',
-  'Dead stock = tied-up capital. Return to supplier or discount to free up cash for faster movers.',
-  'OTC items near the counter drive impulse purchases — rotate the display each season.',
-  'Follow up patients who haven\'t returned in 60+ days — a quick call often brings them back.',
-  'Bundle vitamins and supplements with chronic disease consults to increase basket size.',
-  'Check Medicine Combos — frequent co-prescriptions may justify convenience pre-packing.',
-  'Morning slots tend to yield higher revenue — consider extending hours if demand is there.',
-  'High-volume, low-margin medicines are worth re-negotiating cost price with your supplier.',
-  'Top 20 patients drive outsized revenue — give them priority service and remember their names.',
-  'Surging medicines signal unmet demand — don\'t let trending items go out of stock.',
-];
-let _tipIdx=0,_tipTimer=null;
+// ── LIVE INSIGHTS ─────────────────────────────────────────────────
+let _tipTimer=null;
+function buildContextualTips(){
+  const tips=[];
+  const spikes=(D.analytics?.spikes)||[];
+  const s=D.summary||{};
+  // High-revenue items running low (≤14d stock, still has stock)
+  D.all_items
+    .filter(i=>i.monthly_revenue>400&&i.days_of_stock>0&&i.days_of_stock<=14)
+    .sort((a,b)=>b.monthly_revenue-a.monthly_revenue).slice(0,3)
+    .forEach(i=>tips.push(`${tr(i.description,32)} earns MYR ${fmt(i.monthly_revenue)}/mo — only ${i.days_of_stock.toFixed(0)}d of stock left. Reorder before it dents revenue.`));
+  // OOS items with meaningful revenue
+  D.all_items
+    .filter(i=>i.available_stock===0&&i.monthly_revenue>300)
+    .sort((a,b)=>b.monthly_revenue-a.monthly_revenue).slice(0,2)
+    .forEach(i=>tips.push(`${tr(i.description,32)} is out of stock — MYR ${fmt(i.monthly_revenue)}/mo in revenue on hold until it's restocked.`));
+  // Surging items with low stock
+  spikes.filter(sp=>sp.change_pct>0)
+    .map(sp=>({sp,item:D.all_items.find(i=>i.description===sp.medicine)||{}}))
+    .filter(({item})=>(item.days_of_stock||999)<21).slice(0,2)
+    .forEach(({sp,item})=>tips.push(`${tr(sp.medicine,32)} demand is up +${sp.change_pct}% but only ${(item.days_of_stock||0).toFixed(0)}d of stock left — reorder now.`));
+  // Zero-sales drop spikes
+  spikes.filter(sp=>sp.change_pct<0&&sp.qty_14d===0).slice(0,2)
+    .forEach(sp=>tips.push(`${tr(sp.medicine,32)} had zero sales in 2 weeks — was it substituted by a doctor or was there a supply issue?`));
+  // Dead stock
+  if((s.dead_capital||0)>500) tips.push(`MYR ${fmt(s.dead_capital)} is tied up in dead stock. Return to supplier or discount to free capital for faster movers.`);
+  // Revenue at risk
+  if((s.revenue_at_risk||0)>500) tips.push(`MYR ${fmt(s.revenue_at_risk)}/mo at risk from fully out-of-stock medicines. Reorder urgently to recover lost revenue.`);
+  // Critical count
+  if((s.critical_items||0)>0) tips.push(`${s.critical_items} medicine${s.critical_items!==1?'s are':' is'} critically low — check the Ordering section today.`);
+  // Generic fallbacks (always shown when data-driven tips run out)
+  tips.push('Chronic disease patients (BP, diabetes, cholesterol) are your most reliable revenue — never let their refill items run out.');
+  tips.push('Bundle vitamins and supplements with chronic consults to increase average basket size.');
+  tips.push('Patients who haven\'t returned in 60+ days — a quick follow-up call often brings them back.');
+  tips.push('Top 20 patients drive outsized revenue — give them priority slots and remember their names.');
+  tips.push('High-volume, low-margin medicines are worth re-negotiating cost price with your supplier.');
+  return tips;
+}
 function initTips(){
+  const tips=buildContextualTips();
+  let idx=0;
   const el=document.getElementById('tip-text');
   if(!el)return;
-  el.textContent=TIPS[0];el.style.opacity='1';
+  el.textContent=tips[0];el.style.opacity='1';
   if(_tipTimer)clearInterval(_tipTimer);
   _tipTimer=setInterval(()=>{
     el.style.opacity='0';
-    setTimeout(()=>{_tipIdx=(_tipIdx+1)%TIPS.length;el.textContent=TIPS[_tipIdx];el.style.opacity='1';},420);
-  },7000);
+    setTimeout(()=>{idx=(idx+1)%tips.length;el.textContent=tips[idx];el.style.opacity='1';},420);
+  },10000);
 }
 
 // ── REVENUE ───────────────────────────────────────────────────────
