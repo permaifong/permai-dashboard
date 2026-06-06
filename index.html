@@ -205,8 +205,17 @@ tr.ru td{background:rgba(255,165,2,.03)}
       </div>
     </div>
     <div class="panel">
-      <div class="ph"><span class="pt">⚠ Running Out This Week</span><span class="pb" id="row-count">—</span></div>
-      <div class="pbd" style="padding:10px 14px"><div id="row-list" style="overflow-y:auto;max-height:200px;display:flex;flex-direction:column;gap:0"></div></div>
+      <div class="ph"><span class="pt">⚠ Running Out</span><span class="pb" id="row-count">—</span></div>
+      <div id="ro-tabs" style="display:flex;gap:0;border-bottom:1px solid var(--border);padding:0 8px">
+        <button class="atab" id="rotab-today" onclick="showROTab('today',this)">Today</button>
+        <button class="atab active" id="rotab-week" onclick="showROTab('week',this)">This Week</button>
+        <button class="atab" id="rotab-month" onclick="showROTab('month',this)">This Month</button>
+      </div>
+      <div class="pbd" style="padding:10px 14px">
+        <div id="row-list-today" style="overflow-y:auto;max-height:200px;display:none;flex-direction:column;gap:0"></div>
+        <div id="row-list-week" style="overflow-y:auto;max-height:200px;display:flex;flex-direction:column;gap:0"></div>
+        <div id="row-list-month" style="overflow-y:auto;max-height:200px;display:none;flex-direction:column;gap:0"></div>
+      </div>
     </div>
     </div>
     <div class="panel" style="margin-bottom:18px">
@@ -957,8 +966,15 @@ function V(name,el){
 }
 function showAlertsTab(tab,btn){
   ['reorder','expiry','dead'].forEach(t=>{const e=document.getElementById('atab-'+t);if(e)e.style.display=t===tab?'':'none';});
-  document.querySelectorAll('.atab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('#view-alerts .atab').forEach(b=>b.classList.remove('active'));
   if(btn)btn.classList.add('active');
+}
+function showROTab(tab,btn){
+  ['today','week','month'].forEach(t=>{const e=document.getElementById('row-list-'+t);if(e)e.style.display=t===tab?'flex':'none';});
+  document.querySelectorAll('#ro-tabs .atab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const n=parseInt(btn.dataset.count||0);
+  document.getElementById('row-count').textContent=`${n} medicine${n!==1?'s':''}`;
 }
 
 function render(){
@@ -1093,16 +1109,23 @@ function rOverview(){
   const mMonths=Object.keys(mRev).sort();
   const prevM=mMonths[mMonths.length-2]||'';
   const prevMLabel=prevM?(new Date(prevM+'-01').toLocaleDateString('en-MY',{month:'long'})):'—';
-  const rowItems=D.all_items.filter(i=>i.available_stock>0&&i.days_of_stock>0&&i.days_of_stock<=7).sort((a,b)=>a.days_of_stock-b.days_of_stock);
+  const roToday=D.all_items.filter(i=>i.available_stock>0&&i.days_of_stock>0&&i.days_of_stock<=1).sort((a,b)=>a.days_of_stock-b.days_of_stock);
+  const roWeek=D.all_items.filter(i=>i.available_stock>0&&i.days_of_stock>0&&i.days_of_stock<=7).sort((a,b)=>a.days_of_stock-b.days_of_stock);
+  const roMonth=D.all_items.filter(i=>i.available_stock>0&&i.days_of_stock>0&&i.days_of_stock<=30).sort((a,b)=>a.days_of_stock-b.days_of_stock);
+  const roRow=i=>`<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border)"><span style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;color:var(--text)">${esc(tr(i.description,46))}</span><span style="font-family:var(--fm);font-size:11px;font-weight:700;color:${i.days_of_stock<=3?'var(--danger)':i.days_of_stock<=7?'var(--warning)':'var(--muted)'};white-space:nowrap;margin-left:8px">${i.days_of_stock.toFixed(0)}d</span></div>`;
   document.getElementById('ov-stats').innerHTML=`
     <div class="sc sc-g" style="min-height:90px"><div class="sl">Profit / Day</div><div class="sv sv-g" style="font-size:22px;margin-top:4px">MYR ${fmt(profitPerDay)}</div><div class="ss">Est. daily net profit</div></div>
     <div class="sc sc-t" style="min-height:90px"><div class="sl">Profit This Month</div><div class="sv sv-t" style="font-size:22px;margin-top:4px">MYR ${fmt(profitThisMonth)}</div><div class="ss">MTD net profit</div></div>
     <div class="sc sc-y" style="min-height:90px"><div class="sl">Last Month Profit</div><div class="sv sv-y" style="font-size:22px;margin-top:4px">MYR ${fmt(lastMonthProfit)}</div><div class="ss">${prevMLabel}</div></div>
     <div class="sc sc-r" style="min-height:90px"><div class="sl">Min Sales / Day (${today.toLocaleDateString('en-MY',{month:'short'})})</div><div class="sv sv-r" style="font-size:22px;margin-top:4px">${worstRev===Infinity?'—':'MYR '+fmt(worstRev)}</div><div class="ss">${worstLabel}</div></div>`;
-  document.getElementById('row-count').textContent=`${rowItems.length} medicine${rowItems.length!==1?'s':''}`;
-  document.getElementById('row-list').innerHTML=rowItems.length
-    ?rowItems.map(i=>`<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border)"><span style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;color:var(--text)">${esc(tr(i.description,46))}</span><span style="font-family:var(--fm);font-size:11px;font-weight:700;color:${i.days_of_stock<=3?'var(--danger)':'var(--warning)'};white-space:nowrap;margin-left:8px">${i.days_of_stock.toFixed(0)}d</span></div>`).join('')
-    :'<div style="font-size:12px;color:var(--ok);padding:8px 0">All good — nothing running out this week ✓</div>';
+  document.getElementById('row-list-today').innerHTML=roToday.length?roToday.map(roRow).join(''):'<div style="font-size:12px;color:var(--ok);padding:8px 0">All good — nothing running out today ✓</div>';
+  document.getElementById('row-list-week').innerHTML=roWeek.length?roWeek.map(roRow).join(''):'<div style="font-size:12px;color:var(--ok);padding:8px 0">All good — nothing running out this week ✓</div>';
+  document.getElementById('row-list-month').innerHTML=roMonth.length?roMonth.map(roRow).join(''):'<div style="font-size:12px;color:var(--ok);padding:8px 0">All good — nothing running out this month ✓</div>';
+  document.getElementById('rotab-today').dataset.count=roToday.length;
+  document.getElementById('rotab-week').dataset.count=roWeek.length;
+  document.getElementById('rotab-month').dataset.count=roMonth.length;
+  document.getElementById('row-count').textContent=`${roWeek.length} medicine${roWeek.length!==1?'s':''}`;
+
 
   // Stock Health — donut with urgency colours + mini-stats
   const crit=D.all_items.filter(i=>i.urgency==='critical').length;
