@@ -1194,7 +1194,7 @@ function rOrdering(){
   const up={critical:'<span class="p pr">🔴 Critical</span>',urgent:'<span class="p po">🟠 Urgent</span>',high:'<span class="p py">🟡 High</span>',medium:'<span class="p pb2">⚪ Medium</span>',low:'<span class="p pm">Low</span>'};
   document.getElementById('t-ordering').innerHTML=items.length?items.map(i=>{
     const d=i.days_of_stock;
-    const dl=d===0?'<span class="p pr">OOS</span>':`<span style="color:var(--${d<7?'danger':d<14?'warning':'ok'});font-family:var(--fm);font-weight:600">${d===999?'∞':d.toFixed(0)+'d'}</span>`;
+    const dl=`<span style="color:var(--${d===0||d<7?'danger':d<14?'warning':'ok'});font-family:var(--fm);font-weight:600">${d===999?'∞':d.toFixed(0)+'d'}</span>`;
     const usage2wk=Math.round((i.recommended_monthly||0)/2);
     const oq=Math.ceil((i.recommended_monthly||0)/2);
     const ec=oq*(i.latest_cost_price||0);
@@ -1214,31 +1214,67 @@ function rOrdering(){
 function exportOrderingExcel(){
   if(!window.XLSX){alert('Excel library not loaded yet. Please wait and try again.');return;}
   const urgOrder={critical:0,urgent:1,high:2,medium:3,low:4};
-  const items=[...D.reorder_items].sort((a,b)=>(urgOrder[a.urgency]??5)-(urgOrder[b.urgency]??5));
+  const urgLabels={critical:'🔴 CRITICAL',urgent:'🟠 URGENT',high:'🟡 HIGH',medium:'⚪ MEDIUM',low:'LOW'};
+  const allItems=[...D.reorder_items].sort((a,b)=>(urgOrder[a.urgency]??5)-(urgOrder[b.urgency]??5));
   const today=new Date().toLocaleDateString('en-MY',{day:'numeric',month:'long',year:'numeric'});
+  const poRef='PO-'+new Date().toISOString().slice(0,10).replace(/-/g,'');
+  const totalCost=allItems.reduce((s,i)=>s+Math.ceil((i.recommended_monthly||0)/2)*(i.latest_cost_price||0),0);
+
+  const COL=['#','Medicine','Brand','UOM','Days Left','Current Stock','Required Stock','Usage/2wk','Order Qty (2wk)','Unit Cost (MYR)','Est. Total (MYR)','Notes'];
+
+  // Header block
   const rows=[
     [`Permai Polyclinics Fortuna — Purchase Order`],
-    [`Generated: ${today}  |  ${items.length} items`],
+    [`PO Ref: ${poRef}   |   Generated: ${today}   |   ${allItems.length} items   |   Est. Total: MYR ${Math.round(totalCost*100)/100}`],
     [],
-    ['#','Medicine','Current Stock','Order Qty (2wk)','Reason','Unit Cost (MYR)','Est. Total (MYR)']
+    ['SUMMARY'],
+    ['Priority','Items','Est. Cost (MYR)'],
   ];
-  items.forEach((i,idx)=>{
-    const d=i.days_of_stock;
-    const reason=i.available_stock===0?'Out of stock':d<7?`${d}d left - critical`:d<14?`${d}d left - urgent`:d<30?`${d}d left - low`:'Below minimum stock';
-    const cost=i.latest_cost_price||0;
-    const oq=Math.ceil((i.recommended_monthly||0)/2);
-    rows.push([idx+1,i.description,i.available_stock,oq,reason,cost,Math.round(oq*cost*100)/100]);
+  ['critical','urgent','high','medium','low'].forEach(u=>{
+    const grp=allItems.filter(i=>i.urgency===u);
+    if(!grp.length)return;
+    const gc=grp.reduce((s,i)=>s+Math.ceil((i.recommended_monthly||0)/2)*(i.latest_cost_price||0),0);
+    rows.push([urgLabels[u],grp.length,Math.round(gc*100)/100]);
   });
-  // Total row
-  const totalCost=items.reduce((s,i)=>s+Math.ceil((i.recommended_monthly||0)/2)*(i.latest_cost_price||0),0);
+  rows.push(['TOTAL',allItems.length,Math.round(totalCost*100)/100]);
   rows.push([]);
-  rows.push(['','','','','TOTAL ESTIMATED COST','',Math.round(totalCost*100)/100]);
+
+  // Grouped sections by urgency
+  let rowNum=0;
+  ['critical','urgent','high','medium','low'].forEach(u=>{
+    const grp=allItems.filter(i=>i.urgency===u);
+    if(!grp.length)return;
+    const gc=grp.reduce((s,i)=>s+Math.ceil((i.recommended_monthly||0)/2)*(i.latest_cost_price||0),0);
+    rows.push([`${urgLabels[u]} — ${grp.length} item${grp.length!==1?'s':''} — Est. MYR ${Math.round(gc*100)/100}`]);
+    rows.push(COL);
+    grp.forEach(i=>{
+      const d=i.days_of_stock;
+      const dLabel=d===0?'0d (OOS)':d===999?'∞':d.toFixed(0)+'d';
+      const oq=Math.ceil((i.recommended_monthly||0)/2);
+      const cost=i.latest_cost_price||0;
+      rows.push([
+        ++rowNum,
+        i.description||'',
+        i.brand||'',
+        i.uom||'',
+        dLabel,
+        i.available_stock,
+        i.required_stock||'',
+        Math.round((i.recommended_monthly||0)/2),
+        oq,
+        cost,
+        Math.round(oq*cost*100)/100,
+        ''
+      ]);
+    });
+    rows.push([]);
+  });
 
   const ws=XLSX.utils.aoa_to_sheet(rows);
-  ws['!cols']=[{wch:4},{wch:52},{wch:14},{wch:10},{wch:28},{wch:16},{wch:18}];
+  ws['!cols']=[{wch:4},{wch:44},{wch:20},{wch:8},{wch:11},{wch:14},{wch:14},{wch:11},{wch:14},{wch:16},{wch:16},{wch:22}];
   const wb=XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb,ws,'Purchase Order');
-  const fname='PO_Permai_'+new Date().toISOString().slice(0,10).replace(/-/g,'')+'.xlsx';
+  const fname=`${poRef}_Permai.xlsx`;
   XLSX.writeFile(wb,fname);
 }
 
@@ -1267,7 +1303,7 @@ function renderROTable(){
   const up={critical:'<span class="p pr">🔴 Critical</span>',urgent:'<span class="p po">🟠 Urgent</span>',high:'<span class="p py">🟡 High</span>',medium:'<span class="p pb2">⚪ Medium</span>',low:'<span class="p pm">Low</span>'};
   document.getElementById('t-ro').innerHTML=filtered.map(i=>{
     const d=i.days_of_stock;
-    const dl=d===0?'<span class="p pr">OOS</span>':`<span style="color:var(--${d<7?'danger':d<14?'warning':'ok'});font-family:var(--fm);font-weight:600">${d===999?'∞':d.toFixed(0)+'d'}</span>`;
+    const dl=`<span style="color:var(--${d===0||d<7?'danger':d<14?'warning':'ok'});font-family:var(--fm);font-weight:600">${d===999?'∞':d.toFixed(0)+'d'}</span>`;
     const oc=(i.order_qty||0)*(i.latest_cost_price||0);
     const rr=i.available_stock===0&&i.monthly_revenue>0?`<span style="color:var(--danger);font-family:var(--fm);font-size:11px">MYR ${fmt(i.monthly_revenue)}</span>`:'—';
     const urgN2={critical:0,urgent:1,high:2,medium:3,low:4};
