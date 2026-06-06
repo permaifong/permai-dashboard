@@ -1269,11 +1269,13 @@ function exportOrderingExcel(){
   // Ordering logic note — written into col 4 alongside the summary rows
   const nTitleS={font:{bold:true,sz:9,color:{rgb:'1F4E79'}},alignment:{horizontal:'left',vertical:'center'}};
   const nBodyS={font:{sz:9,color:{rgb:'444444'}},alignment:{horizontal:'left',vertical:'center'}};
+  const nItalicS={font:{sz:9,italic:true,color:{rgb:'888888'}},alignment:{horizontal:'left',vertical:'center'}};
   [
     ['How order quantities are calculated:',nTitleS],
     ['Order Qty  =  2-week usage  −  stock already on hand',nBodyS],
     ['Items with 30+ days of stock are excluded from this PO',nBodyS],
     ['Out-of-stock items receive the full 2-week usage as order qty',nBodyS],
+    ['Feel free to reach out if you want to change the ordering logic.',nItalicS],
   ].forEach(([text,sty],idx)=>{
     if(aoa[summaryStart+idx]) aoa[summaryStart+idx][4]=text;
     st(summaryStart+idx,4,sty);
