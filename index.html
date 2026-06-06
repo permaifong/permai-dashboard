@@ -196,8 +196,14 @@ tr.ru td{background:rgba(255,165,2,.03)}
   <div class="view active fi" id="view-overview">
     <div class="sh"><h2>Dashboard</h2><span class="sub" id="ov-date">—</span></div>
     <div id="ov-banners"></div>
-    <div class="sg" id="ov-stats"></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 280px;gap:16px;margin-bottom:16px">
+    <div style="display:flex;gap:12px;margin-bottom:20px;align-items:stretch">
+      <div class="sg" id="ov-stats" style="flex:1;margin-bottom:0"></div>
+      <div class="sc sc-b" id="tip-card" style="width:380px;flex-shrink:0;display:flex;flex-direction:column">
+        <div class="sl">💡 Live Insight</div>
+        <div id="tip-text" style="font-size:13px;color:var(--text);line-height:1.6;transition:opacity .4s ease;flex:1;margin-top:10px"></div>
+      </div>
+    </div>
+    <div class="g2">
     <div class="panel">
       <div class="ph"><span class="pt">Stock Health</span><span class="pb">current inventory snapshot — click to drill in</span></div>
       <div class="pbd">
@@ -217,10 +223,6 @@ tr.ru td{background:rgba(255,165,2,.03)}
         <div id="row-list-week" style="overflow-y:auto;max-height:200px;display:flex;flex-direction:column;gap:0"></div>
         <div id="row-list-month" style="overflow-y:auto;max-height:200px;display:none;flex-direction:column;gap:0"></div>
       </div>
-    </div>
-    <div class="sc sc-b" id="tip-card" style="display:flex;flex-direction:column">
-      <div class="sl">💡 Live Insight</div>
-      <div id="tip-text" style="font-size:13px;color:var(--text);line-height:1.6;transition:opacity .4s ease;flex:1;margin-top:10px"></div>
     </div>
     </div>
     <div class="panel" style="margin-bottom:18px">
