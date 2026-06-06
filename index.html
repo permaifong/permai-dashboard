@@ -1277,7 +1277,8 @@ function exportOrderingExcel(){
     ['Out-of-stock items receive the full 2-week usage as order qty',nBodyS],
     ['Feel free to reach out if you want to change the ordering logic.',nItalicS],
   ].forEach(([text,sty],idx)=>{
-    if(aoa[summaryStart+idx]) aoa[summaryStart+idx][4]=text;
+    if(!aoa[summaryStart+idx]) aoa[summaryStart+idx]=new Array(N).fill('');
+    aoa[summaryStart+idx][4]=text;
     st(summaryStart+idx,4,sty);
     mg(summaryStart+idx,4,summaryStart+idx,N-1);
   });
