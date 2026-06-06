@@ -1583,7 +1583,51 @@ function _getCatNorm(){
   Object.entries(MEDICINE_CATEGORIES).forEach(([k,v])=>{_catNorm[_norm(k)]=v;});
   return _catNorm;
 }
-function getCategory(desc){return _getCatNorm()[_norm(desc)]||'Uncategorized';}
+
+// Brand-word extraction: strip form/dose/packaging tokens, leaving brand name words
+const _FW=/^(TAB|TABS|CAP|CAPS|CAPSULE|TABLET|INJ|INJECTION|SYR|SYRUP|SUSP|SUSPENSION|SUPP|SUPPOSITORY|SOL|SOLUTION|SPRAY|DROP|DROPS|CREAM|OINTMENT|OINT|GEL|LOTION|POWDER|GRAN|GRANULES|ELIXIR|LINCTUS|MIXTURE|ORAL|FORTE|MR|SR|ER|PF|FC|EC|EM)$/;
+const _DW=/^\d[\d.]*\s*(MG|ML|MCG|G|IU|%)(\/[\w.]+)?$/;
+const _PW=/^\d+S$|^\d+X\d+/;
+function _brandOf(s){
+  return _norm(s)
+    .replace(/\([^)]*\)/g,' ')   // remove (parenthetical)
+    .replace(/['''`]/g,'')        // remove apostrophes
+    .replace(/-/g,' ')            // hyphens → spaces (APO-SOMETHING → APO SOMETHING)
+    .split(/\s+/)
+    .filter(w=>w.length>1 && !_FW.test(w) && !_DW.test(w) && !_PW.test(w) && !/^\d+$/.test(w));
+}
+let _brandMap=null;
+function _getBrandMap(){
+  if(_brandMap)return _brandMap;
+  _brandMap=[];
+  Object.entries(MEDICINE_CATEGORIES).forEach(([k,cat])=>{
+    const words=_brandOf(k);
+    for(let n=Math.min(words.length,3);n>=1;n--) _brandMap.push({sig:words.slice(0,n),cat});
+  });
+  _brandMap.sort((a,b)=>b.sig.length-a.sig.length); // try longest (most specific) first
+  return _brandMap;
+}
+
+function getCategory(desc){
+  // 1. Exact normalized match
+  const cn=_getCatNorm();
+  if(cn[_norm(desc)])return cn[_norm(desc)];
+  // 2. Brand-token match: extract significant words from desc, check consecutive overlap with key brand words
+  const bmap=_getBrandMap();
+  const dw=_brandOf(desc);
+  for(const {sig,cat} of bmap){
+    if(sig.length===1){
+      if(dw.includes(sig[0]))return cat;
+    } else {
+      const idx=dw.indexOf(sig[0]);
+      if(idx<0)continue;
+      let ok=true;
+      for(let j=1;j<sig.length;j++){if(dw[idx+j]!==sig[j]){ok=false;break;}}
+      if(ok)return cat;
+    }
+  }
+  return 'Uncategorized';
+}
 
 function downloadLatestPO(){
   if(D && D.latest_po_filename){
