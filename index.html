@@ -1037,7 +1037,7 @@ function rOverview(){
     :'';
 
   // ── Stat cards (2 only)
-  const dailyRev=an.daily_revenue||{};
+  const dailyRev=a.daily_revenue||{};
   const dailyDates=Object.keys(dailyRev).sort();
   let worstDate='',worstRev=Infinity;
   dailyDates.forEach(d=>{if(dailyRev[d]<worstRev){worstRev=dailyRev[d];worstDate=d;}});
@@ -1057,8 +1057,7 @@ function rOverview(){
   const ok=D.all_items.filter(i=>!i.needs_reorder).length;
   mkBar('c-health',['OK','Low','Medium','High','Urgent','Critical'],[ok,low,med,high,urg,crit],'Medicines','#0a7c6e',false);
 
-  const an=D.analytics||{};
-  const mR=an.monthly_revenue||{};const mP=an.monthly_patients||{};
+  const mR=a.monthly_revenue||{};const mP=a.monthly_patients||{};
   const rL=Object.keys(mR).sort();
   mkBar('c-rev-month',rL.map(m=>m.slice(5)),rL.map(m=>mR[m]),'Revenue MYR','#c47f17',false);
   mkBar('c-pat-month',Object.keys(mP).sort().map(m=>m.slice(5)),Object.keys(mP).sort().map(m=>mP[m]),'Patients','#1565a8',false);
