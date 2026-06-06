@@ -239,7 +239,7 @@ tr.ru td{background:rgba(255,165,2,.03)}
       <button onclick="exportOrderingExcel()" style="background:rgba(10,124,110,.1);border:1px solid rgba(10,124,110,.3);border-radius:7px;padding:6px 14px;color:var(--accent);font-family:var(--fb);font-size:12px;cursor:pointer;font-weight:500;white-space:nowrap">⬇ Download PO</button>
     </div>
     <div class="panel"><div class="ts"><table class="dt">
-      <thead><tr><th>Priority</th><th>Medicine</th><th>Stock</th><th>Days Left</th><th>Usage/Mo</th><th>Order Qty</th><th>Est. Cost</th></tr></thead>
+      <thead><tr><th>Priority</th><th>Medicine</th><th>Stock</th><th>Days Left</th><th>Usage/2wk</th><th>Order Qty (2wk)</th><th>Est. Cost</th></tr></thead>
       <tbody id="t-ordering"></tbody>
     </table></div></div>
   </div>
@@ -1195,15 +1195,17 @@ function rOrdering(){
   document.getElementById('t-ordering').innerHTML=items.length?items.map(i=>{
     const d=i.days_of_stock;
     const dl=d===0?'<span class="p pr">OOS</span>':`<span style="color:var(--${d<7?'danger':d<14?'warning':'ok'});font-family:var(--fm);font-weight:600">${d===999?'∞':d.toFixed(0)+'d'}</span>`;
-    const ec=(i.order_qty||0)*(i.latest_cost_price||0);
+    const usage2wk=Math.round((i.recommended_monthly||0)/2);
+    const oq=Math.ceil((i.recommended_monthly||0)/2);
+    const ec=oq*(i.latest_cost_price||0);
     const urgN={critical:0,urgent:1,high:2,medium:3,low:4};
     return`<tr class="${i.urgency==='critical'?'rc':i.urgency==='urgent'?'ru':''}">
       <td data-sort="${urgN[i.urgency]??4}">${up[i.urgency]||'<span class="p pm">Low</span>'}</td>
       <td><div class="mn">${esc(tr(i.description,50))}<small>${esc(i.brand||'')}</small></div></td>
       <td>${i.available_stock===0?'<span class="p pr">OOS</span>':`<span class="qn">${i.available_stock}</span>`}</td>
       <td data-sort="${d===999?9999:d}">${dl}</td>
-      <td><span class="qn">${Math.round(i.recommended_monthly||0)}/mo</span></td>
-      <td><span class="p pt2" style="font-size:12px;font-weight:700">${i.order_qty||0}</span></td>
+      <td><span class="qn">${usage2wk}/2wk</span></td>
+      <td><span class="p pt2" style="font-size:12px;font-weight:700">${oq}</span></td>
       <td class="cost">MYR ${fmt(ec)}</td>
     </tr>`;
   }).join(''):'<tr><td colspan="7" class="empty">Nothing to order 🎉</td></tr>';
@@ -1218,16 +1220,17 @@ function exportOrderingExcel(){
     [`Permai Polyclinics Fortuna — Purchase Order`],
     [`Generated: ${today}  |  ${items.length} items`],
     [],
-    ['#','Medicine','Current Stock','Order Qty','Reason','Unit Cost (MYR)','Est. Total (MYR)']
+    ['#','Medicine','Current Stock','Order Qty (2wk)','Reason','Unit Cost (MYR)','Est. Total (MYR)']
   ];
   items.forEach((i,idx)=>{
     const d=i.days_of_stock;
     const reason=i.available_stock===0?'Out of stock':d<7?`${d}d left - critical`:d<14?`${d}d left - urgent`:d<30?`${d}d left - low`:'Below minimum stock';
     const cost=i.latest_cost_price||0;
-    rows.push([idx+1,i.description,i.available_stock,i.order_qty||0,reason,cost,Math.round((i.order_qty||0)*cost*100)/100]);
+    const oq=Math.ceil((i.recommended_monthly||0)/2);
+    rows.push([idx+1,i.description,i.available_stock,oq,reason,cost,Math.round(oq*cost*100)/100]);
   });
   // Total row
-  const totalCost=items.reduce((s,i)=>s+(i.order_qty||0)*(i.latest_cost_price||0),0);
+  const totalCost=items.reduce((s,i)=>s+Math.ceil((i.recommended_monthly||0)/2)*(i.latest_cost_price||0),0);
   rows.push([]);
   rows.push(['','','','','TOTAL ESTIMATED COST','',Math.round(totalCost*100)/100]);
 
