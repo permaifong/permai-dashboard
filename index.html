@@ -1691,17 +1691,43 @@ function rPatients(){
 }
 
 // ── COMBOS ────────────────────────────────────────────────────────
+function comboStockBadge(name){
+  const item=D.all_items.find(i=>i.description===name)||{};
+  const s=item.available_stock??null;
+  const d=item.days_of_stock??null;
+  if(s===null)return{html:'',s:null,d:null};
+  const col=s===0?'var(--danger)':d!=null&&d<7?'var(--danger)':d!=null&&d<14?'var(--warning)':'var(--ok)';
+  const units=s===0?'OOS':`${s} units`;
+  const days=d===999||d===null?'':d===0?'':` · ${d.toFixed(0)}d`;
+  return{html:`<span style="font-size:10px;font-family:var(--fm);color:${col};white-space:nowrap">(${units}${days})</span>`,s,d,col};
+}
+function comboInsight(bA,bB,nA,nB){
+  const aOOS=bA.s===0,bOOS=bB.s===0;
+  const aLow=bA.d!=null&&bA.d<14&&!aOOS,bLow=bB.d!=null&&bB.d<14&&!bOOS;
+  if(aOOS&&bOOS)return{text:'Both OOS — reorder together urgently',cls:'pr'};
+  if(aOOS)return{text:`${tr(nA,26)} is OOS — reorder both together`,cls:'pr'};
+  if(bOOS)return{text:`${tr(nB,26)} is OOS — reorder both together`,cls:'pr'};
+  if(aLow&&bLow)return{text:'Both running low — reorder together',cls:'po'};
+  if(aLow)return{text:`${tr(nA,26)} is low — reorder ${tr(nB,26)} at the same time`,cls:'po'};
+  if(bLow)return{text:`${tr(nB,26)} is low — reorder ${tr(nA,26)} at the same time`,cls:'po'};
+  return{text:'Both well stocked',cls:''};
+}
 function rCombos(){
   const combos=(D.analytics?.combos||[]);
   const sub=document.getElementById('combos-sub');
   if(sub) sub.textContent=`${combos.length} pairs — most frequently co-prescribed in same visit`;
-  document.getElementById('t-combos').innerHTML=combos.map((c,i)=>`<tr>
-    <td style="color:var(--muted);font-family:var(--fm)">${i+1}</td>
-    <td><div class="mn">${esc(tr(c.med_a,44))}</div></td>
-    <td><div class="mn">${esc(tr(c.med_b,44))}</div></td>
-    <td><span class="p pt2">${c.count}×</span></td>
-    <td style="font-size:11px;color:var(--muted)">If one is low, check the other</td>
-  </tr>`).join('')||'<tr><td colspan="5" class="empty">No combination data.</td></tr>';
+  document.getElementById('t-combos').innerHTML=combos.map((c,i)=>{
+    const bA=comboStockBadge(c.med_a),bB=comboStockBadge(c.med_b);
+    const ins=comboInsight(bA,bB,c.med_a,c.med_b);
+    const insCls=ins.cls==='pr'?'var(--danger)':ins.cls==='po'?'var(--warning)':'var(--muted)';
+    return`<tr>
+      <td style="color:var(--muted);font-family:var(--fm)">${i+1}</td>
+      <td><div class="mn">${esc(tr(c.med_a,40))}</div><div style="margin-top:2px">${bA.html}</div></td>
+      <td><div class="mn">${esc(tr(c.med_b,40))}</div><div style="margin-top:2px">${bB.html}</div></td>
+      <td><span class="p pt2">${c.count}×</span></td>
+      <td style="font-size:11px;color:${insCls};line-height:1.4">${ins.text}</td>
+    </tr>`;
+  }).join('')||'<tr><td colspan="5" class="empty">No combination data.</td></tr>';
   mkSortable('t-combos');
 }
 
