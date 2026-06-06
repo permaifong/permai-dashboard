@@ -190,6 +190,10 @@ tr.ru td{background:rgba(255,165,2,.03)}
     <div class="sh"><h2>Dashboard</h2><span class="sub" id="ov-date">—</span></div>
     <div id="ov-banners"></div>
     <div class="sg" id="ov-stats"></div>
+    <div class="panel" style="margin-bottom:18px">
+      <div class="ph"><span class="pt">🏆 Top 5 Best Sellers</span><span class="pb">by monthly revenue</span></div>
+      <table class="dt"><thead><tr><th style="width:32px">#</th><th>Medicine</th><th style="text-align:right">Units/Mo</th><th style="text-align:right">Revenue/Mo</th></tr></thead><tbody id="t-bestsellers"></tbody></table>
+    </div>
     <div class="g2">
     <div class="panel" style="cursor:pointer" onclick="document.getElementById('health-info').style.display=document.getElementById('health-info').style.display==='none'?'block':'none'">
       <div class="ph"><span class="pt">Stock Health</span><span class="pb" style="color:var(--accent)">click for insights ↓</span></div>
@@ -1059,6 +1063,15 @@ function rOverview(){
     const dl=i.days_of_stock===0?'<span class="p pr">OUT OF STOCK</span>':`<span style="color:var(--danger);font-family:var(--fm);font-weight:600">${i.days_of_stock.toFixed(0)}d</span>`;
     return`<tr class="rc"><td><div class="mn">${esc(tr(i.description,48))}<small>${esc(i.brand||'')}</small></div></td><td><span class="qn">${i.available_stock}</span></td><td>${dl}</td><td><span class="qn">${i.recommended_monthly}/mo</span></td><td><span class="p pr">Order ${i.order_qty}</span></td></tr>`;
   }).join('')||'<tr><td colspan="5" class="empty">No critical items 🎉</td></tr>';
+
+  // Best sellers
+  const bs=(D.top_revenue_items||[]).slice(0,5);
+  document.getElementById('t-bestsellers').innerHTML=bs.length?bs.map((i,idx)=>`<tr>
+    <td style="color:var(--muted);font-family:var(--fm);font-weight:700;font-size:13px">${idx+1}</td>
+    <td><div class="mn">${esc(tr(i.description,54))}</div></td>
+    <td style="text-align:right"><span class="qn">${Math.round(i.recommended_monthly||0)}</span></td>
+    <td style="text-align:right" class="cost">MYR ${fmt(i.monthly_revenue)}</td>
+  </tr>`).join(''):'<tr><td colspan="4" class="empty">No data.</td></tr>';
 }
 
 // ── ORDERING ─────────────────────────────────────────────────────
