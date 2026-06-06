@@ -1055,9 +1055,9 @@ function rOverview(){
   const prevMLabel=prevM?(new Date(prevM+'-01').toLocaleDateString('en-MY',{month:'long'})):'—';
   document.getElementById('ov-stats').innerHTML=`
     <div class="sc sc-g" style="min-height:90px"><div class="sl">Profit / Day</div><div class="sv sv-g" style="font-size:22px;margin-top:4px">MYR ${fmt(profitPerDay)}</div><div class="ss">Est. daily net profit</div></div>
-    <div class="sc sc-r" style="min-height:90px"><div class="sl">Slowest Day (${today.toLocaleDateString('en-MY',{month:'short'})})</div><div class="sv sv-r" style="font-size:22px;margin-top:4px">${worstProfit===null?'—':'MYR '+fmt(worstProfit)}</div><div class="ss">${worstLabel}</div></div>
     <div class="sc sc-t" style="min-height:90px"><div class="sl">Profit This Month</div><div class="sv sv-t" style="font-size:22px;margin-top:4px">MYR ${fmt(profitThisMonth)}</div><div class="ss">MTD net profit</div></div>
-    <div class="sc sc-y" style="min-height:90px"><div class="sl">Last Month Profit</div><div class="sv sv-y" style="font-size:22px;margin-top:4px">MYR ${fmt(lastMonthProfit)}</div><div class="ss">${prevMLabel}</div></div>`;
+    <div class="sc sc-y" style="min-height:90px"><div class="sl">Last Month Profit</div><div class="sv sv-y" style="font-size:22px;margin-top:4px">MYR ${fmt(lastMonthProfit)}</div><div class="ss">${prevMLabel}</div></div>
+    <div class="sc sc-r" style="min-height:90px"><div class="sl">Slowest Day (${today.toLocaleDateString('en-MY',{month:'short'})})</div><div class="sv sv-r" style="font-size:22px;margin-top:4px">${worstProfit===null?'—':'MYR '+fmt(worstProfit)}</div><div class="ss">${worstLabel}</div></div>`;
 
   // Stock Health as bar chart
   const crit=D.all_items.filter(i=>i.urgency==='critical').length;
