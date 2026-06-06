@@ -225,9 +225,15 @@ tr.ru td{background:rgba(255,165,2,.03)}
       </div>
     </div>
     </div>
-    <div class="panel" style="margin-bottom:18px">
-      <div class="ph"><span class="pt">🏆 Top 5 Best Sellers</span><span class="pb">by units/month</span></div>
-      <table class="dt"><thead><tr><th style="width:32px">#</th><th>Medicine</th><th style="text-align:right">Units/Mo</th><th style="text-align:right">Revenue/Mo</th></tr></thead><tbody id="t-bestsellers"></tbody></table>
+    <div class="g2" style="margin-bottom:18px">
+      <div class="panel">
+        <div class="ph"><span class="pt">🏆 Top 5 Best Sellers</span><span class="pb">by units dispensed/month</span></div>
+        <table class="dt"><thead><tr><th style="width:32px">#</th><th>Medicine</th><th style="text-align:right">Units/Mo</th><th style="text-align:right">Revenue/Mo</th></tr></thead><tbody id="t-bestsellers"></tbody></table>
+      </div>
+      <div class="panel">
+        <div class="ph"><span class="pt">💰 Top 5 Revenue Items</span><span class="pb">by MYR earned/month</span></div>
+        <table class="dt"><thead><tr><th style="width:32px">#</th><th>Medicine</th><th style="text-align:right">Units/Mo</th><th style="text-align:right">Revenue/Mo</th></tr></thead><tbody id="t-top-revenue"></tbody></table>
+      </div>
     </div>
     <div class="g2">
       <div class="panel"><div class="ph"><span class="pt">Revenue by Month</span><span class="pb">MYR</span></div><div class="pbd"><div class="cw"><canvas id="c-rev-month"></canvas></div></div></div>
@@ -1170,15 +1176,19 @@ function rOverview(){
   mkBar('c-rev-month',rL.map(m=>m.slice(5)),rL.map(m=>mR[m]),'Revenue MYR','#c47f17',false);
   mkBar('c-pat-month',Object.keys(mP).sort().map(m=>m.slice(5)),Object.keys(mP).sort().map(m=>mP[m]),'Patients','#1565a8',false);
 
-  // Best sellers
-  const bs=[...(D.fast_movers||[])].sort((a,b)=>b.recommended_monthly-a.recommended_monthly).slice(0,5);
-  document.getElementById('t-bestsellers').innerHTML=bs.length?bs.map((i,idx)=>`<tr>
+  // Best sellers (by units) + Top revenue items (by MYR)
+  const bsRow=(i,idx)=>`<tr>
     <td style="color:var(--muted);font-family:var(--fm);font-weight:700;font-size:13px">${idx+1}</td>
     <td><div class="mn">${esc(tr(i.description,54))}</div></td>
     <td style="text-align:right"><span class="qn">${Math.round(i.recommended_monthly||0)}</span></td>
     <td style="text-align:right" class="cost">MYR ${fmt(i.monthly_revenue)}</td>
-  </tr>`).join(''):'<tr><td colspan="4" class="empty">No data.</td></tr>';
+  </tr>`;
+  const bs=[...(D.fast_movers||[])].sort((a,b)=>b.recommended_monthly-a.recommended_monthly).slice(0,5);
+  document.getElementById('t-bestsellers').innerHTML=bs.length?bs.map(bsRow).join(''):'<tr><td colspan="4" class="empty">No data.</td></tr>';
   mkSortable('t-bestsellers');
+  const rev5=[...(D.top_revenue_items||[])].sort((a,b)=>b.monthly_revenue-a.monthly_revenue).slice(0,5);
+  document.getElementById('t-top-revenue').innerHTML=rev5.length?rev5.map(bsRow).join(''):'<tr><td colspan="4" class="empty">No data.</td></tr>';
+  mkSortable('t-top-revenue');
 }
 
 // ── ORDERING ─────────────────────────────────────────────────────
