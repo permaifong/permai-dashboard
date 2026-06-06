@@ -327,26 +327,7 @@ tr.ru td{background:rgba(255,165,2,.03)}
     <div class="sh"><h2>All Stock</h2><span class="sub" id="as-sub">—</span></div>
     <div class="sr">
       <input class="si" id="s-as" placeholder="Search medicine..." oninput="fAS()">
-      <select class="si" id="s-as-cat" onchange="sACF(this.value)" style="flex:0;min-width:210px">
-        <option value="all">All Categories</option>
-        <option value="Anti-Hypertensives">Anti-Hypertensives</option>
-        <option value="Anti-diabetic">Anti-diabetic</option>
-        <option value="Cardiovascular">Cardiovascular</option>
-        <option value="Anti-Hyperlipidemia">Anti-Hyperlipidemia</option>
-        <option value="Cold/cough/respiratory">Cold/cough/respiratory</option>
-        <option value="Gastro-intestinal">Gastro-intestinal</option>
-        <option value="ENT">ENT</option>
-        <option value="CNS">CNS</option>
-        <option value="Antibiotics">Antibiotics</option>
-        <option value="Painkillers">Painkillers</option>
-        <option value="Anti-inflammatory">Anti-inflammatory</option>
-        <option value="Hormonal &amp; OCP">Hormonal &amp; OCP</option>
-        <option value="Topical agent">Topical agent</option>
-        <option value="Eye/nasal drops &amp; spray">Eye/nasal drops &amp; spray</option>
-        <option value="BPH/Gout/Vitamin/ED">BPH/Gout/Vitamin/ED</option>
-        <option value="Uncategorized">Uncategorized</option>
-      </select>
-      <button class="fb active" onclick="sAF('all',this)">All</button>
+<button class="fb active" onclick="sAF('all',this)">All</button>
       <button class="fb pg" onclick="sAF('ok',this)">✅ OK</button>
       <button class="fb fr" onclick="sAF('reorder',this)">Needs Reorder</button>
       <button class="fb" onclick="sAF('zero',this)">Zero Stock</button>
@@ -1284,9 +1265,13 @@ function fAS(){
   if(asFilter==='ok')items=items.filter(i=>!i.needs_reorder);
   if(asFilter==='reorder')items=items.filter(i=>i.needs_reorder);
   if(asFilter==='zero')items=items.filter(i=>i.available_stock===0);
-  if(asCatFilter!=='all')items=items.filter(i=>(MEDICINE_CATEGORIES[i.description]||'Uncategorized')===asCatFilter);
   if(q)items=items.filter(i=>i.description.toLowerCase().includes(q.toLowerCase()));
-  document.getElementById('t-as').innerHTML=items.map(i=>{
+
+  const catOrder=['Anti-Hypertensives','Anti-diabetic','Cardiovascular','Anti-Hyperlipidemia','Cold/cough/respiratory','Gastro-intestinal','ENT','CNS','Antibiotics','Painkillers','Anti-inflammatory','Hormonal & OCP','Topical agent','Eye/nasal drops & spray','BPH/Gout/Vitamin/ED','Uncategorized'];
+  const groups=Object.fromEntries(catOrder.map(c=>[c,[]]));
+  items.forEach(i=>{const c=MEDICINE_CATEGORIES[i.description]||'Uncategorized';(groups[c]||groups['Uncategorized']).push(i);});
+
+  const mkRow=i=>{
     const d=i.days_of_stock;
     const dl=d===999?'—':d===0?'<span class="p pr">OOS</span>':d<7?`<span class="p pr">${d.toFixed(0)}d</span>`:d<14?`<span class="p po">${d.toFixed(0)}d</span>`:`<span style="font-family:var(--fm);font-size:11px;color:var(--muted)">${d.toFixed(0)}d</span>`;
     const m=i.margin_pct;const mc=m===null?'pm':m<30?'pr':m<50?'po':'pg';
@@ -1297,10 +1282,18 @@ function fAS(){
     <td>${m!==null?`<span class="p ${mc}">${m}%</span>`:'<span class="p pm">—</span>'}</td>
     <td style="font-family:var(--fm);font-size:10px;color:var(--muted)">${i.nearest_expiry||'—'}</td>
     <td><span class="p ${sc}">${i.available_stock===0?'OOS':i.needs_reorder?'Reorder':'OK'}</span></td></tr>`;
-  }).join('')||'<tr><td colspan="9" class="empty">No items.</td></tr>';
+  };
+
+  let html='';
+  catOrder.forEach(cat=>{
+    const grp=groups[cat];
+    if(!grp||!grp.length)return;
+    html+=`<tr><td colspan="9" style="background:var(--bg);padding:10px 12px 5px;font-family:var(--fh);font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid var(--border)">${esc(cat)}<span style="font-weight:400;font-family:var(--fm);margin-left:6px">(${grp.length})</span></td></tr>`;
+    html+=grp.map(mkRow).join('');
+  });
+  document.getElementById('t-as').innerHTML=html||'<tr><td colspan="9" class="empty">No items.</td></tr>';
 }
 function sAF(f,btn){asFilter=f;document.querySelectorAll('#view-allstock .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');fAS();}
-function sACF(v){asCatFilter=v;fAS();}
 
 // ── OPERATIONS ────────────────────────────────────────────────────
 function rOperations(){
