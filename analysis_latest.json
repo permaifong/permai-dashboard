@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-06T13:13:53.174614",
+  "generated_at": "2026-06-06T15:16:56.193133",
   "inventory_date": "2026-06-06",
   "months_analyzed": [
     "2026-02",
@@ -9,29 +9,29 @@
     "2026-06"
   ],
   "summary": {
-    "total_medicines": 321,
-    "needing_reorder": 181,
-    "out_of_stock": 68,
-    "critical_items": 57,
+    "total_medicines": 323,
+    "needing_reorder": 180,
+    "out_of_stock": 67,
+    "critical_items": 56,
     "expiring_soon": 4,
-    "overstock_items": 41,
-    "never_dispensed_count": 78,
-    "revenue_at_risk": 14678.98,
-    "estimated_monthly_revenue": 42488.24,
-    "total_stock_value": 21175.34,
-    "dead_capital": 4521.21,
+    "overstock_items": 40,
+    "never_dispensed_count": 80,
+    "revenue_at_risk": 11414.98,
+    "estimated_monthly_revenue": 42538.24,
+    "total_stock_value": 23980.44,
+    "dead_capital": 4672.41,
     "total_patients": 606,
-    "returning_patients": 97,
-    "retention_rate": 16.0,
-    "spike_count": 9,
-    "total_monthly_dispensed": 22480.0
+    "returning_patients": 98,
+    "retention_rate": 16.2,
+    "spike_count": 40,
+    "total_monthly_dispensed": 22630.0
   },
   "monthly_totals": {
     "2026-02": 1900.0,
     "2026-03": 4580.0,
     "2026-04": 5699.0,
     "2026-05": 5396.0,
-    "2026-06": 4905.0
+    "2026-06": 5055.0
   },
   "analytics": {
     "dow": {
@@ -56,8 +56,8 @@
         "revenue": 15158.51
       },
       "Saturday": {
-        "visits": 141,
-        "revenue": 14334.1
+        "visits": 142,
+        "revenue": 14364.1
       },
       "Sunday": {
         "visits": 139,
@@ -122,8 +122,8 @@
         "revenue": 6118.6
       },
       "14": {
-        "visits": 70,
-        "revenue": 7769.4
+        "visits": 71,
+        "revenue": 7799.4
       },
       "15": {
         "visits": 65,
@@ -228,10 +228,10 @@
         ]
       },
       "OTC": {
-        "visits": 166,
-        "total_revenue": 6556.97,
-        "avg_revenue_per_visit": 39.5,
-        "avg_meds_per_visit": 1.42,
+        "visits": 167,
+        "total_revenue": 6586.97,
+        "avg_revenue_per_visit": 39.44,
+        "avg_meds_per_visit": 1.41,
         "top_medicines": [
           "TAB PARACAP 500MG HEALTH PHARM",
           "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
@@ -248,9 +248,9 @@
         "total_units": 3476
       },
       "CHIN CHUAN YEE": {
-        "dispensing_count": 1125,
-        "unique_visits": 385,
-        "total_units": 7602
+        "dispensing_count": 1126,
+        "unique_visits": 386,
+        "total_units": 7632
       },
       "EDWINA IVY ANTHONIUS": {
         "dispensing_count": 3,
@@ -295,9 +295,9 @@
     },
     "patients": {
       "total_unique": 606,
-      "new_single_month": 509,
-      "returning_multi_month": 97,
-      "retention_rate": 16.0,
+      "new_single_month": 508,
+      "returning_multi_month": 98,
+      "retention_rate": 16.2,
       "avg_revisit_days": 1.9,
       "new_by_month": {
         "2026-02": 79,
@@ -708,107 +708,107 @@
       "TAB CONCOR (BISOPROLOL) 5MG MERCKS"
     ],
     "dead_60": [
-      "TAB TREN (TRANEXAMIC ACID) 250MG",
-      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
-      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
-      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
-      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
-      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
-      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
-      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
       "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
-      "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
-      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
-      "PROCTOSEDYL OINTMENT (FRAMYCETIN SULPHATE 1% W/W, HYDROCORTISONE 0.5% W/W, CINCHOCAINE.5% W/W, AESCULIN 1% W/W) 15G ZUELLIG PHARMA",
-      "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
-      "INFUSOL N/S 500ML ( SODIUM CHLORIDE 0.9% W/V ) AIN MEDICARE",
-      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
-      "SUPP VOREN (DICLOFENAC SODIUM) 50MG Y.S.P.",
-      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
-      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
-      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
       "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
+      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
+      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
+      "SUPP VOREN (DICLOFENAC SODIUM) 50MG Y.S.P.",
+      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
+      "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
+      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
+      "TAB TREN (TRANEXAMIC ACID) 250MG",
+      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
+      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
+      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
+      "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
       "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
-      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
-      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER"
+      "PROCTOSEDYL OINTMENT (FRAMYCETIN SULPHATE 1% W/W, HYDROCORTISONE 0.5% W/W, CINCHOCAINE.5% W/W, AESCULIN 1% W/W) 15G ZUELLIG PHARMA",
+      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
+      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
+      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
+      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
+      "INFUSOL N/S 500ML ( SODIUM CHLORIDE 0.9% W/V ) AIN MEDICARE",
+      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
+      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
+      "TAB NORMATEN (ATENOLOL) 50MG XEPA"
     ],
     "dead_30": [
-      "SYR COLIMIX (DICYCLOMINE 5MG/ SIMETHICONE 50MG) 90ML XEPA",
-      "TAB SHINTAMET (CIMETIDINE) 400MG Y.S.P.",
-      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
-      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
-      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
-      "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
-      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
-      "PORO (PARACETAMOL) SUPPOSITORY 250MG Y.S.P.",
-      "TAB TREN (TRANEXAMIC ACID) 250MG",
       "WELLMEX ATOMIC ENEMA 20ML NGL TRADING",
-      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
-      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
-      "SALBUNEB ( SALBUTAMOL 2.5MG/2.5ML ) AIN MEDICARE",
-      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
-      "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
-      "TAB NUELIN SR (THEOPHYLLINE) 250MG INOVA",
-      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
-      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
-      "VICIDE CREAM 5%  (ACYCLOVIR 15MG/G) 10G PAHANG",
-      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
-      "TAB NORVASC (AMLODIPINE) 5MG PFIZER",
-      "NASONEX AQUEOUS NASAL SPRAY 0.05% 60D (MOMETASONE FUROATE) SCENT-FREE ORGANON HEIST BV",
-      "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
-      "SKYCELLFLU QUADRIVALENT PREFILLED INFLUENZA VACCINE PHARMANIAGA",
-      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
-      "TAB METSWIFT XR (METFORMIN HCL) 1000MG SYNERRV",
+      "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
       "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
-      "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
-      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
-      "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
-      "PROCTOSEDYL OINTMENT (FRAMYCETIN SULPHATE 1% W/W, HYDROCORTISONE 0.5% W/W, CINCHOCAINE.5% W/W, AESCULIN 1% W/W) 15G ZUELLIG PHARMA",
-      "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
-      "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
-      "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
-      "INFUSOL N/S 500ML ( SODIUM CHLORIDE 0.9% W/V ) AIN MEDICARE",
-      "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
-      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
-      "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
-      "CAP LOMODIUM (LOPERAMIDE) 2MG DYNAPHARM",
-      "SUPP VOREN (DICLOFENAC SODIUM) 50MG Y.S.P.",
+      "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
       "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
+      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
+      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
+      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
+      "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
+      "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
+      "SUPP VOREN (DICLOFENAC SODIUM) 50MG Y.S.P.",
+      "SYR COLIMIX (DICYCLOMINE 5MG/ SIMETHICONE 50MG) 90ML XEPA",
+      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
+      "TAB NUELIN SR (THEOPHYLLINE) 250MG INOVA",
+      "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
+      "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
+      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
+      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
+      "CAP LOMODIUM (LOPERAMIDE) 2MG DYNAPHARM",
+      "TAB TREN (TRANEXAMIC ACID) 250MG",
+      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
+      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
+      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
+      "TAB METSWIFT XR (METFORMIN HCL) 1000MG SYNERRV",
+      "VICIDE CREAM 5%  (ACYCLOVIR 15MG/G) 10G PAHANG",
+      "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
       "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
-      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
-      "INJ GASTRIL ( RANITIDINE ) 50MG/2ML VIAL DUOPHARMA",
-      "CREAM HYOSONE ( HYDROCORTISONE 1% W/W ) 15G DUOPHARMA",
-      "TAB DELTACARBON (CHARCOAL) 250MG IMEKS",
-      "TAB BEAZYME (PAPAIN) 150,000 USP UNIT NORIPHARMA",
-      "ORAL AID LOTION (CHLORHEXIDINE HCL 0.5% & TRIAMCINOLONE 0.1% & LIDOCAINE 2.5%) 6ML DUOPHARMA",
       "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
       "TAB LOVIR ( ACYCLOVIR ) 400MG RANBAXY",
-      "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
-      "INJ TYPHIM IV ( TYPHOID VACCINE ) SANOFI",
-      "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
-      "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
-      "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
       "TAB ROSUVASTATIN 20MG SYNERRV",
-      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
-      "ARTIBEST INTRA-ARTICULAR INJECTION BREGGO",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
-      "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
-      "TAB GOUTRIC ( FEBUXOSTAT) NOVUGEN",
-      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
-      "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
+      "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
+      "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
+      "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
+      "SALBUNEB ( SALBUTAMOL 2.5MG/2.5ML ) AIN MEDICARE",
+      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
+      "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
+      "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
+      "TAB SHINTAMET (CIMETIDINE) 400MG Y.S.P.",
+      "NASONEX AQUEOUS NASAL SPRAY 0.05% 60D (MOMETASONE FUROATE) SCENT-FREE ORGANON HEIST BV",
+      "CREAM HYOSONE ( HYDROCORTISONE 1% W/W ) 15G DUOPHARMA",
       "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
-      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
-      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
-      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
-      "INJ PREDON INJECTION 25MG/ML HEALOL PHARMACEUTICALS SDN. BHD.",
       "INJ PRIORIX (MMR) 0.5ML GSK",
-      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
-      "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
+      "PORO (PARACETAMOL) SUPPOSITORY 250MG Y.S.P.",
+      "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
+      "PROCTOSEDYL OINTMENT (FRAMYCETIN SULPHATE 1% W/W, HYDROCORTISONE 0.5% W/W, CINCHOCAINE.5% W/W, AESCULIN 1% W/W) 15G ZUELLIG PHARMA",
       "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
-      "INJ SHINCORT (TRIAMCINOLONE ACETONIDE 40MG/ML) 1ML VIAL Y.S.P."
+      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
+      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
+      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
+      "TAB DELTACARBON (CHARCOAL) 250MG IMEKS",
+      "ARTIBEST INTRA-ARTICULAR INJECTION BREGGO",
+      "TAB BEAZYME (PAPAIN) 150,000 USP UNIT NORIPHARMA",
+      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
+      "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
+      "INFUSOL N/S 500ML ( SODIUM CHLORIDE 0.9% W/V ) AIN MEDICARE",
+      "TAB NORVASC (AMLODIPINE) 5MG PFIZER",
+      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
+      "TAB GOUTRIC ( FEBUXOSTAT) NOVUGEN",
+      "INJ PREDON INJECTION 25MG/ML HEALOL PHARMACEUTICALS SDN. BHD.",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "SKYCELLFLU QUADRIVALENT PREFILLED INFLUENZA VACCINE PHARMANIAGA",
+      "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
+      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
+      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
+      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
+      "INJ TYPHIM IV ( TYPHOID VACCINE ) SANOFI",
+      "ORAL AID LOTION (CHLORHEXIDINE HCL 0.5% & TRIAMCINOLONE 0.1% & LIDOCAINE 2.5%) 6ML DUOPHARMA",
+      "INJ GASTRIL ( RANITIDINE ) 50MG/2ML VIAL DUOPHARMA",
+      "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
+      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
+      "INJ SHINCORT (TRIAMCINOLONE ACETONIDE 40MG/ML) 1ML VIAL Y.S.P.",
+      "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
+      "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
+      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH"
     ],
     "never_dispensed": [
       "TAB CASPRIN (ASPIRIN) 100MG",
@@ -888,62 +888,290 @@
       "TAB FENAMON (NIFEDIPINE) 10MG MEDOCHEMIE LTD",
       "TAB NUTRIFORTE VITAMIN D3 400IU 90'S YANLING NATURAL HYGIENE",
       "DEZOR PLUS SHAMPOO (KETOCONAZOLE 2%) 60ML HOE PHARMACEUTICALS",
-      "TERNAFIN (TERBINAFINE 1%) CREAM 15G NORIPHARMA"
+      "TERNAFIN (TERBINAFINE 1%) CREAM 15G NORIPHARMA",
+      "ROSKEN SKIN REPAIR DRY SKIN CREAM 75ML DKSH",
+      "EPIFLOR YOGURT POWDER WITH PROBIOTICS 2GX30 SACHETS MD PHARMA SDN BHD"
     ],
     "spikes": [
       {
-        "medicine": "TAB UNASYN (SULTAMICILLIN) 375MG PFIZER",
-        "prev_30d": 40,
-        "recent_30d": 330,
-        "change_pct": 725
-      },
-      {
-        "medicine": "TAB NP PREDNISOLONE 5MG NORIPHARMA",
-        "prev_30d": 0,
-        "recent_30d": 140,
-        "change_pct": 999
-      },
-      {
-        "medicine": "TAB MEXOMIDE (METOCLOPRAMIDE) 10MG DYNAPHARM",
-        "prev_30d": 40,
-        "recent_30d": 100,
-        "change_pct": 150
-      },
-      {
-        "medicine": "TAB DESLORATADINE 5MG SYNERRV",
-        "prev_30d": 0,
-        "recent_30d": 60,
-        "change_pct": 999
+        "medicine": "BIOFLOR SACHETS ( SACCHAROMYCES BOULARDII ) SERVIER",
+        "qty_14d": 10,
+        "monthly_equiv": 21,
+        "monthly_avg": 10,
+        "change_pct": 114
       },
       {
         "medicine": "MABRON (TRAMADOL) CAPSULES 50MG MEDOCHEMIE LTD",
-        "prev_30d": 0,
-        "recent_30d": 50,
-        "change_pct": 999
+        "qty_14d": 50,
+        "monthly_equiv": 107,
+        "monthly_avg": 50,
+        "change_pct": 114
       },
       {
-        "medicine": "TAB BELTAS (BILASTINE) 20MG GLENMARK",
-        "prev_30d": 0,
-        "recent_30d": 50,
-        "change_pct": 999
-      },
-      {
-        "medicine": "TAB CIPROGLEN (CIPROFLOXACIN) 500MG GLENMARK",
-        "prev_30d": 10,
-        "recent_30d": 50,
-        "change_pct": 400
+        "medicine": "TAB APO-ROSUVASTATIN 20MG APOTEX INC",
+        "qty_14d": 30,
+        "monthly_equiv": 64,
+        "monthly_avg": 30,
+        "change_pct": 114
       },
       {
         "medicine": "TAB AUROXETIL 500 (CEFUROXIME 500 MG) AUROBINDO PHARMA",
-        "prev_30d": 0,
-        "recent_30d": 40,
-        "change_pct": 999
+        "qty_14d": 40,
+        "monthly_equiv": 86,
+        "monthly_avg": 40,
+        "change_pct": 114
+      },
+      {
+        "medicine": "TAB BELTAS (BILASTINE) 20MG GLENMARK",
+        "qty_14d": 50,
+        "monthly_equiv": 107,
+        "monthly_avg": 50,
+        "change_pct": 114
+      },
+      {
+        "medicine": "TAB CIPROGLEN (CIPROFLOXACIN) 500MG GLENMARK",
+        "qty_14d": 50,
+        "monthly_equiv": 107,
+        "monthly_avg": 50,
+        "change_pct": 114
+      },
+      {
+        "medicine": "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/5MG SERVIER",
+        "qty_14d": 30,
+        "monthly_equiv": 64,
+        "monthly_avg": 30,
+        "change_pct": 114
+      },
+      {
+        "medicine": "TAB FUSIX (FRUSEMIDE) 40MG SM PHARMA",
+        "qty_14d": 10,
+        "monthly_equiv": 21,
+        "monthly_avg": 10,
+        "change_pct": 114
+      },
+      {
+        "medicine": "TAB HOVASC (AMLODIPINE) 5MG HOVID",
+        "qty_14d": 30,
+        "monthly_equiv": 64,
+        "monthly_avg": 30,
+        "change_pct": 114
+      },
+      {
+        "medicine": "TAB NEXIUM MUPS (ESOMEPRAZOLE) 40MG ASTRAZENECA",
+        "qty_14d": 14,
+        "monthly_equiv": 30,
+        "monthly_avg": 14,
+        "change_pct": 114
+      },
+      {
+        "medicine": "TAB PONTALON (MEFENAMIC ACID) 500MG Y.S.P.",
+        "qty_14d": 40,
+        "monthly_equiv": 86,
+        "monthly_avg": 40,
+        "change_pct": 114
+      },
+      {
+        "medicine": "TAB PROCHLOR (PROCHLORPERAZINE) 5MG DUOPHARMA",
+        "qty_14d": 20,
+        "monthly_equiv": 43,
+        "monthly_avg": 20,
+        "change_pct": 114
+      },
+      {
+        "medicine": "TAB TOLCHICINE (COLCHICINE) 0.6MG IMEKS",
+        "qty_14d": 10,
+        "monthly_equiv": 21,
+        "monthly_avg": 10,
+        "change_pct": 114
+      },
+      {
+        "medicine": "TAB UNASYN (SULTAMICILLIN) 375MG PFIZER",
+        "qty_14d": 330,
+        "monthly_equiv": 707,
+        "monthly_avg": 330,
+        "change_pct": 114
+      },
+      {
+        "medicine": "DYNA DOXYCYCLINE 100MG DYNAPHARM",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 10,
+        "change_pct": -100
+      },
+      {
+        "medicine": "MAC DUAL (HEXYLRESORCINOL 2.4MG) ACTION LOZENGES ZIWELL",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 12,
+        "change_pct": -100
+      },
+      {
+        "medicine": "ORS PLUS (TRISODIUM CITRATE 725MG, DEXTROSE ANHYDROUS 3375MG, SODIUM CHLORIDE 650MG, POTASSIUM CHLORIDE 375MG) SACHET PHARMANIAGA",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 13,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TAB ARCOXIA ( ETORICOXIB ) 90MG ORGANON",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 15,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TAB ATORVASTATIN 20MG SYNERRV",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 28,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TAB BETASERC (BETAHISTINE) 24MG ABBOTT",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 20,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TAB CAFFOX ( ERGOTAMINE TARTRATE 1MG + CAFFINE 100MG ) IMEKS",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 10,
+        "change_pct": -100
       },
       {
         "medicine": "TAB COPASTIN (CLOPERASTINE) 10MG Y.S.P.",
-        "prev_30d": 10,
-        "recent_30d": 40,
-        "change_pct": 300
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 40,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TAB DUOFOLIC (FOLIC ACID) 5MG DUOPHARMA",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 20,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TAB DUPHASTON (DYDROGESTERONE) 10MG ABBOTT",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 12,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TAB GLIT (PIOGLITAZONE) 15MG SYNERRV",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 28,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TAB IBUPROFEN 400MG Y.S.P.",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 30,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TAB LAZINE (LEVOCETIRIZINE DIHCL) 5MG SYNERRV",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 30,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TAB NORCOLUT (NORETHISTERONE) 5MG PAHANG PHARMACY",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 20,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TAB PREDNISYN (PREDNISOLONE) 5MG DUOPHARMA",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 50,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TAB VELOXIN (MECLOZINE 25MG/PYRIDOXINE 50MG) PHARM-D",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 10,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TAB VITABION (VIT B1 100MG, VIT B6 200MG, VIT B12 200MCG) UNISON LABORATORIES",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 50,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TAB VOREN (DICLOFENAC SODIUM) 50MG Y.S.P.",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 20,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TAB ZOLTEROL SR (DICLOFENAC SODIUM) 100MG DUOPHARMA",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 20,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TABLET COZAAR XQ 5/50MG ORGANON",
+        "qty_14d": 0,
+        "monthly_equiv": 0,
+        "monthly_avg": 30,
+        "change_pct": -100
+      },
+      {
+        "medicine": "TAB ANTAROL (PROPRANOLOL) 40MG IMEKS",
+        "qty_14d": 33,
+        "monthly_equiv": 71,
+        "monthly_avg": 38,
+        "change_pct": 86
+      },
+      {
+        "medicine": "TAB NP PREDNISOLONE 5MG NORIPHARMA",
+        "qty_14d": 120,
+        "monthly_equiv": 257,
+        "monthly_avg": 140,
+        "change_pct": 84
+      },
+      {
+        "medicine": "EFF GRANULES AVOSODA (SODIUM BICARBONATE) 1.916G/SACHET ABIO",
+        "qty_14d": 39,
+        "monthly_equiv": 84,
+        "monthly_avg": 51,
+        "change_pct": 64
+      },
+      {
+        "medicine": "INJ PIRIMAT (CHLORPHENIRAMINE) 10MG/ML DUOPHARMA",
+        "qty_14d": 3,
+        "monthly_equiv": 6,
+        "monthly_avg": 17,
+        "change_pct": -62
+      },
+      {
+        "medicine": "TAB HYOMIDE (HYOSCINE BUTYLBROMIDE) 10MG DUOPHARMA",
+        "qty_14d": 90,
+        "monthly_equiv": 193,
+        "monthly_avg": 120,
+        "change_pct": 61
+      },
+      {
+        "medicine": "TAB MEXOMIDE (METOCLOPRAMIDE) 10MG DYNAPHARM",
+        "qty_14d": 20,
+        "monthly_equiv": 43,
+        "monthly_avg": 100,
+        "change_pct": -57
       }
     ],
     "monthly_patients": {
@@ -951,28 +1179,29 @@
       "2026-03": 198,
       "2026-04": 201,
       "2026-05": 211,
-      "2026-06": 50
+      "2026-06": 51
     },
     "monthly_visits": {
       "2026-02": 99,
       "2026-03": 279,
       "2026-04": 284,
       "2026-05": 266,
-      "2026-06": 59
+      "2026-06": 60
     },
     "monthly_revenue": {
       "2026-02": 9879.0,
       "2026-03": 29302.9,
       "2026-04": 30280.18,
       "2026-05": 31636.28,
-      "2026-06": 5947.28
+      "2026-06": 5977.28
     },
     "daily_revenue": {
       "2026-06-01": 1626.23,
       "2026-06-02": 1689.05,
       "2026-06-03": 991.0,
       "2026-06-04": 919.0,
-      "2026-06-05": 722.0
+      "2026-06-05": 722.0,
+      "2026-06-06": 30.0
     }
   },
   "fast_movers": [
@@ -1861,6 +2090,40 @@
       "margin_pct": 32.0
     },
     {
+      "description": "TAB ANTAROL (PROPRANOLOL) 40MG IMEKS",
+      "code": "MAL20033516ACZ",
+      "brand": "nan",
+      "manufacturer": "IMEKS",
+      "category": "PALPITATIONS",
+      "uom": "TABLET",
+      "available_stock": 118.0,
+      "required_stock": 100.0,
+      "nearest_expiry": "30/06/2029",
+      "latest_cost_price": 0.07,
+      "avg_cost_price": 0.07,
+      "selling_price": 1.0,
+      "recommended_monthly": 72.3,
+      "velocity_method": "weighted_recent",
+      "monthly_breakdown": {
+        "2026-02": 7.0,
+        "2026-03": 15.0,
+        "2026-04": 62.0,
+        "2026-05": 5.0,
+        "2026-06": 165.0
+      },
+      "needs_reorder": false,
+      "order_qty": 0,
+      "supplier": "TBD",
+      "monthly_revenue": 72.3,
+      "dead_stock": 0,
+      "days_of_stock": 49.0,
+      "urgency": "ok",
+      "expiry_days": 1120,
+      "months_supply": 1.6,
+      "is_overstock": false,
+      "margin_pct": 93.0
+    },
+    {
       "description": "TAB DESLORATADINE 5MG SYNERRV",
       "code": "MAL19056115AZ",
       "brand": "nan",
@@ -1961,40 +2224,6 @@
       "months_supply": 0.2,
       "is_overstock": false,
       "margin_pct": 90.5
-    },
-    {
-      "description": "TAB PROCHLOR (PROCHLORPERAZINE) 5MG DUOPHARMA",
-      "code": "MED0724",
-      "brand": "nan",
-      "manufacturer": "DUOPHARMA",
-      "category": "nan",
-      "uom": "TABLET",
-      "available_stock": 60.0,
-      "required_stock": 0.0,
-      "nearest_expiry": "31/05/2028",
-      "latest_cost_price": 0.07,
-      "avg_cost_price": 0.07,
-      "selling_price": 1.0,
-      "recommended_monthly": 60.0,
-      "velocity_method": "avg_present_months",
-      "monthly_breakdown": {
-        "2026-02": 0,
-        "2026-03": 20.0,
-        "2026-04": 0,
-        "2026-05": 0,
-        "2026-06": 100.0
-      },
-      "needs_reorder": false,
-      "order_qty": 0,
-      "supplier": "TBD",
-      "monthly_revenue": 60.0,
-      "dead_stock": 0,
-      "days_of_stock": 30.0,
-      "urgency": "ok",
-      "expiry_days": 725,
-      "months_supply": 1.0,
-      "is_overstock": false,
-      "margin_pct": 93.0
     }
   ],
   "top_revenue_items": [
@@ -2039,11 +2268,11 @@
       "manufacturer": "LILLY",
       "category": "DIABTES",
       "uom": "DOSE",
-      "available_stock": 0.0,
+      "available_stock": 24.0,
       "required_stock": 24.0,
-      "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
-      "avg_cost_price": 34.555556666667,
+      "nearest_expiry": "30/09/2027",
+      "latest_cost_price": 103.66667,
+      "avg_cost_price": 51.833335,
       "selling_price": 160.0,
       "recommended_monthly": 20.4,
       "velocity_method": "weighted_recent",
@@ -2054,17 +2283,17 @@
         "2026-05": 27.0,
         "2026-06": 15.0
       },
-      "needs_reorder": true,
-      "order_qty": 21,
+      "needs_reorder": false,
+      "order_qty": 0,
       "supplier": "TBD",
       "monthly_revenue": 3264.0,
       "dead_stock": 0,
-      "days_of_stock": 0,
-      "urgency": "critical",
-      "expiry_days": null,
-      "months_supply": null,
+      "days_of_stock": 35.3,
+      "urgency": "ok",
+      "expiry_days": 481,
+      "months_supply": 1.2,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 35.2
     },
     {
       "description": "TAB UNASYN (SULTAMICILLIN) 375MG PFIZER",
@@ -3971,40 +4200,6 @@
       "months_supply": null,
       "is_overstock": false,
       "margin_pct": 51.0
-    },
-    {
-      "description": "S/C MOUNJARO (TIRZEPATIDE 25MG/ML) 2.5MG DOSE LILLY",
-      "code": "MAL25076009AZ",
-      "brand": "nan",
-      "manufacturer": "LILLY",
-      "category": "DIABTES",
-      "uom": "DOSE",
-      "available_stock": 0.0,
-      "required_stock": 24.0,
-      "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
-      "avg_cost_price": 34.555556666667,
-      "selling_price": 160.0,
-      "recommended_monthly": 20.4,
-      "velocity_method": "weighted_recent",
-      "monthly_breakdown": {
-        "2026-02": 0,
-        "2026-03": 0,
-        "2026-04": 22.0,
-        "2026-05": 27.0,
-        "2026-06": 15.0
-      },
-      "needs_reorder": true,
-      "order_qty": 21,
-      "supplier": "TBD",
-      "monthly_revenue": 3264.0,
-      "dead_stock": 0,
-      "days_of_stock": 0,
-      "urgency": "critical",
-      "expiry_days": null,
-      "months_supply": null,
-      "is_overstock": false,
-      "margin_pct": null
     },
     {
       "description": "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
@@ -8015,9 +8210,9 @@
       "manufacturer": "RANBAXY",
       "category": "ANTIBIOTICS",
       "uom": "BOTTLE",
-      "available_stock": 4.0,
+      "available_stock": 24.0,
       "required_stock": 30.0,
-      "nearest_expiry": "31/12/2027",
+      "nearest_expiry": "30/04/2027",
       "latest_cost_price": 8.4,
       "avg_cost_price": 8.4,
       "selling_price": 35.0,
@@ -8035,10 +8230,10 @@
       "supplier": "TBD",
       "monthly_revenue": 157.5,
       "dead_stock": 0,
-      "days_of_stock": 26.7,
+      "days_of_stock": 160.0,
       "urgency": "low",
-      "expiry_days": 573,
-      "months_supply": 0.9,
+      "expiry_days": 328,
+      "months_supply": 5.3,
       "is_overstock": false,
       "margin_pct": 76.0
     },
@@ -11755,31 +11950,31 @@
       "manufacturer": "IMEKS",
       "category": "PALPITATIONS",
       "uom": "TABLET",
-      "available_stock": 148.0,
+      "available_stock": 118.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/06/2029",
       "latest_cost_price": 0.07,
       "avg_cost_price": 0.07,
       "selling_price": 1.0,
-      "recommended_monthly": 22.3,
+      "recommended_monthly": 72.3,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 7.0,
         "2026-03": 15.0,
         "2026-04": 62.0,
         "2026-05": 5.0,
-        "2026-06": 15.0
+        "2026-06": 165.0
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "TBD",
-      "monthly_revenue": 22.3,
+      "monthly_revenue": 72.3,
       "dead_stock": 0,
-      "days_of_stock": 199.1,
+      "days_of_stock": 49.0,
       "urgency": "ok",
       "expiry_days": 1120,
-      "months_supply": 6.6,
-      "is_overstock": true,
+      "months_supply": 1.6,
+      "is_overstock": false,
       "margin_pct": 93.0
     },
     {
@@ -16309,11 +16504,11 @@
       "manufacturer": "LILLY",
       "category": "DIABTES",
       "uom": "DOSE",
-      "available_stock": 0.0,
+      "available_stock": 24.0,
       "required_stock": 24.0,
-      "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
-      "avg_cost_price": 34.555556666667,
+      "nearest_expiry": "30/09/2027",
+      "latest_cost_price": 103.66667,
+      "avg_cost_price": 51.833335,
       "selling_price": 160.0,
       "recommended_monthly": 20.4,
       "velocity_method": "weighted_recent",
@@ -16324,17 +16519,17 @@
         "2026-05": 27.0,
         "2026-06": 15.0
       },
-      "needs_reorder": true,
-      "order_qty": 21,
+      "needs_reorder": false,
+      "order_qty": 0,
       "supplier": "TBD",
       "monthly_revenue": 3264.0,
       "dead_stock": 0,
-      "days_of_stock": 0,
-      "urgency": "critical",
-      "expiry_days": null,
-      "months_supply": null,
+      "days_of_stock": 35.3,
+      "urgency": "ok",
+      "expiry_days": 481,
+      "months_supply": 1.2,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 35.2
     },
     {
       "description": "INJ PRIORIX (MMR) 0.5ML GSK",
@@ -16411,9 +16606,9 @@
       "manufacturer": "RANBAXY",
       "category": "ANTIBIOTICS",
       "uom": "BOTTLE",
-      "available_stock": 4.0,
+      "available_stock": 24.0,
       "required_stock": 30.0,
-      "nearest_expiry": "31/12/2027",
+      "nearest_expiry": "30/04/2027",
       "latest_cost_price": 8.4,
       "avg_cost_price": 8.4,
       "selling_price": 35.0,
@@ -16431,10 +16626,10 @@
       "supplier": "TBD",
       "monthly_revenue": 157.5,
       "dead_stock": 0,
-      "days_of_stock": 26.7,
+      "days_of_stock": 160.0,
       "urgency": "low",
-      "expiry_days": 573,
-      "months_supply": 0.9,
+      "expiry_days": 328,
+      "months_supply": 5.3,
       "is_overstock": false,
       "margin_pct": 76.0
     },
@@ -18945,6 +19140,63 @@
       "months_supply": null,
       "is_overstock": false,
       "margin_pct": 69.8
+    },
+    {
+      "description": "ROSKEN SKIN REPAIR DRY SKIN CREAM 75ML DKSH",
+      "code": "ROSKEN-00A1025",
+      "brand": "nan",
+      "manufacturer": "DKSH",
+      "category": "DERMATOLOGY - MOISTURIZER",
+      "uom": "TUBE",
+      "available_stock": 10.0,
+      "required_stock": 5.0,
+      "nearest_expiry": "16/10/2028",
+      "latest_cost_price": 15.12,
+      "avg_cost_price": 15.12,
+      "selling_price": 30.0,
+      "recommended_monthly": 0,
+      "velocity_method": "no_data",
+      "monthly_breakdown": {},
+      "needs_reorder": false,
+      "order_qty": 0,
+      "supplier": "TBD",
+      "monthly_revenue": 0.0,
+      "dead_stock": 0,
+      "days_of_stock": 999,
+      "urgency": "ok",
+      "expiry_days": 863,
+      "months_supply": null,
+      "is_overstock": false,
+      "margin_pct": 49.6
+    },
+    {
+      "description": "EPIFLOR YOGURT POWDER WITH PROBIOTICS 2GX30 SACHETS MD PHARMA SDN BHD",
+      "code": "C026S25A",
+      "brand": "nan",
+      "manufacturer": "MD PHARMA SDN BHD",
+      "category": "SUPPLEMENT - PROBIOTICS",
+      "uom": "BOX",
+      "available_stock": 2.0,
+      "required_stock": 0.0,
+      "nearest_expiry": "16/01/2027",
+      "latest_cost_price": 0.0,
+      "avg_cost_price": 0.0,
+      "selling_price": 120.0,
+      "recommended_monthly": 0,
+      "velocity_method": "no_data",
+      "monthly_breakdown": {},
+      "needs_reorder": false,
+      "order_qty": 0,
+      "supplier": "TBD",
+      "monthly_revenue": 0.0,
+      "dead_stock": 0,
+      "days_of_stock": 999,
+      "urgency": "ok",
+      "expiry_days": 224,
+      "months_supply": null,
+      "is_overstock": false,
+      "margin_pct": null
     }
-  ]
+  ],
+  "latest_po_filename": "PO_TBD_20260606.xlsx"
 }
