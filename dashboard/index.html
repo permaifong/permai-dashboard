@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Permai Polyclinics — Intelligence Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<style>
+:root{
+  --bg:#f5f3ef;--surface:#ffffff;--card:#faf9f7;--border:#e0dbd3;
+  --accent:#0a7c6e;--accent3:#c47f17;--text:#1a1a1a;--muted:#6b6560;
+  --danger:#c0392b;--warning:#d35400;--ok:#1a7a4a;--info:#1565a8;--purple:#5e4b8b;
+  --fh:'Avenir',Helvetica,Arial,sans-serif;--fb:'Avenir',Helvetica,Arial,sans-serif;--fm:'DM Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:14px;line-height:1.6;min-height:100vh}
+.shell{display:grid;grid-template-columns:236px 1fr;grid-template-rows:54px 1fr;min-height:100vh}
+/* topbar */
+.topbar{grid-column:1/-1;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;position:sticky;top:0;z-index:100}
+.brand{font-family:var(--fh);font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.meta{display:flex;gap:14px;font-family:var(--fm);font-size:11px;color:var(--muted);align-items:center}
+/* sidebar */
+.sidebar{background:var(--surface);border-right:1px solid var(--border);padding:14px 0;position:sticky;top:54px;height:calc(100vh - 54px);overflow-y:auto}
+.nl{font-family:var(--fm);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 20px;margin:14px 0 4px}
+.ni{display:flex;align-items:center;gap:9px;padding:7px 10px;margin:0 8px;border-radius:7px;cursor:pointer;color:var(--muted);font-size:13px;transition:all .15s;border:1px solid transparent}
+.ni:hover{background:var(--card);color:var(--text)}
+.ni.active{background:rgba(0,212,170,.08);color:var(--accent);border-color:rgba(0,212,170,.2);font-weight:500}
+.ni-icon{font-size:14px;width:18px;text-align:center}
+.nb{margin-left:auto;border-radius:10px;padding:1px 6px;font-size:10px;font-family:var(--fm);font-weight:600}
+.nb-r{background:rgba(255,71,87,.2);color:var(--danger)}
+.nb-o{background:rgba(255,165,2,.2);color:var(--warning)}
+.nb-t{background:rgba(0,212,170,.15);color:var(--accent)}
+/* main */
+.main{padding:22px;overflow-y:auto}
+.view{display:none}.view.active{display:block}
+@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.fi{animation:fu .3s ease forwards}
+/* stat grid */
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:12px;margin-bottom:20px}
+.sc{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px;position:relative;overflow:hidden;transition:transform .2s}
+.sc:hover{transform:translateY(-2px)}
+.sc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.sc-g::before{background:var(--ok)}.sc-r::before{background:var(--danger)}
+.sc-o::before{background:var(--warning)}.sc-b::before{background:var(--info)}
+.sc-t::before{background:var(--accent)}.sc-y::before{background:var(--accent3)}
+.sc-p::before{background:var(--purple)}
+.sl{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:7px;font-family:var(--fm)}
+.sv{font-family:var(--fh);font-size:28px;font-weight:800;line-height:1;letter-spacing:-.03em}
+.sv-g{color:var(--ok)}.sv-r{color:var(--danger)}.sv-o{color:var(--warning)}
+.sv-b{color:var(--info)}.sv-t{color:var(--accent)}.sv-y{color:var(--accent3)}.sv-p{color:var(--purple)}
+.ss{margin-top:5px;font-size:11px;color:var(--muted)}
+/* panels */
+.panel{background:var(--card);border:1px solid var(--border);border-radius:11px;overflow:hidden;margin-bottom:18px}
+.ph{padding:13px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.pt{font-family:var(--fh);font-size:13px;font-weight:600}
+.pb{font-family:var(--fm);font-size:10px;color:var(--muted)}
+.pbd{padding:16px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+@media(max-width:1100px){.g2,.g3{grid-template-columns:1fr}}
+.cw{position:relative;height:210px}
+/* section head */
+.sh{display:flex;align-items:baseline;gap:10px;margin-bottom:18px}
+.sh h2{font-family:var(--fh);font-size:19px;font-weight:700;letter-spacing:-.02em}
+.sh .sub{font-family:var(--fm);font-size:11px;color:var(--muted)}
+/* alert banners */
+.ab{border-radius:9px;padding:12px 16px;margin-bottom:16px;display:flex;align-items:flex-start;gap:11px;border:1px solid}
+.ab-r{background:rgba(255,71,87,.07);border-color:rgba(255,71,87,.25)}
+.ab-o{background:rgba(255,165,2,.07);border-color:rgba(255,165,2,.25)}
+.ab-b{background:rgba(79,195,247,.07);border-color:rgba(79,195,247,.25)}
+.ab-g{background:rgba(46,213,115,.07);border-color:rgba(46,213,115,.25)}
+.ab-icon{font-size:18px;flex-shrink:0;margin-top:2px}
+.ab-title{font-weight:600;font-size:13px;margin-bottom:2px}
+.ab-body{font-size:12px;color:var(--muted);line-height:1.5}
+/* tables */
+.ts{overflow-x:auto}
+.dt{width:100%;border-collapse:collapse;min-width:600px}
+.dt th{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:8px 11px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap}
+.dt td{padding:8px 11px;border-bottom:1px solid rgba(30,45,66,.6);font-size:12px;vertical-align:middle}
+.dt tr:last-child td{border-bottom:none}
+.dt tr:hover td{background:rgba(255,255,255,.02)}
+tr.rc td{background:rgba(255,71,87,.04)}
+tr.ru td{background:rgba(255,165,2,.03)}
+/* pills */
+.p{display:inline-block;padding:2px 7px;border-radius:20px;font-size:10px;font-family:var(--fm);font-weight:500;white-space:nowrap}
+.pr{background:rgba(255,71,87,.15);color:var(--danger);border:1px solid rgba(255,71,87,.3)}
+.po{background:rgba(255,165,2,.15);color:var(--warning);border:1px solid rgba(255,165,2,.3)}
+.pg{background:rgba(46,213,115,.12);color:var(--ok);border:1px solid rgba(46,213,115,.25)}
+.pb2{background:rgba(79,195,247,.12);color:var(--info);border:1px solid rgba(79,195,247,.25)}
+.pt2{background:rgba(0,212,170,.1);color:var(--accent);border:1px solid rgba(0,212,170,.25)}
+.py{background:rgba(255,209,102,.12);color:var(--accent3);border:1px solid rgba(255,209,102,.3)}
+.pp{background:rgba(162,155,254,.12);color:var(--purple);border:1px solid rgba(162,155,254,.3)}
+.pm{background:rgba(107,127,163,.1);color:var(--muted);border:1px solid rgba(107,127,163,.2)}
+/* search */
+.sr{display:flex;gap:8px;margin-bottom:14px;align-items:center;flex-wrap:wrap}
+.si{flex:1;min-width:180px;background:var(--card);border:1px solid var(--border);border-radius:7px;padding:7px 12px;color:var(--text);font-family:var(--fb);font-size:13px;outline:none;transition:border-color .2s}
+.si:focus{border-color:var(--accent)}
+.si::placeholder{color:var(--muted)}
+.fb{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:6px 12px;color:var(--muted);cursor:pointer;font-size:12px;font-family:var(--fb);transition:all .15s;white-space:nowrap}
+.fb:hover,.fb.active{border-color:var(--accent);color:var(--accent);background:rgba(0,212,170,.06)}
+.fb.fr.active{border-color:var(--danger);color:var(--danger);background:rgba(255,71,87,.06)}
+.fb.fo.active{border-color:var(--warning);color:var(--warning);background:rgba(255,165,2,.06)}
+/* misc */
+.mn{font-weight:500;max-width:250px}
+.mn small{display:block;color:var(--muted);font-size:10px;font-family:var(--fm);margin-top:1px}
+.cost{font-family:var(--fm);font-size:11px;color:var(--accent3)}
+.qn{font-family:var(--fm);font-size:11px;color:var(--accent)}
+.empty{text-align:center;padding:36px;color:var(--muted);font-size:13px}
+/* heatmap */
+.hm{display:grid;gap:3px}
+.hm-cell{border-radius:3px;height:28px;display:flex;align-items:center;justify-content:center;font-size:10px;font-family:var(--fm);color:rgba(255,255,255,.7);transition:opacity .2s}
+.hm-cell:hover{opacity:.8;cursor:default}
+/* loading */
+.ls{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:14px}
+.sp{width:34px;height:34px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.eb{background:rgba(255,71,87,.08);border:1px solid rgba(255,71,87,.25);border-radius:11px;padding:22px;text-align:center;max-width:460px;margin:60px auto}
+.eb h3{color:var(--danger);margin-bottom:8px;font-family:var(--fh)}
+/* traffic light */
+.tl{display:inline-flex;align-items:center;gap:5px;font-family:var(--fm);font-size:11px;font-weight:600}
+/* bar mini */
+.bm{display:inline-flex;gap:1px;align-items:flex-end;height:18px}
+.bm-b{width:4px;border-radius:1px;background:var(--accent);opacity:.65}
+</style>
+</head>
+<body>
+<div id="auth-screen" style="position:fixed;inset:0;background:#f5f3ef;display:flex;align-items:center;justify-content:center;z-index:9999">
+  <div style="background:#ffffff;border:1px solid #e0dbd3;border-radius:14px;padding:40px;width:320px;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,.08)">
+    <div style="font-family:'Avenir',Helvetica,Arial,sans-serif;font-size:18px;font-weight:800;color:#1a1a1a;margin-bottom:6px">Permai Polyclinics</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:#6b6560;margin-bottom:28px">Inventory Intelligence Dashboard</div>
+    <input id="pw-input" type="password" placeholder="Enter password"
+      style="width:100%;background:#f5f3ef;border:1px solid #e0dbd3;border-radius:8px;padding:10px 14px;color:#1a1a1a;font-size:14px;outline:none;margin-bottom:12px;font-family:'Avenir',Helvetica,Arial,sans-serif"
+      onkeydown="if(event.key==='Enter')checkPassword()">
+    <button onclick="checkPassword()"
+      style="width:100%;background:rgba(10,124,110,.1);border:1px solid rgba(10,124,110,.3);border-radius:8px;padding:10px;color:#0a7c6e;font-size:13px;cursor:pointer;font-family:'Avenir',Helvetica,Arial,sans-serif;font-weight:600">
+      Enter Dashboard
+    </button>
+    <div id="pw-error" style="color:#c0392b;font-size:12px;margin-top:10px;display:none">Incorrect password</div>
+  </div>
+</div>
+
+<div class="shell">
+
+<header class="topbar">
+  <div class="brand"><div class="dot"></div>Permai Polyclinics Fortuna</div>
+  <div style="display:flex;align-items:center;gap:12px"><button onclick="downloadLatestPO()" style="background:rgba(0,212,170,.12);border:1px solid rgba(0,212,170,.3);border-radius:7px;padding:6px 14px;color:var(--accent);font-family:var(--fb);font-size:12px;cursor:pointer;font-weight:500" title="Download latest Purchase Order">⬇ Download PO</button><div class="meta">
+    <span id="meta-date">—</span>
+    <span style="color:var(--ok)">● Live</span>
+  </div>
+</header>
+
+<nav class="sidebar">
+  <div class="nl">Overview</div>
+  <div class="ni active" onclick="V('overview',this)"><span class="ni-icon">⬛</span>Dashboard</div>
+
+  <div class="nl">Action Required</div>
+  <div class="ni" onclick="V('ordering',this)"><span class="ni-icon">📋</span>Ordering<span class="nb nb-r" id="b-ordering">—</span></div>
+  <div class="ni" onclick="V('reorder',this)"><span class="ni-icon">🚨</span>Reorder Alerts<span class="nb nb-r" id="b-reorder">—</span></div>
+  <div class="ni" onclick="V('expiry',this)"><span class="ni-icon">⏰</span>Expiring Soon<span class="nb nb-o" id="b-expiry">—</span></div>
+  <div class="ni" onclick="V('deadstock',this)"><span class="ni-icon">💀</span>Dead Stock<span class="nb nb-o" id="b-dead">—</span></div>
+
+  <div class="nl">Inventory</div>
+  <div class="ni" onclick="V('fastmovers',this)"><span class="ni-icon">⚡</span>Fast Movers</div>
+  <div class="ni" onclick="V('overstock',this)"><span class="ni-icon">📦</span>Overstocked<span class="nb nb-o" id="b-over">—</span></div>
+  <div class="ni" onclick="V('allstock',this)"><span class="ni-icon">🗂</span>All Stock</div>
+
+  <div class="nl">Operations</div>
+  <div class="ni" onclick="V('operations',this)"><span class="ni-icon">🕐</span>Peak Hours & Days</div>
+  <div class="ni" onclick="V('doctors',this)"><span class="ni-icon">👨‍⚕️</span>Doctor Analytics</div>
+  <div class="ni" onclick="V('staff',this)"><span class="ni-icon">👥</span>Staff Workload</div>
+  <div class="ni" onclick="V('patients',this)"><span class="ni-icon">🧑</span>Patients</div>
+  <div class="ni" onclick="V('combos',this)"><span class="ni-icon">🔗</span>Medicine Combos</div>
+  <div class="ni" onclick="V('spikes',this)"><span class="ni-icon">📡</span>Spike Detection<span class="nb nb-r" id="b-spikes">—</span></div>
+
+  <div class="nl">Business</div>
+  <div class="ni" onclick="V('revenue',this)"><span class="ni-icon">💰</span>Revenue & Margin</div>
+  <div class="ni" onclick="V('categories',this)"><span class="ni-icon">🏷</span>Categories</div>
+</nav>
+
+<main class="main">
+  <div id="ls" class="ls"><div class="sp"></div><div style="color:var(--muted);font-family:var(--fm);font-size:12px">Loading clinic data...</div></div>
+  <div id="views" style="display:none">
+
+  <!-- OVERVIEW -->
+  <div class="view active fi" id="view-overview">
+    <div class="sh"><h2>Dashboard</h2><span class="sub" id="ov-date">—</span></div>
+    <div id="ov-banners"></div>
+    <div class="sg" id="ov-stats"></div>
+    <div class="g2">
+    <div class="panel" style="cursor:pointer" onclick="document.getElementById('health-info').style.display=document.getElementById('health-info').style.display==='none'?'block':'none'">
+      <div class="ph"><span class="pt">Stock Health</span><span class="pb" style="color:var(--accent)">click for insights ↓</span></div>
+      <div class="pbd"><div class="cw"><canvas id="c-health"></canvas></div>
+        <div id="health-info" style="display:none;margin-top:12px;font-size:12px;color:var(--muted);line-height:1.7;border-top:1px solid var(--border);padding-top:10px">
+          <b style="color:var(--text)">What these levels mean:</b><br>
+          🟢 <b>OK</b> — Stock above required level. No action needed.<br>
+          ⚪ <b>Low</b> — Below required but not critical. Plan reorder soon.<br>
+          🔵 <b>Medium</b> — Getting low. Reorder within 2 weeks.<br>
+          🟡 <b>High</b> — Reorder this week to avoid disruption.<br>
+          🟠 <b>Urgent</b> — Less than 14 days left. Order immediately.<br>
+          🔴 <b>Critical</b> — Out of stock or less than 7 days. Order today.
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="g2">
+      <div class="panel"><div class="ph"><span class="pt">Revenue by Month</span><span class="pb">MYR</span></div><div class="pbd"><div class="cw"><canvas id="c-rev-month"></canvas></div></div></div>
+      <div class="panel"><div class="ph"><span class="pt">Patients by Month</span><span class="pb">unique patients</span></div><div class="pbd"><div class="cw"><canvas id="c-pat-month"></canvas></div></div></div>
+    </div>
+    <div class="panel"><div class="ph"><span class="pt">🚨 Needs Immediate Action</span><span class="pb">OOS or &lt;7 days remaining</span></div>
+      <div class="ts"><table class="dt"><thead><tr><th>Medicine</th><th>Stock</th><th>Days Left</th><th>Usage/Mo</th><th>Action</th></tr></thead><tbody id="t-critical"></tbody></table></div>
+    </div>
+  </div>
+
+  <!-- ORDERING -->
+  <div class="view fi" id="view-ordering">
+    <div class="sh" style="justify-content:space-between;align-items:center;margin-bottom:18px">
+      <div style="display:flex;align-items:baseline;gap:10px">
+        <h2>Ordering</h2>
+        <span class="sub" id="ord-sub">—</span>
+      </div>
+      <button onclick="exportOrderingExcel()" style="background:rgba(10,124,110,.1);border:1px solid rgba(10,124,110,.3);border-radius:7px;padding:6px 14px;color:var(--accent);font-family:var(--fb);font-size:12px;cursor:pointer;font-weight:500;white-space:nowrap">⬇ Download PO</button>
+    </div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>#</th><th>Medicine</th><th>Current Stock</th><th>Order Qty</th><th>Reason</th></tr></thead>
+      <tbody id="t-ordering"></tbody>
+    </table></div></div>
+  </div>
+
+  <!-- REORDER -->
+  <div class="view fi" id="view-reorder">
+    <div class="sh"><h2>Reorder Alerts</h2><span class="sub" id="ro-sub">—</span></div>
+    <div class="sg" id="ro-stats"></div>
+    <div class="sr">
+      <input class="si" id="s-ro" placeholder="Search medicine..." oninput="fRO()">
+      <button class="fb fr active" onclick="sRF('all',this)">All (<span id="fc-all">0</span>)</button>
+      <button class="fb fr" onclick="sRF('critical',this)">🔴 Critical (<span id="fc-critical">0</span>)</button>
+      <button class="fb fo" onclick="sRF('urgent',this)">🟠 Urgent (<span id="fc-urgent">0</span>)</button>
+      <button class="fb" onclick="sRF('high',this)">🟡 High (<span id="fc-high">0</span>)</button>
+      <button class="fb" onclick="sRF('medium',this)">⚪ Medium (<span id="fc-medium">0</span>)</button>
+      <button class="fb" onclick="sRF('low',this)">Low (<span id="fc-low">0</span>)</button>
+    </div>
+    <div class="sr" style="margin-top:-4px">
+      <select class="si" id="s-ro-cat" onchange="sRCF(this.value)" style="flex:0;min-width:210px">
+        <option value="all">All Categories</option>
+        <option value="Anti-Hypertensives">Anti-Hypertensives</option>
+        <option value="Anti-diabetic">Anti-diabetic</option>
+        <option value="Cardiovascular">Cardiovascular</option>
+        <option value="Anti-Hyperlipidemia">Anti-Hyperlipidemia</option>
+        <option value="Cold/cough/respiratory">Cold/cough/respiratory</option>
+        <option value="Gastro-intestinal">Gastro-intestinal</option>
+        <option value="ENT">ENT</option>
+        <option value="CNS">CNS</option>
+        <option value="Antibiotics">Antibiotics</option>
+        <option value="Painkillers">Painkillers</option>
+        <option value="Anti-inflammatory">Anti-inflammatory</option>
+        <option value="Hormonal &amp; OCP">Hormonal &amp; OCP</option>
+        <option value="Topical agent">Topical agent</option>
+        <option value="Eye/nasal drops &amp; spray">Eye/nasal drops &amp; spray</option>
+        <option value="BPH/Gout/Vitamin/ED">BPH/Gout/Vitamin/ED</option>
+        <option value="Uncategorized">Uncategorized</option>
+      </select>
+      <button class="fb" id="ro-sort-btn" onclick="toggleROSort()">Sort: Urgency</button>
+    </div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>Priority</th><th>Medicine</th><th>Stock</th><th>Required</th><th>Days Left</th><th>Usage/Mo</th><th>Order Qty</th><th>Est. Cost</th><th>Rev. Risk</th></tr></thead>
+      <tbody id="t-ro"></tbody>
+    </table></div></div>
+  </div>
+
+  <!-- EXPIRY -->
+  <div class="view fi" id="view-expiry">
+    <div class="sh"><h2>Expiring Soon</h2><span class="sub">within 6 months</span></div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>Medicine</th><th>Expiry Date</th><th>Days Left</th><th>Stock</th><th>Value at Risk</th><th>Action</th></tr></thead>
+      <tbody id="t-expiry"></tbody>
+    </table></div></div>
+  </div>
+
+  <!-- DEAD STOCK -->
+  <div class="view fi" id="view-deadstock">
+    <div class="sh"><h2>Dead Stock</h2><span class="sub">untouched or never dispensed</span></div>
+    <div class="ab ab-o"><div class="ab-icon">💀</div><div>
+      <div class="ab-title">Capital frozen in unused medicines</div>
+      <div class="ab-body">These medicines have not been dispensed recently or ever. Review whether to return to supplier, discount, or remove from inventory to free up cash.</div>
+    </div></div>
+    <div class="sg" id="ds-stats"></div>
+    <div class="sr">
+      <button class="fb active" onclick="sDF('never',this)">Never Dispensed</button>
+      <button class="fb" onclick="sDF('90',this)">Not used 90+ days</button>
+      <button class="fb" onclick="sDF('60',this)">Not used 60+ days</button>
+      <button class="fb" onclick="sDF('30',this)">Not used 30+ days</button>
+    </div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>Medicine</th><th>Stock Qty</th><th>Last Dispensed</th><th>Cost Price</th><th>Capital Tied</th><th>Status</th></tr></thead>
+      <tbody id="t-dead"></tbody>
+    </table></div></div>
+  </div>
+
+  <!-- FAST MOVERS -->
+  <div class="view fi" id="view-fastmovers">
+    <div class="sh"><h2>Fast Movers</h2><span class="sub">top 30 by monthly velocity</span></div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead id="fm-thead"><tr><th>#</th><th>Medicine</th><th>Rec/Mo</th><th>—</th><th>—</th><th>—</th><th>—</th><th>Trend</th><th>Days Left</th><th>Status</th></tr></thead>
+      <tbody id="t-fm"></tbody>
+    </table></div></div>
+  </div>
+
+  <!-- OVERSTOCK -->
+  <div class="view fi" id="view-overstock">
+    <div class="sh"><h2>Overstocked</h2><span class="sub">6+ months supply on hand</span></div>
+    <div class="ab ab-o"><div class="ab-icon">⚠️</div><div>
+      <div class="ab-title">Too much capital in slow-moving stock</div>
+      <div class="ab-body">Pause ordering these items. Monitor expiry dates closely.</div>
+    </div></div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>Medicine</th><th>Stock</th><th>Usage/Mo</th><th>Months Supply</th><th>Capital Tied</th><th>Expiry</th></tr></thead>
+      <tbody id="t-over"></tbody>
+    </table></div></div>
+  </div>
+
+  <!-- ALL STOCK -->
+  <div class="view fi" id="view-allstock">
+    <div class="sh"><h2>All Stock</h2><span class="sub" id="as-sub">—</span></div>
+    <div class="sr">
+      <input class="si" id="s-as" placeholder="Search medicine..." oninput="fAS()">
+<button class="fb active" onclick="sAF('all',this)">All</button>
+      <button class="fb pg" onclick="sAF('ok',this)">✅ OK</button>
+      <button class="fb fr" onclick="sAF('reorder',this)">Needs Reorder</button>
+      <button class="fb" onclick="sAF('zero',this)">Zero Stock</button>
+    </div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>Medicine</th><th>Available</th><th>Required</th><th>Days Left</th><th>Cost</th><th>Sell</th><th>Margin</th><th>Expiry</th><th>Status</th></tr></thead>
+      <tbody id="t-as"></tbody>
+    </table></div></div>
+  </div>
+
+  <!-- OPERATIONS -->
+  <div class="view fi" id="view-operations">
+    <div class="sh"><h2>Peak Hours & Days</h2><span class="sub" id="ops-sub">visit patterns</span></div>
+    <div class="g2">
+      <div class="panel"><div class="ph"><span class="pt">Visits by Day of Week</span><span class="pb">total visits</span></div><div class="pbd"><div class="cw"><canvas id="c-dow"></canvas></div></div></div>
+      <div class="panel"><div class="ph"><span class="pt">Revenue by Day of Week</span><span class="pb">MYR</span></div><div class="pbd"><div class="cw"><canvas id="c-dow-rev"></canvas></div></div></div>
+    </div>
+    <div class="panel"><div class="ph"><span class="pt">Peak Hours Heatmap</span><span class="pb">visits by hour of day</span></div>
+      <div class="pbd"><div id="heatmap-hours"></div>
+        <div style="margin-top:12px;font-size:11px;color:var(--muted);font-family:var(--fm)">
+          Darker = more visits. Clinic appears to be open late (peak at 7–9pm).
+        </div>
+      </div>
+    </div>
+    <div class="panel"><div class="ph"><span class="pt">Hourly Visits Chart</span><span class="pb">8am – 11pm</span></div><div class="pbd"><div class="cw" style="height:200px"><canvas id="c-hours"></canvas></div></div></div>
+  </div>
+
+  <!-- DOCTORS -->
+  <div class="view fi" id="view-doctors">
+    <div class="sh"><h2>Doctor Analytics</h2><span class="sub">prescribing patterns & revenue</span></div>
+    <div class="sg" id="doc-stats"></div>
+    <div class="g2">
+      <div class="panel"><div class="ph"><span class="pt">Revenue per Doctor</span><span class="pb">MYR total</span></div><div class="pbd"><div class="cw"><canvas id="c-doc-rev"></canvas></div></div></div>
+      <div class="panel"><div class="ph"><span class="pt">Avg Medicines per Visit</span><span class="pb">prescription complexity</span></div><div class="pbd"><div class="cw"><canvas id="c-doc-meds"></canvas></div></div></div>
+    </div>
+    <div class="panel"><div class="ph"><span class="pt">Doctor Breakdown</span><span class="pb">all metrics</span></div>
+      <div class="ts"><table class="dt">
+        <thead><tr><th>Doctor</th><th>Visits</th><th>Total Revenue</th><th>Rev / Visit</th><th>Avg Meds / Visit</th><th>Top Medicine</th></tr></thead>
+        <tbody id="t-docs"></tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- STAFF -->
+  <div class="view fi" id="view-staff">
+    <div class="sh"><h2>Staff Workload</h2><span class="sub">dispensing activity per staff member</span></div>
+    <div class="panel"><div class="ph"><span class="pt">Dispensing Count by Staff</span><span class="pb">total line items dispensed</span></div><div class="pbd"><div class="cw" style="height:240px"><canvas id="c-staff"></canvas></div></div></div>
+    <div class="panel"><div class="ph"><span class="pt">Staff Summary</span></div>
+      <div class="ts"><table class="dt">
+        <thead><tr><th>Staff</th><th>Line Items Dispensed</th><th>Unique Visits</th><th>Total Units</th><th>Workload Share</th></tr></thead>
+        <tbody id="t-staff"></tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- PATIENTS -->
+  <div class="view fi" id="view-patients">
+    <div class="sh"><h2>Patients</h2><span class="sub">retention & visit patterns</span></div>
+    <div class="sg" id="pat-stats"></div>
+    <div class="g2">
+      <div class="panel"><div class="ph"><span class="pt">New Patients by Month</span><span class="pb">first visit</span></div><div class="pbd"><div class="cw"><canvas id="c-pat-new"></canvas></div></div></div>
+      <div class="panel"><div class="ph"><span class="pt">New vs Returning Patients</span><span class="pb">over all months</span></div><div class="pbd"><div class="cw"><canvas id="c-pat-ret"></canvas></div></div></div>
+    </div>
+    <div class="ab ab-b"><div class="ab-icon">💡</div><div>
+      <div class="ab-title">Retention rate is 15% across 4 months — this is expected for a new clinic</div>
+      <div class="ab-body">A new clinic typically sees many one-time patients. As the clinic matures and builds a patient base, this number should rise to 30–50%. Track this monthly.</div>
+    </div></div>
+    <div class="panel"><div class="ph"><span class="pt">High-Value Patients</span><span class="pb">masked IDs • ranked by total spend</span></div>
+      <div class="ts"><table class="dt">
+        <thead><tr><th>Patient ID</th><th>Visits</th><th>Total Spend</th><th>Avg / Visit</th><th>Last Visit</th></tr></thead>
+        <tbody id="t-hv-patients"></tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- COMBOS -->
+  <div class="view fi" id="view-combos">
+    <div class="sh"><h2>Medicine Combinations</h2><span class="sub" id="combos-sub">most frequently co-prescribed in same visit</span></div>
+    <div class="ab ab-b"><div class="ab-icon">💡</div><div>
+      <div class="ab-title">If Medicine A runs out, Medicine B likely follows</div>
+      <div class="ab-body">These pairs are consistently prescribed together. Use this for smarter reordering — if one is low, check the other too.</div>
+    </div></div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>#</th><th>Medicine A</th><th>Medicine B</th><th>Times Co-Prescribed</th><th>Insight</th></tr></thead>
+      <tbody id="t-combos"></tbody>
+    </table></div></div>
+  </div>
+
+  <!-- SPIKES -->
+  <div class="view fi" id="view-spikes">
+    <div class="sh"><h2>Spike Detection</h2><span class="sub" id="spikes-sub">volume + revenue anomalies</span></div>
+    <div class="ab ab-r"><div class="ab-icon">📡</div><div>
+      <div class="ab-title">Abnormal volume or revenue movement — surges ↑ and drops ↓</div>
+      <div class="ab-body">Medicines with &gt;50% change in units dispensed (30-day) or monthly revenue vs prior monthly average. Both upward surges and downward drops are flagged.</div>
+    </div></div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>Medicine</th><th>Type</th><th>Direction</th><th>Prev Period</th><th>Recent Period</th><th>Change</th><th>Stock</th><th>Days Left</th><th>Risk</th></tr></thead>
+      <tbody id="t-spikes"></tbody>
+    </table></div></div>
+  </div>
+
+  <!-- REVENUE -->
+  <div class="view fi" id="view-revenue">
+    <div class="sh"><h2>Revenue & Margin</h2><span class="sub">estimated from selling price × velocity</span></div>
+    <div class="sg" id="rev-stats"></div>
+    <div class="g2">
+      <div class="panel"><div class="ph"><span class="pt">Top 10 Revenue Drivers</span></div><div class="pbd"><div class="cw" style="height:250px"><canvas id="c-rev-bar"></canvas></div></div></div>
+      <div class="panel"><div class="ph"><span class="pt">Revenue Distribution</span></div><div class="pbd"><div class="cw" style="height:250px"><canvas id="c-rev-donut"></canvas></div></div></div>
+    </div>
+    <div class="panel"><div class="ph"><span class="pt">Top 20 by Revenue — with Margin & Profit</span></div>
+      <div class="ts"><table class="dt">
+        <thead><tr><th>#</th><th>Medicine</th><th>Sell</th><th>Cost</th><th>Margin</th><th>Units/Mo</th><th>Revenue/Mo</th><th>Profit/Mo</th></tr></thead>
+        <tbody id="t-rev"></tbody>
+      </table></div>
+    </div>
+    <div class="panel"><div class="ph"><span class="pt">⚠ Low Margin Items — Worth Reviewing</span><span class="pb">high usage, below 30% margin</span></div>
+      <div class="ts"><table class="dt">
+        <thead><tr><th>Medicine</th><th>Margin</th><th>Sell</th><th>Cost</th><th>Units/Mo</th></tr></thead>
+        <tbody id="t-lm"></tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <div class="view fi" id="view-categories">
+    <div class="sh"><h2>Categories</h2><span class="sub">revenue & volume by therapeutic category</span></div>
+    <div class="panel"><div class="pbd"><div class="cw" style="height:300px"><canvas id="c-cats"></canvas></div></div></div>
+    <div class="panel"><div class="ts"><table class="dt">
+      <thead><tr><th>Category</th><th>Medicines</th><th>Units/Mo</th><th>Revenue/Mo</th><th>Revenue Share</th></tr></thead>
+      <tbody id="t-cats"></tbody>
+    </table></div></div>
+  </div>
+
+  </div><!-- /views -->
+</main>
+</div>
+
+<script>
+const GDRIVE_FILE_ID='PASTE_GOOGLE_DRIVE_FILE_ID_HERE';
+const GITHUB_REPO='permaifong/permai-dashboard';
+const DATA_URL=GDRIVE_FILE_ID!=='PASTE_GOOGLE_DRIVE_FILE_ID_HERE'
+  ?`https://drive.google.com/uc?export=download&id=${GDRIVE_FILE_ID}`
+  :'analysis_latest.json';
+
+let D=null,roFilter='all',roCatFilter='all',roSortBy='urgency',asFilter='all',asCatFilter='all',dsFilter='never';
+const CH={};
+const MEDICINE_CATEGORIES = {
+  "ANTAROL 20MG TAB 250'S PROPRANOLOL IMEKS": "Anti-Hypertensives",
+  "ANTAROL 40MG TAB 250'S PROPRANOLOL IMEKS": "Anti-Hypertensives",
+  "APO-HYDRO 50MG TAB 1'S APOTEX": "Anti-Hypertensives",
+  "APO-METOPROLOL 100MG TAB 1'S APOTEX": "Anti-Hypertensives",
+  "APROVEL 150MG F/C TAB 28'S SANOFI": "Anti-Hypertensives",
+  "APROVEL 300MG TAB 28'S SANOFI": "Anti-Hypertensives",
+  "ATACAND 16MG TAB 30'S ASTRAZENECA": "Anti-Hypertensives",
+  "ATACAND PLUS 16/12.5MG TAB 30'S ASTRA": "Anti-Hypertensives",
+  "AZOREN 20/5MG TAB 30'S PFIZER": "Anti-Hypertensives",
+  "AZOREN 40MG/10MG TABS 30'S PFIZER": "Anti-Hypertensives",
+  "AZOREN 40MG/5MG TAB 30'S PFIZER": "Anti-Hypertensives",
+  "CADUET 10MG/10MG TAB 30's PFIZER": "Anti-Hypertensives",
+  "CADUET 5MG/10MG TAB 30'S PFIZER": "Anti-Hypertensives",
+  "CO APROVEL 150/12.5MG TAB 2X14'S SANOFI": "Anti-Hypertensives",
+  "CO APROVEL 300/12.5MG F/C TAB 2X14'S": "Anti-Hypertensives",
+  "CO APROVEL 300/25MG F/C TAB 2X14S SANOFI": "Anti-Hypertensives",
+  "CO-DIOVAN 160/12.5MG TAB 28'S NOVARTIS": "Anti-Hypertensives",
+  "CO-DIOVAN 160/25MG F/C TAB 28'S NOVARTIS": "Anti-Hypertensives",
+  "CO-DIOVAN 80/12.5MG TAB 28'S NOVARTIS": "Anti-Hypertensives",
+  "CONCOR 2.5MG 1X10'S TABS MERCK": "Anti-Hypertensives",
+  "CONCOR 5MG F/C TABS 1X10'S (MERCK)": "Anti-Hypertensives",
+  "COVERAM 10/5MG TAB 30'S SERVIER": "Anti-Hypertensives",
+  "COVERAM 10MG/10MG TAB 30'S SERVIER": "Anti-Hypertensives",
+  "COVERAM 5MG/10MG TAB 30'S (SERVIER)": "Anti-Hypertensives",
+  "COVERAM 5MG/5MG TAB 30'S (SERVIER)": "Anti-Hypertensives",
+  "COVERSYL 10MG TAB 30'S SERVIER": "Anti-Hypertensives",
+  "COVERSYL 5MG TAB 30'S (SERVIER)": "Anti-Hypertensives",
+  "COVERSYL 5MG/1.25MG PLUS TAB 30S SERVIER": "Anti-Hypertensives",
+  "COZAAR 100MG TAB 30'S MERCK SHARP &DOHME": "Anti-Hypertensives",
+  "COZAAR 50MG TAB 30'S MSD": "Anti-Hypertensives",
+  "COZAAR XQ 5/100MG TAB 30'S MSD": "Anti-Hypertensives",
+  "COZAAR XQ 5/50MG TAB 30'S MSD": "Anti-Hypertensives",
+  "DIOVAN 160MG F/C TABS 28'S NOVARTIS VALS": "Anti-Hypertensives",
+  "DIOVAN 80MG TABS 28'S NOVARTIS 4+1": "Anti-Hypertensives",
+  "DOPATAB 250MG F/C TAB 1'S HOVID": "Anti-Hypertensives",
+  "EXFORGE 10MG/160MG TAB 28'S NOVARTIS": "Anti-Hypertensives",
+  "EXFORGE 5MG/160MG TAB 14'SX2 NOVARTIS": "Anti-Hypertensives",
+  "EXFORGE 5MG/80MG F/C TAB 28'S NOVARTIS": "Anti-Hypertensives",
+  "EXFORGE HCT F/C TAB 28'S 10/160/25MG": "Anti-Hypertensives",
+  "EXFORGE HCT TAB 28'S 10/160/12.5 NOVARTI": "Anti-Hypertensives",
+  "EXFORGE HCT TAB 5/160/12.5MG 28'S": "Anti-Hypertensives",
+  "FENAMON 10MG TAB 1'S MEDOCHEMIE": "Anti-Hypertensives",
+  "FORTZAAR 100/25MG TAB 30'S MSD": "Anti-Hypertensives",
+  "FUSIX 40MG TAB 1'S PHARMACEUTICAL": "Anti-Hypertensives",
+  "HOVASC 10MG TAB 1X10'S HOVID BHD": "Anti-Hypertensives",
+  "HOVASC 5MG TAB 1X10'S HOVID BHD": "Anti-Hypertensives",
+  "HYZAAR 50/12.5MG TAB 2X15'S MSD losartan": "Anti-Hypertensives",
+  "INJ FUSIX 20MG 1X2ML SM PHARMA FRUSEMIDE": "Anti-Hypertensives",
+  "LASIX 40MG TABS 10'S SANOFI-AVENTIS": "Anti-Hypertensives",
+  "MICARDIS 40MG TAB 30'S BOEHRINGER": "Anti-Hypertensives",
+  "MICARDIS 80MG TAB 30'S BOEHRINGER": "Anti-Hypertensives",
+  "MICARDIS PLUS 40/12.5MG TAB 30'S BOEHRIN": "Anti-Hypertensives",
+  "MICARDIS PLUS 80MG/ 12.5MG TAB 30'S": "Anti-Hypertensives",
+  "NATRILIX SR TAB 1.5MG 30'S SERVIER": "Anti-Hypertensives",
+  "NATRIXAM MR 1.5/5MG TABS 6X5'S SERVIER": "Anti-Hypertensives",
+  "NEBICARD 5MG TAB 30'S TORRENT": "Anti-Hypertensives",
+  "NORDIPINE 5MG TABS 3X10'S UPHA/CCM": "Anti-Hypertensives",
+  "NORMATEN 100MG TAB 28'S XEPA ATENOLOL": "Anti-Hypertensives",
+  "NORMATEN 50MG TAB XEPA 2X14'S": "Anti-Hypertensives",
+  "NORVASC 5MG TAB 1X10'S PFIZER >18:148.50": "Anti-Hypertensives",
+  "NORVASC TAB 10MG 1X10'S PFIZER AMLODIPIN": "Anti-Hypertensives",
+  "OLMETEC 20MG F/C TAB 30'S PFIZER": "Anti-Hypertensives",
+  "OLMETEC 40MG F/C TABS 30'S PFIZER": "Anti-Hypertensives",
+  "OLMETEC PLUS 40/12.5MG TAB 30'S PFIZER": "Anti-Hypertensives",
+  "PLENDIL 10MG TAB 30'S ER ASTRAZENECA": "Anti-Hypertensives",
+  "PLENDIL ER 5MG TAB 30'S ASTRAZENECA": "Anti-Hypertensives",
+  "PROVINACE 4MG TAB 30'S XEPA 10X30S-114.0": "Anti-Hypertensives",
+  "TENORMIN 50MG TAB 28'S ATENOLOL ASTRA": "Anti-Hypertensives",
+  "TWYNSTA 40MG/5MG TAB 30'S BOEHRINGER": "Anti-Hypertensives",
+  "TWYNSTA 80MG/10MG TABS 30'S": "Anti-Hypertensives",
+  "TWYNSTA 80MG/5MG TAB 30'S BOEHRINGER ING": "Anti-Hypertensives",
+  "ZESTRIL 5MG TAB 2X14'S ASTRAZENECA": "Anti-Hypertensives",
+  "ZESTRIL TAB 10MG 28'S ASTRA": "Anti-Hypertensives",
+  "AMARYL 2MG TAB 30'S SANOFI AVENTIS": "Anti-diabetic",
+  "DIAMICRON MR 60MG TABS 60'S": "Anti-diabetic",
+  "FORXIGA 10MG TAB 28'S ASTRA": "Anti-diabetic",
+  "GALVUSMET F/C TAB 50MG/500MG 60'S": "Anti-diabetic",
+  "GALVUSMET TAB 60'S 50MG/1000MG NOVARTIS": "Anti-diabetic",
+  "GALVUSMET TAB 60'S 50MG/850MG NOVARTIS": "Anti-diabetic",
+  "GLIBENCLAMIDE 5MG TAB 10X10'S": "Anti-diabetic",
+  "GLICLAZIDE 80MG TAB 1X10'S": "Anti-diabetic",
+  "GLUCOPHAGE XR 500MG TABS MERCK 60'S": "Anti-diabetic",
+  "GLUCOPHAGE XR 750MG TAB 60'S MERCK": "Anti-diabetic",
+  "GLUCOVANCE 500MG/5MG TAB F/C 20'S MERCK": "Anti-diabetic",
+  "INJ APIDRA SOLOSTAR 300IU/3ML 1 PEN": "Anti-diabetic",
+  "INJ LANTUS SOLOSTAR 100IU/ML 3MLX1'S,016": "Anti-diabetic",
+  "INJ NOVOMIX 30 FLEXPEN 100U 3MLX1S NOVO": "Anti-diabetic",
+  "INJ NOVORAPID FLEXPEN 100U/ML 3MLX5'S": "Anti-diabetic",
+  "INJ VICTOZA 6MG/ML 1PENSX3ML NOVO": "Anti-diabetic",
+  "JANUMET 50MG/1000MG TAB 56'S(8X7'S)MSD": "Anti-diabetic",
+  "JANUMET 50MG/500MG TAB 56'S(8X7'S)MSD": "Anti-diabetic",
+  "JANUMET 50MG/850MG TAB 56'S(8X7'S)MSD": "Anti-diabetic",
+  "JANUVIA 100MG TAB 28'S MSD": "Anti-diabetic",
+  "JARDIANCE 25MG F/C TAB 30'S": "Anti-diabetic",
+  "MEDOCLAZIDE 80MG TABS 1X10'S MEDOCHEMIE": "Anti-diabetic",
+  "METFORMIN 500MG TAB 1X10'S DUOPHARMA/CCM": "Anti-diabetic",
+  "METFORMIN 500MG TABS 1X10'S MEDOCHEMIE": "Anti-diabetic",
+  "NOVOPEN 4 1'S NOVO NORDISK": "Anti-diabetic",
+  "RIOMET 850MG TAB 1X10'S RANBAXY": "Anti-diabetic",
+  "TRAJENTA 5MG F/C TAB 30's BOEHRINGER": "Anti-diabetic",
+  "TRAJENTA DUO 2.5/1000MG TAB 60'S": "Anti-diabetic",
+  "TRAJENTA DUO 2.5/850MG TAB 60'S": "Anti-diabetic",
+  "TRAJENTA DUO 60'S TAB F/C 2.5MG/500MG": "Anti-diabetic",
+  "APO-CLOPIDOGREL 75MG TAB 30'S APOTEX": "Cardiovascular",
+  "APO-WARFARIN 2MG TAB 100'S APOTEX": "Cardiovascular",
+  "CARDIPRIN 100 TAB 30'S RECKITT 3X30'S": "Cardiovascular",
+  "CASPRIN 100MG 1X30'S E/M V/CAP YSP": "Cardiovascular",
+  "COPLAVIX 75MG/100MG F/C TAB 14'S SANOFI": "Cardiovascular",
+  "ELIQUIS 5MG F/C TABS 2X10'S PFIZER": "Cardiovascular",
+  "GTN 0.5MG TAB 1'S ACTAVIS": "Cardiovascular",
+  "NITROSOL AEROSOL SPRAY 400MCG 200D": "Cardiovascular",
+  "PLAVIX 75MG F/C TAB 14's SANOFI": "Cardiovascular",
+  "PRADAXA 110MG CAP 30'S BOEHRINGER": "Cardiovascular",
+  "VASTAREL MR KOTRA TABS 35MG 60'S SERVIER": "Cardiovascular",
+  "XARELTO 20MG F/C TAB 28'S BAYER": "Cardiovascular",
+  "ATOZET(SAMPLE)10/20MG F/C TAB 3X10'S MSD": "Anti-Hyperlipidemia",
+  "ATOZET(SAMPLE)10/40MG F/C TAB 3X10'S MSD": "Anti-Hyperlipidemia",
+  "ZOCOR 40MG TABS 60'S MSD FOC": "Anti-Hyperlipidemia",
+  "SIMVOR 20MG TAB 1X10'S RANBAXY": "Anti-Hyperlipidemia",
+  "STORVAS C 10MG F/C TAB 1X10'S RANBAXY": "Anti-Hyperlipidemia",
+  "STORVAS-C 20MG F/C TAB RANBAXY 1X10'S": "Anti-Hyperlipidemia",
+  "APO-LOVASTATIN 20MG TAB 3X10'S": "Anti-Hyperlipidemia",
+  "APO-ATORVASTATIN 20MG TAB 30'S APOTEX": "Anti-Hyperlipidemia",
+  "LIPANTHYL PENTA 145MG TAB 30'S ABBOTT": "Anti-Hyperlipidemia",
+  "LIPITOR TAB 20MG 30'S (3X10'S) PFIZER": "Anti-Hyperlipidemia",
+  "LIPITOR TABS 10MG 30'S PFIZER 20034210AR": "Anti-Hyperlipidemia",
+  "CRESTOR 10MG TAB 2X14'S ASTRA": "Anti-Hyperlipidemia",
+  "EZETROL 10MG TAB 30'S MSD (EZETIMIBE)": "Anti-Hyperlipidemia",
+  "LIPITOR 40MG TAB 3X10'S PFIZER": "Anti-Hyperlipidemia",
+  "CRESTOR 20MG TAB 28'S ASTRAZENECA": "Anti-Hyperlipidemia",
+  "ACCORD MONTELUKAST 5MG PAEDIATRIC CHEW28": "Cold/cough/respiratory",
+  "ACTICOL SYR 60ML NORIPHARMA": "Cold/cough/respiratory",
+  "APO-MONTELUKAST 10MG TABS 3X10'S FOC": "Cold/cough/respiratory",
+  "ASTHALIN 100MCG INHALER (HFA) 200D CIPLA": "Cold/cough/respiratory",
+  "AVAMYS NASAL SPRAY SUSP 27.5MCG 60D GSK": "Cold/cough/respiratory",
+  "BEACOLYTIC 4MG ELIXIR 90ML UPHA": "Cold/cough/respiratory",
+  "BENA EXPECTORANT 90ML XEPA": "Cold/cough/respiratory",
+  "BRICANYL TURBUHALER 0.5MG/DOSE 100DS": "Cold/cough/respiratory",
+  "BUCANIL SYRUP 1.5MG/5ML 100ML": "Cold/cough/respiratory",
+  "COPASTIN F/C TAB 10MG YSP 1X10'S": "Cold/cough/respiratory",
+  "COUGH-EN LINCTUS 120ML XEPA": "Cold/cough/respiratory",
+  "COUGH-EN LINCTUS 90ML XEPA": "Cold/cough/respiratory",
+  "COUGH-EN RX LINCTUS 90ML DEXTROMETHORPHN": "Cold/cough/respiratory",
+  "DECOLGEN FX CAPLETS 1X10'S UNAM PSE PARA": "Cold/cough/respiratory",
+  "DUOVENT UNIT DOSE VIAL 1'SX4ML IPRATRO": "Cold/cough/respiratory",
+  "FEDAC TAB 1X10'S DHA QUOTA-7/MTH": "Cold/cough/respiratory",
+  "FLIXONASE 50MCG AQ NASAL SPRAY 150D GSK": "Cold/cough/respiratory",
+  "FLIXOTIDE EVOHALER 125MCG 120MD GSK": "Cold/cough/respiratory",
+  "FLIXOTIDE EVOHALER 50MCG 120D": "Cold/cough/respiratory",
+  "MUCOLIX ELIXIR 90ML XEPA KIWI FLV": "Cold/cough/respiratory",
+  "MUCOPROM SYRUP 90ML XEPA CARBOCISTEINE": "Cold/cough/respiratory",
+  "MUCOSOLVAN 30MG TAB 10'S BOEHRINGER": "Cold/cough/respiratory",
+  "NUELIN SR BLISTER TAB 250MG 1'S INOVA": "Cold/cough/respiratory",
+  "PROSPAN COUGH SYRUP ENGELHARD 100ML": "Cold/cough/respiratory",
+  "PSE CLARINASE REPETABS 1X10'S BAYER": "Cold/cough/respiratory",
+  "PULMICORT 0.5MG/ML RESPULES(NEW)1X2ML": "Cold/cough/respiratory",
+  "SEDILIX RX LINCTUS 90ML XEPA CHERRY": "Cold/cough/respiratory",
+  "SERETIDE 50/100MCG ACCUHALER 60D GSK": "Cold/cough/respiratory",
+  "SERETIDE 50/250MCG ACCUHALER 60D GSK": "Cold/cough/respiratory",
+  "SERETIDE EVOHALER 25/125MCG DC 120D GSK": "Cold/cough/respiratory",
+  "SYMBICORT 160/4.5MCG 60DS ASTRA fumarate": "Cold/cough/respiratory",
+  "TELFAST D TAB 10": "Cold/cough/respiratory",
+  "TERBUTALINE 1.5MG/5ML SYRUP 60ML DYNAPHA": "Cold/cough/respiratory",
+  "TUSSIDEX FORTE LINCTUS 90ML XEPA": "Cold/cough/respiratory",
+  "UPHADYL 90ML FORTE UPHA >5-2.20,>10-2.05": "Cold/cough/respiratory",
+  "VENTOLIN EVOHALER 100MCG 200D GSK": "Cold/cough/respiratory",
+  "VENTOLIN NEBULES 2.5MG/ 2.5ML GSK": "Cold/cough/respiratory",
+  "UPHALYTE (ORS) ORANGE 7.84GM UPHA": "Gastro-intestinal",
+  "DYNA CHARCOAL 250MG TAB 1X10'S DYNAPHARM": "Gastro-intestinal",
+  "DAFLON 500MG TAB 1'S 1-63.00,19910909X": "Gastro-intestinal",
+  "SMECTA 3GX1'S IPSEN P-3GX30'S(37.05)": "Gastro-intestinal",
+  "AXCEL EVILINE 100ML FORTE SUSP KOTRA MMT": "Gastro-intestinal",
+  "ZOLPRA GR 40MG TAB  RANBAXY 1'S": "Gastro-intestinal",
+  "SHINTAMET 200MG F/C TAB 1'S YSP PEPTIC": "Gastro-intestinal",
+  "BUSCOPAN 10MG TAB 1X20'S SANOFI-AVENTIS": "Gastro-intestinal",
+  "HISTAC 150MG TAB 1X10'S RANBAXY": "Gastro-intestinal",
+  "APO-CIMETIDINE 200MG TAB 1'S APOTEX": "Gastro-intestinal",
+  "VACONTIL 2MG CAP MEDOCHEMIE 10'SX1": "Gastro-intestinal",
+  "MEXOMIDE 10MG TAB 1X10'S DYNAPHARM": "Gastro-intestinal",
+  "BEAMOTIL (LOMOTIL) TAB UPHA 1X10'S": "Gastro-intestinal",
+  "INJ PULIN 10MG/2ML AMPS 1'S YSP": "Gastro-intestinal",
+  "INJ COPAN 20MG/ML AMP 1X1ML CCM/DUOPHAR": "Gastro-intestinal",
+  "PROBITOR 20MG CAP 14'S SANDOZ": "Gastro-intestinal",
+  "INJ GASTRIL 50MG/2ML AMP CCM I.M/I.V": "Gastro-intestinal",
+  "XYLOPROCT SUPP 1'S ASTRA": "Gastro-intestinal",
+  "SIMCONE 80MG CHEW TAB 1X10'S T.O. PHARMA": "Gastro-intestinal",
+  "LACTUL SOLUTION 670MG /ML YSP P-100MLX12": "Gastro-intestinal",
+  "DRIMINATE 50MG SUPP YSP 1'S": "Gastro-intestinal",
+  "COLIMIX 90ML SYRUP - REDIPACK XEPA": "Gastro-intestinal",
+  "DYNA KAOLIN-PECTIN (P) SYR 120ML": "Gastro-intestinal",
+  "AXCEL DICYCLOMINE-S (O) SYR 60ML KOTRA": "Gastro-intestinal",
+  "NOVOMIN 15MG/5ML SYR 60ML XEPA": "Gastro-intestinal",
+  "MOTIGUT 5MG/5ML SUSP 60ML": "Gastro-intestinal",
+  "ALUCID SUSP 100ML UPHA Aluminium hy'xide": "Gastro-intestinal",
+  "NOVOMIN TAB 50MG (DIMENHYDRINATE) XEPA": "Gastro-intestinal",
+  "ALUCID TABS 10'S CCM MMT ALU HYD,MAG HYD": "Gastro-intestinal",
+  "NEXIUM MUPS TAB 40MG ASTRAZENECA 14'S,78": "Gastro-intestinal",
+  "SPADIN SYRUP 120ML NORIPHARMA 5ML/5MG": "Gastro-intestinal",
+  "DELTACARBON 250MG TABS 1X10'S SPS IMEKS": "Gastro-intestinal",
+  "OMILOCK 20MG CAPS 2X7'S SM PHARMA": "Gastro-intestinal",
+  "SPADIN SYRUP 60ML NORIPHARMA 5MG/5ML": "Gastro-intestinal",
+  "DOMIL 5MG/5ML SUSP 60ML NORIPHARMA/": "Gastro-intestinal",
+  "ESOZ 40MG TAB 2X7'S SUN PHARMA /RANBAXY": "Gastro-intestinal",
+  "KAOLIN & PECTIN MIXTURE 100ML DHA": "Gastro-intestinal",
+  "SMOOD-10MG TAB 10X10'S HOVID": "Gastro-intestinal",
+  "CLOMETRO-7HP (CLARI250+OME20+METD400) SM": "Gastro-intestinal",
+  "SENOKOT TAB W SENNA 3X20'S RECKITT": "Gastro-intestinal",
+  "CONTROLOC 40MG TAB 14S TAKEDA GMBH": "Gastro-intestinal",
+  "INJ MALON 10MG/2ML 1'SX2ML IM/IV CCM": "Gastro-intestinal",
+  "BIOFLOR 250MG POWDER FOR ORAL SUSP 1'S": "Gastro-intestinal",
+  "AFTAMED JUNIOR ORAL GEL 15ML BIOPLAX PHA": "ENT",
+  "AFTAMED ORAL GEL 15ML HYALURONAN SODIUM": "ENT",
+  "AFTAMED ORAL SPRAY 20ML PHARMANIAGA": "ENT",
+  "BONJELA 0.01% GEL 15G RECKITT": "ENT",
+  "CANDID 1% EAR DROPS 15ML GLENMARK": "ENT",
+  "CANDID 1% MOUTH PAINT 15ML GLENMARK": "ENT",
+  "GENGIGEL GINGIVAL SPRAY 20ML RICERFARMA": "ENT",
+  "MAC DUAL 1X6'S ACTION ERNEST JACKSON&C": "ENT",
+  "ORAL AID LOTION 1X6ML (UPHA) lidocaine,": "ENT",
+  "ORREPASTE 5G (HOE) MOUTH ULCER": "ENT",
+  "SOLUWAX EAR DROPS 10ML SOFTENING EARWAX": "ENT",
+  "ADIPEX RETARD CAP 15MG 1X20'S G.L.PHARMA": "CNS",
+  "APO-GABAPENTIN 300MG CAP 10X10'S": "CNS",
+  "AXCEL CINNARIZINE 25MG TAB 1X10'S": "CNS",
+  "BETASERC 24MG TAB 10'S ABBOTT": "CNS",
+  "CAFFOX TABS 10'S T.O. PHARMA,200000292AZ": "CNS",
+  "DIAPO 5MG TAB 1X10'S UPHA CCM": "CNS",
+  "INJ LARTIL 12.5MG/ML 1'SX1ML DUOPHARMA": "CNS",
+  "KNOWFUL 800MG F/C TAB 10'SX1 YSP": "CNS",
+  "LEXAPRO 10MG TAB 28'S LUNDBECK": "CNS",
+  "PD RITALIN 10MG TABS 30'S NOVARTIS": "CNS",
+  "PD-DUROMINE 30MG CAPS 30'S INOVA": "CNS",
+  "PRAZOVEX 0.5MG TAB 1X10'S AVEX PHARMA": "CNS",
+  "PROCHLOR 5MG TAB 10S X 1 - STEMETIL": "CNS",
+  "STILNOX 10MG F/C TAB  20'S SANOFI": "CNS",
+  "VELOXIN 25/50MG TAB 10'S PHARM-D": "CNS",
+  "ENHANCIN 625MG TAB 1'S RANBAXY": "Antibiotics",
+  "BETAMOX 500MG CAP 1'S DUOPHARMA/CCM": "Antibiotics",
+  "DYNIDAZOL TABS 200MG 1X10'S DYNAPHARM": "Antibiotics",
+  "ERYSON 250MG TAB 1'S UPHA": "Antibiotics",
+  "AXCEL ERYTHROMYCIN 400MG ESTAB KOTRA EES": "Antibiotics",
+  "DYNA CLOXACILLIN 500MG CAP 1'S": "Antibiotics",
+  "NORFOX 400MG TAB 1'S FAVOREX": "Antibiotics",
+  "CLARITHROMYCIN STADA 500MG F/C TAB 1'S": "Antibiotics",
+  "ALTACEF 500MG TAB 1'S GLENMARK": "Antibiotics",
+  "MEDOMYCIN 100MG 1S CAP MEDOCHEMIE": "Antibiotics",
+  "CEPHALEXIN 500MG CAP 1'S PHARMANIAGA": "Antibiotics",
+  "INOX 100MG CAP 1'S HOVID": "Antibiotics",
+  "LOVIR 400MG(ACICLOVIR) TAB 1'S": "Antibiotics",
+  "DYNA CEPHALEXIN 500MG CAP 1'S DYNAPHARM": "Antibiotics",
+  "ENHANCIN 312.5MG/5ML SUSP 60ML RANBAXY": "Antibiotics",
+  "DYNA AMOXYCILLIN 250MG/5ML DRY SYR 60ML": "Antibiotics",
+  "ZITHROLIDE 250MG TAB 6'S PHARMANIAGA": "Antibiotics",
+  "ZENTEL TAB 200MG 2'S GSK ALBENDAZOLE": "Antibiotics",
+  "BIOZOLE 150MG CAP 1'S BIOLAB": "Antibiotics",
+  "ZENTEL SUSP 400MG 10ML/BT GSK": "Antibiotics",
+  "CANDID V-1 500MG VAGINAL TAB 1'S": "Antibiotics",
+  "INJ UNOCEF 1000MG 1'SX10ML CCM": "Antibiotics",
+  "ZYNOMAX 200MG/5ML SUSP 15ML CCM": "Antibiotics",
+  "CURAM 312.5MG/5ML SUSP SANDOZ 60ML": "Antibiotics",
+  "INJ GENTAMED 80MG/2ML AMP MEDOCHEMIE": "Antibiotics",
+  "ERYSON 200MG GRANULES 60ML UPHA": "Antibiotics",
+  "RETORIN 200MG/5ML SUSP 60ML POWDER SM": "Antibiotics",
+  "VEMIZOL 200MG SUSP 10ML UPHA": "Antibiotics",
+  "UPHALEXIN 250MG (W) GRAN 60ML UPHA": "Antibiotics",
+  "CEPHALEXIN 250MG/5ML SUSP 60ML P'MANIAGA": "Antibiotics",
+  "INJ TRIXONE 250MG 1'S L.B.S/HEALOL": "Antibiotics",
+  "CIPROGLEN-500MG TAB  10'S GLENMARK": "Antibiotics",
+  "CLOXACILLIN 125MG/5ML  (Y)GRAN 60ML UPHA": "Antibiotics",
+  "AXCEL CEFUROXIME 125MG /5ML SUSP 50ML": "Antibiotics",
+  "METROGYL 200MG/5ML SUSP 100ML UNIQUE": "Antibiotics",
+  "A-SCABS LOTION 30ML (ANTI-SCABIES) HOE": "Antibiotics",
+  "RIDWORM SUSP 10ML CCM UPHA": "Antibiotics",
+  "TYSTATIN ORAL SUSP 30ML IMEKS PHARMA": "Antibiotics",
+  "ZORAXIN 200MG/5ML SUSP 120ML DUOPHARMA": "Antibiotics",
+  "INJ LINCOMYCIN 300MG/ML 1ML YSP I.M/I.V": "Antibiotics",
+  "DYNA DOXYCYLINE 100MG 100X10'S CAP": "Antibiotics",
+  "DIFLUCAN 150MG CAPS 1'S PFIZER": "Antibiotics",
+  "ANAREX TAB 1X10'S UPHA 35MG": "Painkillers",
+  "APO-NAPRO-NA 275MG TAB 1X10'S APOTEX": "Painkillers",
+  "ARCOXIA 120MG TAB 1'S MSD (5'SX6)": "Painkillers",
+  "ARCOXIA 90MG TAB 1'S MSD  D-122.70": "Painkillers",
+  "ARFEN 125MG SUPP 1'S MEDOCHEMIE": "Painkillers",
+  "ARFEN 250MG SUPP 1'S MEDOCHEMIE": "Painkillers",
+  "CELEBREX CAP 200MG PFIZER 1'S": "Painkillers",
+  "INJ ANALAB 50MG/1ML AMP BIOLAB 1'S": "Painkillers",
+  "INJ BUFENCON 1ML BETAMETHASONE YSP": "Painkillers",
+  "INJ VOREN 75MG AMPS 1'SX3ML YSP": "Painkillers",
+  "NUFEN 100MG/5ML SUSP 120ML NORIPHARMA": "Painkillers",
+  "NUFEN 100MG/5ML SUSP 60ML NORIPHARMA": "Painkillers",
+  "NUROFEN 60ML SUSP 100MG/5ML RECKITT": "Painkillers",
+  "OLFEN-100 SR 100'S DEPOCAPS ACINO": "Painkillers",
+  "PANADOL ACTIFAST 500MG TAB 1X10'S GSK": "Painkillers",
+  "PANADOL EXTRA 500MG 12'S GSK": "Painkillers",
+  "PARACAP 500MG TAB 1X10'S UMEDA CONTRACT": "Painkillers",
+  "PARACETAMOL 650MG TAB PHARMANIAGA": "Painkillers",
+  "PONTALON 500MG F/C TAB  YSP 1X10'S": "Painkillers",
+  "TRACIDOL 50MG CAP YSP 1X10'S": "Painkillers",
+  "ULTRACET TABS 37.5MG /325MG 10'S JANSSE": "Painkillers",
+  "UPHAMOL 250MG/5ML ORG SUSP UPHA HEADACH": "Painkillers",
+  "VOREN 50MG E/C TABLET 1X10'S YSP,D-37.5%": "Painkillers",
+  "VOREN SUPP 12.5MG YSP 1'S, >11-78.00": "Painkillers",
+  "VOREN SUPP 25MG 1'S YSP": "Painkillers",
+  "VOREN SUPP 50MG 1'S YSP": "Painkillers",
+  "DHASOLONE 5MG TAB 1'S ACTAVIS": "Anti-inflammatory",
+  "BETAMETHASONE 0.5MG TAB 1'S UPHA": "Anti-inflammatory",
+  "LORADINE 10MG TAB 1X10'S YSP": "Anti-inflammatory",
+  "HYDROCORTISON 10MG TAB 1'S ORION": "Anti-inflammatory",
+  "CHLORAMINE 4MG (Y) TAB 1X10'S UPHA": "Anti-inflammatory",
+  "IBUPROFEN F/C TAB 400MG 1X10'S YSP": "Anti-inflammatory",
+  "GLENCET 5MG TAB 1X10'S F/C GLENMARK": "Anti-inflammatory",
+  "DEXCHLORAMINE 2MG/ 5ML SYRUP UPHA 90ML": "Anti-inflammatory",
+  "AXCEL CETIRIZINE 100ML SYRUP KOTRA": "Anti-inflammatory",
+  "PREDSONE 3MG/5ML SYRUP 60ML NORIPHARMA": "Anti-inflammatory",
+  "CETIZ SYRUP 0.1% 75ML AV": "Anti-inflammatory",
+  "CETIHIS 5MG/5ML SYR 60ML": "Anti-inflammatory",
+  "CLARITYNE 10MG TABS 10'S BAYER": "Anti-inflammatory",
+  "TELFAST 180MG TAB 1X10'S 24HRS,SNEEZING": "Anti-inflammatory",
+  "INJ ZYCORT 100MG/VIAL 1'S SM": "Anti-inflammatory",
+  "AERIUS 5MG TAB 10'S MSD (DESLORATADINE)": "Anti-inflammatory",
+  "E-ZYME SYRUP 90ML AV /ADVANCE PHARMA": "Anti-inflammatory",
+  "DEXCHLORAMINE 2MG TAB UPHA": "Anti-inflammatory",
+  "INJ PIRIMAT 10MG/ML 1X1ML DUOPHARMA": "Anti-inflammatory",
+  "DEXALONE 0.5MG TAB 100X10'S UPHA": "Anti-inflammatory",
+  "INJ SHINCORT IM 40MG/ML YSP": "Anti-inflammatory",
+  "INJ PREDON 25MG/ML 10ML 1'S L.B.S": "Anti-inflammatory",
+  "NORCUTIN 5MG TAB 1'S DUOPHARMA": "Hormonal & OCP",
+  "DHEA 50MG CAP 1'S AEGLE": "Hormonal & OCP",
+  "THYROID 1 GRAIN 1'S (T3:T4)(1:4) CAP": "Hormonal & OCP",
+  "CAMAZOL 5MG TAB XEPA 1X10'S": "Hormonal & OCP",
+  "THYROID 2 GRAIN 1'S (T3:T4)(1:4) CAP": "Hormonal & OCP",
+  "DHEA 25MG CAP 1'S AEGLE PHARMA": "Hormonal & OCP",
+  "DIM 200MG CAP 1'S AEGLEPHARMA": "Hormonal & OCP",
+  "POSTINOR 2 TAB 0.75MG 1X2'S RG": "Hormonal & OCP",
+  "RIGEVIDON TAB 21'S PAHANG/GEDEON RICHTER": "Hormonal & OCP",
+  "INJ NON-PREG IM 150MG 1X3ML LBS/HEALOL": "Hormonal & OCP",
+  "DUINUM 50MG TAB 10'S MEDOCHEMIE": "Hormonal & OCP",
+  "ESCAPELLE 1.5MG TAB 1'S LEVONORGESTREL": "Hormonal & OCP",
+  "NORIDAY 350MCG TAB 1X28'S PFIZER": "Hormonal & OCP",
+  "MARVELON TAB 1X21'S MSD": "Hormonal & OCP",
+  "CERAZETTE TAB 0.075MG 28'S MSD": "Hormonal & OCP",
+  "OROXINE 50MCG TAB 100'S ASPEN": "Hormonal & OCP",
+  "MINULET TAB 1X21'S PFIZER": "Hormonal & OCP",
+  "MERCILON TABS 1X21'S MSD/ORGANON": "Hormonal & OCP",
+  "THYROSIT 100MCG TAB SPS 20X10'S": "Hormonal & OCP",
+  "EUTHYROX 50MCG TAB MERCK SERANO": "Hormonal & OCP",
+  "DIANE 35 TABS 1x21'S BAYER": "Hormonal & OCP",
+  "YASMIN TAB 3MG 1X21'S BAYER": "Hormonal & OCP",
+  "YAZ FTB 3MG/0.02 TAB 28'S BAYER 0.02M": "Hormonal & OCP",
+  "FEMOSTON 1/10MG TAB 28'S ESTRADIOL AS": "Hormonal & OCP",
+  "DUPHASTON TAB 10MG 20'S ABBOTT": "Hormonal & OCP",
+  "UTROGESTAN 100MG CAP 2X15'S BESINS": "Hormonal & OCP",
+  "INJ JENASTERON 250MG/ML 5X1ML AMP IMEKS": "Hormonal & OCP",
+  "CLOMID 50MG TAB 10'SX3 SANOFI": "Hormonal & OCP",
+  "ANDRIOL TESTOCAPS 40MG CAP 6X10'S MSD": "Hormonal & OCP",
+  "VISANNE 2MG TAB 2X14'S BAYER": "Hormonal & OCP",
+  "BETAVAL 0.1% CREAM 15G NORIPHARMA": "Topical agent",
+  "GENTAMICIN 0.3% CREAM 10G NORIPHARMA": "Topical agent",
+  "BETNESONE G CREAM 1X10G NORIPHARMA": "Topical agent",
+  "ECONAZINE 1X10G CREAM YSP ECONAZOLE": "Topical agent",
+  "MENZZA CREAM 15G HOE PHARMA, 1-4.06": "Topical agent",
+  "HYDROCORTISONE 1% CREAM 15G UPHA": "Topical agent",
+  "BETNESONE G CREAM 15G NORIPHARMA": "Topical agent",
+  "UNIFLEX-N CREAM 15G XEPA 1-6.30(W BONUS)": "Topical agent",
+  "FUCIDIN INTERTULLE 2% OINTMENT 1'S LEO": "Topical agent",
+  "SUPIROCIN 2% OINTMENT 5G GLENMARK": "Topical agent",
+  "GENTAMICIN CREAM 15G HOE": "Topical agent",
+  "VICIDE 5% CREAM 10G NORIPHARMA /PAHANG": "Topical agent",
+  "KEZORAL 2% CREAM 15G CCM": "Topical agent",
+  "KETOTOP PLASTER 1X6'S PACIFIC PHARMA": "Topical agent",
+  "VOREN PLUS GEL 20G YSP MENTHOL ADDED": "Topical agent",
+  "T-EUSOL ANTISEPTIC SOLUTION A&B 2X100ML": "Topical agent",
+  "SCABOMA LOTION 100ML SCABIES GLENMARK": "Topical agent",
+  "CANDID-B CREAM 15G GLENMARK 19872019A": "Topical agent",
+  "CANDAZOLE 1.0% LOTION 10ML HOE": "Topical agent",
+  "CANDACORT CREAM 15G HOE": "Topical agent",
+  "MOMATE CREAM 15G GLENMARK": "Topical agent",
+  "BEPROSONE 0.05% CREAM 15G HOE": "Topical agent",
+  "BEPROSONE OINTMENT 15G HOE NATE": "Topical agent",
+  "CLODERM CREAM 15G HOE": "Topical agent",
+  "CANDID 1%POWDER DUSTING 30G GLENMARK": "Topical agent",
+  "BEPROSALIC OINTMENT 15G HOE": "Topical agent",
+  "BEPROGEL 0.05% TOPICAL SOLUTION 30ML HOE": "Topical agent",
+  "ACUSTOP CATAPLASMA GREEN CROSS 1X6'S": "Topical agent",
+  "DYFAZINE 1% CREAM 50G DYNAPHARM": "Topical agent",
+  "AQUEOUS CREAM 400G SUNWARD PHARMA": "Topical agent",
+  "DERMOVATE CREAM 15G GSK CHLOROCRESOL)": "Topical agent",
+  "AXCEL LIGNOCAINE 2% STERILE GEL 20G": "Topical agent",
+  "T3 MYCIN GEL 1% 25G HOE": "Topical agent",
+  "MYCORIL SPRAY 1% 75G REMEDICA": "Topical agent",
+  "XYLOPROCT OINTMENT 20G ASTRAZENECA": "Topical agent",
+  "BEPROSALIC LOTION 30ML HOE": "Topical agent",
+  "BACTROBAN OINTMENT 15G GSK MUPIROCIN": "Topical agent",
+  "T3 MYCIN CLINDAMYCIN LOTION 30ML (HOE)": "Topical agent",
+  "KETO PLUS SHAMPOO 120ML GLENMARK": "Topical agent",
+  "EZENIDE LOTION 30ML HOE": "Topical agent",
+  "EPIDUO 0.1%/2.5% GEL 15G GALDERMA": "Topical agent",
+  "ELLGY CORNS & WARTS TREATMENT SOL 10ML": "Topical agent",
+  "PRISTINE SHAMPOO 120ML KETOCONAZOLE XEPA": "Topical agent",
+  "AFRIN NASAL SPRAY 15ML BENZALKONIUM 0.2M": "Eye/nasal drops & spray",
+  "OXY-NASE (ADULT) NASAL SPRAY 0.05% 15ML": "Eye/nasal drops & spray",
+  "NEO DECA EYE/EAR DROPS 1'SX5ML CCM": "Eye/nasal drops & spray",
+  "COLIRCUSI GENTADEXA EYE/EAR DROPS ALCON": "Eye/nasal drops & spray",
+  "ILIADIN INFANT NASAL DROPS PF 0.01% 5ML": "Eye/nasal drops & spray",
+  "KLORAXIN EYE OINTMENT 5G GALENTIC CMC": "Eye/nasal drops & spray",
+  "STERIMAR BABY NASAL HYGIENE SPRAY 50ML": "Eye/nasal drops & spray",
+  "ALCON TEARS NATURALE II methylcellulose": "Eye/nasal drops & spray",
+  "OXY-NASE PAEDIATRIC NASAL DROPS 0.025%": "Eye/nasal drops & spray",
+  "NAPHCON A STERILE OPHTHALMIC SOL 15ML": "Eye/nasal drops & spray",
+  "RHINOCORT AQUA 64MCG N/SPRAY 120D": "Eye/nasal drops & spray",
+  "NICOL 0.5% EYE DROPS 1X5ML(2-8*C)": "Eye/nasal drops & spray",
+  "TERRAMYCIN OPHTHALMIC  OINTMENT 3.5G": "Eye/nasal drops & spray",
+  "STERIMAR NASAL HYGIENE SPRAY 50ML SEA": "Eye/nasal drops & spray",
+  "ILIADIN ADULT&CHILDREN NASAL SPRAY 0.05%": "Eye/nasal drops & spray",
+  "ALLERGOCROM 2% EYE DROPS 10ML URSAPHARM": "Eye/nasal drops & spray",
+  "MAR PLUS NASAL SPRAY 20ML STADA": "Eye/nasal drops & spray",
+  "PHYSIOMER BABY NASAL&  EYE CARE 30X5ML": "Eye/nasal drops & spray",
+  "NAPHCON A 15ML EYE DROPS ALCON": "Eye/nasal drops & spray",
+  "COMBIGAN 5ML EYE DROPS STERILE ALLERGAN": "Eye/nasal drops & spray",
+  "DUOTRAV 40MCG BAK-FREE EYE DROPS 2.5ML": "Eye/nasal drops & spray",
+  "ALCAINE 0.5% STERILE OPHTHALMIC SOL 15ML": "Eye/nasal drops & spray",
+  "NASONEX AQUEOUS NASAL SPRAY 0.05% 140DS": "Eye/nasal drops & spray",
+  "CHLOROP EYE OINTMENT 5G SM PHARMA": "Eye/nasal drops & spray",
+  "TOLCHICINE 600MCG TAB IMEKS/T.O.": "BPH/Gout/Vitamin/ED",
+  "DYNA B-COMPLEX TAB 1X10'S DYNAPHARM": "BPH/Gout/Vitamin/ED",
+  "FOLIC ACID 5MG TAB 1X10'S UPHA": "BPH/Gout/Vitamin/ED",
+  "SANGOBION 1'S COMPLETE CAPMERCK 10+2,12+": "BPH/Gout/Vitamin/ED",
+  "TREN CAPSULE 250MG 1'S YSP": "BPH/Gout/Vitamin/ED",
+  "BEAZYME 1X10'S TAB (PAPAIN) UPHA": "BPH/Gout/Vitamin/ED",
+  "AVOSODA 4G EFF GRANULES ZENTA/ABIO": "BPH/Gout/Vitamin/ED",
+  "ACETYL CARNITINE 300MG CAPS 1'S AEGLE": "BPH/Gout/Vitamin/ED",
+  "ARCALION 200MG TAB 1'S SERVIER": "BPH/Gout/Vitamin/ED",
+  "NEUROGENE-E (B-COMPLEX+ VIT E) UNAM": "BPH/Gout/Vitamin/ED",
+  "MECOVIT 500MCG F/C TAB 1X10'S": "BPH/Gout/Vitamin/ED",
+  "APO-ALLOPURINOL 300MG TABS 10'S": "BPH/Gout/Vitamin/ED",
+  "NEUROBION TAB 1X10'S MERCK": "BPH/Gout/Vitamin/ED",
+  "RALSIN 2MG TAB 1X10'S DUOPHARMA": "BPH/Gout/Vitamin/ED",
+  "MAGUROL 4MG TABS 10'S KOMEDIC S/B": "BPH/Gout/Vitamin/ED",
+  "CARDURA XL 4MG TABS 10'S PFIZER": "BPH/Gout/Vitamin/ED",
+  "AXCEL SILDENAFIL 100MG TABS 4'S KOTRA": "BPH/Gout/Vitamin/ED",
+  "SILDEGRA 100MG TAB 4'S SANDOZ": "BPH/Gout/Vitamin/ED",
+  "CIALIS 20MG F/C TAB 1'S LILLY TADALAFIL": "BPH/Gout/Vitamin/ED",
+  "ZYLORIC 300MG TAB 30'S ASPEN": "BPH/Gout/Vitamin/ED",
+  "XATRAL XL 10MG PR TAB 30'S SANOFIAVENTIS": "BPH/Gout/Vitamin/ED",
+  "PROSCAR 5MG TAB 2X15'S MSD": "BPH/Gout/Vitamin/ED",
+  "CIALIS 5MG F/C TAB 28'S (TADALAFIL)LILLY": "BPH/Gout/Vitamin/ED",
+  "DUODART 0.5/0.4MG CAPS 30'S GSK": "BPH/Gout/Vitamin/ED",
+  "VIAGRA F/C TAB 100MG 4'S (PFIZER)": "BPH/Gout/Vitamin/ED"
+};
+
+async function loadData(){
+  try{
+    const _bust='t='+Date.now();
+    const r=await fetch(DATA_URL+(DATA_URL.includes('?')?'&'+_bust:'?'+_bust));
+    if(!r.ok) throw new Error(`HTTP ${r.status}`);
+    D=await r.json();
+    document.getElementById('ls').style.display='none';
+    document.getElementById('views').style.display='block';
+    render();
+  }catch(e){
+    document.getElementById('ls').innerHTML=`<div class="eb"><h3>⚠ Could not load data</h3><p>Make sure analysis_latest.json is available.</p><p style="margin-top:8px;font-family:var(--fm);font-size:11px;color:var(--danger)">${e.message}</p></div>`;
+  }
+}
+
+function V(name,el){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));
+  document.getElementById('view-'+name).classList.add('active');
+  el.classList.add('active');
+}
+
+function render(){
+  const s=D.summary,a=D.analytics||{};
+  const gen=new Date(D.generated_at);
+  document.getElementById('meta-date').textContent='Updated '+gen.toLocaleDateString('en-MY',{day:'numeric',month:'short'})+' '+gen.toLocaleTimeString('en-MY',{hour:'2-digit',minute:'2-digit'});
+  document.getElementById('ov-date').textContent='Inventory as of '+D.inventory_date;
+
+  // badges
+  document.getElementById('b-reorder').textContent=s.critical_items||0;
+  document.getElementById('b-expiry').textContent=s.expiring_soon||0;
+  document.getElementById('b-dead').textContent=(s.never_dispensed_count||0)+(a.dead_90||[]).length;
+  document.getElementById('b-over').textContent=s.overstock_items||0;
+  document.getElementById('b-spikes').textContent=(a.spikes||[]).length;
+
+  rOverview();rOrdering();rReorder();rExpiry();rDeadStock();rFastMovers();rOverstock();rAllStock();
+  rOperations();rDoctors();rStaff();rPatients();rCombos();rSpikes();rRevenue();rCategories();
+}
+
+// ── OVERVIEW ──────────────────────────────────────────────────────
+function rOverview(){
+  const s=D.summary,a=D.analytics||{};
+  const today=new Date();
+  const dayOfMonth=today.getDate();
+
+  // ── Revenue at risk breakdown
+  const oosItems=D.all_items.filter(i=>i.available_stock===0&&i.monthly_revenue>0);
+  const rarBreakdown=oosItems.slice(0,5).map(i=>`${tr(i.description,30)}: MYR ${fmt(i.monthly_revenue)}/mo`).join('\n');
+
+  // ── 2-week vs 3-month spike alert
+  const spikes2w=[];
+  D.all_items.forEach(i=>{
+    const mb=i.monthly_breakdown||{};
+    const months=Object.keys(mb).sort();
+    if(months.length<2)return;
+    const last=months[months.length-1];
+    const lastVal=mb[last]||0;
+    const prev=months.slice(0,-1).map(m=>mb[m]||0);
+    const avg3=prev.reduce((a,b)=>a+b,0)/Math.max(prev.length,1);
+    if(avg3===0)return;
+    const ratio=lastVal/avg3;
+    if(ratio>1.5||ratio<0.5){
+      spikes2w.push({desc:i.description,ratio,lastVal,avg3,dir:ratio>1.5?'up':'down'});
+    }
+  });
+
+  // ── MTD profit
+  const mtdRevenue=D.all_items.reduce((sum,i)=>{
+    const mb=i.monthly_breakdown||{};
+    const months=Object.keys(mb).sort();
+    if(!months.length)return sum;
+    const curM=months[months.length-1];
+    const units=mb[curM]||0;
+    return sum+(units*(i.selling_price||0));
+  },0);
+  const mtdCost=D.all_items.reduce((sum,i)=>{
+    const mb=i.monthly_breakdown||{};
+    const months=Object.keys(mb).sort();
+    if(!months.length)return sum;
+    const curM=months[months.length-1];
+    const units=mb[curM]||0;
+    return sum+(units*(i.latest_cost_price||0));
+  },0);
+  const mtdProfit=mtdRevenue-mtdCost;
+  const daysInMonth=new Date(today.getFullYear(),today.getMonth()+1,0).getDate();
+  const minSalesPerDay=s.estimated_monthly_revenue/daysInMonth;
+  const profitPerDay=(s.estimated_monthly_revenue-D.all_items.reduce((s,i)=>s+(i.recommended_monthly*(i.latest_cost_price||0)),0))/daysInMonth;
+  const topSeller=D.top_revenue_items&&D.top_revenue_items[0];
+
+  // ── Compact notification bar
+  const _alerts=[];
+  if(s.critical_items>0) _alerts.push({icon:'🚨',label:`${s.critical_items} critical · MYR ${fmt(s.revenue_at_risk||0)} at risk`,color:'var(--danger)',view:'reorder'});
+  if(spikes2w.length>0){const _u=spikes2w.filter(x=>x.dir==='up').length,_d=spikes2w.filter(x=>x.dir==='down').length;_alerts.push({icon:'⚠️',label:`${spikes2w.length} unusual (${_u}↑ ${_d}↓)`,color:'var(--warning)',view:'spikes'});}
+  if((a.spikes||[]).length>0) _alerts.push({icon:'📡',label:`${a.spikes.length} demand spikes`,color:'var(--warning)',view:'spikes'});
+  if(s.dead_capital>0) _alerts.push({icon:'💀',label:`MYR ${fmt(s.dead_capital)} dead stock`,color:'var(--muted)',view:'deadstock'});
+  document.getElementById('ov-banners').innerHTML=_alerts.length
+    ?`<div style="background:var(--card);border:1px solid var(--border);border-radius:9px;padding:7px 14px;margin-bottom:16px;display:flex;align-items:center;gap:2px;flex-wrap:wrap">${_alerts.map((al,i)=>`<span onclick="V('${al.view}',document.querySelector('[onclick*=${al.view}]'))" style="display:inline-flex;align-items:center;gap:4px;cursor:pointer;padding:3px 9px;border-radius:6px;font-size:12px;color:${al.color};font-family:var(--fm);font-weight:600;white-space:nowrap;transition:background .12s" onmouseover="this.style.background='rgba(0,0,0,.05)'" onmouseout="this.style.background=''">${al.icon} ${al.label}</span>${i<_alerts.length-1?'<span style="color:var(--border);padding:0 2px;user-select:none">│</span>':''}`).join('')}</div>`
+    :'';
+
+  // ── Stat cards
+  document.getElementById('ov-stats').innerHTML=`
+    <div class="sc sc-t"><div class="sl">Total Medicines</div><div class="sv sv-t">${s.total_medicines}</div><div class="ss">Active in inventory</div></div>
+    <div class="sc sc-r"><div class="sl">🔴 Critical / OOS</div><div class="sv sv-r">${s.critical_items||0}</div><div class="ss">Order today</div></div>
+    <div class="sc sc-o"><div class="sl">Reorder Needed</div><div class="sv sv-o">${s.needing_reorder}</div><div class="ss">Below required stock</div></div>
+    <div class="sc sc-g"><div class="sl">Est. Monthly Revenue</div><div class="sv sv-g" style="font-size:16px;margin-top:4px">MYR ${fmt(s.estimated_monthly_revenue)}</div><div class="ss">Current velocity</div></div>
+    <div class="sc sc-t"><div class="sl">Net Profit MTD</div><div class="sv sv-t" style="font-size:16px;margin-top:4px">MYR ${fmt(mtdProfit)}</div><div class="ss">Month to date</div></div>
+    <div class="sc sc-y"><div class="sl">Min Sales / Day</div><div class="sv sv-y" style="font-size:16px;margin-top:4px">MYR ${fmt(minSalesPerDay)}</div><div class="ss">Based on monthly est.</div></div>
+    <div class="sc sc-g"><div class="sl">Profit / Day</div><div class="sv sv-g" style="font-size:16px;margin-top:4px">MYR ${fmt(profitPerDay)}</div><div class="ss">Est. daily net profit</div></div>
+    <div class="sc sc-b"><div class="sl">Total Patients</div><div class="sv sv-b">${s.total_patients||0}</div><div class="ss">${s.retention_rate||0}% retention</div></div>
+    <div class="sc sc-r"><div class="sl">Revenue at Risk</div><div class="sv sv-r" style="font-size:16px;margin-top:4px">MYR ${fmt(s.revenue_at_risk||0)}</div><div class="ss">${oosItems.length} OOS items</div></div>
+    <div class="sc sc-p"><div class="sl">💊 Top Seller</div><div class="sv" style="font-size:13px;margin-top:6px;color:var(--purple);font-weight:700">${topSeller?tr(topSeller.description,22):'—'}</div><div class="ss">${topSeller?'MYR '+fmt(topSeller.monthly_revenue)+'/mo':''}</div></div>
+    <div class="sc sc-o"><div class="sl">Dead Stock Items</div><div class="sv sv-o">${(a.never_dispensed||[]).length}</div><div class="ss">Never dispensed</div></div>
+    <div class="sc sc-p"><div class="sl">Spike Alerts</div><div class="sv sv-p">${(a.spikes||[]).length}</div><div class="ss">Unusual demand</div></div>`;
+
+  // Stock Health as bar chart
+  const crit=D.all_items.filter(i=>i.urgency==='critical').length;
+  const urg=D.all_items.filter(i=>i.urgency==='urgent').length;
+  const high=D.all_items.filter(i=>i.urgency==='high').length;
+  const med=D.all_items.filter(i=>i.urgency==='medium').length;
+  const low=D.all_items.filter(i=>i.urgency==='low'&&i.needs_reorder).length;
+  const ok=D.all_items.filter(i=>!i.needs_reorder).length;
+  mkBar('c-health',['OK','Low','Medium','High','Urgent','Critical'],[ok,low,med,high,urg,crit],'Medicines','#0a7c6e',false);
+
+  const an=D.analytics||{};
+  const mR=an.monthly_revenue||{};const mP=an.monthly_patients||{};
+  const rL=Object.keys(mR).sort();
+  mkBar('c-rev-month',rL.map(m=>m.slice(5)),rL.map(m=>mR[m]),'Revenue MYR','#c47f17',false);
+  mkBar('c-pat-month',Object.keys(mP).sort().map(m=>m.slice(5)),Object.keys(mP).sort().map(m=>mP[m]),'Patients','#1565a8',false);
+
+  // Critical table
+  const critItems=D.all_items.filter(i=>i.urgency==='critical').sort((a,b)=>a.days_of_stock-b.days_of_stock).slice(0,12);
+  document.getElementById('t-critical').innerHTML=critItems.map(i=>{
+    const dl=i.days_of_stock===0?'<span class="p pr">OUT OF STOCK</span>':`<span style="color:var(--danger);font-family:var(--fm);font-weight:600">${i.days_of_stock.toFixed(0)}d</span>`;
+    return`<tr class="rc"><td><div class="mn">${esc(tr(i.description,48))}<small>${esc(i.brand||'')}</small></div></td><td><span class="qn">${i.available_stock}</span></td><td>${dl}</td><td><span class="qn">${i.recommended_monthly}/mo</span></td><td><span class="p pr">Order ${i.order_qty}</span></td></tr>`;
+  }).join('')||'<tr><td colspan="5" class="empty">No critical items 🎉</td></tr>';
+}
+
+// ── ORDERING ─────────────────────────────────────────────────────
+function rOrdering(){
+  const urgOrder={critical:0,urgent:1,high:2,medium:3,low:4};
+  const items=[...D.reorder_items].sort((a,b)=>(urgOrder[a.urgency]??5)-(urgOrder[b.urgency]??5));
+  document.getElementById('b-ordering').textContent=items.length;
+  document.getElementById('ord-sub').textContent=`${items.length} medicines to order`;
+  const urgCls={critical:'pr',urgent:'po',high:'py',medium:'pb2',low:'pm'};
+  document.getElementById('t-ordering').innerHTML=items.length?items.map((i,idx)=>{
+    const d=i.days_of_stock;
+    const reason=i.available_stock===0?'Out of stock'
+      :d<7?`${d}d left — critical`
+      :d<14?`${d}d left — urgent`
+      :d<30?`${d}d left — low`
+      :'Below minimum stock';
+    return`<tr class="${i.urgency==='critical'?'rc':i.urgency==='urgent'?'ru':''}">
+      <td style="color:var(--muted);font-family:var(--fm);width:36px">${idx+1}</td>
+      <td><div class="mn">${esc(tr(i.description,54))}<small>${esc(i.brand||'')}</small></div></td>
+      <td>${i.available_stock===0?'<span class="p pr">OOS</span>':`<span class="qn">${i.available_stock}</span>`}</td>
+      <td><span class="p pt2" style="font-size:12px;font-weight:700">${i.order_qty||0}</span></td>
+      <td><span class="p ${urgCls[i.urgency]||'pm'}">${reason}</span></td>
+    </tr>`;
+  }).join(''):'<tr><td colspan="5" class="empty">Nothing to order 🎉</td></tr>';
+}
+function exportOrderingExcel(){
+  if(!window.XLSX){alert('Excel library not loaded yet. Please wait and try again.');return;}
+  const urgOrder={critical:0,urgent:1,high:2,medium:3,low:4};
+  const items=[...D.reorder_items].sort((a,b)=>(urgOrder[a.urgency]??5)-(urgOrder[b.urgency]??5));
+  const today=new Date().toLocaleDateString('en-MY',{day:'numeric',month:'long',year:'numeric'});
+  const rows=[
+    [`Permai Polyclinics Fortuna — Purchase Order`],
+    [`Generated: ${today}  |  ${items.length} items`],
+    [],
+    ['#','Medicine','Current Stock','Order Qty','Reason','Unit Cost (MYR)','Est. Total (MYR)']
+  ];
+  items.forEach((i,idx)=>{
+    const d=i.days_of_stock;
+    const reason=i.available_stock===0?'Out of stock':d<7?`${d}d left - critical`:d<14?`${d}d left - urgent`:d<30?`${d}d left - low`:'Below minimum stock';
+    const cost=i.latest_cost_price||0;
+    rows.push([idx+1,i.description,i.available_stock,i.order_qty||0,reason,cost,Math.round((i.order_qty||0)*cost*100)/100]);
+  });
+  // Total row
+  const totalCost=items.reduce((s,i)=>s+(i.order_qty||0)*(i.latest_cost_price||0),0);
+  rows.push([]);
+  rows.push(['','','','','TOTAL ESTIMATED COST','',Math.round(totalCost*100)/100]);
+
+  const ws=XLSX.utils.aoa_to_sheet(rows);
+  ws['!cols']=[{wch:4},{wch:52},{wch:14},{wch:10},{wch:28},{wch:16},{wch:18}];
+  const wb=XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb,ws,'Purchase Order');
+  const fname='PO_Permai_'+new Date().toISOString().slice(0,10).replace(/-/g,'')+'.xlsx';
+  XLSX.writeFile(wb,fname);
+}
+
+// ── REORDER ───────────────────────────────────────────────────────
+let roItems=[];
+function rReorder(){
+  roItems=D.reorder_items.sort((a,b)=>{const o={critical:0,urgent:1,high:2,medium:3,low:4};return(o[a.urgency]??5)-(o[b.urgency]??5);});
+  const counts={all:roItems.length,critical:0,urgent:0,high:0,medium:0,low:0};
+  roItems.forEach(i=>{if(counts[i.urgency]!==undefined)counts[i.urgency]++;else counts.low++;});
+  ['all','critical','urgent','high','medium','low'].forEach(k=>{const e=document.getElementById('fc-'+k);if(e)e.textContent=counts[k]||0;});
+  document.getElementById('ro-sub').textContent=`${roItems.length} items below required stock`;
+  const totCost=roItems.reduce((a,i)=>a+(i.order_qty||0)*(i.latest_cost_price||0),0);
+  const revRisk=roItems.filter(i=>i.available_stock===0).reduce((a,i)=>a+i.monthly_revenue,0);
+  document.getElementById('ro-stats').innerHTML=`
+    <div class="sc sc-r"><div class="sl">🔴 Critical</div><div class="sv sv-r">${counts.critical}</div><div class="ss">OOS or &lt;7 days</div></div>
+    <div class="sc sc-o"><div class="sl">🟠 Urgent</div><div class="sv sv-o">${counts.urgent}</div><div class="ss">7–14 days left</div></div>
+    <div class="sc sc-b"><div class="sl">Est. Order Cost</div><div class="sv sv-b" style="font-size:18px;margin-top:4px">MYR ${fmt(totCost)}</div><div class="ss">Latest cost price</div></div>
+    <div class="sc sc-r"><div class="sl">Revenue at Risk</div><div class="sv sv-r" style="font-size:18px;margin-top:4px">MYR ${fmt(revRisk)}</div><div class="ss">Fully OOS items</div></div>`;
+  renderROTable();
+}
+function renderROTable(){
+  const q=(document.getElementById('s-ro')||{}).value||'';
+  let filtered=roItems.filter(i=>(roFilter==='all'||i.urgency===roFilter)&&i.description.toLowerCase().includes(q.toLowerCase()));
+  if(roCatFilter!=='all') filtered=filtered.filter(i=>getCategory(i.description)===roCatFilter);
+  if(roSortBy==='movement') filtered=[...filtered].sort((a,b)=>b.recommended_monthly-a.recommended_monthly);
+  const up={critical:'<span class="p pr">🔴 Critical</span>',urgent:'<span class="p po">🟠 Urgent</span>',high:'<span class="p py">🟡 High</span>',medium:'<span class="p pb2">⚪ Medium</span>',low:'<span class="p pm">Low</span>'};
+  document.getElementById('t-ro').innerHTML=filtered.map(i=>{
+    const d=i.days_of_stock;
+    const dl=d===0?'<span class="p pr">OOS</span>':`<span style="color:var(--${d<7?'danger':d<14?'warning':'ok'});font-family:var(--fm);font-weight:600">${d===999?'∞':d.toFixed(0)+'d'}</span>`;
+    const oc=(i.order_qty||0)*(i.latest_cost_price||0);
+    const rr=i.available_stock===0&&i.monthly_revenue>0?`<span style="color:var(--danger);font-family:var(--fm);font-size:11px">MYR ${fmt(i.monthly_revenue)}</span>`:'—';
+    return`<tr class="${i.urgency==='critical'?'rc':i.urgency==='urgent'?'ru':''}">
+      <td>${up[i.urgency]||'<span class="p pm">Low</span>'}</td>
+      <td><div class="mn">${esc(tr(i.description,46))}<small>${esc(i.brand||'')}</small></div></td>
+      <td><span class="qn">${i.available_stock}</span></td><td style="color:var(--muted)">${i.required_stock}</td>
+      <td>${dl}</td><td><span class="qn">${i.recommended_monthly}/mo</span></td>
+      <td><span class="p pt2">${i.order_qty||0}</span></td>
+      <td class="cost">MYR ${fmt(oc)}</td><td>${rr}</td>
+    </tr>`;
+  }).join('')||'<tr><td colspan="9" class="empty">No items match.</td></tr>';
+}
+function sRF(f,btn){roFilter=f;document.querySelectorAll('#view-reorder .sr:first-child .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderROTable();}
+function fRO(){renderROTable();}
+function sRCF(v){roCatFilter=v;renderROTable();}
+function toggleROSort(){roSortBy=roSortBy==='urgency'?'movement':'urgency';const btn=document.getElementById('ro-sort-btn');if(btn){btn.textContent='Sort: '+(roSortBy==='urgency'?'Urgency':'Movement');btn.classList.toggle('active',roSortBy==='movement');}renderROTable();}
+
+// ── EXPIRY ────────────────────────────────────────────────────────
+function rExpiry(){
+  const items=D.all_items.filter(i=>i.expiry_days!=null&&i.expiry_days<180).sort((a,b)=>a.expiry_days-b.expiry_days);
+  document.getElementById('t-expiry').innerHTML=items.length?items.map(i=>{
+    const d=i.expiry_days;
+    const cls=d<0?'pr':d<30?'pr':d<90?'po':'py';
+    const lbl=d<0?'EXPIRED':`${d}d`;
+    const val=i.available_stock*(i.latest_cost_price||0);
+    const act=d<0?'<span class="p pr">Dispose immediately</span>':d<30?'<span class="p pr">Return/use urgently</span>':d<90?'<span class="p po">Use first</span>':'<span class="p py">Monitor</span>';
+    return`<tr><td><div class="mn">${esc(tr(i.description,50))}</div></td><td style="font-family:var(--fm);font-size:11px">${i.nearest_expiry||'—'}</td><td><span class="p ${cls}">${lbl}</span></td><td><span class="qn">${i.available_stock}</span></td><td class="cost">MYR ${fmt(val)}</td><td>${act}</td></tr>`;
+  }).join(''):'<tr><td colspan="6" class="empty">No medicines expiring within 6 months ✅</td></tr>';
+}
+
+// ── DEAD STOCK ────────────────────────────────────────────────────
+function rDeadStock(){
+  const a=D.analytics||{};
+  const nd=a.never_dispensed||[];
+  const d90=new Set(a.dead_90||[]);
+  const d60=new Set(a.dead_60||[]);
+  const d30=new Set(a.dead_30||[]);
+  const ndCapital=nd.reduce((s,desc)=>{const i=D.all_items.find(x=>x.description===desc);return s+(i?(i.available_stock*(i.latest_cost_price||0)):0);},0);
+  const d90Capital=[...d90].reduce((s,desc)=>{const i=D.all_items.find(x=>x.description===desc);return s+(i?(i.available_stock*(i.latest_cost_price||0)):0);},0);
+  document.getElementById('ds-stats').innerHTML=`
+    <div class="sc sc-r"><div class="sl">Never Dispensed</div><div class="sv sv-r">${nd.length}</div><div class="ss">Items with stock, never used</div></div>
+    <div class="sc sc-o"><div class="sl">Not Used 90+ Days</div><div class="sv sv-o">${d90.size}</div><div class="ss">Dead stock</div></div>
+    <div class="sc sc-y"><div class="sl">Capital in Never-Used</div><div class="sv sv-y" style="font-size:18px;margin-top:4px">MYR ${fmt(ndCapital)}</div><div class="ss">Frozen cash</div></div>
+    <div class="sc sc-o"><div class="sl">Capital in 90d Dead</div><div class="sv sv-o" style="font-size:18px;margin-top:4px">MYR ${fmt(d90Capital)}</div><div class="ss">Frozen cash</div></div>`;
+  renderDSTable();
+}
+function renderDSTable(){
+  const a=D.analytics||{};
+  let items=[];
+  if(dsFilter==='never'){
+    const nd=new Set(a.never_dispensed||[]);
+    items=D.all_items.filter(i=>nd.has(i.description)&&i.available_stock>0).map(i=>({...i,last:'Never',deadLabel:'Never dispensed'}));
+  } else {
+    const days=parseInt(dsFilter);
+    const deadSet=new Set(days===90?a.dead_90:days===60?a.dead_60:a.dead_30);
+    items=D.all_items.filter(i=>deadSet.has(i.description)&&i.available_stock>0).map(i=>({...i,last:`${days}+ days ago`,deadLabel:`Not used ${days}+ days`}));
+  }
+  items.sort((a,b)=>(b.available_stock*(b.latest_cost_price||0))-(a.available_stock*(a.latest_cost_price||0)));
+  document.getElementById('t-dead').innerHTML=items.length?items.map(i=>{
+    const cap=i.available_stock*(i.latest_cost_price||0);
+    return`<tr><td><div class="mn">${esc(tr(i.description,50))}<small>${esc(i.brand||'')}</small></div></td>
+    <td><span class="qn">${i.available_stock}</span></td>
+    <td style="font-family:var(--fm);font-size:11px;color:var(--muted)">${i.last}</td>
+    <td class="cost">MYR ${fmt(i.latest_cost_price||0)}</td>
+    <td class="cost" style="color:var(--warning)">MYR ${fmt(cap)}</td>
+    <td><span class="p po">Review / Return</span></td></tr>`;
+  }).join(''):'<tr><td colspan="6" class="empty">No items in this category.</td></tr>';
+}
+function sDF(f,btn){dsFilter=f;document.querySelectorAll('#view-deadstock .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderDSTable();}
+
+// ── FAST MOVERS ───────────────────────────────────────────────────
+function rFastMovers(){
+  // Update month column headers dynamically
+  const ms=D.months_analyzed||[];
+  const thead=document.getElementById("fm-thead");
+  if(thead && ms.length){
+    const monthNames={"01":"Jan","02":"Feb","03":"Mar","04":"Apr","05":"May","06":"Jun","07":"Jul","08":"Aug","09":"Sep","10":"Oct","11":"Nov","12":"Dec"};
+    const _now=new Date();
+    const _curM=`${_now.getFullYear()}-${String(_now.getMonth()+1).padStart(2,'0')}`;
+    thead.innerHTML=`<tr><th>#</th><th>Medicine</th><th>Rec/Mo</th>${ms.map((m,mi)=>{const l=m.slice(5);const nm=monthNames[l]||l;return`<th>${nm+(mi===ms.length-1&&m===_curM?' (proj)':'')}</th>`;}).join("")}<th>Trend</th><th>Days Left</th><th>Status</th></tr>`;
+  }
+  const items=D.fast_movers.slice(0,30);
+  const maxV=Math.max(...items.map(i=>i.recommended_monthly),1);
+  document.getElementById('t-fm').innerHTML=items.map((i,idx)=>{
+    const b=i.monthly_breakdown||{};
+    const ms=D.months_analyzed||['2026-02','2026-03','2026-04','2026-05'];
+    const vals=ms.map(m=>b[m]||0),nz=vals.filter(v=>v>0);
+    let tc='pm',tt='→ Stable';
+    if(nz.length>=2){const f=nz.slice(0,Math.ceil(nz.length/2)).reduce((a,b)=>a+b,0)/Math.ceil(nz.length/2);const l=nz.slice(-Math.ceil(nz.length/2)).reduce((a,b)=>a+b,0)/Math.ceil(nz.length/2);if(l>f*1.15){tc='pg';tt='↑ Growing';}else if(l<f*.85){tc='pr';tt='↓ Falling';}}
+    const d=i.days_of_stock;
+    const dl=d===999?'<span class="p pg">OK</span>':d===0?'<span class="p pr">OOS</span>':d<7?`<span class="p pr">${d.toFixed(0)}d</span>`:d<14?`<span class="p po">${d.toFixed(0)}d</span>`:`<span class="p pg">${d.toFixed(0)}d</span>`;
+    return`<tr><td style="color:var(--muted);font-family:var(--fm)">${idx+1}</td>
+    <td><div class="mn">${esc(tr(i.description,44))}</div></td>
+    <td><div style="display:flex;align-items:center;gap:5px"><div style="height:3px;border-radius:3px;background:var(--accent);opacity:.7;width:${Math.round(i.recommended_monthly/maxV*70)}px"></div><span class="qn">${i.recommended_monthly}</span></div></td>
+    ${ms.map(m=>`<td style="font-family:var(--fm);font-size:11px;color:${b[m]?'var(--text)':'var(--border)'}">${b[m]||'—'}</td>`).join('')}
+    <td><span class="p ${tc}">${tt}</span></td><td>${dl}</td>
+    <td>${i.available_stock<i.required_stock?'<span class="p pr">Reorder</span>':'<span class="p pg">OK</span>'}</td></tr>`;
+  }).join('');
+}
+
+// ── OVERSTOCK ─────────────────────────────────────────────────────
+function rOverstock(){
+  const items=D.all_items.filter(i=>i.is_overstock).sort((a,b)=>b.months_supply-a.months_supply);
+  document.getElementById('t-over').innerHTML=items.map(i=>{
+    const cap=i.available_stock*(i.latest_cost_price||0);
+    const cls=i.months_supply>12?'pr':i.months_supply>6?'po':'py';
+    return`<tr><td><div class="mn">${esc(tr(i.description,50))}<small>${esc(i.brand||'')}</small></div></td>
+    <td><span class="qn">${i.available_stock}</span></td><td><span class="qn">${i.recommended_monthly}/mo</span></td>
+    <td><span class="p ${cls}">${i.months_supply}mo</span></td>
+    <td class="cost">MYR ${fmt(cap)}</td>
+    <td style="font-family:var(--fm);font-size:11px;color:var(--muted)">${i.nearest_expiry||'—'}</td></tr>`;
+  }).join('')||'<tr><td colspan="6" class="empty">No overstocked items.</td></tr>';
+}
+
+// ── ALL STOCK ─────────────────────────────────────────────────────
+function rAllStock(){
+  document.getElementById('as-sub').textContent=D.all_items.length+' medicines';
+  // Log unmatched names so mismatches are visible in DevTools console
+  const norm=_getCatNorm();
+  const unmatched=D.all_items.filter(i=>!norm[_norm(i.description)]);
+  if(unmatched.length){
+    console.log(`[Category] ${unmatched.length} unmatched medicines (showing first 15):`);
+    unmatched.slice(0,15).forEach(i=>console.log('  JSON:', JSON.stringify(i.description)));
+  } else {
+    console.log('[Category] All medicines matched ✓');
+  }
+  fAS();
+}
+function fAS(){
+  const q=(document.getElementById('s-as')||{}).value||'';
+  let items=[...D.all_items].sort((a,b)=>b.recommended_monthly-a.recommended_monthly);
+  if(asFilter==='ok')items=items.filter(i=>!i.needs_reorder);
+  if(asFilter==='reorder')items=items.filter(i=>i.needs_reorder);
+  if(asFilter==='zero')items=items.filter(i=>i.available_stock===0);
+  if(q)items=items.filter(i=>i.description.toLowerCase().includes(q.toLowerCase()));
+
+  const catOrder=['Anti-Hypertensives','Anti-diabetic','Cardiovascular','Anti-Hyperlipidemia','Cold/cough/respiratory','Gastro-intestinal','ENT','CNS','Antibiotics','Painkillers','Anti-inflammatory','Hormonal & OCP','Topical agent','Eye/nasal drops & spray','BPH/Gout/Vitamin/ED','Uncategorized'];
+  const groups=Object.fromEntries(catOrder.map(c=>[c,[]]));
+  items.forEach(i=>{const c=getCategory(i.description);(groups[c]||groups['Uncategorized']).push(i);});
+
+  const mkRow=i=>{
+    const d=i.days_of_stock;
+    const dl=d===999?'—':d===0?'<span class="p pr">OOS</span>':d<7?`<span class="p pr">${d.toFixed(0)}d</span>`:d<14?`<span class="p po">${d.toFixed(0)}d</span>`:`<span style="font-family:var(--fm);font-size:11px;color:var(--muted)">${d.toFixed(0)}d</span>`;
+    const m=i.margin_pct;const mc=m===null?'pm':m<30?'pr':m<50?'po':'pg';
+    const sc=i.available_stock===0?'pr':i.needs_reorder?'po':'pg';
+    return`<tr><td><div class="mn">${esc(tr(i.description,46))}<small>${esc(i.brand||'')} ${esc(i.manufacturer||'')}</small></div></td>
+    <td><span class="p ${sc}">${i.available_stock}</span></td><td style="color:var(--muted)">${i.required_stock}</td>
+    <td>${dl}</td><td class="cost">MYR ${fmt(i.latest_cost_price||0)}</td><td class="cost">MYR ${fmt(i.selling_price||0)}</td>
+    <td>${m!==null?`<span class="p ${mc}">${m}%</span>`:'<span class="p pm">—</span>'}</td>
+    <td style="font-family:var(--fm);font-size:10px;color:var(--muted)">${i.nearest_expiry||'—'}</td>
+    <td><span class="p ${sc}">${i.available_stock===0?'OOS':i.needs_reorder?'Reorder':'OK'}</span></td></tr>`;
+  };
+
+  let html='';
+  catOrder.forEach(cat=>{
+    const grp=groups[cat];
+    if(!grp||!grp.length)return;
+    html+=`<tr><td colspan="9" style="background:rgba(10,124,110,.09);padding:9px 14px 8px;font-family:var(--fh);font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;border-top:2px solid rgba(10,124,110,.18);border-bottom:1px solid rgba(10,124,110,.15)">${esc(cat)}<span style="font-weight:500;font-family:var(--fm);margin-left:7px;color:var(--muted);font-size:10px">(${grp.length})</span></td></tr>`;
+    html+=grp.map(mkRow).join('');
+  });
+  document.getElementById('t-as').innerHTML=html||'<tr><td colspan="9" class="empty">No items.</td></tr>';
+}
+function sAF(f,btn){asFilter=f;document.querySelectorAll('#view-allstock .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');fAS();}
+
+// ── OPERATIONS ────────────────────────────────────────────────────
+function rOperations(){
+  const ms=D.months_analyzed||[];
+  if(ms.length){
+    const monthNames={"01":"Jan","02":"Feb","03":"Mar","04":"Apr","05":"May","06":"Jun","07":"Jul","08":"Aug","09":"Sep","10":"Oct","11":"Nov","12":"Dec"};
+    const first=monthNames[ms[0].slice(5)]||ms[0];
+    const last=monthNames[ms[ms.length-1].slice(5)]||ms[ms.length-1];
+    const yr=ms[0].slice(0,4);
+    const sub=document.getElementById("ops-sub");
+    if(sub) sub.textContent=`visit patterns from ${first}–${last} ${yr}`;
+  }
+  const a=D.analytics||{};
+  const dow=a.dow||{};const hrs=a.hours||{};
+  const days=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+  mkBar('c-dow',days,days.map(d=>dow[d]?.visits||0),'Visits','#00d4aa',false);
+  mkBar('c-dow-rev',days,days.map(d=>dow[d]?.revenue||0),'Revenue MYR','#ffd166',false);
+
+  // Heatmap (7am-11pm)
+  const maxH=Math.max(...Object.values(hrs).map(h=>h.visits||0),1);
+  const hmap=document.getElementById('heatmap-hours');
+  let html='<div style="display:grid;grid-template-columns:repeat(17,1fr);gap:3px">';
+  for(let h=7;h<=23;h++){
+    const v=hrs[h]?.visits||0;
+    const pct=v/maxH;
+    const bg=`rgba(0,212,170,${0.08+pct*0.82})`;
+    html+=`<div class="hm-cell" style="background:${bg};border:1px solid rgba(0,212,170,${0.1+pct*0.3})" title="${h}:00 — ${v} visits"><span style="font-size:9px">${h}:00</span></div>`;
+  }
+  html+='</div>';
+  hmap.innerHTML=html;
+
+  // Line chart 7am-11pm
+  const hLabels=[];const hVals=[];
+  for(let h=7;h<=23;h++){hLabels.push(`${h}:00`);hVals.push(hrs[h]?.visits||0);}
+  mkLine('c-hours',hLabels,hVals,'Visits','#00d4aa');
+}
+
+// ── DOCTORS ───────────────────────────────────────────────────────
+function rDoctors(){
+  const a=D.analytics||{};
+  const docs=a.doctors||{};
+  const realDocs=Object.entries(docs).filter(([k])=>k!=='OTC'&&k.trim()).sort((a,b)=>b[1].total_revenue-a[1].total_revenue);
+  const topDoc=realDocs[0];
+  document.getElementById('doc-stats').innerHTML=`
+    <div class="sc sc-t"><div class="sl">Doctors / Locums</div><div class="sv sv-t">${realDocs.length}</div><div class="ss">Incl. OTC</div></div>
+    <div class="sc sc-g"><div class="sl">Top Doctor</div><div class="sv sv-g" style="font-size:14px;margin-top:6px">${topDoc?topDoc[0].split('(')[0].trim():'-'}</div><div class="ss">MYR ${topDoc?fmt(topDoc[1].total_revenue):0}</div></div>
+    <div class="sc sc-b"><div class="sl">Avg Rev / Visit</div><div class="sv sv-b" style="font-size:18px;margin-top:4px">MYR ${topDoc?fmt(topDoc[1].avg_revenue_per_visit):0}</div><div class="ss">${topDoc?topDoc[0].split('(')[0].trim():''}</div></div>`;
+
+  const labels=realDocs.map(([k])=>k.split('(')[0].trim());
+  mkBar('c-doc-rev',labels,realDocs.map(([,v])=>v.total_revenue),'Revenue MYR','#00d4aa',true);
+  mkBar('c-doc-meds',labels,realDocs.map(([,v])=>v.avg_meds_per_visit),'Avg Meds','#ffd166',true);
+
+  document.getElementById('t-docs').innerHTML=realDocs.map(([doc,v])=>`<tr>
+    <td style="font-weight:500">${esc(doc.split('(')[0].trim())}<br><small style="font-family:var(--fm);color:var(--muted);font-size:10px">${esc(doc.match(/\(([^)]+)\)/)?.[1]||'')}</small></td>
+    <td><span class="qn">${v.visits}</span></td>
+    <td class="cost">MYR ${fmt(v.total_revenue)}</td>
+    <td class="cost">MYR ${fmt(v.avg_revenue_per_visit)}</td>
+    <td><span class="p pb2">${v.avg_meds_per_visit} meds</span></td>
+    <td style="font-size:11px;color:var(--muted)">${esc(tr(v.top_medicines?.[0]||'—',36))}</td>
+  </tr>`).join('');
+}
+
+// ── STAFF ─────────────────────────────────────────────────────────
+function rStaff(){
+  const a=D.analytics||{};
+  const staff=Object.entries(a.staff||{}).sort((a,b)=>b[1].dispensing_count-a[1].dispensing_count);
+  const total=staff.reduce((s,[,v])=>s+v.dispensing_count,0);
+  mkBar('c-staff',staff.map(([k])=>k),staff.map(([,v])=>v.dispensing_count),'Items Dispensed','#a29bfe',true);
+  document.getElementById('t-staff').innerHTML=staff.map(([name,v])=>{
+    const pct=Math.round(v.dispensing_count/total*100);
+    return`<tr><td style="font-weight:500">${esc(name)}</td>
+    <td><span class="qn">${v.dispensing_count}</span></td>
+    <td><span class="qn">${v.unique_visits}</span></td>
+    <td><span class="qn">${v.total_units}</span></td>
+    <td><div style="display:flex;align-items:center;gap:7px">
+      <div style="height:4px;border-radius:4px;background:var(--purple);opacity:.7;width:${pct*1.2}px"></div>
+      <span style="font-family:var(--fm);font-size:11px;color:var(--muted)">${pct}%</span>
+    </div></td></tr>`;
+  }).join('');
+}
+
+// ── PATIENTS ─────────────────────────────────────────────────────
+function rPatients(){
+  const ms=D.months_analyzed||[];
+  if(ms.length){
+    const monthNames={"01":"Jan","02":"Feb","03":"Mar","04":"Apr","05":"May","06":"Jun","07":"Jul","08":"Aug","09":"Sep","10":"Oct","11":"Nov","12":"Dec"};
+    const first=monthNames[ms[0].slice(5)]||ms[0];
+    const last=monthNames[ms[ms.length-1].slice(5)]||ms[ms.length-1];
+    const yr=ms[0].slice(0,4);
+    const el=document.getElementById("pat-date-range");
+    if(el) el.textContent=`${first}–${last} ${yr}`;
+  }
+  const a=D.analytics||{};
+  const p=a.patients||{};
+  document.getElementById('pat-stats').innerHTML=`
+    <div class="sc sc-b"><div class="sl">Total Unique Patients</div><div class="sv sv-b">${p.total_unique||0}</div><div class="ss">Feb–May 2026</div></div>
+    <div class="sc sc-g"><div class="sl">Multi-Month Patients</div><div class="sv sv-g">${p.returning_multi_month||0}</div><div class="ss">Visited 2+ months</div></div>
+    <div class="sc sc-t"><div class="sl">Retention Rate</div><div class="sv sv-t">${p.retention_rate||0}%</div><div class="ss">Returning patients</div></div>
+    <div class="sc sc-y"><div class="sl">Avg Revisit Cycle</div><div class="sv sv-y" style="font-size:20px;margin-top:4px">${p.avg_revisit_days||0}d</div><div class="ss">Days between visits</div></div>`;
+
+  const nb=p.new_by_month||{};
+  const mL=Object.keys(nb).sort();
+  mkBar('c-pat-new',mL.map(m=>m.slice(5)),mL.map(m=>nb[m]),'New Patients','#4fc3f7',false);
+  mkDonut('c-pat-ret',['Single Visit','Returning'],[p.new_single_month||0,p.returning_multi_month||0],['#6b7fa3','#00d4aa']);
+
+  // High-value patients — names masked to deterministic IDs
+  const hvPats=p.top_patients||p.high_value_patients||[];
+  const hvEl=document.getElementById('t-hv-patients');
+  if(hvEl){
+    hvEl.innerHTML=hvPats.length?hvPats.map(pt=>{
+      const name=pt.name||pt.patient||pt.patient_name||'';
+      const visits=pt.visits||pt.visit_count||0;
+      const spend=pt.total_spend||pt.total_revenue||0;
+      const avg=visits?spend/visits:0;
+      return`<tr>
+        <td style="font-family:var(--fm);font-size:12px;color:var(--accent)">${patientId(name)}</td>
+        <td><span class="qn">${visits}</span></td>
+        <td class="cost">MYR ${fmt(spend)}</td>
+        <td class="cost">MYR ${fmt(avg)}</td>
+        <td style="font-family:var(--fm);font-size:11px;color:var(--muted)">${pt.last_visit||'—'}</td>
+      </tr>`;
+    }).join(''):'<tr><td colspan="5" class="empty">No high-value patient data in this dataset.</td></tr>';
+  }
+}
+
+// ── COMBOS ────────────────────────────────────────────────────────
+function rCombos(){
+  const combos=(D.analytics?.combos||[]);
+  const sub=document.getElementById('combos-sub');
+  if(sub) sub.textContent=`${combos.length} pairs — most frequently co-prescribed in same visit`;
+  document.getElementById('t-combos').innerHTML=combos.map((c,i)=>`<tr>
+    <td style="color:var(--muted);font-family:var(--fm)">${i+1}</td>
+    <td><div class="mn">${esc(tr(c.med_a,44))}</div></td>
+    <td><div class="mn">${esc(tr(c.med_b,44))}</div></td>
+    <td><span class="p pt2">${c.count}×</span></td>
+    <td style="font-size:11px;color:var(--muted)">If one is low, check the other</td>
+  </tr>`).join('')||'<tr><td colspan="5" class="empty">No combination data.</td></tr>';
+}
+
+// ── SPIKES ────────────────────────────────────────────────────────
+function rSpikes(){
+  const volSpikes=(D.analytics?.spikes||[]).map(s=>({...s,type:'Volume',dir:s.change_pct<0?'down':'up'}));
+
+  // Revenue spikes computed client-side from monthly_breakdown × selling_price
+  const revSpikes=[];
+  const ms=D.months_analyzed||[];
+  if(ms.length>=2){
+    D.all_items.forEach(i=>{
+      const sp=i.selling_price||0;
+      if(!sp)return;
+      const mb=i.monthly_breakdown||{};
+      const revByMonth=ms.map(m=>(mb[m]||0)*sp);
+      const lastRev=revByMonth[revByMonth.length-1];
+      const prevRevs=revByMonth.slice(0,-1).filter(v=>v>0);
+      if(!prevRevs.length)return;
+      const avgPrev=prevRevs.reduce((a,b)=>a+b,0)/prevRevs.length;
+      if(avgPrev<50)return;
+      const chgPct=Math.round((lastRev-avgPrev)/avgPrev*100);
+      if(Math.abs(chgPct)<50)return;
+      revSpikes.push({medicine:i.description,prev_rev:avgPrev,recent_rev:lastRev,change_pct:chgPct,type:'Revenue',dir:chgPct>0?'up':'down'});
+    });
+    revSpikes.sort((a,b)=>Math.abs(b.change_pct)-Math.abs(a.change_pct));
+  }
+
+  const allSpikes=[...volSpikes,...revSpikes];
+  const ups=allSpikes.filter(x=>x.dir==='up').length;
+  const downs=allSpikes.filter(x=>x.dir==='down').length;
+  const sub=document.getElementById('spikes-sub');
+  if(sub) sub.textContent=`${allSpikes.length} anomalies — ${ups} surging, ${downs} dropping`;
+  document.getElementById('b-spikes').textContent=allSpikes.length;
+
+  document.getElementById('t-spikes').innerHTML=allSpikes.length?allSpikes.map(s=>{
+    const item=D.all_items.find(i=>i.description===s.medicine)||{};
+    const isRev=s.type==='Revenue';
+    const chgAbs=Math.abs(s.change_pct);
+    const chgLbl=s.change_pct===999?'New demand':`${s.dir==='up'?'+':'−'}${chgAbs}%`;
+    const cls=chgAbs>200||s.change_pct===999?'pr':chgAbs>100?'po':'py';
+    const dirCls=s.dir==='up'?'po':'pb2';
+    const d=item.days_of_stock||0;
+    const risk=d===0?'<span class="p pr">OOS</span>':d<7?'<span class="p pr">Order now</span>':d<14?'<span class="p po">Order soon</span>':'<span class="p pg">OK</span>';
+    const prevCell=isRev?`MYR ${fmt(s.prev_rev)}/mo`:`${s.prev_30d} units`;
+    const recCell=isRev?`MYR ${fmt(s.recent_rev)}/mo`:`${s.recent_30d} units`;
+    return`<tr>
+      <td><div class="mn">${esc(tr(s.medicine,44))}</div></td>
+      <td><span class="p ${isRev?'py':'pt2'}">${s.type}</span></td>
+      <td><span class="p ${dirCls}">${s.dir==='up'?'↑ Surge':'↓ Drop'}</span></td>
+      <td style="font-family:var(--fm);font-size:11px">${prevCell}</td>
+      <td style="font-family:var(--fm);font-size:11px;color:var(--warning)">${recCell}</td>
+      <td><span class="p ${cls}">${chgLbl}</span></td>
+      <td><span class="qn">${item.available_stock??'—'}</span></td>
+      <td>${d===0?'<span class="p pr">OOS</span>':`<span style="font-family:var(--fm);font-size:11px">${d===999?'∞':d.toFixed(0)+'d'}</span>`}</td>
+      <td>${risk}</td></tr>`;
+  }).join(''):'<tr><td colspan="9" class="empty">No unusual spikes detected.</td></tr>';
+}
+
+// ── REVENUE ───────────────────────────────────────────────────────
+function rRevenue(){
+  const items=D.top_revenue_items||[];
+  const total=D.summary.estimated_monthly_revenue;
+  const top10=items.slice(0,10).reduce((a,i)=>a+i.monthly_revenue,0);
+  const withRev=D.all_items.filter(i=>i.monthly_revenue>0).length;
+  const totalProfit=items.reduce((a,i)=>{const c=(i.avg_cost_price||i.latest_cost_price||0)*i.recommended_monthly;return a+(i.monthly_revenue-c);},0);
+  document.getElementById('rev-stats').innerHTML=`
+    <div class="sc sc-g"><div class="sl">Est. Monthly Revenue</div><div class="sv sv-g" style="font-size:18px;margin-top:4px">MYR ${fmt(total)}</div><div class="ss">Current velocity</div></div>
+    <div class="sc sc-t"><div class="sl">Est. Monthly Profit</div><div class="sv sv-t" style="font-size:18px;margin-top:4px">MYR ${fmt(totalProfit)}</div><div class="ss">Revenue minus cost</div></div>
+    <div class="sc sc-y"><div class="sl">Top 10 Revenue Share</div><div class="sv sv-y">${Math.round(top10/total*100)}%</div><div class="ss">Concentration</div></div>
+    <div class="sc sc-b"><div class="sl">Revenue Medicines</div><div class="sv sv-b">${withRev}</div><div class="ss">With sell price set</div></div>`;
+  mkBar('c-rev-bar',items.slice(0,10).map(i=>tr(i.description,22)),items.slice(0,10).map(i=>i.monthly_revenue),'MYR/mo','#ffd166',true);
+  const top5=items.slice(0,5),oth=total-top5.reduce((a,i)=>a+i.monthly_revenue,0);
+  mkDonut('c-rev-donut',[...top5.map(i=>tr(i.description,18)),'Others'],[...top5.map(i=>i.monthly_revenue),oth],['#00d4aa','#ffd166','#ff6b6b','#4fc3f7','#a29bfe','#636e72']);
+  document.getElementById('t-rev').innerHTML=items.slice(0,20).map((i,idx)=>{
+    const c=i.avg_cost_price||i.latest_cost_price||0;
+    const cm=c*i.recommended_monthly;const pr=i.monthly_revenue-cm;
+    const m=i.margin_pct;const mc=m===null?'pm':m<30?'pr':m<50?'po':'pg';
+    return`<tr><td style="color:var(--muted);font-family:var(--fm)">${idx+1}</td>
+    <td><div class="mn">${esc(tr(i.description,44))}</div></td>
+    <td class="cost">MYR ${fmt(i.selling_price||0)}</td><td class="cost">MYR ${fmt(c)}</td>
+    <td>${m!==null?`<span class="p ${mc}">${m}%</span>`:'<span class="p pm">—</span>'}</td>
+    <td><span class="qn">${i.recommended_monthly}/mo</span></td>
+    <td class="cost" style="color:var(--ok)">MYR ${fmt(i.monthly_revenue)}</td>
+    <td class="cost" style="color:${pr>0?'var(--accent)':'var(--danger)'}">MYR ${fmt(pr)}</td></tr>`;
+  }).join('');
+  const lm=D.all_items.filter(i=>i.margin_pct!==null&&i.margin_pct<30&&i.recommended_monthly>=20).sort((a,b)=>a.margin_pct-b.margin_pct);
+  document.getElementById('t-lm').innerHTML=lm.map(i=>`<tr>
+    <td><div class="mn">${esc(tr(i.description,46))}</div></td>
+    <td><span class="p pr">${i.margin_pct}%</span></td>
+    <td class="cost">MYR ${fmt(i.selling_price||0)}</td><td class="cost">MYR ${fmt(i.latest_cost_price||0)}</td>
+    <td><span class="qn">${i.recommended_monthly}/mo</span></td></tr>`).join('')||'<tr><td colspan="5" class="empty">No high-usage low-margin items ✅</td></tr>';
+}
+
+// ── CATEGORIES ────────────────────────────────────────────────────
+function rCategories(){
+  const cats={};
+  D.all_items.forEach(i=>{
+    const c=(i.category&&i.category!=='nan'&&i.category!=='None')?i.category:'Uncategorised';
+    if(!cats[c])cats[c]={count:0,revenue:0,units:0};
+    cats[c].count++;cats[c].revenue+=i.monthly_revenue||0;cats[c].units+=i.recommended_monthly||0;
+  });
+  const sorted=Object.entries(cats).sort((a,b)=>b[1].revenue-a[1].revenue).filter(([,v])=>v.revenue>0).slice(0,15);
+  const totR=sorted.reduce((a,[,v])=>a+v.revenue,0);
+  mkBar('c-cats',sorted.map(([k])=>k),sorted.map(([,v])=>v.revenue),'MYR/mo','#4fc3f7',true);
+  document.getElementById('t-cats').innerHTML=sorted.map(([cat,v])=>`<tr>
+    <td style="font-weight:500">${esc(cat)}</td><td style="font-family:var(--fm)">${v.count}</td>
+    <td><span class="qn">${Math.round(v.units)}/mo</span></td>
+    <td class="cost">MYR ${fmt(v.revenue)}</td>
+    <td><div style="display:flex;align-items:center;gap:7px">
+      <div style="height:4px;border-radius:4px;background:var(--info);opacity:.7;width:${Math.round(v.revenue/totR*120)}px"></div>
+      <span style="font-family:var(--fm);font-size:11px;color:var(--muted)">${Math.round(v.revenue/totR*100)}%</span>
+    </div></td></tr>`).join('');
+}
+
+// ── Charts ────────────────────────────────────────────────────────
+function mkLine(id,labels,data,label,color,fill=false){
+  if(CH[id])CH[id].destroy();
+  CH[id]=new Chart(document.getElementById(id).getContext('2d'),{type:'line',data:{labels,datasets:[{label,data,borderColor:color,backgroundColor:fill?color+'22':'transparent',pointBackgroundColor:color,pointRadius:5,borderWidth:2.5,tension:.35,fill}]},options:cO(false)});
+}
+function mkBar(id,labels,data,label,color,h=false){
+  if(CH[id])CH[id].destroy();
+  CH[id]=new Chart(document.getElementById(id).getContext('2d'),{type:'bar',data:{labels,datasets:[{label,data,backgroundColor:color+'bb',borderColor:color,borderWidth:1,borderRadius:4}]},options:{...cO(h),indexAxis:h?'y':'x'}});
+}
+function mkDonut(id,labels,data,colors){
+  if(CH[id])CH[id].destroy();
+  CH[id]=new Chart(document.getElementById(id).getContext('2d'),{type:'doughnut',data:{labels,datasets:[{data,backgroundColor:colors.map(c=>c+'cc'),borderColor:colors,borderWidth:1.5,hoverOffset:6}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'right',labels:{color:'#6b6560',font:{size:11},boxWidth:12,padding:8}},tooltip:tS()}}});
+}
+function cO(h){return{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:tS()},scales:{x:{ticks:{color:'#6b6560',font:{size:10},maxRotation:h?0:35},grid:{color:'#e0dbd3'}},y:{ticks:{color:'#6b6560',font:{size:10}},grid:{color:'#e0dbd3'}}}};}
+function tS(){return{backgroundColor:'#ffffff',titleColor:'#1a1a1a',bodyColor:'#6b6560',borderColor:'#e0dbd3',borderWidth:1,cornerRadius:8,padding:10};}
+
+// ── Utils ─────────────────────────────────────────────────────────
+function fmt(n){if(!n&&n!==0)return'—';return Number(n).toLocaleString('en-MY',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function tr(s,n){return s&&s.length>n?s.substring(0,n)+'…':(s||'');}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function patientId(name){let h=5381;const s=String(name||'');for(let i=0;i<s.length;i++)h=((h<<5)+h)^s.charCodeAt(i);return'PT-'+(((h>>>0)%9000)+1000);}
+function _norm(s){return String(s||'').trim().toUpperCase().replace(/\s+/g,' ');}
+let _catNorm=null;
+function _getCatNorm(){
+  if(_catNorm)return _catNorm;
+  _catNorm={};
+  Object.entries(MEDICINE_CATEGORIES).forEach(([k,v])=>{_catNorm[_norm(k)]=v;});
+  return _catNorm;
+}
+
+// Brand-word extraction: strip form/dose/packaging tokens, leaving brand name words
+const _FW=/^(TAB|TABS|CAP|CAPS|CAPSULE|TABLET|INJ|INJECTION|SYR|SYRUP|SUSP|SUSPENSION|SUPP|SUPPOSITORY|SOL|SOLUTION|SPRAY|DROP|DROPS|CREAM|OINTMENT|OINT|GEL|LOTION|POWDER|GRAN|GRANULES|ELIXIR|LINCTUS|MIXTURE|ORAL|FORTE|MR|SR|ER|PF|FC|EC|EM)$/;
+const _DW=/^\d[\d.]*\s*(MG|ML|MCG|G|IU|%)(\/[\w.]+)?$/;
+const _PW=/^\d+S$|^\d+X\d+/;
+function _brandOf(s){
+  return _norm(s)
+    .replace(/\([^)]*\)/g,' ')   // remove (parenthetical)
+    .replace(/['''`]/g,'')        // remove apostrophes
+    .replace(/-/g,' ')            // hyphens → spaces (APO-SOMETHING → APO SOMETHING)
+    .split(/\s+/)
+    .filter(w=>w.length>1 && !_FW.test(w) && !_DW.test(w) && !_PW.test(w) && !/^\d+$/.test(w));
+}
+let _brandMap=null;
+function _getBrandMap(){
+  if(_brandMap)return _brandMap;
+  _brandMap=[];
+  Object.entries(MEDICINE_CATEGORIES).forEach(([k,cat])=>{
+    const words=_brandOf(k);
+    for(let n=Math.min(words.length,3);n>=1;n--) _brandMap.push({sig:words.slice(0,n),cat});
+  });
+  _brandMap.sort((a,b)=>b.sig.length-a.sig.length); // try longest (most specific) first
+  return _brandMap;
+}
+
+function getCategory(desc){
+  // 1. Exact normalized match
+  const cn=_getCatNorm();
+  if(cn[_norm(desc)])return cn[_norm(desc)];
+  // 2. Brand-token match: extract significant words from desc, check consecutive overlap with key brand words
+  const bmap=_getBrandMap();
+  const dw=_brandOf(desc);
+  for(const {sig,cat} of bmap){
+    if(sig.length===1){
+      if(dw.includes(sig[0]))return cat;
+    } else {
+      const idx=dw.indexOf(sig[0]);
+      if(idx<0)continue;
+      let ok=true;
+      for(let j=1;j<sig.length;j++){if(dw[idx+j]!==sig[j]){ok=false;break;}}
+      if(ok)return cat;
+    }
+  }
+  return 'Uncategorized';
+}
+
+function downloadLatestPO(){
+  if(D && D.latest_po_filename){
+    const url=`https://raw.githubusercontent.com/${GITHUB_REPO}/main/${D.latest_po_filename}`;
+    const a=document.createElement("a");
+    a.href=url;
+    a.download=D.latest_po_filename;
+    a.click();
+  } else {
+    alert("No PO available yet. Run the pipeline first.");
+  }
+}
+// Password protection
+const DASHBOARD_PASSWORD = "permai2026";
+function checkPassword(){
+  const pw = document.getElementById("pw-input").value;
+  if(pw === DASHBOARD_PASSWORD){
+    document.getElementById("auth-screen").style.display = "none";
+    loadData();
+  } else {
+    document.getElementById("pw-error").style.display = "block";
+    document.getElementById("pw-input").value = "";
+  }
+}
+// Don't auto-load — wait for password
+// loadData();
+
+// ── CHATBOT ───────────────────────────────────────────────────────
+let chatHistory=[];
+function toggleChat(){
+  const panel=document.getElementById('chat-panel');
+  const isOpen=panel.style.display==='flex';
+  panel.style.display=isOpen?'none':'flex';
+  if(!isOpen) initChatPanel();
+}
+function initChatPanel(){
+  const key=localStorage.getItem('claude_api_key');
+  document.getElementById('chat-key-setup').style.display=key?'none':'flex';
+  document.getElementById('chat-interface').style.display=key?'flex':'none';
+  if(key&&!chatHistory.length){
+    const el=document.getElementById('chat-messages');
+    el.innerHTML=`<div style="max-width:88%;padding:8px 11px;border-radius:11px 11px 11px 2px;font-size:12px;line-height:1.5;background:var(--card);border:1px solid var(--border);color:var(--muted)">Hi! I have your clinic data loaded — stock levels, revenue, patients, spikes. Ask me anything.</div>`;
+  }
+}
+function saveChatKey(){
+  const key=document.getElementById('chat-api-key-input').value.trim();
+  if(!key.startsWith('sk-')){alert('Enter a valid Anthropic API key (starts with sk-ant-)');return;}
+  localStorage.setItem('claude_api_key',key);
+  initChatPanel();
+}
+function clearChatKey(){
+  if(!confirm('Remove stored API key?'))return;
+  localStorage.removeItem('claude_api_key');
+  chatHistory=[];
+  document.getElementById('chat-messages').innerHTML='';
+  initChatPanel();
+}
+function addChatMsg(role,text){
+  chatHistory.push({role,content:text});
+  const el=document.getElementById('chat-messages');
+  const isUser=role==='user';
+  const d=document.createElement('div');
+  d.style.cssText=`max-width:88%;padding:8px 11px;border-radius:${isUser?'11px 11px 2px 11px':'11px 11px 11px 2px'};font-size:12px;line-height:1.5;white-space:pre-wrap;word-break:break-word;align-self:${isUser?'flex-end':'flex-start'};background:${isUser?'var(--accent)':'var(--card)'};color:${isUser?'#fff':'var(--text)'};border:${isUser?'none':'1px solid var(--border)'}`;
+  d.textContent=text;
+  el.appendChild(d);
+  el.scrollTop=el.scrollHeight;
+}
+async function sendChat(){
+  const key=localStorage.getItem('claude_api_key');
+  if(!key)return;
+  const inp=document.getElementById('chat-input-field');
+  const msg=inp.value.trim();
+  if(!msg)return;
+  inp.value='';
+  addChatMsg('user',msg);
+  const s=D?.summary||{};
+  const sys=`You are an AI assistant for ${D?.clinic_name||'Permai Polyclinics Fortuna'}, a Malaysian GP clinic. You have clinic intelligence data:
+- Total medicines: ${s.total_medicines||0} | Critical/OOS: ${s.critical_items||0} | Needs reorder: ${s.needing_reorder||0}
+- Est. monthly revenue: MYR ${fmt(s.estimated_monthly_revenue||0)} | Revenue at risk: MYR ${fmt(s.revenue_at_risk||0)}
+- Total patients: ${s.total_patients||0} | Retention: ${s.retention_rate||0}%
+- Months analyzed: ${(D?.months_analyzed||[]).join(', ')}
+- Top 5 revenue items: ${(D?.top_revenue_items||[]).slice(0,5).map(i=>`${i.description} (MYR ${fmt(i.monthly_revenue)}/mo)`).join('; ')}
+Be concise and actionable. All values in MYR.`;
+  const loading=document.createElement('div');
+  loading.style.cssText='max-width:88%;padding:8px 11px;border-radius:11px 11px 11px 2px;font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);align-self:flex-start';
+  loading.textContent='Thinking…';
+  document.getElementById('chat-messages').appendChild(loading);
+  document.getElementById('chat-messages').scrollTop=99999;
+  try{
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'x-api-key':key,'anthropic-version':'2023-06-01','content-type':'application/json','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:512,system:sys,messages:chatHistory.slice(-12)})
+    });
+    loading.remove();
+    if(!resp.ok){const e=await resp.json();addChatMsg('assistant',`Error: ${e.error?.message||resp.status}`);return;}
+    const data=await resp.json();
+    addChatMsg('assistant',data.content?.[0]?.text||'No response');
+  }catch(e){loading.remove();addChatMsg('assistant',`Error: ${e.message}`);}
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const inp=document.getElementById('chat-input-field');
+  if(inp) inp.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChat();}});
+});
+</script>
+
+<!-- Chat widget -->
+<button id="chat-toggle-btn" onclick="toggleChat()" title="AI Assistant" style="position:fixed;bottom:24px;right:24px;width:52px;height:52px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 16px rgba(10,124,110,.35);z-index:5000;transition:transform .2s">💬</button>
+
+<div id="chat-panel" style="display:none;position:fixed;bottom:88px;right:24px;width:360px;height:500px;background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.15);z-index:4999;flex-direction:column;overflow:hidden">
+  <div style="padding:11px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--card)">
+    <div style="font-family:var(--fh);font-size:13px;font-weight:600">🤖 Clinic AI Assistant</div>
+    <div style="display:flex;gap:6px;align-items:center">
+      <button onclick="clearChatKey()" title="Change API key" style="font-size:11px;color:var(--muted);background:none;border:none;cursor:pointer;padding:2px 5px">🔑</button>
+      <button onclick="toggleChat()" style="color:var(--muted);background:none;border:none;cursor:pointer;font-size:16px;line-height:1">✕</button>
+    </div>
+  </div>
+  <div id="chat-key-setup" style="padding:20px;flex:1;display:flex;flex-direction:column;gap:12px;justify-content:center">
+    <div style="font-family:var(--fh);font-weight:600;font-size:14px">Enter your Anthropic API Key</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.5">Get your key at <b>console.anthropic.com</b>. Stored in your browser only — never sent anywhere except Anthropic.</div>
+    <input id="chat-api-key-input" type="password" placeholder="sk-ant-..." style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:7px;padding:8px 12px;color:var(--text);font-family:var(--fm);font-size:12px;outline:none;box-sizing:border-box">
+    <button onclick="saveChatKey()" style="background:rgba(10,124,110,.1);border:1px solid rgba(10,124,110,.3);border-radius:7px;padding:9px;color:var(--accent);font-family:var(--fb);font-size:13px;cursor:pointer;font-weight:500">Save &amp; Start Chatting</button>
+  </div>
+  <div id="chat-interface" style="display:none;flex:1;flex-direction:column;min-height:0">
+    <div id="chat-messages" style="flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px;min-height:0"></div>
+    <div style="padding:10px;border-top:1px solid var(--border);display:flex;gap:8px">
+      <input id="chat-input-field" type="text" placeholder="Ask about stock, revenue, patients…" style="flex:1;background:var(--card);border:1px solid var(--border);border-radius:7px;padding:7px 10px;color:var(--text);font-family:var(--fb);font-size:12px;outline:none;min-width:0">
+      <button onclick="sendChat()" style="background:var(--accent);border:none;border-radius:7px;padding:7px 13px;color:#fff;cursor:pointer;font-size:16px;flex-shrink:0">↑</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
