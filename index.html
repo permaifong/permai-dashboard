@@ -1202,7 +1202,7 @@ function rOrdering(){
     return`<tr class="${i.urgency==='critical'?'rc':i.urgency==='urgent'?'ru':''}">
       <td data-sort="${urgN[i.urgency]??4}">${up[i.urgency]||'<span class="p pm">Low</span>'}</td>
       <td><div class="mn">${esc(tr(i.description,50))}<small>${esc(i.brand||'')}</small></div></td>
-      <td>${i.available_stock===0?'<span class="p pr">OOS</span>':`<span class="qn">${i.available_stock}</span>`}</td>
+      <td><span class="qn" style="${i.available_stock===0?'color:var(--danger)':''}">${i.available_stock}</span></td>
       <td data-sort="${d===999?9999:d}">${dl}</td>
       <td><span class="qn">${usage2wk}/2wk</span></td>
       <td><span class="p pt2" style="font-size:12px;font-weight:700">${oq}</span></td>
