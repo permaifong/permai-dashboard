@@ -242,7 +242,7 @@ tr.ru td{background:rgba(255,165,2,.03)}
     <!-- Reorder tab -->
     <div id="atab-reorder">
       <div class="sg" id="ro-stats"></div>
-      <div class="sr">
+      <div class="sr" id="ro-filter-btns">
         <input class="si" id="s-ro" placeholder="Search medicine..." oninput="fRO()">
         <button class="fb fr active" onclick="sRF('all',this)">All (<span id="fc-all">0</span>)</button>
         <button class="fb fr" onclick="sRF('critical',this)">🔴 Critical (<span id="fc-critical">0</span>)</button>
@@ -1176,7 +1176,7 @@ function renderROTable(){
     </tr>`;
   }).join('')||'<tr><td colspan="9" class="empty">No items match.</td></tr>';
 }
-function sRF(f,btn){roFilter=f;document.querySelectorAll('#atab-reorder .sr:first-child .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderROTable();}
+function sRF(f,btn){roFilter=f;document.querySelectorAll('#ro-filter-btns .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderROTable();}
 function fRO(){renderROTable();}
 function sRCF(v){roCatFilter=v;renderROTable();}
 function toggleROSort(){roSortBy=roSortBy==='urgency'?'movement':'urgency';const btn=document.getElementById('ro-sort-btn');if(btn){btn.textContent='Sort: '+(roSortBy==='urgency'?'Urgency':'Movement');btn.classList.toggle('active',roSortBy==='movement');}renderROTable();}
