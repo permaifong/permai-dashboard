@@ -198,18 +198,10 @@ tr.ru td{background:rgba(255,165,2,.03)}
     <div id="ov-banners"></div>
     <div class="sg" id="ov-stats"></div>
     <div class="g2">
-    <div class="panel" style="cursor:pointer" onclick="document.getElementById('health-info').style.display=document.getElementById('health-info').style.display==='none'?'block':'none'">
-      <div class="ph"><span class="pt">Stock Health</span><span class="pb" style="color:var(--accent)">click for insights ↓</span></div>
-      <div class="pbd"><div class="cw"><canvas id="c-health"></canvas></div>
-        <div id="health-info" style="display:none;margin-top:12px;font-size:12px;color:var(--muted);line-height:1.7;border-top:1px solid var(--border);padding-top:10px">
-          <b style="color:var(--text)">What these levels mean:</b><br>
-          🟢 <b>OK</b> — Stock above required level. No action needed.<br>
-          ⚪ <b>Low</b> — Below required but not critical. Plan reorder soon.<br>
-          🔵 <b>Medium</b> — Getting low. Reorder within 2 weeks.<br>
-          🟡 <b>High</b> — Reorder this week to avoid disruption.<br>
-          🟠 <b>Urgent</b> — Less than 14 days left. Order immediately.<br>
-          🔴 <b>Critical</b> — Out of stock or less than 7 days. Order today.
-        </div>
+    <div class="panel">
+      <div class="ph"><span class="pt">Stock Health</span><span class="pb">current inventory snapshot</span></div>
+      <div class="pbd"><div class="cw" style="height:185px"><canvas id="c-health"></canvas></div>
+        <div id="health-summary" style="margin-top:12px"></div>
       </div>
     </div>
     <div class="panel">
@@ -1008,8 +1000,14 @@ function mkSortable(tbodyId){
     th.classList.add(asc?'asc':'desc');
     const rows=[...tbody.querySelectorAll('tr')];
     rows.sort((a,b)=>{
-      const av=a.cells[ci]?.textContent.trim()||'';
-      const bv=b.cells[ci]?.textContent.trim()||'';
+      const ac=a.cells[ci],bc=b.cells[ci];
+      if(ac?.dataset.sort!==undefined&&bc?.dataset.sort!==undefined){
+        const sn=parseFloat(ac.dataset.sort),tn=parseFloat(bc.dataset.sort);
+        if(!isNaN(sn)&&!isNaN(tn))return asc?sn-tn:tn-sn;
+        return asc?ac.dataset.sort.localeCompare(bc.dataset.sort):bc.dataset.sort.localeCompare(ac.dataset.sort);
+      }
+      const av=ac?.textContent.trim()||'';
+      const bv=bc?.textContent.trim()||'';
       const an=parseFloat(av.replace(/[^0-9.-]/g,''));
       const bn=parseFloat(bv.replace(/[^0-9.-]/g,''));
       if(!isNaN(an)&&!isNaN(bn))return asc?an-bn:bn-an;
@@ -1107,14 +1105,47 @@ function rOverview(){
     ?rowItems.map(i=>`<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border)"><span style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;color:var(--text)">${esc(tr(i.description,46))}</span><span style="font-family:var(--fm);font-size:11px;font-weight:700;color:${i.days_of_stock<=3?'var(--danger)':'var(--warning)'};white-space:nowrap;margin-left:8px">${i.days_of_stock.toFixed(0)}d</span></div>`).join('')
     :'<div style="font-size:12px;color:var(--ok);padding:8px 0">All good — nothing running out this week ✓</div>';
 
-  // Stock Health as bar chart
+  // Stock Health — donut with urgency colours + mini-stats
   const crit=D.all_items.filter(i=>i.urgency==='critical').length;
   const urg=D.all_items.filter(i=>i.urgency==='urgent').length;
   const high=D.all_items.filter(i=>i.urgency==='high').length;
   const med=D.all_items.filter(i=>i.urgency==='medium').length;
   const low=D.all_items.filter(i=>i.urgency==='low'&&i.needs_reorder).length;
   const ok=D.all_items.filter(i=>!i.needs_reorder).length;
-  mkBar('c-health',['OK','Low','Medium','High','Urgent','Critical'],[ok,low,med,high,urg,crit],'Medicines','#0a7c6e',false);
+  mkDonut('c-health',
+    ['OK','Low','Medium','High','Urgent','Critical'],
+    [ok,low,med,high,urg,crit],
+    ['#1a7a4a','#9b9490','#1565a8','#c47f17','#d35400','#c0392b']
+  );
+  document.getElementById('health-summary').innerHTML=`
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px">
+      <div style="text-align:center;padding:8px 4px;background:rgba(192,57,43,.08);border-radius:8px;border:1px solid rgba(192,57,43,.25)">
+        <div style="font-size:22px;font-weight:800;color:#c0392b;font-family:var(--fh);line-height:1">${crit}</div>
+        <div style="font-size:9px;color:#c0392b;font-family:var(--fm);letter-spacing:.05em;margin-top:3px">CRITICAL</div>
+      </div>
+      <div style="text-align:center;padding:8px 4px;background:rgba(211,84,0,.07);border-radius:8px;border:1px solid rgba(211,84,0,.22)">
+        <div style="font-size:22px;font-weight:800;color:#d35400;font-family:var(--fh);line-height:1">${urg}</div>
+        <div style="font-size:9px;color:#d35400;font-family:var(--fm);letter-spacing:.05em;margin-top:3px">URGENT</div>
+      </div>
+      <div style="text-align:center;padding:8px 4px;background:rgba(26,122,74,.07);border-radius:8px;border:1px solid rgba(26,122,74,.22)">
+        <div style="font-size:22px;font-weight:800;color:#1a7a4a;font-family:var(--fh);line-height:1">${ok}</div>
+        <div style="font-size:9px;color:#1a7a4a;font-family:var(--fm);letter-spacing:.05em;margin-top:3px">HEALTHY</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;display:grid;grid-template-columns:repeat(3,1fr);gap:7px">
+      <div style="text-align:center;padding:6px 4px;background:rgba(196,127,23,.07);border-radius:8px;border:1px solid rgba(196,127,23,.2)">
+        <div style="font-size:18px;font-weight:700;color:#c47f17;font-family:var(--fh);line-height:1">${high}</div>
+        <div style="font-size:9px;color:#c47f17;font-family:var(--fm);letter-spacing:.05em;margin-top:3px">HIGH</div>
+      </div>
+      <div style="text-align:center;padding:6px 4px;background:rgba(21,101,168,.07);border-radius:8px;border:1px solid rgba(21,101,168,.2)">
+        <div style="font-size:18px;font-weight:700;color:#1565a8;font-family:var(--fh);line-height:1">${med}</div>
+        <div style="font-size:9px;color:#1565a8;font-family:var(--fm);letter-spacing:.05em;margin-top:3px">MEDIUM</div>
+      </div>
+      <div style="text-align:center;padding:6px 4px;background:rgba(107,101,96,.07);border-radius:8px;border:1px solid rgba(107,101,96,.2)">
+        <div style="font-size:18px;font-weight:700;color:#6b6560;font-family:var(--fh);line-height:1">${low}</div>
+        <div style="font-size:9px;color:#6b6560;font-family:var(--fm);letter-spacing:.05em;margin-top:3px">LOW</div>
+      </div>
+    </div>`;
 
   const mR=a.monthly_revenue||{};const mP=a.monthly_patients||{};
   const rL=Object.keys(mR).sort();
@@ -1143,11 +1174,12 @@ function rOrdering(){
     const d=i.days_of_stock;
     const dl=d===0?'<span class="p pr">OOS</span>':`<span style="color:var(--${d<7?'danger':d<14?'warning':'ok'});font-family:var(--fm);font-weight:600">${d===999?'∞':d.toFixed(0)+'d'}</span>`;
     const ec=(i.order_qty||0)*(i.latest_cost_price||0);
+    const urgN={critical:0,urgent:1,high:2,medium:3,low:4};
     return`<tr class="${i.urgency==='critical'?'rc':i.urgency==='urgent'?'ru':''}">
-      <td>${up[i.urgency]||'<span class="p pm">Low</span>'}</td>
+      <td data-sort="${urgN[i.urgency]??4}">${up[i.urgency]||'<span class="p pm">Low</span>'}</td>
       <td><div class="mn">${esc(tr(i.description,50))}<small>${esc(i.brand||'')}</small></div></td>
       <td>${i.available_stock===0?'<span class="p pr">OOS</span>':`<span class="qn">${i.available_stock}</span>`}</td>
-      <td>${dl}</td>
+      <td data-sort="${d===999?9999:d}">${dl}</td>
       <td><span class="qn">${Math.round(i.recommended_monthly||0)}/mo</span></td>
       <td><span class="p pt2" style="font-size:12px;font-weight:700">${i.order_qty||0}</span></td>
       <td class="cost">MYR ${fmt(ec)}</td>
@@ -1213,11 +1245,12 @@ function renderROTable(){
     const dl=d===0?'<span class="p pr">OOS</span>':`<span style="color:var(--${d<7?'danger':d<14?'warning':'ok'});font-family:var(--fm);font-weight:600">${d===999?'∞':d.toFixed(0)+'d'}</span>`;
     const oc=(i.order_qty||0)*(i.latest_cost_price||0);
     const rr=i.available_stock===0&&i.monthly_revenue>0?`<span style="color:var(--danger);font-family:var(--fm);font-size:11px">MYR ${fmt(i.monthly_revenue)}</span>`:'—';
+    const urgN2={critical:0,urgent:1,high:2,medium:3,low:4};
     return`<tr class="${i.urgency==='critical'?'rc':i.urgency==='urgent'?'ru':''}">
-      <td>${up[i.urgency]||'<span class="p pm">Low</span>'}</td>
+      <td data-sort="${urgN2[i.urgency]??4}">${up[i.urgency]||'<span class="p pm">Low</span>'}</td>
       <td><div class="mn">${esc(tr(i.description,46))}<small>${esc(i.brand||'')}</small></div></td>
       <td><span class="qn">${i.available_stock}</span></td><td style="color:var(--muted)">${i.required_stock}</td>
-      <td>${dl}</td><td><span class="qn">${i.recommended_monthly}/mo</span></td>
+      <td data-sort="${d===999?9999:d}">${dl}</td><td><span class="qn">${i.recommended_monthly}/mo</span></td>
       <td><span class="p pt2">${i.order_qty||0}</span></td>
       <td class="cost">MYR ${fmt(oc)}</td><td>${rr}</td>
     </tr>`;
@@ -1238,7 +1271,7 @@ function rExpiry(){
     const lbl=d<0?'EXPIRED':`${d}d`;
     const val=i.available_stock*(i.latest_cost_price||0);
     const act=d<0?'<span class="p pr">Dispose immediately</span>':d<30?'<span class="p pr">Return/use urgently</span>':d<90?'<span class="p po">Use first</span>':'<span class="p py">Monitor</span>';
-    return`<tr><td><div class="mn">${esc(tr(i.description,50))}</div></td><td style="font-family:var(--fm);font-size:11px">${i.nearest_expiry||'—'}</td><td><span class="p ${cls}">${lbl}</span></td><td><span class="qn">${i.available_stock}</span></td><td class="cost">MYR ${fmt(val)}</td><td>${act}</td></tr>`;
+    return`<tr><td><div class="mn">${esc(tr(i.description,50))}</div></td><td style="font-family:var(--fm);font-size:11px">${i.nearest_expiry||'—'}</td><td data-sort="${d}"><span class="p ${cls}">${lbl}</span></td><td><span class="qn">${i.available_stock}</span></td><td class="cost">MYR ${fmt(val)}</td><td>${act}</td></tr>`;
   }).join(''):'<tr><td colspan="6" class="empty">No medicines expiring within 6 months ✅</td></tr>';
   mkSortable('t-expiry');
 }
@@ -1309,7 +1342,7 @@ function rFastMovers(){
     <td><div class="mn">${esc(tr(i.description,44))}</div></td>
     <td><div style="display:flex;align-items:center;gap:5px"><div style="height:3px;border-radius:3px;background:var(--accent);opacity:.7;width:${Math.round(i.recommended_monthly/maxV*70)}px"></div><span class="qn">${i.recommended_monthly}</span></div></td>
     ${ms.map(m=>`<td style="font-family:var(--fm);font-size:11px;color:${b[m]?'var(--text)':'var(--border)'}">${b[m]||'—'}</td>`).join('')}
-    <td><span class="p ${tc}">${tt}</span></td><td>${dl}</td>
+    <td data-sort="${tc==='pg'?0:tc==='pr'?2:1}"><span class="p ${tc}">${tt}</span></td><td data-sort="${d===999?9999:d}">${dl}</td>
     <td>${i.available_stock<i.required_stock?'<span class="p pr">Reorder</span>':'<span class="p pg">OK</span>'}</td></tr>`;
   }).join('');
   mkSortable('t-fm');
