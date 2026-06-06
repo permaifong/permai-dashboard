@@ -207,6 +207,10 @@ tr.ru td{background:rgba(255,165,2,.03)}
     </div>
     <div class="panel">
       <div class="ph"><span class="pt">⚠ Running Out</span><span class="pb" id="row-count">—</span></div>
+      <div id="tip-bar" style="padding:7px 14px 6px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:7px;min-height:36px">
+        <span style="font-size:12px;margin-top:2px;flex-shrink:0;opacity:.7">💡</span>
+        <span id="tip-text" style="font-size:11px;color:var(--muted);line-height:1.45;transition:opacity .4s ease"></span>
+      </div>
       <div id="ro-tabs" style="display:flex;gap:0;border-bottom:1px solid var(--border);padding:0 8px">
         <button class="atab" id="rotab-today" onclick="showROTab('today',this)">Today</button>
         <button class="atab active" id="rotab-week" onclick="showROTab('week',this)">This Week</button>
@@ -442,7 +446,7 @@ tr.ru td{background:rgba(255,165,2,.03)}
       <div class="ab-body">Medicines where the last 2 weeks of sales (normalised to a monthly rate) deviates from the last 30-day average by ≥50%. Minimum 10 units/month to qualify. Both surges and drops are flagged.</div>
     </div></div>
     <div class="panel"><div class="ts"><table class="dt">
-      <thead><tr><th>Medicine</th><th>Direction</th><th>Monthly Avg (30d)</th><th>Last 2 Wks</th><th>2wk Rate /mo</th><th>Change</th><th>Stock</th><th>Days Left</th></tr></thead>
+      <thead><tr><th>Medicine</th><th>Direction</th><th>Avg /mo (30d)</th><th>Last 2 Wks</th><th>Proj. Rate /mo</th><th>Change</th><th>Stock</th><th>Days Left</th><th>Why Flagged</th></tr></thead>
       <tbody id="t-spikes"></tbody>
     </table></div></div>
   </div>
@@ -1005,6 +1009,7 @@ function render(){
 
   rOverview();rOrdering();rReorder();rExpiry();rDeadStock();rFastMovers();rOverstock();rAllStock();
   rOperations();rDoctors();rStaff();rPatients();rCombos();rSpikes();rRevenue();rCategories();
+  initTips();
 }
 
 // ── SORTABLE TABLES ───────────────────────────────────────────────
@@ -1695,6 +1700,22 @@ function rCombos(){
 }
 
 // ── SPIKES ────────────────────────────────────────────────────────
+function spikeSignal(sp,item){
+  const isUp=sp.change_pct>0;
+  const d=item.days_of_stock??999;
+  const chgAbs=Math.abs(sp.change_pct);
+  if(isUp){
+    if(d===0)return{text:'OOS while demand is surging — reorder now',cls:'pr'};
+    if(d<7)return{text:`Only ${d}d stock left at this demand rate — reorder now`,cls:'pr'};
+    if(d<14)return{text:`Stock may run out in ~${d}d at current rate — reorder soon`,cls:'po'};
+    if(d<30)return{text:'Demand elevated — confirm stock covers next 2–3 weeks',cls:'py'};
+    return{text:'Unusual demand increase — monitor to see if trend holds',cls:''};
+  }else{
+    if(sp.qty_14d===0)return{text:'Zero sales in 2 weeks — substitution by doctor, or patient drop-off?',cls:'pr'};
+    if(chgAbs>=75)return{text:'Sharp drop — check if medicine was substituted or unavailable',cls:'po'};
+    return{text:'Demand fell — reduce next reorder quantity to avoid overstock',cls:'py'};
+  }
+}
 function rSpikes(){
   const spikes=D.analytics?.spikes||[];
   const ups=spikes.filter(s=>s.change_pct>0).length;
@@ -1708,9 +1729,10 @@ function rSpikes(){
     const chgAbs=Math.abs(s.change_pct);
     const chgLbl=s.qty_14d===0?'No sales':`${isUp?'+':'−'}${chgAbs}%`;
     const chgCls=chgAbs>=100?'pr':chgAbs>=75?'po':'py';
-    const d=item.days_of_stock||0;
-    const dLabel=d===999?'∞':d.toFixed(0)+'d';
+    const d=item.days_of_stock??999;
+    const dLabel=d===0?'OOS':d===999?'∞':d.toFixed(0)+'d';
     const dColor=d===0||d<7?'var(--danger)':d<14?'var(--warning)':'var(--ok)';
+    const sig=spikeSignal(s,item);
     return`<tr>
       <td><div class="mn">${esc(tr(s.medicine,44))}</div></td>
       <td data-sort="${isUp?0:1}"><span class="p ${isUp?'po':'pb2'}">${isUp?'↑ Surge':'↓ Drop'}</span></td>
@@ -1720,9 +1742,37 @@ function rSpikes(){
       <td data-sort="${s.change_pct}"><span class="p ${chgCls}">${chgLbl}</span></td>
       <td><span class="qn">${item.available_stock??'—'}</span></td>
       <td data-sort="${d===999?9999:d}" style="font-family:var(--fm);font-size:11px;font-weight:600;color:${dColor}">${dLabel}</td>
+      <td style="font-size:11px;color:var(--${sig.cls==='pr'?'danger':sig.cls==='po'?'warning':sig.cls==='py'?'warning':'muted'});max-width:220px;line-height:1.4">${sig.text}</td>
     </tr>`;
-  }).join(''):'<tr><td colspan="8" class="empty">No unusual movement detected.</td></tr>';
+  }).join(''):'<tr><td colspan="9" class="empty">No unusual movement detected.</td></tr>';
   mkSortable('t-spikes');
+}
+
+// ── SALES TIPS ────────────────────────────────────────────────────
+const TIPS=[
+  'Top sellers running low = lost revenue. Keep your top 5 always stocked.',
+  'Patients on chronic meds (BP, diabetes) are your most predictable revenue — prioritise their refills.',
+  'Offering a 2-month supply on stable chronic meds reduces visit friction and improves adherence.',
+  'Dead stock = tied-up capital. Return to supplier or discount to free up cash for faster movers.',
+  'OTC items near the counter drive impulse purchases — rotate the display each season.',
+  'Follow up patients who haven\'t returned in 60+ days — a quick call often brings them back.',
+  'Bundle vitamins and supplements with chronic disease consults to increase basket size.',
+  'Check Medicine Combos — frequent co-prescriptions may justify convenience pre-packing.',
+  'Morning slots tend to yield higher revenue — consider extending hours if demand is there.',
+  'High-volume, low-margin medicines are worth re-negotiating cost price with your supplier.',
+  'Top 20 patients drive outsized revenue — give them priority service and remember their names.',
+  'Surging medicines signal unmet demand — don\'t let trending items go out of stock.',
+];
+let _tipIdx=0,_tipTimer=null;
+function initTips(){
+  const el=document.getElementById('tip-text');
+  if(!el)return;
+  el.textContent=TIPS[0];el.style.opacity='1';
+  if(_tipTimer)clearInterval(_tipTimer);
+  _tipTimer=setInterval(()=>{
+    el.style.opacity='0';
+    setTimeout(()=>{_tipIdx=(_tipIdx+1)%TIPS.length;el.textContent=TIPS[_tipIdx];el.style.opacity='1';},420);
+  },7000);
 }
 
 // ── REVENUE ───────────────────────────────────────────────────────
