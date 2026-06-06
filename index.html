@@ -127,6 +127,13 @@ tr.ru td{background:rgba(255,165,2,.03)}
 /* bar mini */
 .bm{display:inline-flex;gap:1px;align-items:flex-end;height:18px}
 .bm-b{width:4px;border-radius:1px;background:var(--accent);opacity:.65}
+.th-s{cursor:pointer;user-select:none}
+.th-s:hover{color:var(--text)}
+.th-s .sa{margin-left:3px;font-size:9px;opacity:0;transition:opacity .15s}
+.th-s:hover .sa{opacity:.4}
+.th-s.asc .sa,.th-s.desc .sa{opacity:.7}
+.th-s.asc .sa::after{content:'↑'}
+.th-s.desc .sa::after{content:'↓'}
 </style>
 </head>
 <body>
@@ -230,7 +237,7 @@ tr.ru td{background:rgba(255,165,2,.03)}
       <button onclick="exportOrderingExcel()" style="background:rgba(10,124,110,.1);border:1px solid rgba(10,124,110,.3);border-radius:7px;padding:6px 14px;color:var(--accent);font-family:var(--fb);font-size:12px;cursor:pointer;font-weight:500;white-space:nowrap">⬇ Download PO</button>
     </div>
     <div class="panel"><div class="ts"><table class="dt">
-      <thead><tr><th>#</th><th>Medicine</th><th>Current Stock</th><th>Order Qty</th><th>Reason</th></tr></thead>
+      <thead><tr><th>Priority</th><th>Medicine</th><th>Stock</th><th>Days Left</th><th>Usage/Mo</th><th>Order Qty</th><th>Est. Cost</th></tr></thead>
       <tbody id="t-ordering"></tbody>
     </table></div></div>
   </div>
@@ -980,6 +987,38 @@ function render(){
   rOperations();rDoctors();rStaff();rPatients();rCombos();rSpikes();rRevenue();rCategories();
 }
 
+// ── SORTABLE TABLES ───────────────────────────────────────────────
+function mkSortable(tbodyId){
+  const tbody=document.getElementById(tbodyId);
+  if(!tbody)return;
+  const table=tbody.closest('table');
+  if(!table||table.dataset.sortable)return;
+  table.dataset.sortable='1';
+  table.querySelectorAll('thead th').forEach(th=>{
+    th.classList.add('th-s');
+    const sa=document.createElement('span');sa.className='sa';
+    th.appendChild(sa);
+  });
+  table.addEventListener('click',e=>{
+    const th=e.target.closest('thead th');
+    if(!th)return;
+    const ci=[...th.parentElement.children].indexOf(th);
+    const asc=!th.classList.contains('asc');
+    th.closest('thead').querySelectorAll('th').forEach(h=>h.classList.remove('asc','desc'));
+    th.classList.add(asc?'asc':'desc');
+    const rows=[...tbody.querySelectorAll('tr')];
+    rows.sort((a,b)=>{
+      const av=a.cells[ci]?.textContent.trim()||'';
+      const bv=b.cells[ci]?.textContent.trim()||'';
+      const an=parseFloat(av.replace(/[^0-9.-]/g,''));
+      const bn=parseFloat(bv.replace(/[^0-9.-]/g,''));
+      if(!isNaN(an)&&!isNaN(bn))return asc?an-bn:bn-an;
+      return asc?av.localeCompare(bv):bv.localeCompare(av);
+    });
+    rows.forEach(r=>tbody.appendChild(r));
+  });
+}
+
 // ── OVERVIEW ──────────────────────────────────────────────────────
 function rOverview(){
   const s=D.summary,a=D.analytics||{};
@@ -1090,6 +1129,7 @@ function rOverview(){
     <td style="text-align:right"><span class="qn">${Math.round(i.recommended_monthly||0)}</span></td>
     <td style="text-align:right" class="cost">MYR ${fmt(i.monthly_revenue)}</td>
   </tr>`).join(''):'<tr><td colspan="4" class="empty">No data.</td></tr>';
+  mkSortable('t-bestsellers');
 }
 
 // ── ORDERING ─────────────────────────────────────────────────────
@@ -1098,22 +1138,22 @@ function rOrdering(){
   const items=[...D.reorder_items].sort((a,b)=>(urgOrder[a.urgency]??5)-(urgOrder[b.urgency]??5));
   document.getElementById('b-ordering').textContent=items.length;
   document.getElementById('ord-sub').textContent=`${items.length} medicines to order`;
-  const urgCls={critical:'pr',urgent:'po',high:'py',medium:'pb2',low:'pm'};
-  document.getElementById('t-ordering').innerHTML=items.length?items.map((i,idx)=>{
+  const up={critical:'<span class="p pr">🔴 Critical</span>',urgent:'<span class="p po">🟠 Urgent</span>',high:'<span class="p py">🟡 High</span>',medium:'<span class="p pb2">⚪ Medium</span>',low:'<span class="p pm">Low</span>'};
+  document.getElementById('t-ordering').innerHTML=items.length?items.map(i=>{
     const d=i.days_of_stock;
-    const reason=i.available_stock===0?'Out of stock'
-      :d<7?`${d}d left — critical`
-      :d<14?`${d}d left — urgent`
-      :d<30?`${d}d left — low`
-      :'Below minimum stock';
+    const dl=d===0?'<span class="p pr">OOS</span>':`<span style="color:var(--${d<7?'danger':d<14?'warning':'ok'});font-family:var(--fm);font-weight:600">${d===999?'∞':d.toFixed(0)+'d'}</span>`;
+    const ec=(i.order_qty||0)*(i.latest_cost_price||0);
     return`<tr class="${i.urgency==='critical'?'rc':i.urgency==='urgent'?'ru':''}">
-      <td style="color:var(--muted);font-family:var(--fm);width:36px">${idx+1}</td>
-      <td><div class="mn">${esc(tr(i.description,54))}<small>${esc(i.brand||'')}</small></div></td>
+      <td>${up[i.urgency]||'<span class="p pm">Low</span>'}</td>
+      <td><div class="mn">${esc(tr(i.description,50))}<small>${esc(i.brand||'')}</small></div></td>
       <td>${i.available_stock===0?'<span class="p pr">OOS</span>':`<span class="qn">${i.available_stock}</span>`}</td>
+      <td>${dl}</td>
+      <td><span class="qn">${Math.round(i.recommended_monthly||0)}/mo</span></td>
       <td><span class="p pt2" style="font-size:12px;font-weight:700">${i.order_qty||0}</span></td>
-      <td><span class="p ${urgCls[i.urgency]||'pm'}">${reason}</span></td>
+      <td class="cost">MYR ${fmt(ec)}</td>
     </tr>`;
-  }).join(''):'<tr><td colspan="5" class="empty">Nothing to order 🎉</td></tr>';
+  }).join(''):'<tr><td colspan="7" class="empty">Nothing to order 🎉</td></tr>';
+  mkSortable('t-ordering');
 }
 function exportOrderingExcel(){
   if(!window.XLSX){alert('Excel library not loaded yet. Please wait and try again.');return;}
@@ -1182,6 +1222,7 @@ function renderROTable(){
       <td class="cost">MYR ${fmt(oc)}</td><td>${rr}</td>
     </tr>`;
   }).join('')||'<tr><td colspan="9" class="empty">No items match.</td></tr>';
+  mkSortable('t-ro');
 }
 function sRF(f,btn){roFilter=f;document.querySelectorAll('#ro-filter-btns .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderROTable();}
 function fRO(){renderROTable();}
@@ -1199,6 +1240,7 @@ function rExpiry(){
     const act=d<0?'<span class="p pr">Dispose immediately</span>':d<30?'<span class="p pr">Return/use urgently</span>':d<90?'<span class="p po">Use first</span>':'<span class="p py">Monitor</span>';
     return`<tr><td><div class="mn">${esc(tr(i.description,50))}</div></td><td style="font-family:var(--fm);font-size:11px">${i.nearest_expiry||'—'}</td><td><span class="p ${cls}">${lbl}</span></td><td><span class="qn">${i.available_stock}</span></td><td class="cost">MYR ${fmt(val)}</td><td>${act}</td></tr>`;
   }).join(''):'<tr><td colspan="6" class="empty">No medicines expiring within 6 months ✅</td></tr>';
+  mkSortable('t-expiry');
 }
 
 // ── DEAD STOCK ────────────────────────────────────────────────────
@@ -1238,6 +1280,7 @@ function renderDSTable(){
     <td class="cost" style="color:var(--warning)">MYR ${fmt(cap)}</td>
     <td><span class="p po">Review / Return</span></td></tr>`;
   }).join(''):'<tr><td colspan="6" class="empty">No items in this category.</td></tr>';
+  mkSortable('t-dead');
 }
 function sDF(f,btn){dsFilter=f;document.querySelectorAll('#atab-dead .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderDSTable();}
 
@@ -1269,6 +1312,7 @@ function rFastMovers(){
     <td><span class="p ${tc}">${tt}</span></td><td>${dl}</td>
     <td>${i.available_stock<i.required_stock?'<span class="p pr">Reorder</span>':'<span class="p pg">OK</span>'}</td></tr>`;
   }).join('');
+  mkSortable('t-fm');
 }
 
 // ── OVERSTOCK ─────────────────────────────────────────────────────
@@ -1283,6 +1327,7 @@ function rOverstock(){
     <td class="cost">MYR ${fmt(cap)}</td>
     <td style="font-family:var(--fm);font-size:11px;color:var(--muted)">${i.nearest_expiry||'—'}</td></tr>`;
   }).join('')||'<tr><td colspan="6" class="empty">No overstocked items.</td></tr>';
+  mkSortable('t-over');
 }
 
 // ── ALL STOCK ─────────────────────────────────────────────────────
@@ -1394,6 +1439,7 @@ function rDoctors(){
     <td><span class="p pb2">${v.avg_meds_per_visit} meds</span></td>
     <td style="font-size:11px;color:var(--muted)">${esc(tr(v.top_medicines?.[0]||'—',36))}</td>
   </tr>`).join('');
+  mkSortable('t-docs');
 }
 
 // ── STAFF ─────────────────────────────────────────────────────────
@@ -1413,6 +1459,7 @@ function rStaff(){
       <span style="font-family:var(--fm);font-size:11px;color:var(--muted)">${pct}%</span>
     </div></td></tr>`;
   }).join('');
+  mkSortable('t-staff');
 }
 
 // ── PATIENTS ─────────────────────────────────────────────────────
@@ -1457,6 +1504,7 @@ function rPatients(){
       </tr>`;
     }).join(''):'<tr><td colspan="5" class="empty">No high-value patient data in this dataset.</td></tr>';
   }
+  mkSortable('t-hv-patients');
 }
 
 // ── COMBOS ────────────────────────────────────────────────────────
@@ -1471,6 +1519,7 @@ function rCombos(){
     <td><span class="p pt2">${c.count}×</span></td>
     <td style="font-size:11px;color:var(--muted)">If one is low, check the other</td>
   </tr>`).join('')||'<tr><td colspan="5" class="empty">No combination data.</td></tr>';
+  mkSortable('t-combos');
 }
 
 // ── SPIKES ────────────────────────────────────────────────────────
@@ -1527,6 +1576,7 @@ function rSpikes(){
       <td>${d===0?'<span class="p pr">OOS</span>':`<span style="font-family:var(--fm);font-size:11px">${d===999?'∞':d.toFixed(0)+'d'}</span>`}</td>
       <td>${risk}</td></tr>`;
   }).join(''):'<tr><td colspan="9" class="empty">No unusual spikes detected.</td></tr>';
+  mkSortable('t-spikes');
 }
 
 // ── REVENUE ───────────────────────────────────────────────────────
@@ -1562,6 +1612,8 @@ function rRevenue(){
     <td><span class="p pr">${i.margin_pct}%</span></td>
     <td class="cost">MYR ${fmt(i.selling_price||0)}</td><td class="cost">MYR ${fmt(i.latest_cost_price||0)}</td>
     <td><span class="qn">${i.recommended_monthly}/mo</span></td></tr>`).join('')||'<tr><td colspan="5" class="empty">No high-usage low-margin items ✅</td></tr>';
+  mkSortable('t-rev');
+  mkSortable('t-lm');
 }
 
 // ── CATEGORIES ────────────────────────────────────────────────────
@@ -1583,6 +1635,7 @@ function rCategories(){
       <div style="height:4px;border-radius:4px;background:var(--info);opacity:.7;width:${Math.round(v.revenue/totR*120)}px"></div>
       <span style="font-family:var(--fm);font-size:11px;color:var(--muted)">${Math.round(v.revenue/totR*100)}%</span>
     </div></td></tr>`).join('');
+  mkSortable('t-cats');
 }
 
 // ── Charts ────────────────────────────────────────────────────────
