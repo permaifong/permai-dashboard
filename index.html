@@ -1036,7 +1036,7 @@ function rOverview(){
     ?`<div style="background:var(--card);border:1px solid var(--border);border-radius:9px;padding:7px 14px;margin-bottom:16px;display:flex;align-items:center;gap:2px;flex-wrap:wrap">${_alerts.map((al,i)=>`<span onclick="V('${al.view}',document.querySelector('[onclick*=${al.view}]'))" style="display:inline-flex;align-items:center;gap:4px;cursor:pointer;padding:3px 9px;border-radius:6px;font-size:12px;color:${al.color};font-family:var(--fm);font-weight:600;white-space:nowrap;transition:background .12s" onmouseover="this.style.background='rgba(0,0,0,.05)'" onmouseout="this.style.background=''">${al.icon} ${al.label}</span>${i<_alerts.length-1?'<span style="color:var(--border);padding:0 2px;user-select:none">│</span>':''}`).join('')}</div>`
     :'';
 
-  // ── Stat cards (2 only)
+  // ── Stat cards (4)
   const dailyRev=a.daily_revenue||{};
   const dailyDates=Object.keys(dailyRev).sort();
   let worstDate='',worstRev=Infinity;
@@ -1044,9 +1044,20 @@ function rOverview(){
   const marginRate=mtdRevenue>0?mtdProfit/mtdRevenue:0;
   const worstProfit=worstRev===Infinity?null:worstRev*marginRate;
   const worstLabel=worstDate?(()=>{const dt=new Date(worstDate);return dt.toLocaleDateString('en-MY',{weekday:'short',day:'numeric',month:'short'});})():'—';
+  // Monthly profit cards
+  const mRev=a.monthly_revenue||{};
+  const mMonths=Object.keys(mRev).sort();
+  const curM=mMonths[mMonths.length-1]||'';
+  const prevM=mMonths[mMonths.length-2]||'';
+  const monthCost=m=>D.all_items.reduce((s,i)=>s+((i.monthly_breakdown||{})[m]||0)*(i.latest_cost_price||0),0);
+  const profitThisMonth=(mRev[curM]||0)-monthCost(curM);
+  const lastMonthProfit=(mRev[prevM]||0)-monthCost(prevM);
+  const prevMLabel=prevM?(new Date(prevM+'-01').toLocaleDateString('en-MY',{month:'long'})):'—';
   document.getElementById('ov-stats').innerHTML=`
     <div class="sc sc-g" style="min-height:90px"><div class="sl">Profit / Day</div><div class="sv sv-g" style="font-size:22px;margin-top:4px">MYR ${fmt(profitPerDay)}</div><div class="ss">Est. daily net profit</div></div>
-    <div class="sc sc-r" style="min-height:90px"><div class="sl">Worst Day (${today.toLocaleDateString('en-MY',{month:'short'})})</div><div class="sv sv-r" style="font-size:22px;margin-top:4px">${worstProfit===null?'—':'MYR '+fmt(worstProfit)}</div><div class="ss">${worstLabel}</div></div>`;
+    <div class="sc sc-r" style="min-height:90px"><div class="sl">Slowest Day (${today.toLocaleDateString('en-MY',{month:'short'})})</div><div class="sv sv-r" style="font-size:22px;margin-top:4px">${worstProfit===null?'—':'MYR '+fmt(worstProfit)}</div><div class="ss">${worstLabel}</div></div>
+    <div class="sc sc-t" style="min-height:90px"><div class="sl">Profit This Month</div><div class="sv sv-t" style="font-size:22px;margin-top:4px">MYR ${fmt(profitThisMonth)}</div><div class="ss">MTD net profit</div></div>
+    <div class="sc sc-y" style="min-height:90px"><div class="sl">Last Month Profit</div><div class="sv sv-y" style="font-size:22px;margin-top:4px">MYR ${fmt(lastMonthProfit)}</div><div class="ss">${prevMLabel}</div></div>`;
 
   // Stock Health as bar chart
   const crit=D.all_items.filter(i=>i.urgency==='critical').length;
