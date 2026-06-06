@@ -1125,7 +1125,7 @@ function rOverview(){
   const monthShort=today.toLocaleDateString('en-MY',{month:'short'});
   document.getElementById('ov-stats').innerHTML=`
     <div class="sc sc-g" style="min-height:90px"><div class="sl">Profit / Day</div><div class="sv sv-g" style="font-size:22px;margin-top:4px">MYR ${fmt(profitPerDay)}</div><div class="ss">Est. daily net (steady-state)</div></div>
-    <div class="sc sc-t" style="min-height:90px"><div class="sl">${monthShort} Profit So Far</div><div class="sv sv-t" style="font-size:22px;margin-top:4px">MYR ${fmt(actualMTDProfit)}</div><div class="ss">Actual ${dayOfMonth}d · proj. full month: MYR ${fmt(profitThisMonth)}</div></div>
+    <div class="sc sc-t" style="min-height:90px"><div class="sl">${monthShort} Profit So Far</div><div class="sv sv-t" style="font-size:22px;margin-top:4px">MYR ${fmt(actualMTDProfit)}</div><div class="ss">Actual ${dayOfMonth} days</div></div>
     <div class="sc sc-y" style="min-height:90px"><div class="sl">Last Month Profit</div><div class="sv sv-y" style="font-size:22px;margin-top:4px">MYR ${fmt(lastMonthProfit)}</div><div class="ss">${prevMLabel}</div></div>
     <div class="sc sc-r" style="min-height:90px"><div class="sl">Min Sales / Day (${monthShort})</div><div class="sv sv-r" style="font-size:22px;margin-top:4px">${worstRev===Infinity?'—':'MYR '+fmt(worstRev)}</div><div class="ss">${worstLabel}</div></div>`;
   document.getElementById('row-list-today').innerHTML=roToday.length?roToday.map(roRow).join(''):'<div style="font-size:12px;color:var(--ok);padding:8px 0">All good — nothing running out today ✓</div>';
