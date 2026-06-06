@@ -6,7 +6,7 @@
 <title>Permai Polyclinics — Intelligence Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
 <style>
 :root{
   --bg:#f5f3ef;--surface:#ffffff;--card:#faf9f7;--border:#e0dbd3;
@@ -1197,70 +1197,113 @@ function rOrdering(){
   mkSortable('t-ordering');
 }
 function exportOrderingExcel(){
-  if(!window.XLSX){alert('Excel library not loaded yet. Please wait and try again.');return;}
+  if(!window.XLSX){alert('Excel library not loaded. Try again in a moment.');return;}
   const urgOrder={critical:0,urgent:1,high:2,medium:3,low:4};
-  const urgLabels={critical:'🔴 CRITICAL',urgent:'🟠 URGENT',high:'🟡 HIGH',medium:'⚪ MEDIUM',low:'LOW'};
-  const allItems=[...D.reorder_items].sort((a,b)=>(urgOrder[a.urgency]??5)-(urgOrder[b.urgency]??5));
+  const urgLabel={critical:'CRITICAL',urgent:'URGENT',high:'HIGH',medium:'MEDIUM',low:'LOW'};
+  const urgBg={critical:'FFCDD2',urgent:'FFE0B2',high:'FFF9C4',medium:'EEEEEE',low:'F5F5F5'};
+  const urgDk={critical:'C62828',urgent:'E65100',high:'F9A825',medium:'546E7A',low:'78909C'};
+  const items=[...D.reorder_items].sort((a,b)=>(urgOrder[a.urgency]??5)-(urgOrder[b.urgency]??5));
   const today=new Date().toLocaleDateString('en-MY',{day:'numeric',month:'long',year:'numeric'});
   const poRef='PO-'+new Date().toISOString().slice(0,10).replace(/-/g,'');
-  const totalCost=allItems.reduce((s,i)=>s+Math.ceil((i.recommended_monthly||0)/2)*(i.latest_cost_price||0),0);
-
-  const COL=['#','Medicine','Brand','UOM','Days Left','Current Stock','Required Stock','Usage/2wk','Order Qty (2wk)','Unit Cost (MYR)','Est. Total (MYR)','Notes'];
-
-  // Header block
-  const rows=[
-    [`Permai Polyclinics Fortuna — Purchase Order`],
-    [`PO Ref: ${poRef}   |   Generated: ${today}   |   ${allItems.length} items   |   Est. Total: MYR ${Math.round(totalCost*100)/100}`],
-    [],
-    ['SUMMARY'],
-    ['Priority','Items','Est. Cost (MYR)'],
-  ];
+  const grandTotal=items.reduce((s,i)=>s+Math.ceil((i.recommended_monthly||0)/2)*(i.latest_cost_price||0),0);
+  const fmt2=v=>v.toLocaleString('en-MY',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const N=12;
+  const COL=['#','Medicine','Brand','UOM','Days Left','Curr. Stock','Req. Stock','Usage/2wk','Order Qty (2wk)','Unit Cost (MYR)','Est. Total (MYR)','Notes'];
+  const aoa=[];const smap={};const merges=[];let rr=0;
+  function row(...vals){const r=vals.slice();while(r.length<N)r.push('');aoa.push(r);rr++;}
+  function blank(){aoa.push(Array(N).fill(''));rr++;}
+  function st(ri,ci,style){smap[XLSX.utils.encode_cell({r:ri,c:ci})]=style;}
+  function mg(r1,c1,r2,c2){merges.push({s:{r:r1,c:c1},e:{r:r2,c:c2}});}
+  const BLU='1F4E79',WHT='FFFFFF';
+  const hdrSt=(bg)=>({font:{bold:true,sz:10,color:{rgb:WHT}},fill:{patternType:'solid',fgColor:{rgb:bg||BLU}},alignment:{horizontal:'center',vertical:'center',wrapText:true}});
+  const fillSt=(bg,extra)=>Object.assign({},bg?{fill:{patternType:'solid',fgColor:{rgb:bg}}}:{},extra);
+  // Title
+  row('Permai Polyclinics Fortuna — Purchase Order');
+  mg(rr-1,0,rr-1,N-1);
+  st(rr-1,0,{font:{bold:true,sz:14},alignment:{horizontal:'center',vertical:'center'}});
+  // Meta
+  row(`PO Ref: ${poRef}   |   Date: ${today}   |   ${items.length} items   |   Est. Total: MYR ${fmt2(grandTotal)}`);
+  mg(rr-1,0,rr-1,N-1);
+  st(rr-1,0,{font:{sz:9,italic:true,color:{rgb:'444444'}},fill:{patternType:'solid',fgColor:{rgb:'EEF7FB'}},alignment:{horizontal:'center',vertical:'center'}});
+  blank();
+  // Summary
+  row('Priority','Items','Est. Cost (MYR)');
+  [0,1,2].forEach(ci=>st(rr-1,ci,hdrSt()));
   ['critical','urgent','high','medium','low'].forEach(u=>{
-    const grp=allItems.filter(i=>i.urgency===u);
+    const grp=items.filter(i=>i.urgency===u);
     if(!grp.length)return;
-    const gc=grp.reduce((s,i)=>s+Math.ceil((i.recommended_monthly||0)/2)*(i.latest_cost_price||0),0);
-    rows.push([urgLabels[u],grp.length,Math.round(gc*100)/100]);
+    const gc=grp.reduce((a,i)=>a+Math.ceil((i.recommended_monthly||0)/2)*(i.latest_cost_price||0),0);
+    row(urgLabel[u],grp.length,Math.round(gc*100)/100);
+    const bg=urgBg[u];
+    st(rr-1,0,fillSt(bg,{font:{bold:true},alignment:{horizontal:'left',vertical:'center'}}));
+    st(rr-1,1,fillSt(bg,{font:{bold:true},alignment:{horizontal:'center',vertical:'center'}}));
+    st(rr-1,2,fillSt(bg,{font:{bold:true},alignment:{horizontal:'right',vertical:'center'},numFmt:'#,##0.00'}));
   });
-  rows.push(['TOTAL',allItems.length,Math.round(totalCost*100)/100]);
-  rows.push([]);
-
-  // Grouped sections by urgency
+  row('TOTAL',items.length,Math.round(grandTotal*100)/100);
+  const ylwB={fill:{patternType:'solid',fgColor:{rgb:'FFF2CC'}},font:{bold:true}};
+  st(rr-1,0,Object.assign({},ylwB,{alignment:{horizontal:'left',vertical:'center'}}));
+  st(rr-1,1,Object.assign({},ylwB,{alignment:{horizontal:'center',vertical:'center'}}));
+  st(rr-1,2,Object.assign({},ylwB,{alignment:{horizontal:'right',vertical:'center'},numFmt:'#,##0.00'}));
+  blank();
+  // Data sections
   let rowNum=0;
   ['critical','urgent','high','medium','low'].forEach(u=>{
-    const grp=allItems.filter(i=>i.urgency===u);
+    const grp=items.filter(i=>i.urgency===u);
     if(!grp.length)return;
-    const gc=grp.reduce((s,i)=>s+Math.ceil((i.recommended_monthly||0)/2)*(i.latest_cost_price||0),0);
-    rows.push([`${urgLabels[u]} — ${grp.length} item${grp.length!==1?'s':''} — Est. MYR ${Math.round(gc*100)/100}`]);
-    rows.push(COL);
+    const gc=grp.reduce((a,i)=>a+Math.ceil((i.recommended_monthly||0)/2)*(i.latest_cost_price||0),0);
+    // Section banner
+    row(`${urgLabel[u]} — ${grp.length} item${grp.length!==1?'s':''} — Est. MYR ${fmt2(Math.round(gc*100)/100)}`);
+    mg(rr-1,0,rr-1,N-1);
+    st(rr-1,0,{font:{bold:true,sz:11,color:{rgb:WHT}},fill:{patternType:'solid',fgColor:{rgb:urgDk[u]}},alignment:{horizontal:'left',vertical:'center'}});
+    // Column headers — Order Qty gets deep pink
+    row(...COL);
+    COL.forEach((_,ci)=>st(rr-1,ci,hdrSt(ci===8?'AD1457':null)));
+    // Item rows
     grp.forEach(i=>{
       const d=i.days_of_stock;
       const dLabel=d===0?'0d (OOS)':d===999?'∞':d.toFixed(0)+'d';
       const oq=Math.ceil((i.recommended_monthly||0)/2);
       const cost=i.latest_cost_price||0;
-      rows.push([
-        ++rowNum,
-        i.description||'',
-        i.brand||'',
-        i.uom||'',
-        dLabel,
-        i.available_stock,
-        i.required_stock||'',
-        Math.round((i.recommended_monthly||0)/2),
-        oq,
-        cost,
-        Math.round(oq*cost*100)/100,
-        ''
-      ]);
+      const stripe=rowNum%2!==0?'F0F7FF':null;
+      row(++rowNum,i.description||'',i.brand||'',i.uom||'',dLabel,i.available_stock,i.required_stock||0,Math.round((i.recommended_monthly||0)/2),oq,cost,Math.round(oq*cost*100)/100,'');
+      const ri=rr-1;
+      const ctr=fillSt(stripe,{alignment:{horizontal:'center',vertical:'center'}});
+      const lft=fillSt(stripe,{alignment:{horizontal:'left',vertical:'center',wrapText:true}});
+      const lftNW=fillSt(stripe,{alignment:{horizontal:'left',vertical:'center'}});
+      const num=fillSt(stripe,{alignment:{horizontal:'right',vertical:'center'},numFmt:'#,##0.00'});
+      st(ri,0,ctr);st(ri,1,lft);st(ri,2,lftNW);st(ri,3,ctr);st(ri,4,ctr);
+      st(ri,5,ctr);st(ri,6,ctr);st(ri,7,ctr);
+      st(ri,8,{fill:{patternType:'solid',fgColor:{rgb:'FFB6C1'}},font:{bold:true,color:{rgb:'880E4F'}},alignment:{horizontal:'center',vertical:'center'}});
+      st(ri,9,num);st(ri,10,num);st(ri,11,lftNW);
     });
-    rows.push([]);
+    blank();
   });
-
-  const ws=XLSX.utils.aoa_to_sheet(rows);
-  ws['!cols']=[{wch:4},{wch:44},{wch:20},{wch:8},{wch:11},{wch:14},{wch:14},{wch:11},{wch:14},{wch:16},{wch:16},{wch:22}];
+  // Grand total
+  row('GRAND TOTAL',...Array(9).fill(''),Math.round(grandTotal*100)/100,'');
+  mg(rr-1,0,rr-1,9);
+  const gtB={fill:{patternType:'solid',fgColor:{rgb:'FFF2CC'}},font:{bold:true,sz:12}};
+  st(rr-1,0,Object.assign({},gtB,{alignment:{horizontal:'right',vertical:'center'}}));
+  st(rr-1,10,Object.assign({},gtB,{alignment:{horizontal:'right',vertical:'center'},numFmt:'#,##0.00'}));
+  st(rr-1,11,gtB);
+  blank();
+  // Footer
+  row('Note: Unit costs are from latest purchase price. Verify with supplier before confirming order.');
+  mg(rr-1,0,rr-1,N-1);
+  st(rr-1,0,{font:{italic:true,sz:9,color:{rgb:'888888'}},alignment:{horizontal:'left',vertical:'center'}});
+  // Build sheet
+  const ws=XLSX.utils.aoa_to_sheet(aoa);
+  Object.entries(smap).forEach(([addr,style])=>{
+    if(!ws[addr])ws[addr]={v:'',t:'s'};
+    ws[addr].s=style;
+  });
+  // Auto-fit column widths from content
+  const maxW=Array(N).fill(6);
+  aoa.forEach(r=>r.forEach((v,ci)=>{const l=v!=null?String(v).length:0;if(l>maxW[ci])maxW[ci]=l;}));
+  ws['!cols']=maxW.map((w,ci)=>({wch:Math.min(w+3,ci===1?50:38)}));
+  ws['!merges']=merges;
   const wb=XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb,ws,'Purchase Order');
-  const fname=`${poRef}_Permai.xlsx`;
-  XLSX.writeFile(wb,fname);
+  XLSX.writeFile(wb,`${poRef}_Permai.xlsx`);
 }
 
 // ── REORDER ───────────────────────────────────────────────────────
