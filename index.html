@@ -205,6 +205,10 @@ tr.ru td{background:rgba(255,165,2,.03)}
         </div>
       </div>
     </div>
+    <div class="panel">
+      <div class="ph"><span class="pt">⚠ Running Out This Week</span><span class="pb" id="row-count">—</span></div>
+      <div class="pbd" style="padding:10px 14px"><div id="row-list" style="overflow-y:auto;max-height:200px;display:flex;flex-direction:column;gap:0"></div></div>
+    </div>
     </div>
     <div class="panel" style="margin-bottom:18px">
       <div class="ph"><span class="pt">🏆 Top 5 Best Sellers</span><span class="pb">by units/month</span></div>
@@ -1058,8 +1062,11 @@ function rOverview(){
     <div class="sc sc-g" style="min-height:90px"><div class="sl">Profit / Day</div><div class="sv sv-g" style="font-size:22px;margin-top:4px">MYR ${fmt(profitPerDay)}</div><div class="ss">Est. daily net profit</div></div>
     <div class="sc sc-t" style="min-height:90px"><div class="sl">Profit This Month</div><div class="sv sv-t" style="font-size:22px;margin-top:4px">MYR ${fmt(profitThisMonth)}</div><div class="ss">MTD net profit</div></div>
     <div class="sc sc-y" style="min-height:90px"><div class="sl">Last Month Profit</div><div class="sv sv-y" style="font-size:22px;margin-top:4px">MYR ${fmt(lastMonthProfit)}</div><div class="ss">${prevMLabel}</div></div>
-    <div class="sc sc-r" style="min-height:90px"><div class="sl">Min Sales / Day (${today.toLocaleDateString('en-MY',{month:'short'})})</div><div class="sv sv-r" style="font-size:22px;margin-top:4px">${worstRev===Infinity?'—':'MYR '+fmt(worstRev)}</div><div class="ss">${worstLabel}</div></div>
-    <div class="sc sc-o" style="grid-column:span 2;padding:14px 16px 10px"><div class="sl" style="margin-bottom:8px">⚠ Running Out This Week <span style="font-weight:400;color:var(--muted)">(${rowItems.length})</span></div><div style="overflow-y:auto;max-height:172px;display:flex;flex-direction:column;gap:4px">${rowItems.length?rowItems.map(i=>`<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 0;border-bottom:1px solid var(--border)"><span style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1">${esc(tr(i.description,42))}</span><span style="font-family:var(--fm);font-size:11px;font-weight:600;color:var(--warning);white-space:nowrap">${i.days_of_stock.toFixed(0)}d</span></div>`).join(''):'<span style="font-size:12px;color:var(--ok)">All good — nothing running out this week ✓</span>'}</div></div>`;
+    <div class="sc sc-r" style="min-height:90px"><div class="sl">Min Sales / Day (${today.toLocaleDateString('en-MY',{month:'short'})})</div><div class="sv sv-r" style="font-size:22px;margin-top:4px">${worstRev===Infinity?'—':'MYR '+fmt(worstRev)}</div><div class="ss">${worstLabel}</div></div>`;
+  document.getElementById('row-count').textContent=`${rowItems.length} medicine${rowItems.length!==1?'s':''}`;
+  document.getElementById('row-list').innerHTML=rowItems.length
+    ?rowItems.map(i=>`<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border)"><span style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;color:var(--text)">${esc(tr(i.description,46))}</span><span style="font-family:var(--fm);font-size:11px;font-weight:700;color:${i.days_of_stock<=3?'var(--danger)':'var(--warning)'};white-space:nowrap;margin-left:8px">${i.days_of_stock.toFixed(0)}d</span></div>`).join('')
+    :'<div style="font-size:12px;color:var(--ok);padding:8px 0">All good — nothing running out this week ✓</div>';
 
   // Stock Health as bar chart
   const crit=D.all_items.filter(i=>i.urgency==='critical').length;
