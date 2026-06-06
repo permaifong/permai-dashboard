@@ -1248,6 +1248,7 @@ function exportOrderingExcel(){
   st(rr-1,0,{font:{sz:9,italic:true,color:{rgb:'444444'}},fill:{patternType:'solid',fgColor:{rgb:'EEF7FB'}},alignment:{horizontal:'center',vertical:'center'}});
   blank();
   // Summary
+  const summaryStart=rr;
   row('Priority','Items','Est. Cost (MYR)');
   [0,1,2].forEach(ci=>st(rr-1,ci,hdrSt()));
   ['critical','urgent','high','medium','low'].forEach(u=>{
@@ -1265,6 +1266,19 @@ function exportOrderingExcel(){
   st(rr-1,0,Object.assign({},ylwB,{alignment:{horizontal:'left',vertical:'center'}}));
   st(rr-1,1,Object.assign({},ylwB,{alignment:{horizontal:'center',vertical:'center'}}));
   st(rr-1,2,Object.assign({},ylwB,{alignment:{horizontal:'right',vertical:'center'},numFmt:'#,##0.00'}));
+  // Ordering logic note — written into col 4 alongside the summary rows
+  const nTitleS={font:{bold:true,sz:9,color:{rgb:'1F4E79'}},alignment:{horizontal:'left',vertical:'center'}};
+  const nBodyS={font:{sz:9,color:{rgb:'444444'}},alignment:{horizontal:'left',vertical:'center'}};
+  [
+    ['How order quantities are calculated:',nTitleS],
+    ['Order Qty  =  2-week usage  −  stock already on hand',nBodyS],
+    ['Items with 30+ days of stock are excluded from this PO',nBodyS],
+    ['Out-of-stock items receive the full 2-week usage as order qty',nBodyS],
+  ].forEach(([text,sty],idx)=>{
+    if(aoa[summaryStart+idx]) aoa[summaryStart+idx][4]=text;
+    st(summaryStart+idx,4,sty);
+    mg(summaryStart+idx,4,summaryStart+idx,N-1);
+  });
   blank();
   // Data sections
   let rowNum=0;
