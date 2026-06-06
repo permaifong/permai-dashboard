@@ -439,10 +439,10 @@ tr.ru td{background:rgba(255,165,2,.03)}
     <div class="sh"><h2>Spike Detection</h2><span class="sub" id="spikes-sub">volume + revenue anomalies</span></div>
     <div class="ab ab-r"><div class="ab-icon">📡</div><div>
       <div class="ab-title">Abnormal volume or revenue movement — surges ↑ and drops ↓</div>
-      <div class="ab-body">Medicines with &gt;50% change in units dispensed (30-day) or monthly revenue vs prior monthly average. Both upward surges and downward drops are flagged.</div>
+      <div class="ab-body">Medicines where the last 2 weeks of sales (normalised to a monthly rate) deviates from the last 30-day average by ≥50%. Minimum 10 units/month to qualify. Both surges and drops are flagged.</div>
     </div></div>
     <div class="panel"><div class="ts"><table class="dt">
-      <thead><tr><th>Medicine</th><th>Type</th><th>Direction</th><th>Prev Period</th><th>Recent Period</th><th>Change</th><th>Stock</th><th>Days Left</th><th>Risk</th></tr></thead>
+      <thead><tr><th>Medicine</th><th>Direction</th><th>Monthly Avg (30d)</th><th>Last 2 Wks</th><th>2wk Rate /mo</th><th>Change</th><th>Stock</th><th>Days Left</th></tr></thead>
       <tbody id="t-spikes"></tbody>
     </table></div></div>
   </div>
@@ -1055,22 +1055,8 @@ function rOverview(){
   const oosItems=D.all_items.filter(i=>i.available_stock===0&&i.monthly_revenue>0);
   const rarBreakdown=oosItems.slice(0,5).map(i=>`${tr(i.description,30)}: MYR ${fmt(i.monthly_revenue)}/mo`).join('\n');
 
-  // ── 2-week vs 3-month spike alert
-  const spikes2w=[];
-  D.all_items.forEach(i=>{
-    const mb=i.monthly_breakdown||{};
-    const months=Object.keys(mb).sort();
-    if(months.length<2)return;
-    const last=months[months.length-1];
-    const lastVal=mb[last]||0;
-    const prev=months.slice(0,-1).map(m=>mb[m]||0);
-    const avg3=prev.reduce((a,b)=>a+b,0)/Math.max(prev.length,1);
-    if(avg3===0)return;
-    const ratio=lastVal/avg3;
-    if(ratio>1.5||ratio<0.5){
-      spikes2w.push({desc:i.description,ratio,lastVal,avg3,dir:ratio>1.5?'up':'down'});
-    }
-  });
+  // ── spike count from analytics
+  const spikes2w=D.analytics?.spikes||[];
 
   // ── MTD profit
   const mtdRevenue=D.all_items.reduce((sum,i)=>{
@@ -1098,8 +1084,7 @@ function rOverview(){
   // ── Compact notification bar
   const _alerts=[];
   if(s.critical_items>0) _alerts.push({icon:'🚨',label:`${s.critical_items} critical · MYR ${fmt(s.revenue_at_risk||0)} at risk`,color:'var(--danger)',view:'alerts'});
-  if(spikes2w.length>0){const _u=spikes2w.filter(x=>x.dir==='up').length,_d=spikes2w.filter(x=>x.dir==='down').length;_alerts.push({icon:'⚠️',label:`${spikes2w.length} unusual (${_u}↑ ${_d}↓)`,color:'var(--warning)',view:'spikes'});}
-  if((a.spikes||[]).length>0) _alerts.push({icon:'📡',label:`${a.spikes.length} demand spikes`,color:'var(--warning)',view:'spikes'});
+  if(spikes2w.length>0){const _u=spikes2w.filter(x=>x.change_pct>0).length,_d=spikes2w.filter(x=>x.change_pct<0).length;_alerts.push({icon:'📡',label:`${spikes2w.length} sales anomalies (${_u}↑ ${_d}↓)`,color:'var(--warning)',view:'spikes'});}
   if(s.dead_capital>0) _alerts.push({icon:'💀',label:`MYR ${fmt(s.dead_capital)} dead stock`,color:'var(--muted)',view:'alerts'});
   document.getElementById('ov-banners').innerHTML=_alerts.length
     ?`<div style="background:var(--card);border:1px solid var(--border);border-radius:9px;padding:7px 14px;margin-bottom:16px;display:flex;align-items:center;gap:2px;flex-wrap:wrap">${_alerts.map((al,i)=>`<span onclick="V('${al.view}',document.querySelector('[onclick*=${al.view}]'))" style="display:inline-flex;align-items:center;gap:4px;cursor:pointer;padding:3px 9px;border-radius:6px;font-size:12px;color:${al.color};font-family:var(--fm);font-weight:600;white-space:nowrap;transition:background .12s" onmouseover="this.style.background='rgba(0,0,0,.05)'" onmouseout="this.style.background=''">${al.icon} ${al.label}</span>${i<_alerts.length-1?'<span style="color:var(--border);padding:0 2px;user-select:none">│</span>':''}`).join('')}</div>`
@@ -1668,58 +1653,32 @@ function rCombos(){
 
 // ── SPIKES ────────────────────────────────────────────────────────
 function rSpikes(){
-  const volSpikes=(D.analytics?.spikes||[]).map(s=>({...s,type:'Volume',dir:s.change_pct<0?'down':'up'}));
-
-  // Revenue spikes computed client-side from monthly_breakdown × selling_price
-  const revSpikes=[];
-  const ms=D.months_analyzed||[];
-  if(ms.length>=2){
-    D.all_items.forEach(i=>{
-      const sp=i.selling_price||0;
-      if(!sp)return;
-      const mb=i.monthly_breakdown||{};
-      const revByMonth=ms.map(m=>(mb[m]||0)*sp);
-      const lastRev=revByMonth[revByMonth.length-1];
-      const prevRevs=revByMonth.slice(0,-1).filter(v=>v>0);
-      if(!prevRevs.length)return;
-      const avgPrev=prevRevs.reduce((a,b)=>a+b,0)/prevRevs.length;
-      if(avgPrev<50)return;
-      const chgPct=Math.round((lastRev-avgPrev)/avgPrev*100);
-      if(Math.abs(chgPct)<50)return;
-      revSpikes.push({medicine:i.description,prev_rev:avgPrev,recent_rev:lastRev,change_pct:chgPct,type:'Revenue',dir:chgPct>0?'up':'down'});
-    });
-    revSpikes.sort((a,b)=>Math.abs(b.change_pct)-Math.abs(a.change_pct));
-  }
-
-  const allSpikes=[...volSpikes,...revSpikes];
-  const ups=allSpikes.filter(x=>x.dir==='up').length;
-  const downs=allSpikes.filter(x=>x.dir==='down').length;
+  const spikes=D.analytics?.spikes||[];
+  const ups=spikes.filter(s=>s.change_pct>0).length;
+  const downs=spikes.filter(s=>s.change_pct<0).length;
   const sub=document.getElementById('spikes-sub');
-  if(sub) sub.textContent=`${allSpikes.length} anomalies — ${ups} surging, ${downs} dropping`;
-  document.getElementById('b-spikes').textContent=allSpikes.length;
-
-  document.getElementById('t-spikes').innerHTML=allSpikes.length?allSpikes.map(s=>{
+  if(sub)sub.textContent=`${spikes.length} anomalies — ${ups} surging, ${downs} dropping`;
+  document.getElementById('b-spikes').textContent=spikes.length;
+  document.getElementById('t-spikes').innerHTML=spikes.length?spikes.map(s=>{
     const item=D.all_items.find(i=>i.description===s.medicine)||{};
-    const isRev=s.type==='Revenue';
+    const isUp=s.change_pct>0;
     const chgAbs=Math.abs(s.change_pct);
-    const chgLbl=s.change_pct===999?'New demand':`${s.dir==='up'?'+':'−'}${chgAbs}%`;
-    const cls=chgAbs>200||s.change_pct===999?'pr':chgAbs>100?'po':'py';
-    const dirCls=s.dir==='up'?'po':'pb2';
+    const chgLbl=s.qty_14d===0?'No sales':`${isUp?'+':'−'}${chgAbs}%`;
+    const chgCls=chgAbs>=100?'pr':chgAbs>=75?'po':'py';
     const d=item.days_of_stock||0;
-    const risk=d===0?'<span class="p pr">OOS</span>':d<7?'<span class="p pr">Order now</span>':d<14?'<span class="p po">Order soon</span>':'<span class="p pg">OK</span>';
-    const prevCell=isRev?`MYR ${fmt(s.prev_rev)}/mo`:`${s.prev_30d} units`;
-    const recCell=isRev?`MYR ${fmt(s.recent_rev)}/mo`:`${s.recent_30d} units`;
+    const dLabel=d===999?'∞':d.toFixed(0)+'d';
+    const dColor=d===0||d<7?'var(--danger)':d<14?'var(--warning)':'var(--ok)';
     return`<tr>
       <td><div class="mn">${esc(tr(s.medicine,44))}</div></td>
-      <td><span class="p ${isRev?'py':'pt2'}">${s.type}</span></td>
-      <td><span class="p ${dirCls}">${s.dir==='up'?'↑ Surge':'↓ Drop'}</span></td>
-      <td style="font-family:var(--fm);font-size:11px">${prevCell}</td>
-      <td style="font-family:var(--fm);font-size:11px;color:var(--warning)">${recCell}</td>
-      <td><span class="p ${cls}">${chgLbl}</span></td>
+      <td data-sort="${isUp?0:1}"><span class="p ${isUp?'po':'pb2'}">${isUp?'↑ Surge':'↓ Drop'}</span></td>
+      <td data-sort="${s.monthly_avg}" style="font-family:var(--fm);font-size:11px">${s.monthly_avg} units</td>
+      <td data-sort="${s.qty_14d}" style="font-family:var(--fm);font-size:11px">${s.qty_14d} units</td>
+      <td data-sort="${s.monthly_equiv}" style="font-family:var(--fm);font-size:11px;color:var(--${isUp?'warning':'muted'})">${s.monthly_equiv} units</td>
+      <td data-sort="${s.change_pct}"><span class="p ${chgCls}">${chgLbl}</span></td>
       <td><span class="qn">${item.available_stock??'—'}</span></td>
-      <td>${d===0?'<span class="p pr">OOS</span>':`<span style="font-family:var(--fm);font-size:11px">${d===999?'∞':d.toFixed(0)+'d'}</span>`}</td>
-      <td>${risk}</td></tr>`;
-  }).join(''):'<tr><td colspan="9" class="empty">No unusual spikes detected.</td></tr>';
+      <td data-sort="${d===999?9999:d}" style="font-family:var(--fm);font-size:11px;font-weight:600;color:${dColor}">${dLabel}</td>
+    </tr>`;
+  }).join(''):'<tr><td colspan="8" class="empty">No unusual movement detected.</td></tr>';
   mkSortable('t-spikes');
 }
 
