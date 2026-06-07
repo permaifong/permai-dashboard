@@ -2117,13 +2117,23 @@ async function sendChat(){
   inp.value='';
   addChatMsg('user',msg);
   const s=D?.summary||{};
-  const sys=`You are an AI assistant for ${D?.clinic_name||'Permai Polyclinics Fortuna'}, a Malaysian GP clinic. You have clinic intelligence data:
-- Total medicines: ${s.total_medicines||0} | Critical/OOS: ${s.critical_items||0} | Needs reorder: ${s.needing_reorder||0}
-- Est. monthly revenue: MYR ${fmt(s.estimated_monthly_revenue||0)} | Revenue at risk: MYR ${fmt(s.revenue_at_risk||0)}
-- Total patients: ${s.total_patients||0} | Retention: ${s.retention_rate||0}%
-- Months analyzed: ${(D?.months_analyzed||[]).join(', ')}
-- Top 5 revenue items: ${(D?.top_revenue_items||[]).slice(0,5).map(i=>`${i.description} (MYR ${fmt(i.monthly_revenue)}/mo)`).join('; ')}
-Be concise and actionable. All values in MYR.`;
+  const itemLines=(D?.all_items||[]).map(i=>`${i.description}|stock:${i.available_stock}|days:${i.days_of_stock??'∞'}|cost:${i.latest_cost_price??0}|sell:${i.selling_price??0}|margin:${i.margin_pct??''}%|order:${i.order_qty??0}|urgency:${i.urgency||'ok'}|expiry:${i.nearest_expiry||''}|usage/mo:${i.recommended_monthly??0}`).join('\n');
+  const an=D?.analytics||{};
+  const drLines=(an.doctors||[]).map(d=>`${d.doctor}|visits:${d.visits}|revenue:MYR${fmt(d.revenue)}`).join('; ');
+  const comboLines=(an.combos||[]).slice(0,20).map(c=>`${c.a}+${c.b}(${c.count}x)`).join('; ');
+  const revLines=Object.entries(an.monthly_revenue||{}).map(([m,v])=>`${m}:MYR${fmt(v)}`).join(', ');
+  const sys=`You are an AI assistant for ${D?.clinic_name||'Permai Polyclinics Fortuna'}, a Malaysian GP clinic in Kota Kinabalu, Sabah. Answer in concise, actionable language. All currency in MYR.
+
+SUMMARY: ${s.total_medicines||0} medicines | Critical/OOS: ${s.critical_items||0} | Needs reorder: ${s.needing_reorder||0} | Est. monthly revenue: MYR${fmt(s.estimated_monthly_revenue||0)} | Revenue at risk: MYR${fmt(s.revenue_at_risk||0)} | Patients: ${s.total_patients||0} | Retention: ${s.retention_rate||0}% | Months: ${(D?.months_analyzed||[]).join(', ')}
+
+MONTHLY REVENUE: ${revLines}
+
+DOCTORS: ${drLines}
+
+TOP MEDICINE COMBOS (co-prescribed): ${comboLines}
+
+FULL STOCK (name|stock|days left|cost price|sell price|margin|order qty|urgency|nearest expiry|usage/mo):
+${itemLines}`;
   const loading=document.createElement('div');
   loading.style.cssText='max-width:88%;padding:8px 11px;border-radius:11px 11px 11px 2px;font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);align-self:flex-start';
   loading.textContent='Thinking…';
@@ -2133,7 +2143,7 @@ Be concise and actionable. All values in MYR.`;
     const resp=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',
       headers:{'x-api-key':key,'anthropic-version':'2023-06-01','content-type':'application/json','anthropic-dangerous-direct-browser-access':'true'},
-      body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:512,system:sys,messages:chatHistory.slice(-12)})
+      body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:1024,system:sys,messages:chatHistory.slice(-12)})
     });
     loading.remove();
     if(!resp.ok){const e=await resp.json();addChatMsg('assistant',`Error: ${e.error?.message||resp.status}`);return;}
