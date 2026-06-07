@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-07T11:11:28.987468",
+  "generated_at": "2026-06-07T11:19:59.377637",
   "inventory_date": "2026-06-07",
   "months_analyzed": [
     "2026-02",
@@ -17,21 +17,21 @@
     "overstock_items": 38,
     "never_dispensed_count": 79,
     "revenue_at_risk": 11363.76,
-    "estimated_monthly_revenue": 42040.47,
+    "estimated_monthly_revenue": 42936.47,
     "total_stock_value": NaN,
     "dead_capital": NaN,
     "total_patients": 611,
     "returning_patients": 98,
     "retention_rate": 16.0,
     "spike_count": 42,
-    "total_monthly_dispensed": 22362.1
+    "total_monthly_dispensed": 22375.0
   },
   "monthly_totals": {
     "2026-02": 1900.0,
     "2026-03": 4580.0,
     "2026-04": 5698.0,
     "2026-05": 5396.0,
-    "2026-06": 4788.1
+    "2026-06": 4801.0
   },
   "analytics": {
     "dow": {
@@ -60,8 +60,8 @@
         "revenue": 15010.6
       },
       "Sunday": {
-        "visits": 140,
-        "revenue": 16366.47
+        "visits": 141,
+        "revenue": 16846.47
       }
     },
     "hours": {
@@ -102,8 +102,8 @@
         "revenue": 3557.53
       },
       "9": {
-        "visits": 41,
-        "revenue": 4900.0
+        "visits": 42,
+        "revenue": 5380.0
       },
       "10": {
         "visits": 55,
@@ -228,9 +228,9 @@
         ]
       },
       "OTC": {
-        "visits": 169,
-        "total_revenue": 6712.97,
-        "avg_revenue_per_visit": 39.72,
+        "visits": 170,
+        "total_revenue": 7192.97,
+        "avg_revenue_per_visit": 42.31,
         "avg_meds_per_visit": 1.41,
         "top_medicines": [
           "TAB PARACAP 500MG HEALTH PHARM",
@@ -248,9 +248,9 @@
         "total_units": 3476
       },
       "CHIN CHUAN YEE": {
-        "dispensing_count": 1126,
-        "unique_visits": 386,
-        "total_units": 7632
+        "dispensing_count": 1127,
+        "unique_visits": 387,
+        "total_units": 7635
       },
       "EDWINA IVY ANTHONIUS": {
         "dispensing_count": 3,
@@ -315,18 +315,18 @@
           "last_visit": "2026-06-02"
         },
         {
+          "name": "NOOR HAMIDAH BT MUSAH",
+          "mrn": "1000173",
+          "visits": 9,
+          "total_spend": 2908.0,
+          "last_visit": "2026-06-07"
+        },
+        {
           "name": "DANNY @ DANNILO BIN ANGAT",
           "mrn": "1000178",
           "visits": 2,
           "total_spend": 2465.0,
           "last_visit": "2026-04-30"
-        },
-        {
-          "name": "NOOR HAMIDAH BT MUSAH",
-          "mrn": "1000173",
-          "visits": 8,
-          "total_spend": 2428.0,
-          "last_visit": "2026-06-01"
         },
         {
           "name": "DAMIAN C.MARCUS@DAMIAN CYRINUS",
@@ -586,12 +586,12 @@
         "count": 19
       },
       {
-        "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
+        "med_a": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
         "med_b": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
         "count": 19
       },
       {
-        "med_a": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
+        "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
         "med_b": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
         "count": 19
       },
@@ -702,112 +702,112 @@
       }
     ],
     "dead_90": [
-      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
+      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
+      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
       "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
       "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
-      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
-      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA"
+      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P."
     ],
     "dead_60": [
-      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
-      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
-      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
       "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
-      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
-      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
-      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
-      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
-      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
-      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
-      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
-      "TAB TREN (TRANEXAMIC ACID) 250MG",
-      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
+      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
+      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
       "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
       "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
-      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
+      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
       "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
-      "INFUSOL N/S 500ML ( SODIUM CHLORIDE 0.9% W/V ) AIN MEDICARE",
-      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
+      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
+      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
+      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
       "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
+      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
+      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
+      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
       "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
-      "TAB HOVASC (AMLODIPINE) 10MG HOVID"
+      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
+      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
+      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
+      "INFUSOL N/S 500ML ( SODIUM CHLORIDE 0.9% W/V ) AIN MEDICARE",
+      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
+      "TAB TREN (TRANEXAMIC ACID) 250MG",
+      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG"
     ],
     "dead_30": [
-      "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
-      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
-      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
-      "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
-      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
-      "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
-      "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
-      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
+      "INJ PRIORIX (MMR) 0.5ML GSK",
+      "TAB GOUTRIC ( FEBUXOSTAT) NOVUGEN",
       "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
-      "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
-      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
+      "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
+      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
+      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
+      "NASONEX AQUEOUS NASAL SPRAY 0.05% 60D (MOMETASONE FUROATE) SCENT-FREE ORGANON HEIST BV",
+      "INJ PREDON INJECTION 25MG/ML HEALOL PHARMACEUTICALS SDN. BHD.",
+      "TAB NORVASC (AMLODIPINE) 5MG PFIZER",
+      "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
+      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
+      "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
+      "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
+      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
       "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
       "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
-      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
-      "SKYCELLFLU QUADRIVALENT PREFILLED INFLUENZA VACCINE PHARMANIAGA",
-      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
-      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
       "TAB DUPHASTON (DYDROGESTERONE) 10MG ABBOTT",
-      "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
-      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
-      "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
-      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
-      "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
-      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
-      "TAB LOVIR ( ACYCLOVIR ) 400MG RANBAXY",
-      "NASONEX AQUEOUS NASAL SPRAY 0.05% 60D (MOMETASONE FUROATE) SCENT-FREE ORGANON HEIST BV",
-      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
-      "TAB TREN (TRANEXAMIC ACID) 250MG",
-      "SALBUNEB ( SALBUTAMOL 2.5MG/2.5ML ) AIN MEDICARE",
-      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
-      "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
-      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
-      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
-      "INJ GASTRIL ( RANITIDINE ) 50MG/2ML VIAL DUOPHARMA",
-      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
-      "TAB GOUTRIC ( FEBUXOSTAT) NOVUGEN",
-      "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
-      "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
-      "TAB SHINTAMET (CIMETIDINE) 400MG Y.S.P.",
-      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
-      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
-      "INJ SHINCORT (TRIAMCINOLONE ACETONIDE 40MG/ML) 1ML VIAL Y.S.P.",
-      "TAB DELTACARBON (CHARCOAL) 250MG IMEKS",
       "TAB NUELIN SR (THEOPHYLLINE) 250MG INOVA",
-      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
-      "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
-      "INJ PREDON INJECTION 25MG/ML HEALOL PHARMACEUTICALS SDN. BHD.",
-      "INFUSOL N/S 500ML ( SODIUM CHLORIDE 0.9% W/V ) AIN MEDICARE",
-      "ORAL AID LOTION (CHLORHEXIDINE HCL 0.5% & TRIAMCINOLONE 0.1% & LIDOCAINE 2.5%) 6ML DUOPHARMA",
-      "SYR COLIMIX (DICYCLOMINE 5MG/ SIMETHICONE 50MG) 90ML XEPA",
-      "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
       "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
-      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
-      "TAB BEAZYME (PAPAIN) 150,000 USP UNIT NORIPHARMA",
-      "TAB METSWIFT XR (METFORMIN HCL) 1000MG SYNERRV",
-      "WELLMEX ATOMIC ENEMA 20ML NGL TRADING",
-      "VICIDE CREAM 5%  (ACYCLOVIR 15MG/G) 10G PAHANG",
-      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
-      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
-      "INJ TYPHIM IV ( TYPHOID VACCINE ) SANOFI",
-      "TAB ROSUVASTATIN 20MG SYNERRV",
-      "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
-      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
-      "TAB NORVASC (AMLODIPINE) 5MG PFIZER",
-      "TAB DUOFOLIC (FOLIC ACID) 5MG DUOPHARMA",
-      "ARTIBEST INTRA-ARTICULAR INJECTION BREGGO",
-      "INJ PRIORIX (MMR) 0.5ML GSK",
       "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
-      "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
       "TAB HOVASC (AMLODIPINE) 10MG HOVID",
-      "PORO (PARACETAMOL) SUPPOSITORY 250MG Y.S.P.",
-      "CAP LOMODIUM (LOPERAMIDE) 2MG DYNAPHARM"
+      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
+      "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
+      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
+      "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
+      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
+      "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
+      "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
+      "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
+      "SKYCELLFLU QUADRIVALENT PREFILLED INFLUENZA VACCINE PHARMANIAGA",
+      "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
+      "TAB SHINTAMET (CIMETIDINE) 400MG Y.S.P.",
+      "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
+      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
+      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
+      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
+      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
+      "INJ GASTRIL ( RANITIDINE ) 50MG/2ML VIAL DUOPHARMA",
+      "TAB BEAZYME (PAPAIN) 150,000 USP UNIT NORIPHARMA",
+      "TAB LOVIR ( ACYCLOVIR ) 400MG RANBAXY",
+      "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
+      "TAB METSWIFT XR (METFORMIN HCL) 1000MG SYNERRV",
+      "CAP LOMODIUM (LOPERAMIDE) 2MG DYNAPHARM",
+      "TAB ROSUVASTATIN 20MG SYNERRV",
+      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
+      "VICIDE CREAM 5%  (ACYCLOVIR 15MG/G) 10G PAHANG",
+      "ARTIBEST INTRA-ARTICULAR INJECTION BREGGO",
+      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
+      "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
+      "TAB DELTACARBON (CHARCOAL) 250MG IMEKS",
+      "SYR COLIMIX (DICYCLOMINE 5MG/ SIMETHICONE 50MG) 90ML XEPA",
+      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
+      "INJ TYPHIM IV ( TYPHOID VACCINE ) SANOFI",
+      "SALBUNEB ( SALBUTAMOL 2.5MG/2.5ML ) AIN MEDICARE",
+      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
+      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
+      "WELLMEX ATOMIC ENEMA 20ML NGL TRADING",
+      "ORAL AID LOTION (CHLORHEXIDINE HCL 0.5% & TRIAMCINOLONE 0.1% & LIDOCAINE 2.5%) 6ML DUOPHARMA",
+      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
+      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
+      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
+      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
+      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
+      "INFUSOL N/S 500ML ( SODIUM CHLORIDE 0.9% W/V ) AIN MEDICARE",
+      "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
+      "INJ SHINCORT (TRIAMCINOLONE ACETONIDE 40MG/ML) 1ML VIAL Y.S.P.",
+      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
+      "TAB DUOFOLIC (FOLIC ACID) 5MG DUOPHARMA",
+      "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
+      "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
+      "TAB TREN (TRANEXAMIC ACID) 250MG",
+      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
+      "PORO (PARACETAMOL) SUPPOSITORY 250MG Y.S.P."
     ],
     "never_dispensed": [
       "TAB CASPRIN (ASPIRIN) 100MG",
@@ -1198,14 +1198,14 @@
       "2026-03": 279,
       "2026-04": 284,
       "2026-05": 266,
-      "2026-06": 68
+      "2026-06": 69
     },
     "monthly_revenue": {
       "2026-02": 9879.0,
       "2026-03": 29302.9,
       "2026-04": 30280.18,
       "2026-05": 31636.28,
-      "2026-06": 6748.78
+      "2026-06": 7228.78
     },
     "daily_revenue": {
       "2026-06-01": 1626.23,
@@ -1214,7 +1214,7 @@
       "2026-06-04": 919.0,
       "2026-06-05": 722.0,
       "2026-06-06": 676.5,
-      "2026-06-07": 125.0
+      "2026-06-07": 605.0
     }
   },
   "fast_movers": [
@@ -1398,7 +1398,7 @@
       "available_stock": 420.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/04/2028",
-      "latest_cost_price": 0.8,
+      "latest_cost_price": 0.98,
       "avg_cost_price": 0.86266666666667,
       "selling_price": 3.5,
       "recommended_monthly": 202.4,
@@ -1420,7 +1420,7 @@
       "expiry_days": 693,
       "months_supply": 2.1,
       "is_overstock": false,
-      "margin_pct": 77.1
+      "margin_pct": 72.0
     },
     {
       "description": "TAB NP PREDNISOLONE 5MG NORIPHARMA",
@@ -1772,7 +1772,7 @@
       "available_stock": 14.0,
       "required_stock": 70.0,
       "nearest_expiry": "31/03/2027",
-      "latest_cost_price": 0.55,
+      "latest_cost_price": 0.57,
       "avg_cost_price": 0.4892875,
       "selling_price": 2.0,
       "recommended_monthly": 108.4,
@@ -1794,7 +1794,7 @@
       "expiry_days": 297,
       "months_supply": 0.1,
       "is_overstock": false,
-      "margin_pct": 72.5
+      "margin_pct": 71.5
     },
     {
       "description": "TAB GLENCET (LEVOCETRIZINE) 5MG GLENMARK",
@@ -2241,6 +2241,40 @@
   ],
   "top_revenue_items": [
     {
+      "description": "S/C MOUNJARO (TIRZEPATIDE 25MG/ML) 2.5MG DOSE LILLY",
+      "code": "MAL25076009AZ",
+      "brand": "nan",
+      "manufacturer": "LILLY",
+      "category": "DIABTES",
+      "uom": "DOSE",
+      "available_stock": 20.0,
+      "required_stock": 24.0,
+      "nearest_expiry": "30/09/2027",
+      "latest_cost_price": 103.67,
+      "avg_cost_price": 51.833335,
+      "selling_price": 160.0,
+      "recommended_monthly": 26.9,
+      "velocity_method": "weighted_recent",
+      "monthly_breakdown": {
+        "2026-02": 0,
+        "2026-03": 0,
+        "2026-04": 22.0,
+        "2026-05": 27.0,
+        "2026-06": 30.0
+      },
+      "needs_reorder": false,
+      "order_qty": 0,
+      "supplier": "TBD",
+      "monthly_revenue": 4304.0,
+      "dead_stock": 0,
+      "days_of_stock": 22.3,
+      "urgency": "ok",
+      "expiry_days": 480,
+      "months_supply": 0.7,
+      "is_overstock": false,
+      "margin_pct": 35.2
+    },
+    {
       "description": "ARTIBEST INTRA-ARTICULAR INJECTION BREGGO",
       "code": "ARTIBEST",
       "brand": "nan",
@@ -2273,40 +2307,6 @@
       "months_supply": null,
       "is_overstock": false,
       "margin_pct": 1.2
-    },
-    {
-      "description": "S/C MOUNJARO (TIRZEPATIDE 25MG/ML) 2.5MG DOSE LILLY",
-      "code": "MAL25076009AZ",
-      "brand": "nan",
-      "manufacturer": "LILLY",
-      "category": "DIABTES",
-      "uom": "DOSE",
-      "available_stock": 23.0,
-      "required_stock": 24.0,
-      "nearest_expiry": "30/09/2027",
-      "latest_cost_price": 103.67,
-      "avg_cost_price": 51.833335,
-      "selling_price": 160.0,
-      "recommended_monthly": 21.3,
-      "velocity_method": "weighted_recent",
-      "monthly_breakdown": {
-        "2026-02": 0,
-        "2026-03": 0,
-        "2026-04": 22.0,
-        "2026-05": 27.0,
-        "2026-06": 17.1
-      },
-      "needs_reorder": false,
-      "order_qty": 0,
-      "supplier": "TBD",
-      "monthly_revenue": 3408.0,
-      "dead_stock": 0,
-      "days_of_stock": 32.4,
-      "urgency": "ok",
-      "expiry_days": 480,
-      "months_supply": 1.1,
-      "is_overstock": false,
-      "margin_pct": 35.2
     },
     {
       "description": "TAB UNASYN (SULTAMICILLIN) 375MG PFIZER",
@@ -2488,7 +2488,7 @@
       "available_stock": 42.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/05/2028",
-      "latest_cost_price": 10.9,
+      "latest_cost_price": 11.92,
       "avg_cost_price": 10.809166666667,
       "selling_price": 35.0,
       "recommended_monthly": 23.1,
@@ -2510,7 +2510,7 @@
       "expiry_days": 724,
       "months_supply": 1.8,
       "is_overstock": false,
-      "margin_pct": 68.9
+      "margin_pct": 65.9
     },
     {
       "description": "TAB CURAM (AMOXYCILLIN + CLAVULANIC ACID) 625MG SANDOZ",
@@ -2522,7 +2522,7 @@
       "available_stock": 420.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/04/2028",
-      "latest_cost_price": 0.8,
+      "latest_cost_price": 0.98,
       "avg_cost_price": 0.86266666666667,
       "selling_price": 3.5,
       "recommended_monthly": 202.4,
@@ -2544,7 +2544,7 @@
       "expiry_days": 693,
       "months_supply": 2.1,
       "is_overstock": false,
-      "margin_pct": 77.1
+      "margin_pct": 72.0
     },
     {
       "description": "INJ SUPRAXONE ( CEFTRIAXONE 1G POWDER ) PHARMEX",
@@ -2658,7 +2658,7 @@
       "available_stock": 31.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/12/2026",
-      "latest_cost_price": 23.0,
+      "latest_cost_price": 27.0,
       "avg_cost_price": 25.666666666667,
       "selling_price": 80.0,
       "recommended_monthly": 7.1,
@@ -2680,7 +2680,7 @@
       "expiry_days": 207,
       "months_supply": 4.4,
       "is_overstock": false,
-      "margin_pct": 71.2
+      "margin_pct": 66.2
     },
     {
       "description": "IVD N/S 0.9% 500ML B. BRAUN",
@@ -3204,7 +3204,7 @@
       "available_stock": 14.0,
       "required_stock": 70.0,
       "nearest_expiry": "31/03/2027",
-      "latest_cost_price": 0.55,
+      "latest_cost_price": 0.57,
       "avg_cost_price": 0.4892875,
       "selling_price": 2.0,
       "recommended_monthly": 108.4,
@@ -3226,7 +3226,7 @@
       "expiry_days": 297,
       "months_supply": 0.1,
       "is_overstock": false,
-      "margin_pct": 72.5
+      "margin_pct": 71.5
     },
     {
       "description": "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
@@ -5330,7 +5330,7 @@
       "available_stock": 130.0,
       "required_stock": 60.0,
       "nearest_expiry": "28/02/2027",
-      "latest_cost_price": 2.75,
+      "latest_cost_price": 2.89,
       "avg_cost_price": 2.8185,
       "selling_price": 5.0,
       "recommended_monthly": 0,
@@ -5346,7 +5346,7 @@
       "expiry_days": 266,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 45.0
+      "margin_pct": 42.2
     },
     {
       "description": "TAB TREN (TRANEXAMIC ACID) 250MG",
@@ -5714,7 +5714,7 @@
       "available_stock": 210.0,
       "required_stock": 60.0,
       "nearest_expiry": "31/08/2027",
-      "latest_cost_price": 2.07,
+      "latest_cost_price": 3.05,
       "avg_cost_price": 1.70822,
       "selling_price": 7.0,
       "recommended_monthly": 15.0,
@@ -5736,7 +5736,7 @@
       "expiry_days": 450,
       "months_supply": 14.0,
       "is_overstock": true,
-      "margin_pct": 70.4
+      "margin_pct": 56.4
     },
     {
       "description": "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/5MG SERVIER",
@@ -5872,7 +5872,7 @@
       "available_stock": 14.0,
       "required_stock": 70.0,
       "nearest_expiry": "31/03/2027",
-      "latest_cost_price": 0.55,
+      "latest_cost_price": 0.57,
       "avg_cost_price": 0.4892875,
       "selling_price": 2.0,
       "recommended_monthly": 108.4,
@@ -5894,7 +5894,7 @@
       "expiry_days": 297,
       "months_supply": 0.1,
       "is_overstock": false,
-      "margin_pct": 72.5
+      "margin_pct": 71.5
     },
     {
       "description": "TAB ANAREX (ORPHENADRINE 35MG/ PARACETAMOL 450MG) DUOPHARMA",
@@ -6234,7 +6234,7 @@
       "available_stock": 420.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/04/2028",
-      "latest_cost_price": 0.8,
+      "latest_cost_price": 0.98,
       "avg_cost_price": 0.86266666666667,
       "selling_price": 3.5,
       "recommended_monthly": 202.4,
@@ -6256,7 +6256,7 @@
       "expiry_days": 693,
       "months_supply": 2.1,
       "is_overstock": false,
-      "margin_pct": 77.1
+      "margin_pct": 72.0
     },
     {
       "description": "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
@@ -6472,7 +6472,7 @@
       "available_stock": 104.0,
       "required_stock": 10.0,
       "nearest_expiry": "30/03/2030",
-      "latest_cost_price": 1.38,
+      "latest_cost_price": 1.66,
       "avg_cost_price": 1.436,
       "selling_price": 30.0,
       "recommended_monthly": 5.1,
@@ -6494,7 +6494,7 @@
       "expiry_days": 1392,
       "months_supply": 20.4,
       "is_overstock": true,
-      "margin_pct": 95.4
+      "margin_pct": 94.5
     },
     {
       "description": "TAB PIRITON (CHLORPHENIRAMINE) 4MG DUOPHARMA",
@@ -6574,7 +6574,7 @@
       "available_stock": 49.0,
       "required_stock": 20.0,
       "nearest_expiry": "31/07/2027",
-      "latest_cost_price": 3.94,
+      "latest_cost_price": 4.5,
       "avg_cost_price": 3.351556,
       "selling_price": 30.0,
       "recommended_monthly": 11.5,
@@ -6596,7 +6596,7 @@
       "expiry_days": 419,
       "months_supply": 4.3,
       "is_overstock": false,
-      "margin_pct": 86.9
+      "margin_pct": 85.0
     },
     {
       "description": "PULMICORT (BUDESONIDE) RESPULE 1MG ASTRAZENECA",
@@ -6608,7 +6608,7 @@
       "available_stock": 31.0,
       "required_stock": 20.0,
       "nearest_expiry": "31/08/2027",
-      "latest_cost_price": 10.26,
+      "latest_cost_price": 11.0,
       "avg_cost_price": 10.408,
       "selling_price": 32.0,
       "recommended_monthly": 12.5,
@@ -6630,7 +6630,7 @@
       "expiry_days": 450,
       "months_supply": 2.5,
       "is_overstock": false,
-      "margin_pct": 67.9
+      "margin_pct": 65.6
     },
     {
       "description": "NEBULE VENTOLIN (SALBUTAMOL) 2.5MG/2.5ML GSK",
@@ -6744,7 +6744,7 @@
       "available_stock": 33.0,
       "required_stock": 10.0,
       "nearest_expiry": "29/02/2028",
-      "latest_cost_price": 7.85,
+      "latest_cost_price": 8.5,
       "avg_cost_price": 6.2,
       "selling_price": 30.0,
       "recommended_monthly": 2.3,
@@ -6766,7 +6766,7 @@
       "expiry_days": 632,
       "months_supply": 14.3,
       "is_overstock": true,
-      "margin_pct": 73.8
+      "margin_pct": 71.7
     },
     {
       "description": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
@@ -6948,7 +6948,7 @@
       "available_stock": 130.0,
       "required_stock": 0.0,
       "nearest_expiry": "31/12/2026",
-      "latest_cost_price": 0.64,
+      "latest_cost_price": 0.71,
       "avg_cost_price": 0.6575,
       "selling_price": 5.0,
       "recommended_monthly": 4.7,
@@ -6970,7 +6970,7 @@
       "expiry_days": 207,
       "months_supply": 27.7,
       "is_overstock": true,
-      "margin_pct": 87.2
+      "margin_pct": 85.8
     },
     {
       "description": "PORO (PARACETAMOL) SUPPOSITORY 250MG Y.S.P.",
@@ -6982,7 +6982,7 @@
       "available_stock": 123.0,
       "required_stock": 0.0,
       "nearest_expiry": "31/07/2028",
-      "latest_cost_price": 0.88,
+      "latest_cost_price": 0.96,
       "avg_cost_price": 0.889,
       "selling_price": 5.0,
       "recommended_monthly": 3.0,
@@ -7004,7 +7004,7 @@
       "expiry_days": 785,
       "months_supply": 41.0,
       "is_overstock": true,
-      "margin_pct": 82.4
+      "margin_pct": 80.8
     },
     {
       "description": "CAP BIOZOLE (FLUCANAZOLE) 150MG MEDISPEC",
@@ -7186,7 +7186,7 @@
       "available_stock": 6.0,
       "required_stock": 5.0,
       "nearest_expiry": "24/10/2027",
-      "latest_cost_price": 14.76,
+      "latest_cost_price": 20.5,
       "avg_cost_price": 17.63,
       "selling_price": 42.0,
       "recommended_monthly": 0.5,
@@ -7208,7 +7208,7 @@
       "expiry_days": 504,
       "months_supply": 12.0,
       "is_overstock": true,
-      "margin_pct": 64.9
+      "margin_pct": 51.2
     },
     {
       "description": "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
@@ -7928,7 +7928,7 @@
       "available_stock": 20.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/03/2030",
-      "latest_cost_price": 3.36,
+      "latest_cost_price": 3.68,
       "avg_cost_price": 2.4383333333333,
       "selling_price": 6.0,
       "recommended_monthly": 16.0,
@@ -7950,7 +7950,7 @@
       "expiry_days": 1393,
       "months_supply": 1.2,
       "is_overstock": false,
-      "margin_pct": 44.0
+      "margin_pct": 38.7
     },
     {
       "description": "TAB NEXIUM MUPS (ESOMEPRAZOLE) 40MG ASTRAZENECA",
@@ -7996,7 +7996,7 @@
       "available_stock": 160.0,
       "required_stock": 50.0,
       "nearest_expiry": "28/02/2027",
-      "latest_cost_price": 1.82,
+      "latest_cost_price": 1.84,
       "avg_cost_price": 1.7943333333333,
       "selling_price": 3.5,
       "recommended_monthly": 35.0,
@@ -8018,7 +8018,7 @@
       "expiry_days": 266,
       "months_supply": 4.6,
       "is_overstock": false,
-      "margin_pct": 48.0
+      "margin_pct": 47.4
     },
     {
       "description": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
@@ -8132,7 +8132,7 @@
       "available_stock": 70.0,
       "required_stock": 0.0,
       "nearest_expiry": "30/04/2029",
-      "latest_cost_price": 1.06,
+      "latest_cost_price": 1.23,
       "avg_cost_price": 1.144285,
       "selling_price": 3.5,
       "recommended_monthly": 12.5,
@@ -8154,7 +8154,7 @@
       "expiry_days": 1058,
       "months_supply": 5.6,
       "is_overstock": false,
-      "margin_pct": 69.7
+      "margin_pct": 64.9
     },
     {
       "description": "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
@@ -8596,7 +8596,7 @@
       "available_stock": 4.0,
       "required_stock": 10.0,
       "nearest_expiry": "30/11/2028",
-      "latest_cost_price": 12.0,
+      "latest_cost_price": 12.5,
       "avg_cost_price": 12.25,
       "selling_price": 27.0,
       "recommended_monthly": 1.5,
@@ -8618,7 +8618,7 @@
       "expiry_days": 907,
       "months_supply": 2.7,
       "is_overstock": false,
-      "margin_pct": 55.6
+      "margin_pct": 53.7
     },
     {
       "description": "TAB YASMIN (DROSPIRENONE 3MG/ ETHINYLESTRADIOL 0.03MG) BAYER",
@@ -8692,7 +8692,7 @@
       "available_stock": 1030.0,
       "required_stock": 500.0,
       "nearest_expiry": "31/03/2028",
-      "latest_cost_price": 0.15,
+      "latest_cost_price": 0.17,
       "avg_cost_price": 0.1595,
       "selling_price": 1.2,
       "recommended_monthly": 35.0,
@@ -8714,7 +8714,7 @@
       "expiry_days": 663,
       "months_supply": 29.4,
       "is_overstock": true,
-      "margin_pct": 87.5
+      "margin_pct": 85.8
     },
     {
       "description": "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
@@ -8760,7 +8760,7 @@
       "available_stock": 490.0,
       "required_stock": 10.0,
       "nearest_expiry": "28/02/2030",
-      "latest_cost_price": 1.18,
+      "latest_cost_price": 1.2,
       "avg_cost_price": 1.0311111111111,
       "selling_price": 2.5,
       "recommended_monthly": 0,
@@ -8776,7 +8776,7 @@
       "expiry_days": 1362,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 52.8
+      "margin_pct": 52.0
     },
     {
       "description": "SYRUP NOVOMIN (DIMENHYDRINATE) 15MG/5ML 60ML (ORANGE FLV) XEPA",
@@ -9868,7 +9868,7 @@
       "available_stock": 24.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/01/2028",
-      "latest_cost_price": 4.17,
+      "latest_cost_price": 5.0,
       "avg_cost_price": 4.6122233333333,
       "selling_price": 18.0,
       "recommended_monthly": 0,
@@ -9884,7 +9884,7 @@
       "expiry_days": 603,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 76.8
+      "margin_pct": 72.2
     },
     {
       "description": "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
@@ -10540,7 +10540,7 @@
       "available_stock": 42.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/05/2028",
-      "latest_cost_price": 10.9,
+      "latest_cost_price": 11.92,
       "avg_cost_price": 10.809166666667,
       "selling_price": 35.0,
       "recommended_monthly": 23.1,
@@ -10562,7 +10562,7 @@
       "expiry_days": 724,
       "months_supply": 1.8,
       "is_overstock": false,
-      "margin_pct": 68.9
+      "margin_pct": 65.9
     },
     {
       "description": "INJ TROVITE PAIR (THIAMINE HYDROCHLORIDE 250MG/5ML + PYRIDOXINE HYDROCHLORIDE 50MG/5ML + DEXTROSE MONOHYDRATE 1000MG/5ML + ASCORBIC ACID 500MG/5ML + DEXPANTHENOL 5MG/5ML + RIBOFLAVIN SODIUM PHOSPHATE 5.133MG/5ML + NICOTINAMIDE 160MG/5ML) DUOPHARMA",
@@ -10608,7 +10608,7 @@
       "available_stock": 13.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/07/2028",
-      "latest_cost_price": 2.13,
+      "latest_cost_price": 2.3,
       "avg_cost_price": 2.0948,
       "selling_price": 25.0,
       "recommended_monthly": 6.7,
@@ -10630,7 +10630,7 @@
       "expiry_days": 785,
       "months_supply": 1.9,
       "is_overstock": false,
-      "margin_pct": 91.5
+      "margin_pct": 90.8
     },
     {
       "description": "INJ LARTIL (PROCHLORPERAZINE MESYLATE)12.5MG/ML 1ML VIAL DUOPHARMA",
@@ -10704,7 +10704,7 @@
       "available_stock": 13.0,
       "required_stock": 10.0,
       "nearest_expiry": "30/06/2028",
-      "latest_cost_price": 1.75,
+      "latest_cost_price": 2.14,
       "avg_cost_price": 1.8816666666667,
       "selling_price": 20.0,
       "recommended_monthly": 8.2,
@@ -10726,7 +10726,7 @@
       "expiry_days": 754,
       "months_supply": 1.6,
       "is_overstock": false,
-      "margin_pct": 91.2
+      "margin_pct": 89.3
     },
     {
       "description": "INJ AMINOPHYLLIN 250MG/10ML FRESENIUS",
@@ -10952,7 +10952,7 @@
       "available_stock": 8.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/07/2028",
-      "latest_cost_price": 12.5,
+      "latest_cost_price": 15.0,
       "avg_cost_price": 13.75,
       "selling_price": 36.0,
       "recommended_monthly": 1.8,
@@ -10974,7 +10974,7 @@
       "expiry_days": 785,
       "months_supply": 4.4,
       "is_overstock": false,
-      "margin_pct": 65.3
+      "margin_pct": 58.3
     },
     {
       "description": "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
@@ -10986,7 +10986,7 @@
       "available_stock": 14.0,
       "required_stock": 10.0,
       "nearest_expiry": "30/06/2028",
-      "latest_cost_price": 12.61,
+      "latest_cost_price": 13.8,
       "avg_cost_price": 13.006666666667,
       "selling_price": 30.0,
       "recommended_monthly": 2.0,
@@ -11008,7 +11008,7 @@
       "expiry_days": 754,
       "months_supply": 7.0,
       "is_overstock": true,
-      "margin_pct": 58.0
+      "margin_pct": 54.0
     },
     {
       "description": "CIPMAX (CIPROFLOXACIN 0.3%) EYE DROPS 5ML SAMCHUNDANG",
@@ -11782,7 +11782,7 @@
       "available_stock": 590.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/08/2027",
-      "latest_cost_price": 0.11,
+      "latest_cost_price": 0.13,
       "avg_cost_price": 0.118,
       "selling_price": 1.2,
       "recommended_monthly": 42.0,
@@ -11804,7 +11804,7 @@
       "expiry_days": 450,
       "months_supply": 14.0,
       "is_overstock": true,
-      "margin_pct": 90.8
+      "margin_pct": 89.2
     },
     {
       "description": "TAB NUELIN SR (THEOPHYLLINE) 250MG INOVA",
@@ -11946,7 +11946,7 @@
       "available_stock": 67.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/10/2028",
-      "latest_cost_price": 3.3,
+      "latest_cost_price": 3.0,
       "avg_cost_price": 3.075,
       "selling_price": 15.0,
       "recommended_monthly": 16.5,
@@ -11968,7 +11968,7 @@
       "expiry_days": 877,
       "months_supply": 4.1,
       "is_overstock": false,
-      "margin_pct": 78.0
+      "margin_pct": 80.0
     },
     {
       "description": "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
@@ -12274,7 +12274,7 @@
       "available_stock": 31.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/12/2026",
-      "latest_cost_price": 23.0,
+      "latest_cost_price": 27.0,
       "avg_cost_price": 25.666666666667,
       "selling_price": 80.0,
       "recommended_monthly": 7.1,
@@ -12296,7 +12296,7 @@
       "expiry_days": 207,
       "months_supply": 4.4,
       "is_overstock": false,
-      "margin_pct": 71.2
+      "margin_pct": 66.2
     },
     {
       "description": "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP Pharmaceuticals S.p.A.",
@@ -12853,30 +12853,30 @@
       "manufacturer": "LILLY",
       "category": "DIABTES",
       "uom": "DOSE",
-      "available_stock": 23.0,
+      "available_stock": 20.0,
       "required_stock": 24.0,
       "nearest_expiry": "30/09/2027",
       "latest_cost_price": 103.67,
       "avg_cost_price": 51.833335,
       "selling_price": 160.0,
-      "recommended_monthly": 21.3,
+      "recommended_monthly": 26.9,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 0,
         "2026-03": 0,
         "2026-04": 22.0,
         "2026-05": 27.0,
-        "2026-06": 17.1
+        "2026-06": 30.0
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "TBD",
-      "monthly_revenue": 3408.0,
+      "monthly_revenue": 4304.0,
       "dead_stock": 0,
-      "days_of_stock": 32.4,
+      "days_of_stock": 22.3,
       "urgency": "ok",
       "expiry_days": 480,
-      "months_supply": 1.1,
+      "months_supply": 0.7,
       "is_overstock": false,
       "margin_pct": 35.2
     },
