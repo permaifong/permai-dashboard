@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-07T08:03:06.063527",
+  "generated_at": "2026-06-07T11:11:28.987468",
   "inventory_date": "2026-06-07",
   "months_analyzed": [
     "2026-02",
@@ -16,10 +16,10 @@
     "expiring_soon": 4,
     "overstock_items": 38,
     "never_dispensed_count": 79,
-    "revenue_at_risk": 11373.98,
-    "estimated_monthly_revenue": 42049.19,
-    "total_stock_value": 25971.19,
-    "dead_capital": 4612.07,
+    "revenue_at_risk": 11363.76,
+    "estimated_monthly_revenue": 42040.47,
+    "total_stock_value": NaN,
+    "dead_capital": NaN,
     "total_patients": 611,
     "returning_patients": 98,
     "retention_rate": 16.0,
@@ -586,12 +586,12 @@
         "count": 19
       },
       {
-        "med_a": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
+        "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
         "med_b": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
         "count": 19
       },
       {
-        "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
+        "med_a": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
         "med_b": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
         "count": 19
       },
@@ -702,112 +702,112 @@
       }
     ],
     "dead_90": [
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
       "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
-      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
       "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
-      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P."
+      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA"
     ],
     "dead_60": [
-      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
-      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
-      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
-      "TAB TREN (TRANEXAMIC ACID) 250MG",
-      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
-      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
-      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
-      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
-      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
-      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
-      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
-      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
-      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
-      "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
-      "INFUSOL N/S 500ML ( SODIUM CHLORIDE 0.9% W/V ) AIN MEDICARE",
-      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
-      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
-      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
-      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
-      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
       "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
-      "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG"
+      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
+      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
+      "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
+      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
+      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
+      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
+      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
+      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
+      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
+      "TAB TREN (TRANEXAMIC ACID) 250MG",
+      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
+      "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
+      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
+      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
+      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
+      "INFUSOL N/S 500ML ( SODIUM CHLORIDE 0.9% W/V ) AIN MEDICARE",
+      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
+      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
+      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
+      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
+      "TAB HOVASC (AMLODIPINE) 10MG HOVID"
     ],
     "dead_30": [
-      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
-      "TAB NUELIN SR (THEOPHYLLINE) 250MG INOVA",
-      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
-      "INJ SHINCORT (TRIAMCINOLONE ACETONIDE 40MG/ML) 1ML VIAL Y.S.P.",
-      "TAB DUOFOLIC (FOLIC ACID) 5MG DUOPHARMA",
-      "TAB DUPHASTON (DYDROGESTERONE) 10MG ABBOTT",
-      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
-      "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
-      "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
-      "CAP LOMODIUM (LOPERAMIDE) 2MG DYNAPHARM",
-      "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
-      "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
-      "INJ PRIORIX (MMR) 0.5ML GSK",
-      "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
-      "SALBUNEB ( SALBUTAMOL 2.5MG/2.5ML ) AIN MEDICARE",
-      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
-      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
-      "TAB ROSUVASTATIN 20MG SYNERRV",
-      "TAB TREN (TRANEXAMIC ACID) 250MG",
-      "WELLMEX ATOMIC ENEMA 20ML NGL TRADING",
-      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
-      "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
-      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
+      "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
+      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
+      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
+      "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
+      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
+      "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
+      "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
+      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
+      "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
       "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
+      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
+      "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
+      "SKYCELLFLU QUADRIVALENT PREFILLED INFLUENZA VACCINE PHARMANIAGA",
+      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
+      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
+      "TAB DUPHASTON (DYDROGESTERONE) 10MG ABBOTT",
+      "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
+      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
+      "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
+      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
       "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
-      "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
-      "INJ TYPHIM IV ( TYPHOID VACCINE ) SANOFI",
-      "TAB SHINTAMET (CIMETIDINE) 400MG Y.S.P.",
+      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
+      "TAB LOVIR ( ACYCLOVIR ) 400MG RANBAXY",
       "NASONEX AQUEOUS NASAL SPRAY 0.05% 60D (MOMETASONE FUROATE) SCENT-FREE ORGANON HEIST BV",
-      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
-      "ORAL AID LOTION (CHLORHEXIDINE HCL 0.5% & TRIAMCINOLONE 0.1% & LIDOCAINE 2.5%) 6ML DUOPHARMA",
+      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
+      "TAB TREN (TRANEXAMIC ACID) 250MG",
+      "SALBUNEB ( SALBUTAMOL 2.5MG/2.5ML ) AIN MEDICARE",
       "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
+      "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
+      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
+      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
+      "INJ GASTRIL ( RANITIDINE ) 50MG/2ML VIAL DUOPHARMA",
       "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
       "TAB GOUTRIC ( FEBUXOSTAT) NOVUGEN",
-      "ARTIBEST INTRA-ARTICULAR INJECTION BREGGO",
+      "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
       "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
-      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
-      "TAB BEAZYME (PAPAIN) 150,000 USP UNIT NORIPHARMA",
-      "PORO (PARACETAMOL) SUPPOSITORY 250MG Y.S.P.",
-      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
-      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
-      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
-      "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
-      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
-      "INJ PREDON INJECTION 25MG/ML HEALOL PHARMACEUTICALS SDN. BHD.",
-      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
-      "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
-      "VICIDE CREAM 5%  (ACYCLOVIR 15MG/G) 10G PAHANG",
-      "TAB LOVIR ( ACYCLOVIR ) 400MG RANBAXY",
-      "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
-      "INFUSOL N/S 500ML ( SODIUM CHLORIDE 0.9% W/V ) AIN MEDICARE",
-      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
-      "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
-      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
-      "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
-      "TAB NORVASC (AMLODIPINE) 5MG PFIZER",
-      "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
-      "TAB METSWIFT XR (METFORMIN HCL) 1000MG SYNERRV",
-      "SYR COLIMIX (DICYCLOMINE 5MG/ SIMETHICONE 50MG) 90ML XEPA",
-      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
-      "INJ GASTRIL ( RANITIDINE ) 50MG/2ML VIAL DUOPHARMA",
-      "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
-      "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
-      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
-      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "TAB DELTACARBON (CHARCOAL) 250MG IMEKS",
-      "SKYCELLFLU QUADRIVALENT PREFILLED INFLUENZA VACCINE PHARMANIAGA",
+      "TAB SHINTAMET (CIMETIDINE) 400MG Y.S.P.",
       "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
-      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
-      "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
-      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
-      "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD"
+      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
+      "INJ SHINCORT (TRIAMCINOLONE ACETONIDE 40MG/ML) 1ML VIAL Y.S.P.",
+      "TAB DELTACARBON (CHARCOAL) 250MG IMEKS",
+      "TAB NUELIN SR (THEOPHYLLINE) 250MG INOVA",
+      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
+      "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
+      "INJ PREDON INJECTION 25MG/ML HEALOL PHARMACEUTICALS SDN. BHD.",
+      "INFUSOL N/S 500ML ( SODIUM CHLORIDE 0.9% W/V ) AIN MEDICARE",
+      "ORAL AID LOTION (CHLORHEXIDINE HCL 0.5% & TRIAMCINOLONE 0.1% & LIDOCAINE 2.5%) 6ML DUOPHARMA",
+      "SYR COLIMIX (DICYCLOMINE 5MG/ SIMETHICONE 50MG) 90ML XEPA",
+      "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
+      "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
+      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
+      "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
+      "TAB BEAZYME (PAPAIN) 150,000 USP UNIT NORIPHARMA",
+      "TAB METSWIFT XR (METFORMIN HCL) 1000MG SYNERRV",
+      "WELLMEX ATOMIC ENEMA 20ML NGL TRADING",
+      "VICIDE CREAM 5%  (ACYCLOVIR 15MG/G) 10G PAHANG",
+      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
+      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
+      "INJ TYPHIM IV ( TYPHOID VACCINE ) SANOFI",
+      "TAB ROSUVASTATIN 20MG SYNERRV",
+      "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
+      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
+      "TAB NORVASC (AMLODIPINE) 5MG PFIZER",
+      "TAB DUOFOLIC (FOLIC ACID) 5MG DUOPHARMA",
+      "ARTIBEST INTRA-ARTICULAR INJECTION BREGGO",
+      "INJ PRIORIX (MMR) 0.5ML GSK",
+      "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
+      "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
+      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
+      "PORO (PARACETAMOL) SUPPOSITORY 250MG Y.S.P.",
+      "CAP LOMODIUM (LOPERAMIDE) 2MG DYNAPHARM"
     ],
     "never_dispensed": [
       "TAB CASPRIN (ASPIRIN) 100MG",
@@ -1262,7 +1262,7 @@
       "available_stock": 700.0,
       "required_stock": 300.0,
       "nearest_expiry": "31/12/2026",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 0.11,
       "avg_cost_price": 0.10541666666667,
       "selling_price": 1.5,
       "recommended_monthly": 319.9,
@@ -1284,7 +1284,7 @@
       "expiry_days": 207,
       "months_supply": 2.2,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 92.7
     },
     {
       "description": "TAB PARACAP 500MG HEALTH PHARM",
@@ -1296,7 +1296,7 @@
       "available_stock": 390.0,
       "required_stock": 500.0,
       "nearest_expiry": "31/07/2028",
-      "latest_cost_price": 0.157,
+      "latest_cost_price": 0.16,
       "avg_cost_price": 0.157,
       "selling_price": 1.0,
       "recommended_monthly": 246.0,
@@ -1318,7 +1318,7 @@
       "expiry_days": 785,
       "months_supply": 1.6,
       "is_overstock": false,
-      "margin_pct": 84.3
+      "margin_pct": 84.0
     },
     {
       "description": "TAB UNASYN (SULTAMICILLIN) 375MG PFIZER",
@@ -1330,7 +1330,7 @@
       "available_stock": 80.0,
       "required_stock": 50.0,
       "nearest_expiry": "31/12/2027",
-      "latest_cost_price": 4.072,
+      "latest_cost_price": 4.2,
       "avg_cost_price": 4.0486666666667,
       "selling_price": 9.0,
       "recommended_monthly": 245.7,
@@ -1352,7 +1352,7 @@
       "expiry_days": 572,
       "months_supply": 0.3,
       "is_overstock": false,
-      "margin_pct": 54.8
+      "margin_pct": 53.3
     },
     {
       "description": "MABRON (TRAMADOL) CAPSULES 50MG MEDOCHEMIE LTD",
@@ -1364,7 +1364,7 @@
       "available_stock": 400.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/04/2030",
-      "latest_cost_price": 0.63826,
+      "latest_cost_price": 0.64,
       "avg_cost_price": 0.63826,
       "selling_price": 2.0,
       "recommended_monthly": 214.3,
@@ -1386,7 +1386,7 @@
       "expiry_days": 1423,
       "months_supply": 1.9,
       "is_overstock": false,
-      "margin_pct": 68.1
+      "margin_pct": 68.0
     },
     {
       "description": "TAB CURAM (AMOXYCILLIN + CLAVULANIC ACID) 625MG SANDOZ",
@@ -1398,7 +1398,7 @@
       "available_stock": 420.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/04/2028",
-      "latest_cost_price": 0.98,
+      "latest_cost_price": 0.8,
       "avg_cost_price": 0.86266666666667,
       "selling_price": 3.5,
       "recommended_monthly": 202.4,
@@ -1420,7 +1420,7 @@
       "expiry_days": 693,
       "months_supply": 2.1,
       "is_overstock": false,
-      "margin_pct": 72.0
+      "margin_pct": 77.1
     },
     {
       "description": "TAB NP PREDNISOLONE 5MG NORIPHARMA",
@@ -1432,7 +1432,7 @@
       "available_stock": 260.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/09/2028",
-      "latest_cost_price": 0.071,
+      "latest_cost_price": 0.07,
       "avg_cost_price": 0.071,
       "selling_price": 1.0,
       "recommended_monthly": 201.4,
@@ -1454,7 +1454,7 @@
       "expiry_days": 846,
       "months_supply": 1.3,
       "is_overstock": false,
-      "margin_pct": 92.9
+      "margin_pct": 93.0
     },
     {
       "description": "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
@@ -1466,7 +1466,7 @@
       "available_stock": 0.0,
       "required_stock": 100.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.527,
+      "latest_cost_price": 0.53,
       "avg_cost_price": 0.527,
       "selling_price": 1.5,
       "recommended_monthly": 200.0,
@@ -1488,7 +1488,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 64.9
+      "margin_pct": 64.7
     },
     {
       "description": "TAB SPASIL (DIPHENOXYLATE 2.5MG/ATROPINE 0.025MG) IMEKS",
@@ -1500,7 +1500,7 @@
       "available_stock": 400.0,
       "required_stock": 500.0,
       "nearest_expiry": "28/04/2028",
-      "latest_cost_price": 0.164,
+      "latest_cost_price": 0.16,
       "avg_cost_price": 0.11452833333333,
       "selling_price": 1.5,
       "recommended_monthly": 199.4,
@@ -1522,7 +1522,7 @@
       "expiry_days": 691,
       "months_supply": 2.0,
       "is_overstock": false,
-      "margin_pct": 89.1
+      "margin_pct": 89.3
     },
     {
       "description": "TAB PREDNISYN (PREDNISOLONE) 5MG DUOPHARMA",
@@ -1534,7 +1534,7 @@
       "available_stock": 0.0,
       "required_stock": 100.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.074,
+      "latest_cost_price": 0.07,
       "avg_cost_price": 0.0558775,
       "selling_price": 1.0,
       "recommended_monthly": 191.7,
@@ -1556,7 +1556,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 92.6
+      "margin_pct": 93.0
     },
     {
       "description": "TAB ANAREX (ORPHENADRINE 35MG/ PARACETAMOL 450MG) DUOPHARMA",
@@ -1602,7 +1602,7 @@
       "available_stock": 210.0,
       "required_stock": 300.0,
       "nearest_expiry": "31/07/2027",
-      "latest_cost_price": 1.814,
+      "latest_cost_price": 1.81,
       "avg_cost_price": 1.6692,
       "selling_price": 4.0,
       "recommended_monthly": 149.5,
@@ -1624,7 +1624,7 @@
       "expiry_days": 419,
       "months_supply": 1.4,
       "is_overstock": false,
-      "margin_pct": 54.6
+      "margin_pct": 54.8
     },
     {
       "description": "CHEWABLE SIMCONE ( SIMETICONE ) 80MG IMEKS",
@@ -1670,7 +1670,7 @@
       "available_stock": 840.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/09/2028",
-      "latest_cost_price": 0.051,
+      "latest_cost_price": 0.05,
       "avg_cost_price": 0.0495,
       "selling_price": 1.0,
       "recommended_monthly": 120.6,
@@ -1692,7 +1692,7 @@
       "expiry_days": 846,
       "months_supply": 7.0,
       "is_overstock": true,
-      "margin_pct": 94.9
+      "margin_pct": 95.0
     },
     {
       "description": "CEFUROXIME 500MG ALTACEF GLENMARK",
@@ -1704,7 +1704,7 @@
       "available_stock": 0.0,
       "required_stock": 30.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.47368,
+      "latest_cost_price": 1.47,
       "avg_cost_price": 1.134736,
       "selling_price": 5.0,
       "recommended_monthly": 118.4,
@@ -1726,7 +1726,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 70.5
+      "margin_pct": 70.6
     },
     {
       "description": "TAB MUCOSOLVAN (AMBROXOL) 30MG DKSH",
@@ -1738,7 +1738,7 @@
       "available_stock": 60.0,
       "required_stock": 100.0,
       "nearest_expiry": "31/05/2028",
-      "latest_cost_price": 0.459,
+      "latest_cost_price": 0.46,
       "avg_cost_price": 0.46433333333333,
       "selling_price": 1.5,
       "recommended_monthly": 111.9,
@@ -1760,7 +1760,7 @@
       "expiry_days": 724,
       "months_supply": 0.5,
       "is_overstock": false,
-      "margin_pct": 69.4
+      "margin_pct": 69.3
     },
     {
       "description": "TAB PANTOPRAZOLE 40MG (GASTRO-RESISTANT) SANDOZ",
@@ -1772,7 +1772,7 @@
       "available_stock": 14.0,
       "required_stock": 70.0,
       "nearest_expiry": "31/03/2027",
-      "latest_cost_price": 0.57143,
+      "latest_cost_price": 0.55,
       "avg_cost_price": 0.4892875,
       "selling_price": 2.0,
       "recommended_monthly": 108.4,
@@ -1794,7 +1794,7 @@
       "expiry_days": 297,
       "months_supply": 0.1,
       "is_overstock": false,
-      "margin_pct": 71.4
+      "margin_pct": 72.5
     },
     {
       "description": "TAB GLENCET (LEVOCETRIZINE) 5MG GLENMARK",
@@ -1806,7 +1806,7 @@
       "available_stock": 100.0,
       "required_stock": 100.0,
       "nearest_expiry": "31/08/2028",
-      "latest_cost_price": 0.524,
+      "latest_cost_price": 0.52,
       "avg_cost_price": 0.524,
       "selling_price": 1.5,
       "recommended_monthly": 107.5,
@@ -1828,7 +1828,7 @@
       "expiry_days": 816,
       "months_supply": 0.9,
       "is_overstock": false,
-      "margin_pct": 65.1
+      "margin_pct": 65.3
     },
     {
       "description": "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
@@ -1942,7 +1942,7 @@
       "available_stock": 20.0,
       "required_stock": 50.0,
       "nearest_expiry": "30/06/2028",
-      "latest_cost_price": 0.798,
+      "latest_cost_price": 0.8,
       "avg_cost_price": 0.798,
       "selling_price": 2.0,
       "recommended_monthly": 95.7,
@@ -1964,7 +1964,7 @@
       "expiry_days": 754,
       "months_supply": 0.2,
       "is_overstock": false,
-      "margin_pct": 60.1
+      "margin_pct": 60.0
     },
     {
       "description": "TABLET METGYL (METRONIDAZOLE) 400MG SM PHARMACEUTICALS",
@@ -1976,7 +1976,7 @@
       "available_stock": 60.0,
       "required_stock": 200.0,
       "nearest_expiry": "31/12/2028",
-      "latest_cost_price": 0.089,
+      "latest_cost_price": 0.09,
       "avg_cost_price": 0.089,
       "selling_price": 2.5,
       "recommended_monthly": 84.1,
@@ -2010,7 +2010,7 @@
       "available_stock": 1100.0,
       "required_stock": 100.0,
       "nearest_expiry": "01/09/2028",
-      "latest_cost_price": 0.067,
+      "latest_cost_price": 0.06,
       "avg_cost_price": 0.06525,
       "selling_price": 1.0,
       "recommended_monthly": 75.2,
@@ -2032,7 +2032,7 @@
       "expiry_days": 817,
       "months_supply": 14.6,
       "is_overstock": true,
-      "margin_pct": 93.3
+      "margin_pct": 94.0
     },
     {
       "description": "TAB GLUCOPHAGE XR 1000MG METFORMIN",
@@ -2044,7 +2044,7 @@
       "available_stock": 140.0,
       "required_stock": 60.0,
       "nearest_expiry": "31/03/2027",
-      "latest_cost_price": 1.53333,
+      "latest_cost_price": 1.53,
       "avg_cost_price": 1.466665,
       "selling_price": 3.5,
       "recommended_monthly": 75.0,
@@ -2066,7 +2066,7 @@
       "expiry_days": 297,
       "months_supply": 1.9,
       "is_overstock": false,
-      "margin_pct": 56.2
+      "margin_pct": 56.3
     },
     {
       "description": "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
@@ -2078,7 +2078,7 @@
       "available_stock": 0.0,
       "required_stock": 0.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 4.418,
+      "latest_cost_price": 4.42,
       "avg_cost_price": 4.418,
       "selling_price": 6.5,
       "recommended_monthly": 75.0,
@@ -2112,7 +2112,7 @@
       "available_stock": 6.0,
       "required_stock": 100.0,
       "nearest_expiry": "28/02/2028",
-      "latest_cost_price": 1.62333,
+      "latest_cost_price": 1.62,
       "avg_cost_price": 1.62333,
       "selling_price": 3.5,
       "recommended_monthly": 66.0,
@@ -2134,7 +2134,7 @@
       "expiry_days": 631,
       "months_supply": 0.1,
       "is_overstock": false,
-      "margin_pct": 53.6
+      "margin_pct": 53.7
     },
     {
       "description": "TAB ANTAROL (PROPRANOLOL) 40MG IMEKS",
@@ -2180,7 +2180,7 @@
       "available_stock": 40.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/05/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 0.83,
       "avg_cost_price": 0.0,
       "selling_price": 2.0,
       "recommended_monthly": 62.9,
@@ -2202,7 +2202,7 @@
       "expiry_days": 358,
       "months_supply": 0.6,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 58.5
     },
     {
       "description": "TAB PONTALON (MEFENAMIC ACID) 500MG Y.S.P.",
@@ -2214,7 +2214,7 @@
       "available_stock": 10.0,
       "required_stock": 100.0,
       "nearest_expiry": "31/01/2028",
-      "latest_cost_price": 0.143,
+      "latest_cost_price": 0.14,
       "avg_cost_price": 0.143,
       "selling_price": 1.5,
       "recommended_monthly": 57.5,
@@ -2236,7 +2236,7 @@
       "expiry_days": 603,
       "months_supply": 0.2,
       "is_overstock": false,
-      "margin_pct": 90.5
+      "margin_pct": 90.7
     }
   ],
   "top_revenue_items": [
@@ -2318,7 +2318,7 @@
       "available_stock": 80.0,
       "required_stock": 50.0,
       "nearest_expiry": "31/12/2027",
-      "latest_cost_price": 4.072,
+      "latest_cost_price": 4.2,
       "avg_cost_price": 4.0486666666667,
       "selling_price": 9.0,
       "recommended_monthly": 245.7,
@@ -2340,7 +2340,7 @@
       "expiry_days": 572,
       "months_supply": 0.3,
       "is_overstock": false,
-      "margin_pct": 54.8
+      "margin_pct": 53.3
     },
     {
       "description": "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
@@ -2386,7 +2386,7 @@
       "available_stock": 2.0,
       "required_stock": 0.0,
       "nearest_expiry": "31/08/2028",
-      "latest_cost_price": 102.0,
+      "latest_cost_price": 153.0,
       "avg_cost_price": 102.0,
       "selling_price": 500.0,
       "recommended_monthly": 2.0,
@@ -2408,7 +2408,7 @@
       "expiry_days": 816,
       "months_supply": 1.0,
       "is_overstock": false,
-      "margin_pct": 79.6
+      "margin_pct": 69.4
     },
     {
       "description": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
@@ -2488,7 +2488,7 @@
       "available_stock": 42.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/05/2028",
-      "latest_cost_price": 11.915,
+      "latest_cost_price": 10.9,
       "avg_cost_price": 10.809166666667,
       "selling_price": 35.0,
       "recommended_monthly": 23.1,
@@ -2510,7 +2510,7 @@
       "expiry_days": 724,
       "months_supply": 1.8,
       "is_overstock": false,
-      "margin_pct": 66.0
+      "margin_pct": 68.9
     },
     {
       "description": "TAB CURAM (AMOXYCILLIN + CLAVULANIC ACID) 625MG SANDOZ",
@@ -2522,7 +2522,7 @@
       "available_stock": 420.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/04/2028",
-      "latest_cost_price": 0.98,
+      "latest_cost_price": 0.8,
       "avg_cost_price": 0.86266666666667,
       "selling_price": 3.5,
       "recommended_monthly": 202.4,
@@ -2544,7 +2544,7 @@
       "expiry_days": 693,
       "months_supply": 2.1,
       "is_overstock": false,
-      "margin_pct": 72.0
+      "margin_pct": 77.1
     },
     {
       "description": "INJ SUPRAXONE ( CEFTRIAXONE 1G POWDER ) PHARMEX",
@@ -2590,7 +2590,7 @@
       "available_stock": 210.0,
       "required_stock": 300.0,
       "nearest_expiry": "31/07/2027",
-      "latest_cost_price": 1.814,
+      "latest_cost_price": 1.81,
       "avg_cost_price": 1.6692,
       "selling_price": 4.0,
       "recommended_monthly": 149.5,
@@ -2612,7 +2612,7 @@
       "expiry_days": 419,
       "months_supply": 1.4,
       "is_overstock": false,
-      "margin_pct": 54.6
+      "margin_pct": 54.8
     },
     {
       "description": "CEFUROXIME 500MG ALTACEF GLENMARK",
@@ -2624,7 +2624,7 @@
       "available_stock": 0.0,
       "required_stock": 30.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.47368,
+      "latest_cost_price": 1.47,
       "avg_cost_price": 1.134736,
       "selling_price": 5.0,
       "recommended_monthly": 118.4,
@@ -2646,7 +2646,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 70.5
+      "margin_pct": 70.6
     },
     {
       "description": "INJ INFLUVAC TETRA 0.5ML ABBOTT",
@@ -2658,7 +2658,7 @@
       "available_stock": 31.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/12/2026",
-      "latest_cost_price": 27.0,
+      "latest_cost_price": 23.0,
       "avg_cost_price": 25.666666666667,
       "selling_price": 80.0,
       "recommended_monthly": 7.1,
@@ -2680,7 +2680,7 @@
       "expiry_days": 207,
       "months_supply": 4.4,
       "is_overstock": false,
-      "margin_pct": 66.2
+      "margin_pct": 71.2
     },
     {
       "description": "IVD N/S 0.9% 500ML B. BRAUN",
@@ -2692,7 +2692,7 @@
       "available_stock": 8.0,
       "required_stock": 10.0,
       "nearest_expiry": "03/12/2028",
-      "latest_cost_price": 3.628,
+      "latest_cost_price": 3.8,
       "avg_cost_price": 3.9754285714286,
       "selling_price": 50.0,
       "recommended_monthly": 10.5,
@@ -2714,7 +2714,7 @@
       "expiry_days": 910,
       "months_supply": 0.8,
       "is_overstock": false,
-      "margin_pct": 92.7
+      "margin_pct": 92.4
     },
     {
       "description": "TAB LUSEFI ( LUSEOGLIFLOZIN ) 5MG TAISHO",
@@ -2760,7 +2760,7 @@
       "available_stock": 0.0,
       "required_stock": 0.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 4.418,
+      "latest_cost_price": 4.42,
       "avg_cost_price": 4.418,
       "selling_price": 6.5,
       "recommended_monthly": 75.0,
@@ -2794,7 +2794,7 @@
       "available_stock": 700.0,
       "required_stock": 300.0,
       "nearest_expiry": "31/12/2026",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 0.11,
       "avg_cost_price": 0.10541666666667,
       "selling_price": 1.5,
       "recommended_monthly": 319.9,
@@ -2816,7 +2816,7 @@
       "expiry_days": 207,
       "months_supply": 2.2,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 92.7
     },
     {
       "description": "INFUSOL N/S 250ML (SODIUM CHLORIDE 0.9% ) AIN MEDICARE",
@@ -2896,7 +2896,7 @@
       "available_stock": 400.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/04/2030",
-      "latest_cost_price": 0.63826,
+      "latest_cost_price": 0.64,
       "avg_cost_price": 0.63826,
       "selling_price": 2.0,
       "recommended_monthly": 214.3,
@@ -2918,7 +2918,7 @@
       "expiry_days": 1423,
       "months_supply": 1.9,
       "is_overstock": false,
-      "margin_pct": 68.1
+      "margin_pct": 68.0
     }
   ],
   "reorder_items": [
@@ -2932,7 +2932,7 @@
       "available_stock": 0.0,
       "required_stock": 30.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.47368,
+      "latest_cost_price": 1.47,
       "avg_cost_price": 1.134736,
       "selling_price": 5.0,
       "recommended_monthly": 118.4,
@@ -2954,7 +2954,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 70.5
+      "margin_pct": 70.6
     },
     {
       "description": "LA DERMOPLEX CALAMINE LOTION 120ML DUOPHARMA",
@@ -3102,7 +3102,7 @@
       "available_stock": 0.0,
       "required_stock": 0.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.717,
+      "latest_cost_price": 1.72,
       "avg_cost_price": 1.717,
       "selling_price": 3.5,
       "recommended_monthly": 15.0,
@@ -3136,9 +3136,9 @@
       "available_stock": 0.0,
       "required_stock": 28.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 6.24286,
+      "latest_cost_price": 6.25,
       "avg_cost_price": 6.24286,
-      "selling_price": 11.43,
+      "selling_price": 10.7,
       "recommended_monthly": 14.0,
       "velocity_method": "single_month_conservative",
       "monthly_breakdown": {
@@ -3151,14 +3151,14 @@
       "needs_reorder": true,
       "order_qty": 7,
       "supplier": "TBD",
-      "monthly_revenue": 160.02,
+      "monthly_revenue": 149.8,
       "dead_stock": 60,
       "days_of_stock": 0,
       "urgency": "critical",
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 45.4
+      "margin_pct": 41.6
     },
     {
       "description": "TAB PREDNISYN (PREDNISOLONE) 5MG DUOPHARMA",
@@ -3170,7 +3170,7 @@
       "available_stock": 0.0,
       "required_stock": 100.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.074,
+      "latest_cost_price": 0.07,
       "avg_cost_price": 0.0558775,
       "selling_price": 1.0,
       "recommended_monthly": 191.7,
@@ -3192,7 +3192,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 92.6
+      "margin_pct": 93.0
     },
     {
       "description": "TAB PANTOPRAZOLE 40MG (GASTRO-RESISTANT) SANDOZ",
@@ -3204,7 +3204,7 @@
       "available_stock": 14.0,
       "required_stock": 70.0,
       "nearest_expiry": "31/03/2027",
-      "latest_cost_price": 0.57143,
+      "latest_cost_price": 0.55,
       "avg_cost_price": 0.4892875,
       "selling_price": 2.0,
       "recommended_monthly": 108.4,
@@ -3226,7 +3226,7 @@
       "expiry_days": 297,
       "months_supply": 0.1,
       "is_overstock": false,
-      "margin_pct": 71.4
+      "margin_pct": 72.5
     },
     {
       "description": "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
@@ -3272,7 +3272,7 @@
       "available_stock": 10.0,
       "required_stock": 100.0,
       "nearest_expiry": "31/01/2028",
-      "latest_cost_price": 0.143,
+      "latest_cost_price": 0.14,
       "avg_cost_price": 0.143,
       "selling_price": 1.5,
       "recommended_monthly": 57.5,
@@ -3294,7 +3294,7 @@
       "expiry_days": 603,
       "months_supply": 0.2,
       "is_overstock": false,
-      "margin_pct": 90.5
+      "margin_pct": 90.7
     },
     {
       "description": "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
@@ -3340,7 +3340,7 @@
       "available_stock": 0.0,
       "required_stock": 10.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.5,
+      "latest_cost_price": NaN,
       "avg_cost_price": 2.25,
       "selling_price": 20.0,
       "recommended_monthly": 3.2,
@@ -3362,7 +3362,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 92.5
+      "margin_pct": null
     },
     {
       "description": "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
@@ -3374,7 +3374,7 @@
       "available_stock": 0.0,
       "required_stock": 20.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 1.02,
       "avg_cost_price": 0.51,
       "selling_price": 6.0,
       "recommended_monthly": 4.5,
@@ -3396,7 +3396,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 83.0
     },
     {
       "description": "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
@@ -3510,7 +3510,7 @@
       "available_stock": 0.0,
       "required_stock": 60.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.06667,
+      "latest_cost_price": 1.07,
       "avg_cost_price": 1.06667,
       "selling_price": 2.5,
       "recommended_monthly": 32.0,
@@ -3532,7 +3532,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 57.3
+      "margin_pct": 57.2
     },
     {
       "description": "EFFERVESCENT ACETYLCYSTIENE (N-ACETYLCYSTIENE) 600MG 2'S SANDOZ",
@@ -3578,7 +3578,7 @@
       "available_stock": 0.0,
       "required_stock": 300.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.783,
+      "latest_cost_price": 1.78,
       "avg_cost_price": 1.783,
       "selling_price": 3.0,
       "recommended_monthly": 15.0,
@@ -3600,7 +3600,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 40.6
+      "margin_pct": 40.7
     },
     {
       "description": "PROCTOSEDYL OINTMENT (FRAMYCETIN SULPHATE 1% W/W, HYDROCORTISONE 0.5% W/W, CINCHOCAINE.5% W/W, AESCULIN 1% W/W) 15G ZUELLIG PHARMA",
@@ -3748,7 +3748,7 @@
       "available_stock": 0.0,
       "required_stock": 10.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 3.5,
       "avg_cost_price": 0.0,
       "selling_price": 50.0,
       "recommended_monthly": 1.0,
@@ -3770,7 +3770,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 93.0
     },
     {
       "description": "SYR BENA EXPECTORANT(DIPHENHYDRAMINE 14MG, AMMONIUM CHLORIDE 135MG/5ML) 90ML XEPA",
@@ -3850,7 +3850,7 @@
       "available_stock": 0.0,
       "required_stock": 52.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.40107,
+      "latest_cost_price": 1.4,
       "avg_cost_price": 1.40107,
       "selling_price": 3.0,
       "recommended_monthly": 14.0,
@@ -4054,7 +4054,7 @@
       "available_stock": 6.0,
       "required_stock": 100.0,
       "nearest_expiry": "28/02/2028",
-      "latest_cost_price": 1.62333,
+      "latest_cost_price": 1.62,
       "avg_cost_price": 1.62333,
       "selling_price": 3.5,
       "recommended_monthly": 66.0,
@@ -4076,7 +4076,7 @@
       "expiry_days": 631,
       "months_supply": 0.1,
       "is_overstock": false,
-      "margin_pct": 53.6
+      "margin_pct": 53.7
     },
     {
       "description": "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
@@ -4088,7 +4088,7 @@
       "available_stock": 0.0,
       "required_stock": 70.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.53571,
+      "latest_cost_price": 0.54,
       "avg_cost_price": 0.53571,
       "selling_price": 2.0,
       "recommended_monthly": 42.0,
@@ -4110,7 +4110,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 73.2
+      "margin_pct": 73.0
     },
     {
       "description": "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
@@ -4224,7 +4224,7 @@
       "available_stock": 0.0,
       "required_stock": 10.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 2.678,
+      "latest_cost_price": 2.68,
       "avg_cost_price": 2.589,
       "selling_price": 15.0,
       "recommended_monthly": 3.0,
@@ -4292,7 +4292,7 @@
       "available_stock": 0.0,
       "required_stock": 30.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 5.06667,
+      "latest_cost_price": 5.07,
       "avg_cost_price": 5.06667,
       "selling_price": 6.5,
       "recommended_monthly": 15.0,
@@ -4314,7 +4314,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 22.1
+      "margin_pct": 22.0
     },
     {
       "description": "SYR CEFUROXIME-125 (125MG/5ML) 50ML AXCEL KOTRA PHARMA",
@@ -4360,7 +4360,7 @@
       "available_stock": 0.0,
       "required_stock": 30.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 2.69667,
+      "latest_cost_price": 2.7,
       "avg_cost_price": 2.69667,
       "selling_price": 5.5,
       "recommended_monthly": 45.0,
@@ -4382,7 +4382,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 51.0
+      "margin_pct": 50.9
     },
     {
       "description": "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
@@ -4428,7 +4428,7 @@
       "available_stock": 0.0,
       "required_stock": 100.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.527,
+      "latest_cost_price": 0.53,
       "avg_cost_price": 0.527,
       "selling_price": 1.5,
       "recommended_monthly": 200.0,
@@ -4450,7 +4450,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 64.9
+      "margin_pct": 64.7
     },
     {
       "description": "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
@@ -4496,7 +4496,7 @@
       "available_stock": 0.0,
       "required_stock": 0.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 4.418,
+      "latest_cost_price": 4.42,
       "avg_cost_price": 4.418,
       "selling_price": 6.5,
       "recommended_monthly": 75.0,
@@ -4530,7 +4530,7 @@
       "available_stock": 0.0,
       "required_stock": 28.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 2.00821,
+      "latest_cost_price": 2.01,
       "avg_cost_price": 2.00821,
       "selling_price": 3.5,
       "recommended_monthly": 42.0,
@@ -4564,7 +4564,7 @@
       "available_stock": 0.0,
       "required_stock": 30.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 1.33,
       "avg_cost_price": 0.0,
       "selling_price": 2.0,
       "recommended_monthly": 15.0,
@@ -4586,7 +4586,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 33.5
     },
     {
       "description": "TAB ATORVASTATIN 20MG SYNERRV",
@@ -4598,7 +4598,7 @@
       "available_stock": 0.0,
       "required_stock": 28.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 0.85,
       "avg_cost_price": 0.0,
       "selling_price": 2.0,
       "recommended_monthly": 14.0,
@@ -4620,7 +4620,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 57.5
     },
     {
       "description": "TAB ZIOMYCIN (AZITHROMYCIN) 500MG SYNERRV",
@@ -4632,7 +4632,7 @@
       "available_stock": 0.0,
       "required_stock": 30.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 3.53,
       "avg_cost_price": 0.0,
       "selling_price": 7.0,
       "recommended_monthly": 1.5,
@@ -4654,7 +4654,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 49.6
     },
     {
       "description": "TAB ZIOMYCIN (AZITHROMYCIN) 250MG SYNERRV",
@@ -4666,7 +4666,7 @@
       "available_stock": 0.0,
       "required_stock": 6.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 1.83,
       "avg_cost_price": 0.0,
       "selling_price": 5.0,
       "recommended_monthly": 3.0,
@@ -4688,7 +4688,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 63.4
     },
     {
       "description": "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
@@ -4700,7 +4700,7 @@
       "available_stock": 0.0,
       "required_stock": 28.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 3.9,
       "avg_cost_price": 0.0,
       "selling_price": 5.84,
       "recommended_monthly": 14.0,
@@ -4722,7 +4722,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 33.2
     },
     {
       "description": "TAB GLIT (PIOGLITAZONE) 15MG SYNERRV",
@@ -4734,7 +4734,7 @@
       "available_stock": 0.0,
       "required_stock": 28.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 2.96,
       "avg_cost_price": 0.0,
       "selling_price": 4.5,
       "recommended_monthly": 14.0,
@@ -4756,7 +4756,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 34.2
     },
     {
       "description": "DYNA CALAMINE LOTION (CALAMINE POWDER 15% W/V / MENTHOL 0.15% W/V) 100ML DYNAPHARM (M)",
@@ -4768,7 +4768,7 @@
       "available_stock": 0.0,
       "required_stock": 3.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 6.36667,
+      "latest_cost_price": 6.37,
       "avg_cost_price": 6.36667,
       "selling_price": 20.0,
       "recommended_monthly": 1.5,
@@ -4802,7 +4802,7 @@
       "available_stock": 0.0,
       "required_stock": 10.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.5,
+      "latest_cost_price": 2.35,
       "avg_cost_price": 2.25,
       "selling_price": 30.0,
       "recommended_monthly": 3.1,
@@ -4824,7 +4824,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 95.0
+      "margin_pct": 92.2
     },
     {
       "description": "TAB BELTAS (BILASTINE) 20MG GLENMARK",
@@ -4836,7 +4836,7 @@
       "available_stock": 20.0,
       "required_stock": 50.0,
       "nearest_expiry": "30/06/2028",
-      "latest_cost_price": 0.798,
+      "latest_cost_price": 0.8,
       "avg_cost_price": 0.798,
       "selling_price": 2.0,
       "recommended_monthly": 95.7,
@@ -4858,7 +4858,7 @@
       "expiry_days": 754,
       "months_supply": 0.2,
       "is_overstock": false,
-      "margin_pct": 60.1
+      "margin_pct": 60.0
     },
     {
       "description": "TAB UNASYN (SULTAMICILLIN) 375MG PFIZER",
@@ -4870,7 +4870,7 @@
       "available_stock": 80.0,
       "required_stock": 50.0,
       "nearest_expiry": "31/12/2027",
-      "latest_cost_price": 4.072,
+      "latest_cost_price": 4.2,
       "avg_cost_price": 4.0486666666667,
       "selling_price": 9.0,
       "recommended_monthly": 245.7,
@@ -4892,7 +4892,7 @@
       "expiry_days": 572,
       "months_supply": 0.3,
       "is_overstock": false,
-      "margin_pct": 54.8
+      "margin_pct": 53.3
     },
     {
       "description": "TAB ZITHROMAX (AZITHROMYCIN) 250MG 6'S PFIZER",
@@ -4972,7 +4972,7 @@
       "available_stock": 14.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/07/2027",
-      "latest_cost_price": 6.77857,
+      "latest_cost_price": 6.78,
       "avg_cost_price": 6.7196425,
       "selling_price": 12.0,
       "recommended_monthly": 30.8,
@@ -5040,7 +5040,7 @@
       "available_stock": 10.0,
       "required_stock": 0.0,
       "nearest_expiry": "31/07/2026",
-      "latest_cost_price": 4.7412,
+      "latest_cost_price": 4.74,
       "avg_cost_price": 2.3706,
       "selling_price": 6.5,
       "recommended_monthly": 30.0,
@@ -5108,7 +5108,7 @@
       "available_stock": 1.0,
       "required_stock": 1.0,
       "nearest_expiry": "31/01/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": NaN,
       "avg_cost_price": 0.0,
       "selling_price": 75.0,
       "recommended_monthly": 2.1,
@@ -5144,7 +5144,7 @@
       "available_stock": 0.0,
       "required_stock": 30.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.47368,
+      "latest_cost_price": 1.47,
       "avg_cost_price": 1.134736,
       "selling_price": 5.0,
       "recommended_monthly": 118.4,
@@ -5166,7 +5166,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 70.5
+      "margin_pct": 70.6
     },
     {
       "description": "LA DERMOPLEX CALAMINE LOTION 120ML DUOPHARMA",
@@ -5212,7 +5212,7 @@
       "available_stock": 140.0,
       "required_stock": 60.0,
       "nearest_expiry": "31/03/2027",
-      "latest_cost_price": 1.53333,
+      "latest_cost_price": 1.53,
       "avg_cost_price": 1.466665,
       "selling_price": 3.5,
       "recommended_monthly": 75.0,
@@ -5234,7 +5234,7 @@
       "expiry_days": 297,
       "months_supply": 1.9,
       "is_overstock": false,
-      "margin_pct": 56.2
+      "margin_pct": 56.3
     },
     {
       "description": "TAB CASPRIN (ASPIRIN) 100MG",
@@ -5302,7 +5302,7 @@
       "available_stock": 0.0,
       "required_stock": 28.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 2.5,
       "avg_cost_price": 0.0,
       "selling_price": 5.3,
       "recommended_monthly": 0,
@@ -5318,7 +5318,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 52.8
     },
     {
       "description": "TAB NORVASC (AMLODIPINE) 10MG PFIZER",
@@ -5330,7 +5330,7 @@
       "available_stock": 130.0,
       "required_stock": 60.0,
       "nearest_expiry": "28/02/2027",
-      "latest_cost_price": 2.885,
+      "latest_cost_price": 2.75,
       "avg_cost_price": 2.8185,
       "selling_price": 5.0,
       "recommended_monthly": 0,
@@ -5346,7 +5346,7 @@
       "expiry_days": 266,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 42.3
+      "margin_pct": 45.0
     },
     {
       "description": "TAB TREN (TRANEXAMIC ACID) 250MG",
@@ -5460,7 +5460,7 @@
       "available_stock": 60.0,
       "required_stock": 0.0,
       "nearest_expiry": "30/11/2026",
-      "latest_cost_price": 1.20833,
+      "latest_cost_price": 1.21,
       "avg_cost_price": 1.20833,
       "selling_price": 2.5,
       "recommended_monthly": 0,
@@ -5476,7 +5476,7 @@
       "expiry_days": 176,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 51.7
+      "margin_pct": 51.6
     },
     {
       "description": "TAB ULTRACET (TRAMADOL 37.5MG/PARACETAMOL 325MG) J&J",
@@ -5488,7 +5488,7 @@
       "available_stock": 0.0,
       "required_stock": 0.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.717,
+      "latest_cost_price": 1.72,
       "avg_cost_price": 1.717,
       "selling_price": 3.5,
       "recommended_monthly": 15.0,
@@ -5522,7 +5522,7 @@
       "available_stock": 80.0,
       "required_stock": 50.0,
       "nearest_expiry": "31/12/2027",
-      "latest_cost_price": 4.072,
+      "latest_cost_price": 4.2,
       "avg_cost_price": 4.0486666666667,
       "selling_price": 9.0,
       "recommended_monthly": 245.7,
@@ -5544,7 +5544,7 @@
       "expiry_days": 572,
       "months_supply": 0.3,
       "is_overstock": false,
-      "margin_pct": 54.8
+      "margin_pct": 53.3
     },
     {
       "description": "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
@@ -5556,9 +5556,9 @@
       "available_stock": 0.0,
       "required_stock": 28.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 6.24286,
+      "latest_cost_price": 6.25,
       "avg_cost_price": 6.24286,
-      "selling_price": 11.43,
+      "selling_price": 10.7,
       "recommended_monthly": 14.0,
       "velocity_method": "single_month_conservative",
       "monthly_breakdown": {
@@ -5571,14 +5571,14 @@
       "needs_reorder": true,
       "order_qty": 7,
       "supplier": "TBD",
-      "monthly_revenue": 160.02,
+      "monthly_revenue": 149.8,
       "dead_stock": 60,
       "days_of_stock": 0,
       "urgency": "critical",
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 45.4
+      "margin_pct": 41.6
     },
     {
       "description": "TAB CRESTOR ( ROSUVASTATIN )10MG ASTRAZENECA",
@@ -5590,7 +5590,7 @@
       "available_stock": 0.0,
       "required_stock": 28.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 4.5,
       "avg_cost_price": 0.0,
       "selling_price": 7.35,
       "recommended_monthly": 0,
@@ -5606,7 +5606,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 38.8
     },
     {
       "description": "TAB PROCHLOR (PROCHLORPERAZINE) 5MG DUOPHARMA",
@@ -5652,7 +5652,7 @@
       "available_stock": 0.0,
       "required_stock": 100.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.074,
+      "latest_cost_price": 0.07,
       "avg_cost_price": 0.0558775,
       "selling_price": 1.0,
       "recommended_monthly": 191.7,
@@ -5674,7 +5674,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 92.6
+      "margin_pct": 93.0
     },
     {
       "description": "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 10MG/10MG SERVIER",
@@ -5686,7 +5686,7 @@
       "available_stock": 150.0,
       "required_stock": 60.0,
       "nearest_expiry": "31/03/2028",
-      "latest_cost_price": 2.96667,
+      "latest_cost_price": 2.97,
       "avg_cost_price": 2.96667,
       "selling_price": 8.0,
       "recommended_monthly": 0,
@@ -5714,7 +5714,7 @@
       "available_stock": 210.0,
       "required_stock": 60.0,
       "nearest_expiry": "31/08/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 2.07,
       "avg_cost_price": 1.70822,
       "selling_price": 7.0,
       "recommended_monthly": 15.0,
@@ -5736,7 +5736,7 @@
       "expiry_days": 450,
       "months_supply": 14.0,
       "is_overstock": true,
-      "margin_pct": null
+      "margin_pct": 70.4
     },
     {
       "description": "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/5MG SERVIER",
@@ -5748,7 +5748,7 @@
       "available_stock": 180.0,
       "required_stock": 60.0,
       "nearest_expiry": "31/05/2028",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 3.05,
       "avg_cost_price": 1.526665,
       "selling_price": 6.5,
       "recommended_monthly": 15.0,
@@ -5770,7 +5770,7 @@
       "expiry_days": 724,
       "months_supply": 12.0,
       "is_overstock": true,
-      "margin_pct": null
+      "margin_pct": 53.1
     },
     {
       "description": "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 10MG/5MG SERVIER",
@@ -5782,7 +5782,7 @@
       "available_stock": 0.0,
       "required_stock": 60.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": NaN,
       "avg_cost_price": 0.0,
       "selling_price": 0.0,
       "recommended_monthly": 0,
@@ -5810,7 +5810,7 @@
       "available_stock": 60.0,
       "required_stock": 60.0,
       "nearest_expiry": "31/05/2027",
-      "latest_cost_price": 0.59667,
+      "latest_cost_price": 0.6,
       "avg_cost_price": 0.59667,
       "selling_price": 1.5,
       "recommended_monthly": 0,
@@ -5826,7 +5826,7 @@
       "expiry_days": 358,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 60.2
+      "margin_pct": 60.0
     },
     {
       "description": "TAB PARACAP 500MG HEALTH PHARM",
@@ -5838,7 +5838,7 @@
       "available_stock": 390.0,
       "required_stock": 500.0,
       "nearest_expiry": "31/07/2028",
-      "latest_cost_price": 0.157,
+      "latest_cost_price": 0.16,
       "avg_cost_price": 0.157,
       "selling_price": 1.0,
       "recommended_monthly": 246.0,
@@ -5860,7 +5860,7 @@
       "expiry_days": 785,
       "months_supply": 1.6,
       "is_overstock": false,
-      "margin_pct": 84.3
+      "margin_pct": 84.0
     },
     {
       "description": "TAB PANTOPRAZOLE 40MG (GASTRO-RESISTANT) SANDOZ",
@@ -5872,7 +5872,7 @@
       "available_stock": 14.0,
       "required_stock": 70.0,
       "nearest_expiry": "31/03/2027",
-      "latest_cost_price": 0.57143,
+      "latest_cost_price": 0.55,
       "avg_cost_price": 0.4892875,
       "selling_price": 2.0,
       "recommended_monthly": 108.4,
@@ -5894,7 +5894,7 @@
       "expiry_days": 297,
       "months_supply": 0.1,
       "is_overstock": false,
-      "margin_pct": 71.4
+      "margin_pct": 72.5
     },
     {
       "description": "TAB ANAREX (ORPHENADRINE 35MG/ PARACETAMOL 450MG) DUOPHARMA",
@@ -6002,7 +6002,7 @@
       "available_stock": 1100.0,
       "required_stock": 100.0,
       "nearest_expiry": "01/09/2028",
-      "latest_cost_price": 0.067,
+      "latest_cost_price": 0.06,
       "avg_cost_price": 0.06525,
       "selling_price": 1.0,
       "recommended_monthly": 75.2,
@@ -6024,7 +6024,7 @@
       "expiry_days": 817,
       "months_supply": 14.6,
       "is_overstock": true,
-      "margin_pct": 93.3
+      "margin_pct": 94.0
     },
     {
       "description": "TAB GLUCOXIT (METFORMIN) 500MG DUOPHARMA",
@@ -6036,7 +6036,7 @@
       "available_stock": 100.0,
       "required_stock": 300.0,
       "nearest_expiry": "30/06/2028",
-      "latest_cost_price": 0.093,
+      "latest_cost_price": 0.09,
       "avg_cost_price": 0.093,
       "selling_price": 1.0,
       "recommended_monthly": 0,
@@ -6052,7 +6052,7 @@
       "expiry_days": 754,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 90.7
+      "margin_pct": 91.0
     },
     {
       "description": "TAB GLENCET (LEVOCETRIZINE) 5MG GLENMARK",
@@ -6064,7 +6064,7 @@
       "available_stock": 100.0,
       "required_stock": 100.0,
       "nearest_expiry": "31/08/2028",
-      "latest_cost_price": 0.524,
+      "latest_cost_price": 0.52,
       "avg_cost_price": 0.524,
       "selling_price": 1.5,
       "recommended_monthly": 107.5,
@@ -6086,7 +6086,7 @@
       "expiry_days": 816,
       "months_supply": 0.9,
       "is_overstock": false,
-      "margin_pct": 65.1
+      "margin_pct": 65.3
     },
     {
       "description": "TAB VOREN (DICLOFENAC SODIUM) 50MG Y.S.P.",
@@ -6098,7 +6098,7 @@
       "available_stock": 90.0,
       "required_stock": 100.0,
       "nearest_expiry": "31/01/2029",
-      "latest_cost_price": 0.119,
+      "latest_cost_price": 0.12,
       "avg_cost_price": 0.119,
       "selling_price": 1.5,
       "recommended_monthly": 28.3,
@@ -6120,7 +6120,7 @@
       "expiry_days": 969,
       "months_supply": 3.2,
       "is_overstock": false,
-      "margin_pct": 92.1
+      "margin_pct": 92.0
     },
     {
       "description": "TAB IBUPROFEN 400MG Y.S.P.",
@@ -6132,7 +6132,7 @@
       "available_stock": 90.0,
       "required_stock": 100.0,
       "nearest_expiry": "31/01/2028",
-      "latest_cost_price": 0.203,
+      "latest_cost_price": 0.2,
       "avg_cost_price": 0.203,
       "selling_price": 1.0,
       "recommended_monthly": 35.0,
@@ -6154,7 +6154,7 @@
       "expiry_days": 603,
       "months_supply": 2.6,
       "is_overstock": false,
-      "margin_pct": 79.7
+      "margin_pct": 80.0
     },
     {
       "description": "TAB ZITHROLIDE (AZITHROMYCIN)  500MG PHARMANIAGA",
@@ -6200,7 +6200,7 @@
       "available_stock": 1100.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/11/2026",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 0.36,
       "avg_cost_price": 0.27,
       "selling_price": 2.5,
       "recommended_monthly": 36.5,
@@ -6222,7 +6222,7 @@
       "expiry_days": 176,
       "months_supply": 30.1,
       "is_overstock": true,
-      "margin_pct": null
+      "margin_pct": 85.6
     },
     {
       "description": "TAB CURAM (AMOXYCILLIN + CLAVULANIC ACID) 625MG SANDOZ",
@@ -6234,7 +6234,7 @@
       "available_stock": 420.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/04/2028",
-      "latest_cost_price": 0.98,
+      "latest_cost_price": 0.8,
       "avg_cost_price": 0.86266666666667,
       "selling_price": 3.5,
       "recommended_monthly": 202.4,
@@ -6256,7 +6256,7 @@
       "expiry_days": 693,
       "months_supply": 2.1,
       "is_overstock": false,
-      "margin_pct": 72.0
+      "margin_pct": 77.1
     },
     {
       "description": "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
@@ -6302,7 +6302,7 @@
       "available_stock": 10.0,
       "required_stock": 100.0,
       "nearest_expiry": "31/01/2028",
-      "latest_cost_price": 0.143,
+      "latest_cost_price": 0.14,
       "avg_cost_price": 0.143,
       "selling_price": 1.5,
       "recommended_monthly": 57.5,
@@ -6324,7 +6324,7 @@
       "expiry_days": 603,
       "months_supply": 0.2,
       "is_overstock": false,
-      "margin_pct": 90.5
+      "margin_pct": 90.7
     },
     {
       "description": "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
@@ -6472,7 +6472,7 @@
       "available_stock": 104.0,
       "required_stock": 10.0,
       "nearest_expiry": "30/03/2030",
-      "latest_cost_price": 1.66,
+      "latest_cost_price": 1.38,
       "avg_cost_price": 1.436,
       "selling_price": 30.0,
       "recommended_monthly": 5.1,
@@ -6494,7 +6494,7 @@
       "expiry_days": 1392,
       "months_supply": 20.4,
       "is_overstock": true,
-      "margin_pct": 94.5
+      "margin_pct": 95.4
     },
     {
       "description": "TAB PIRITON (CHLORPHENIRAMINE) 4MG DUOPHARMA",
@@ -6506,7 +6506,7 @@
       "available_stock": 840.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/09/2028",
-      "latest_cost_price": 0.051,
+      "latest_cost_price": 0.05,
       "avg_cost_price": 0.0495,
       "selling_price": 1.0,
       "recommended_monthly": 120.6,
@@ -6528,7 +6528,7 @@
       "expiry_days": 846,
       "months_supply": 7.0,
       "is_overstock": true,
-      "margin_pct": 94.9
+      "margin_pct": 95.0
     },
     {
       "description": "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
@@ -6540,7 +6540,7 @@
       "available_stock": 0.0,
       "required_stock": 10.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.5,
+      "latest_cost_price": NaN,
       "avg_cost_price": 2.25,
       "selling_price": 20.0,
       "recommended_monthly": 3.2,
@@ -6562,7 +6562,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 92.5
+      "margin_pct": null
     },
     {
       "description": "DUOVENT NEBULE (IPRATROPIUM + FENOTEROL) 4ML UNITHER",
@@ -6574,7 +6574,7 @@
       "available_stock": 49.0,
       "required_stock": 20.0,
       "nearest_expiry": "31/07/2027",
-      "latest_cost_price": 4.5,
+      "latest_cost_price": 3.94,
       "avg_cost_price": 3.351556,
       "selling_price": 30.0,
       "recommended_monthly": 11.5,
@@ -6596,7 +6596,7 @@
       "expiry_days": 419,
       "months_supply": 4.3,
       "is_overstock": false,
-      "margin_pct": 85.0
+      "margin_pct": 86.9
     },
     {
       "description": "PULMICORT (BUDESONIDE) RESPULE 1MG ASTRAZENECA",
@@ -6608,7 +6608,7 @@
       "available_stock": 31.0,
       "required_stock": 20.0,
       "nearest_expiry": "31/08/2027",
-      "latest_cost_price": 11.0,
+      "latest_cost_price": 10.26,
       "avg_cost_price": 10.408,
       "selling_price": 32.0,
       "recommended_monthly": 12.5,
@@ -6630,7 +6630,7 @@
       "expiry_days": 450,
       "months_supply": 2.5,
       "is_overstock": false,
-      "margin_pct": 65.6
+      "margin_pct": 67.9
     },
     {
       "description": "NEBULE VENTOLIN (SALBUTAMOL) 2.5MG/2.5ML GSK",
@@ -6744,7 +6744,7 @@
       "available_stock": 33.0,
       "required_stock": 10.0,
       "nearest_expiry": "29/02/2028",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 7.85,
       "avg_cost_price": 6.2,
       "selling_price": 30.0,
       "recommended_monthly": 2.3,
@@ -6766,7 +6766,7 @@
       "expiry_days": 632,
       "months_supply": 14.3,
       "is_overstock": true,
-      "margin_pct": null
+      "margin_pct": 73.8
     },
     {
       "description": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
@@ -6812,7 +6812,7 @@
       "available_stock": 120.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/09/2028",
-      "latest_cost_price": 0.168,
+      "latest_cost_price": 0.17,
       "avg_cost_price": 0.168,
       "selling_price": 2.0,
       "recommended_monthly": 18.3,
@@ -6834,7 +6834,7 @@
       "expiry_days": 846,
       "months_supply": 6.6,
       "is_overstock": true,
-      "margin_pct": 91.6
+      "margin_pct": 91.5
     },
     {
       "description": "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
@@ -6846,7 +6846,7 @@
       "available_stock": 0.0,
       "required_stock": 20.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 1.02,
       "avg_cost_price": 0.51,
       "selling_price": 6.0,
       "recommended_monthly": 4.5,
@@ -6868,7 +6868,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 83.0
     },
     {
       "description": "SUPP VOREN (DICLOFENAC SODIUM) 25MG Y.S.P.",
@@ -6948,7 +6948,7 @@
       "available_stock": 130.0,
       "required_stock": 0.0,
       "nearest_expiry": "31/12/2026",
-      "latest_cost_price": 0.71,
+      "latest_cost_price": 0.64,
       "avg_cost_price": 0.6575,
       "selling_price": 5.0,
       "recommended_monthly": 4.7,
@@ -6970,7 +6970,7 @@
       "expiry_days": 207,
       "months_supply": 27.7,
       "is_overstock": true,
-      "margin_pct": 85.8
+      "margin_pct": 87.2
     },
     {
       "description": "PORO (PARACETAMOL) SUPPOSITORY 250MG Y.S.P.",
@@ -6982,7 +6982,7 @@
       "available_stock": 123.0,
       "required_stock": 0.0,
       "nearest_expiry": "31/07/2028",
-      "latest_cost_price": 0.957,
+      "latest_cost_price": 0.88,
       "avg_cost_price": 0.889,
       "selling_price": 5.0,
       "recommended_monthly": 3.0,
@@ -7004,7 +7004,7 @@
       "expiry_days": 785,
       "months_supply": 41.0,
       "is_overstock": true,
-      "margin_pct": 80.9
+      "margin_pct": 82.4
     },
     {
       "description": "CAP BIOZOLE (FLUCANAZOLE) 150MG MEDISPEC",
@@ -7186,7 +7186,7 @@
       "available_stock": 6.0,
       "required_stock": 5.0,
       "nearest_expiry": "24/10/2027",
-      "latest_cost_price": 20.5,
+      "latest_cost_price": 14.76,
       "avg_cost_price": 17.63,
       "selling_price": 42.0,
       "recommended_monthly": 0.5,
@@ -7208,7 +7208,7 @@
       "expiry_days": 504,
       "months_supply": 12.0,
       "is_overstock": true,
-      "margin_pct": 51.2
+      "margin_pct": 64.9
     },
     {
       "description": "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
@@ -7254,7 +7254,7 @@
       "available_stock": 7.0,
       "required_stock": 5.0,
       "nearest_expiry": "31/01/2029",
-      "latest_cost_price": 13.28833,
+      "latest_cost_price": 13.29,
       "avg_cost_price": 12.062776666667,
       "selling_price": 25.0,
       "recommended_monthly": 2.2,
@@ -7390,7 +7390,7 @@
       "available_stock": 700.0,
       "required_stock": 300.0,
       "nearest_expiry": "31/12/2026",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 0.11,
       "avg_cost_price": 0.10541666666667,
       "selling_price": 1.5,
       "recommended_monthly": 319.9,
@@ -7412,7 +7412,7 @@
       "expiry_days": 207,
       "months_supply": 2.2,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 92.7
     },
     {
       "description": "TAB DEXALONE ( DEXAMETHASONE ) 0.5MG DUOPHARMA",
@@ -7458,7 +7458,7 @@
       "available_stock": 60.0,
       "required_stock": 100.0,
       "nearest_expiry": "31/05/2028",
-      "latest_cost_price": 0.459,
+      "latest_cost_price": 0.46,
       "avg_cost_price": 0.46433333333333,
       "selling_price": 1.5,
       "recommended_monthly": 111.9,
@@ -7480,7 +7480,7 @@
       "expiry_days": 724,
       "months_supply": 0.5,
       "is_overstock": false,
-      "margin_pct": 69.4
+      "margin_pct": 69.3
     },
     {
       "description": "TAB FUSIX (FRUSEMIDE) 40MG SM PHARMA",
@@ -7560,7 +7560,7 @@
       "available_stock": 50.0,
       "required_stock": 500.0,
       "nearest_expiry": "28/02/2028",
-      "latest_cost_price": 0.065,
+      "latest_cost_price": 0.07,
       "avg_cost_price": 0.065,
       "selling_price": 1.0,
       "recommended_monthly": 25.0,
@@ -7582,7 +7582,7 @@
       "expiry_days": 631,
       "months_supply": 2.0,
       "is_overstock": false,
-      "margin_pct": 93.5
+      "margin_pct": 93.0
     },
     {
       "description": "ZELLOX-II LIQUID ANTACID (ALUMINIUM H'XIDE 800MG, MAGNESIUM H'XIDE 800MG & SIMETHICONE 60MG) 100ML HOE PHARMA",
@@ -7594,7 +7594,7 @@
       "available_stock": 83.0,
       "required_stock": 10.0,
       "nearest_expiry": "30/11/2028",
-      "latest_cost_price": 7.1,
+      "latest_cost_price": 7.28,
       "avg_cost_price": 8.1068944444444,
       "selling_price": 25.0,
       "recommended_monthly": 16.8,
@@ -7616,7 +7616,7 @@
       "expiry_days": 907,
       "months_supply": 4.9,
       "is_overstock": false,
-      "margin_pct": 71.6
+      "margin_pct": 70.9
     },
     {
       "description": "TAB SPASIL (DIPHENOXYLATE 2.5MG/ATROPINE 0.025MG) IMEKS",
@@ -7628,7 +7628,7 @@
       "available_stock": 400.0,
       "required_stock": 500.0,
       "nearest_expiry": "28/04/2028",
-      "latest_cost_price": 0.164,
+      "latest_cost_price": 0.16,
       "avg_cost_price": 0.11452833333333,
       "selling_price": 1.5,
       "recommended_monthly": 199.4,
@@ -7650,7 +7650,7 @@
       "expiry_days": 691,
       "months_supply": 2.0,
       "is_overstock": false,
-      "margin_pct": 89.1
+      "margin_pct": 89.3
     },
     {
       "description": "TAB SMOOD (DOMPERIDONE) 10MG HOVID",
@@ -7662,7 +7662,7 @@
       "available_stock": 100.0,
       "required_stock": 500.0,
       "nearest_expiry": "31/12/2027",
-      "latest_cost_price": 0.115,
+      "latest_cost_price": 0.12,
       "avg_cost_price": 0.115,
       "selling_price": 1.5,
       "recommended_monthly": 0,
@@ -7678,7 +7678,7 @@
       "expiry_days": 572,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 92.3
+      "margin_pct": 92.0
     },
     {
       "description": "TAB SHINTAMET (CIMETIDINE) 400MG Y.S.P.",
@@ -7690,7 +7690,7 @@
       "available_stock": 40.0,
       "required_stock": 500.0,
       "nearest_expiry": "30/06/2028",
-      "latest_cost_price": 0.584,
+      "latest_cost_price": 0.58,
       "avg_cost_price": 0.58266666666667,
       "selling_price": 1.5,
       "recommended_monthly": 40.0,
@@ -7712,7 +7712,7 @@
       "expiry_days": 754,
       "months_supply": 1.0,
       "is_overstock": false,
-      "margin_pct": 61.1
+      "margin_pct": 61.3
     },
     {
       "description": "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
@@ -7792,7 +7792,7 @@
       "available_stock": 50.0,
       "required_stock": 500.0,
       "nearest_expiry": "31/10/2029",
-      "latest_cost_price": 0.093,
+      "latest_cost_price": 0.09,
       "avg_cost_price": 0.093,
       "selling_price": 1.5,
       "recommended_monthly": 17.5,
@@ -7814,7 +7814,7 @@
       "expiry_days": 1242,
       "months_supply": 2.9,
       "is_overstock": false,
-      "margin_pct": 93.8
+      "margin_pct": 94.0
     },
     {
       "description": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
@@ -7928,7 +7928,7 @@
       "available_stock": 20.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/03/2030",
-      "latest_cost_price": 3.675,
+      "latest_cost_price": 3.36,
       "avg_cost_price": 2.4383333333333,
       "selling_price": 6.0,
       "recommended_monthly": 16.0,
@@ -7950,7 +7950,7 @@
       "expiry_days": 1393,
       "months_supply": 1.2,
       "is_overstock": false,
-      "margin_pct": 38.8
+      "margin_pct": 44.0
     },
     {
       "description": "TAB NEXIUM MUPS (ESOMEPRAZOLE) 40MG ASTRAZENECA",
@@ -7962,7 +7962,7 @@
       "available_stock": 14.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/07/2027",
-      "latest_cost_price": 6.77857,
+      "latest_cost_price": 6.78,
       "avg_cost_price": 6.7196425,
       "selling_price": 12.0,
       "recommended_monthly": 30.8,
@@ -7996,7 +7996,7 @@
       "available_stock": 160.0,
       "required_stock": 50.0,
       "nearest_expiry": "28/02/2027",
-      "latest_cost_price": 1.836,
+      "latest_cost_price": 1.82,
       "avg_cost_price": 1.7943333333333,
       "selling_price": 3.5,
       "recommended_monthly": 35.0,
@@ -8018,7 +8018,7 @@
       "expiry_days": 266,
       "months_supply": 4.6,
       "is_overstock": false,
-      "margin_pct": 47.5
+      "margin_pct": 48.0
     },
     {
       "description": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
@@ -8132,7 +8132,7 @@
       "available_stock": 70.0,
       "required_stock": 0.0,
       "nearest_expiry": "30/04/2029",
-      "latest_cost_price": 1.22857,
+      "latest_cost_price": 1.06,
       "avg_cost_price": 1.144285,
       "selling_price": 3.5,
       "recommended_monthly": 12.5,
@@ -8154,7 +8154,7 @@
       "expiry_days": 1058,
       "months_supply": 5.6,
       "is_overstock": false,
-      "margin_pct": 64.9
+      "margin_pct": 69.7
     },
     {
       "description": "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
@@ -8466,7 +8466,7 @@
       "available_stock": 9.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/10/2028",
-      "latest_cost_price": 32.0,
+      "latest_cost_price": 31.5,
       "avg_cost_price": 31.633333333333,
       "selling_price": 60.0,
       "recommended_monthly": 5.2,
@@ -8488,7 +8488,7 @@
       "expiry_days": 877,
       "months_supply": 1.7,
       "is_overstock": false,
-      "margin_pct": 46.7
+      "margin_pct": 47.5
     },
     {
       "description": "TAB PLAVIX (CLOPIDOGREL) 75MG SANOFI",
@@ -8500,7 +8500,7 @@
       "available_stock": 28.0,
       "required_stock": 90.0,
       "nearest_expiry": "31/08/2028",
-      "latest_cost_price": 6.93929,
+      "latest_cost_price": 6.94,
       "avg_cost_price": 6.93929,
       "selling_price": 10.0,
       "recommended_monthly": 0,
@@ -8596,7 +8596,7 @@
       "available_stock": 4.0,
       "required_stock": 10.0,
       "nearest_expiry": "30/11/2028",
-      "latest_cost_price": 12.5,
+      "latest_cost_price": 12.0,
       "avg_cost_price": 12.25,
       "selling_price": 27.0,
       "recommended_monthly": 1.5,
@@ -8618,7 +8618,7 @@
       "expiry_days": 907,
       "months_supply": 2.7,
       "is_overstock": false,
-      "margin_pct": 53.7
+      "margin_pct": 55.6
     },
     {
       "description": "TAB YASMIN (DROSPIRENONE 3MG/ ETHINYLESTRADIOL 0.03MG) BAYER",
@@ -8630,7 +8630,7 @@
       "available_stock": 21.0,
       "required_stock": 42.0,
       "nearest_expiry": "31/01/2028",
-      "latest_cost_price": 2.32952,
+      "latest_cost_price": 2.33,
       "avg_cost_price": 2.32952,
       "selling_price": 4.5,
       "recommended_monthly": 0,
@@ -8658,7 +8658,7 @@
       "available_stock": 21.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/05/2027",
-      "latest_cost_price": 2.0781,
+      "latest_cost_price": 2.08,
       "avg_cost_price": 2.0781,
       "selling_price": 4.0,
       "recommended_monthly": 10.5,
@@ -8692,7 +8692,7 @@
       "available_stock": 1030.0,
       "required_stock": 500.0,
       "nearest_expiry": "31/03/2028",
-      "latest_cost_price": 0.172,
+      "latest_cost_price": 0.15,
       "avg_cost_price": 0.1595,
       "selling_price": 1.2,
       "recommended_monthly": 35.0,
@@ -8714,7 +8714,7 @@
       "expiry_days": 663,
       "months_supply": 29.4,
       "is_overstock": true,
-      "margin_pct": 85.7
+      "margin_pct": 87.5
     },
     {
       "description": "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
@@ -8726,7 +8726,7 @@
       "available_stock": 20.0,
       "required_stock": 500.0,
       "nearest_expiry": "30/04/2030",
-      "latest_cost_price": 1.414,
+      "latest_cost_price": 1.41,
       "avg_cost_price": 1.414,
       "selling_price": 2.5,
       "recommended_monthly": 5.0,
@@ -8748,7 +8748,7 @@
       "expiry_days": 1423,
       "months_supply": 4.0,
       "is_overstock": false,
-      "margin_pct": 43.4
+      "margin_pct": 43.6
     },
     {
       "description": "TAB BILAXTEN (BILASTINE) 20mg MENARINI",
@@ -8760,7 +8760,7 @@
       "available_stock": 490.0,
       "required_stock": 10.0,
       "nearest_expiry": "28/02/2030",
-      "latest_cost_price": 1.2,
+      "latest_cost_price": 1.18,
       "avg_cost_price": 1.0311111111111,
       "selling_price": 2.5,
       "recommended_monthly": 0,
@@ -8776,7 +8776,7 @@
       "expiry_days": 1362,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 52.0
+      "margin_pct": 52.8
     },
     {
       "description": "SYRUP NOVOMIN (DIMENHYDRINATE) 15MG/5ML 60ML (ORANGE FLV) XEPA",
@@ -8856,7 +8856,7 @@
       "available_stock": 12.0,
       "required_stock": 50.0,
       "nearest_expiry": "04/11/2028",
-      "latest_cost_price": 7.9,
+      "latest_cost_price": 7.5,
       "avg_cost_price": 7.74,
       "selling_price": 20.0,
       "recommended_monthly": 5.0,
@@ -8878,7 +8878,7 @@
       "expiry_days": 881,
       "months_supply": 2.4,
       "is_overstock": false,
-      "margin_pct": 60.5
+      "margin_pct": 62.5
     },
     {
       "description": "TAB NORMATEN (ATENOLOL) 50MG XEPA",
@@ -8890,7 +8890,7 @@
       "available_stock": 28.0,
       "required_stock": 52.0,
       "nearest_expiry": "31/07/2029",
-      "latest_cost_price": 0.26786,
+      "latest_cost_price": 0.27,
       "avg_cost_price": 0.26786,
       "selling_price": 1.0,
       "recommended_monthly": 14.0,
@@ -8912,7 +8912,7 @@
       "expiry_days": 1150,
       "months_supply": 2.0,
       "is_overstock": false,
-      "margin_pct": 73.2
+      "margin_pct": 73.0
     },
     {
       "description": "TAB NORMATEN (ATENOLOL) 100MG XEPA",
@@ -8924,7 +8924,7 @@
       "available_stock": 28.0,
       "required_stock": 52.0,
       "nearest_expiry": "30/09/2028",
-      "latest_cost_price": 0.51607,
+      "latest_cost_price": 0.52,
       "avg_cost_price": 0.51607,
       "selling_price": 1.5,
       "recommended_monthly": 0,
@@ -8940,7 +8940,7 @@
       "expiry_days": 846,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 65.6
+      "margin_pct": 65.3
     },
     {
       "description": "TAB APROVEL (IRBESARTAN) 300MG SANOFI",
@@ -8952,7 +8952,7 @@
       "available_stock": 0.0,
       "required_stock": 52.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 2.3,
       "avg_cost_price": 0.0,
       "selling_price": 4.65,
       "recommended_monthly": 0,
@@ -8968,7 +8968,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 50.5
     },
     {
       "description": "TAB COAPROVEL (IRBESARTAN/ HYDROCHOLOTHIAZIDE) 150MG/12.5MG SANOFI",
@@ -8980,7 +8980,7 @@
       "available_stock": 28.0,
       "required_stock": 52.0,
       "nearest_expiry": "30/07/2027",
-      "latest_cost_price": 1.82143,
+      "latest_cost_price": 1.82,
       "avg_cost_price": 1.82143,
       "selling_price": 4.0,
       "recommended_monthly": 0,
@@ -9008,7 +9008,7 @@
       "available_stock": 30.0,
       "required_stock": 100.0,
       "nearest_expiry": "31/12/2029",
-      "latest_cost_price": 0.283,
+      "latest_cost_price": 0.28,
       "avg_cost_price": 0.283,
       "selling_price": 1.5,
       "recommended_monthly": 0,
@@ -9024,7 +9024,7 @@
       "expiry_days": 1303,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 81.1
+      "margin_pct": 81.3
     },
     {
       "description": "TAB DELTACARBON (CHARCOAL) 250MG IMEKS",
@@ -9036,7 +9036,7 @@
       "available_stock": 60.0,
       "required_stock": 300.0,
       "nearest_expiry": "30/05/2029",
-      "latest_cost_price": 0.438,
+      "latest_cost_price": 0.44,
       "avg_cost_price": 0.438,
       "selling_price": 1.5,
       "recommended_monthly": 15.0,
@@ -9058,7 +9058,7 @@
       "expiry_days": 1088,
       "months_supply": 4.0,
       "is_overstock": false,
-      "margin_pct": 70.8
+      "margin_pct": 70.7
     },
     {
       "description": "TAB BETASERC (BETAHISTINE) 24MG ABBOTT",
@@ -9070,7 +9070,7 @@
       "available_stock": 20.0,
       "required_stock": 50.0,
       "nearest_expiry": "30/11/2027",
-      "latest_cost_price": 1.617,
+      "latest_cost_price": 1.62,
       "avg_cost_price": 1.617,
       "selling_price": 3.2,
       "recommended_monthly": 15.0,
@@ -9092,7 +9092,7 @@
       "expiry_days": 541,
       "months_supply": 1.3,
       "is_overstock": false,
-      "margin_pct": 49.5
+      "margin_pct": 49.4
     },
     {
       "description": "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
@@ -9138,7 +9138,7 @@
       "available_stock": 0.0,
       "required_stock": 60.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.06667,
+      "latest_cost_price": 1.07,
       "avg_cost_price": 1.06667,
       "selling_price": 2.5,
       "recommended_monthly": 32.0,
@@ -9160,7 +9160,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 57.3
+      "margin_pct": 57.2
     },
     {
       "description": "EFFERVESCENT ACETYLCYSTIENE (N-ACETYLCYSTIENE) 600MG 2'S SANDOZ",
@@ -9206,7 +9206,7 @@
       "available_stock": 100.0,
       "required_stock": 500.0,
       "nearest_expiry": "01/01/2027",
-      "latest_cost_price": 0.236,
+      "latest_cost_price": 0.24,
       "avg_cost_price": 0.236,
       "selling_price": 1.5,
       "recommended_monthly": 25.0,
@@ -9228,7 +9228,7 @@
       "expiry_days": 208,
       "months_supply": 4.0,
       "is_overstock": false,
-      "margin_pct": 84.3
+      "margin_pct": 84.0
     },
     {
       "description": "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
@@ -9240,7 +9240,7 @@
       "available_stock": 0.0,
       "required_stock": 300.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.783,
+      "latest_cost_price": 1.78,
       "avg_cost_price": 1.783,
       "selling_price": 3.0,
       "recommended_monthly": 15.0,
@@ -9262,7 +9262,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 40.6
+      "margin_pct": 40.7
     },
     {
       "description": "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
@@ -9370,7 +9370,7 @@
       "available_stock": 100.0,
       "required_stock": 300.0,
       "nearest_expiry": "31/03/2027",
-      "latest_cost_price": 0.657,
+      "latest_cost_price": 0.66,
       "avg_cost_price": 0.657,
       "selling_price": 1.5,
       "recommended_monthly": 0,
@@ -9386,7 +9386,7 @@
       "expiry_days": 297,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 56.2
+      "margin_pct": 56.0
     },
     {
       "description": "SYR TUSSIDEX (DEXTROMETHORPHAN 15MG/5ML) 90ML XEPA",
@@ -9800,7 +9800,7 @@
       "available_stock": 210.0,
       "required_stock": 300.0,
       "nearest_expiry": "31/07/2027",
-      "latest_cost_price": 1.814,
+      "latest_cost_price": 1.81,
       "avg_cost_price": 1.6692,
       "selling_price": 4.0,
       "recommended_monthly": 149.5,
@@ -9822,7 +9822,7 @@
       "expiry_days": 419,
       "months_supply": 1.4,
       "is_overstock": false,
-      "margin_pct": 54.6
+      "margin_pct": 54.8
     },
     {
       "description": "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
@@ -9868,7 +9868,7 @@
       "available_stock": 24.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/01/2028",
-      "latest_cost_price": 5.0,
+      "latest_cost_price": 4.17,
       "avg_cost_price": 4.6122233333333,
       "selling_price": 18.0,
       "recommended_monthly": 0,
@@ -9884,7 +9884,7 @@
       "expiry_days": 603,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 72.2
+      "margin_pct": 76.8
     },
     {
       "description": "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
@@ -9964,7 +9964,7 @@
       "available_stock": 8.0,
       "required_stock": 10.0,
       "nearest_expiry": "03/12/2028",
-      "latest_cost_price": 3.628,
+      "latest_cost_price": 3.8,
       "avg_cost_price": 3.9754285714286,
       "selling_price": 50.0,
       "recommended_monthly": 10.5,
@@ -9986,7 +9986,7 @@
       "expiry_days": 910,
       "months_supply": 0.8,
       "is_overstock": false,
-      "margin_pct": 92.7
+      "margin_pct": 92.4
     },
     {
       "description": "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
@@ -9998,7 +9998,7 @@
       "available_stock": 0.0,
       "required_stock": 10.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 3.5,
       "avg_cost_price": 0.0,
       "selling_price": 50.0,
       "recommended_monthly": 1.0,
@@ -10020,7 +10020,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 93.0
     },
     {
       "description": "SYR BENA EXPECTORANT(DIPHENHYDRAMINE 14MG, AMMONIUM CHLORIDE 135MG/5ML) 90ML XEPA",
@@ -10168,7 +10168,7 @@
       "available_stock": 0.0,
       "required_stock": 50.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 7.27,
       "avg_cost_price": 0.0,
       "selling_price": 13.0,
       "recommended_monthly": 0,
@@ -10184,7 +10184,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 44.1
     },
     {
       "description": "TAB ARCOXIA ( ETORICOXIB ) 90MG ORGANON",
@@ -10196,7 +10196,7 @@
       "available_stock": 105.0,
       "required_stock": 50.0,
       "nearest_expiry": "03/06/2028",
-      "latest_cost_price": 4.933,
+      "latest_cost_price": 4.93,
       "avg_cost_price": 3.54325,
       "selling_price": 7.0,
       "recommended_monthly": 26.7,
@@ -10218,7 +10218,7 @@
       "expiry_days": 727,
       "months_supply": 3.9,
       "is_overstock": false,
-      "margin_pct": 29.5
+      "margin_pct": 29.6
     },
     {
       "description": "TAB VELOXIN (MECLOZINE 25MG/PYRIDOXINE 50MG) PHARM-D",
@@ -10292,7 +10292,7 @@
       "available_stock": 0.0,
       "required_stock": 52.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.40107,
+      "latest_cost_price": 1.4,
       "avg_cost_price": 1.40107,
       "selling_price": 3.0,
       "recommended_monthly": 14.0,
@@ -10444,7 +10444,7 @@
       "available_stock": 28.0,
       "required_stock": 0.0,
       "nearest_expiry": "30/04/2027",
-      "latest_cost_price": 1.82143,
+      "latest_cost_price": 1.82,
       "avg_cost_price": 1.82143,
       "selling_price": 3.5,
       "recommended_monthly": 0,
@@ -10540,7 +10540,7 @@
       "available_stock": 42.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/05/2028",
-      "latest_cost_price": 11.915,
+      "latest_cost_price": 10.9,
       "avg_cost_price": 10.809166666667,
       "selling_price": 35.0,
       "recommended_monthly": 23.1,
@@ -10562,7 +10562,7 @@
       "expiry_days": 724,
       "months_supply": 1.8,
       "is_overstock": false,
-      "margin_pct": 66.0
+      "margin_pct": 68.9
     },
     {
       "description": "INJ TROVITE PAIR (THIAMINE HYDROCHLORIDE 250MG/5ML + PYRIDOXINE HYDROCHLORIDE 50MG/5ML + DEXTROSE MONOHYDRATE 1000MG/5ML + ASCORBIC ACID 500MG/5ML + DEXPANTHENOL 5MG/5ML + RIBOFLAVIN SODIUM PHOSPHATE 5.133MG/5ML + NICOTINAMIDE 160MG/5ML) DUOPHARMA",
@@ -10608,7 +10608,7 @@
       "available_stock": 13.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/07/2028",
-      "latest_cost_price": 2.3,
+      "latest_cost_price": 2.13,
       "avg_cost_price": 2.0948,
       "selling_price": 25.0,
       "recommended_monthly": 6.7,
@@ -10630,7 +10630,7 @@
       "expiry_days": 785,
       "months_supply": 1.9,
       "is_overstock": false,
-      "margin_pct": 90.8
+      "margin_pct": 91.5
     },
     {
       "description": "INJ LARTIL (PROCHLORPERAZINE MESYLATE)12.5MG/ML 1ML VIAL DUOPHARMA",
@@ -10704,7 +10704,7 @@
       "available_stock": 13.0,
       "required_stock": 10.0,
       "nearest_expiry": "30/06/2028",
-      "latest_cost_price": 2.14,
+      "latest_cost_price": 1.75,
       "avg_cost_price": 1.8816666666667,
       "selling_price": 20.0,
       "recommended_monthly": 8.2,
@@ -10726,7 +10726,7 @@
       "expiry_days": 754,
       "months_supply": 1.6,
       "is_overstock": false,
-      "margin_pct": 89.3
+      "margin_pct": 91.2
     },
     {
       "description": "INJ AMINOPHYLLIN 250MG/10ML FRESENIUS",
@@ -10856,7 +10856,7 @@
       "available_stock": 10.0,
       "required_stock": 10.0,
       "nearest_expiry": "10/10/2030",
-      "latest_cost_price": 4.5,
+      "latest_cost_price": 3.2,
       "avg_cost_price": 3.6666666666667,
       "selling_price": 50.0,
       "recommended_monthly": 3.5,
@@ -10878,7 +10878,7 @@
       "expiry_days": 1586,
       "months_supply": 2.9,
       "is_overstock": false,
-      "margin_pct": 91.0
+      "margin_pct": 93.6
     },
     {
       "description": "TAB COAPROVEL  (IRBESARTAN/HYDROCHLOROTHIAZIDE) 300MG/12.5MG SANOFI",
@@ -10890,7 +10890,7 @@
       "available_stock": 28.0,
       "required_stock": 52.0,
       "nearest_expiry": "30/09/2027",
-      "latest_cost_price": 2.30357,
+      "latest_cost_price": 2.3,
       "avg_cost_price": 2.30357,
       "selling_price": 4.0,
       "recommended_monthly": 0,
@@ -10906,7 +10906,7 @@
       "expiry_days": 480,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 42.4
+      "margin_pct": 42.5
     },
     {
       "description": "TAB LORADINE (LORATIDINE)10MG Y.S.P.",
@@ -10918,7 +10918,7 @@
       "available_stock": 150.0,
       "required_stock": 500.0,
       "nearest_expiry": "28/02/2028",
-      "latest_cost_price": 0.232,
+      "latest_cost_price": 0.23,
       "avg_cost_price": 0.232,
       "selling_price": 1.0,
       "recommended_monthly": 25.0,
@@ -10940,7 +10940,7 @@
       "expiry_days": 631,
       "months_supply": 6.0,
       "is_overstock": false,
-      "margin_pct": 76.8
+      "margin_pct": 77.0
     },
     {
       "description": "CERUMOL EAR WAX SOFTNER DROPS 10ML",
@@ -10952,7 +10952,7 @@
       "available_stock": 8.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/07/2028",
-      "latest_cost_price": 15.0,
+      "latest_cost_price": 12.5,
       "avg_cost_price": 13.75,
       "selling_price": 36.0,
       "recommended_monthly": 1.8,
@@ -10974,7 +10974,7 @@
       "expiry_days": 785,
       "months_supply": 4.4,
       "is_overstock": false,
-      "margin_pct": 58.3
+      "margin_pct": 65.3
     },
     {
       "description": "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
@@ -10986,7 +10986,7 @@
       "available_stock": 14.0,
       "required_stock": 10.0,
       "nearest_expiry": "30/06/2028",
-      "latest_cost_price": 13.8,
+      "latest_cost_price": 12.61,
       "avg_cost_price": 13.006666666667,
       "selling_price": 30.0,
       "recommended_monthly": 2.0,
@@ -11008,7 +11008,7 @@
       "expiry_days": 754,
       "months_supply": 7.0,
       "is_overstock": true,
-      "margin_pct": 54.0
+      "margin_pct": 58.0
     },
     {
       "description": "CIPMAX (CIPROFLOXACIN 0.3%) EYE DROPS 5ML SAMCHUNDANG",
@@ -11296,9 +11296,9 @@
       "available_stock": 5.0,
       "required_stock": 10.0,
       "nearest_expiry": "01/12/2027",
-      "latest_cost_price": 8.15,
+      "latest_cost_price": 8.5,
       "avg_cost_price": 8.325,
-      "selling_price": 25.0,
+      "selling_price": 26.0,
       "recommended_monthly": 1.5,
       "velocity_method": "avg_present_months",
       "monthly_breakdown": {
@@ -11311,14 +11311,14 @@
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "TBD",
-      "monthly_revenue": 37.5,
+      "monthly_revenue": 39.0,
       "dead_stock": 0,
       "days_of_stock": 100.0,
       "urgency": "ok",
       "expiry_days": 542,
       "months_supply": 3.3,
       "is_overstock": false,
-      "margin_pct": 67.4
+      "margin_pct": 67.3
     },
     {
       "description": "KEZORAL (KETOCONAZOLE 2% W/W) CREAM 15G DUOPHARMA",
@@ -11522,7 +11522,7 @@
       "available_stock": 6.0,
       "required_stock": 100.0,
       "nearest_expiry": "28/02/2028",
-      "latest_cost_price": 1.62333,
+      "latest_cost_price": 1.62,
       "avg_cost_price": 1.62333,
       "selling_price": 3.5,
       "recommended_monthly": 66.0,
@@ -11544,7 +11544,7 @@
       "expiry_days": 631,
       "months_supply": 0.1,
       "is_overstock": false,
-      "margin_pct": 53.6
+      "margin_pct": 53.7
     },
     {
       "description": "AEVA THYMOL GARGLE 120ML APEX",
@@ -11686,7 +11686,7 @@
       "available_stock": 0.0,
       "required_stock": 70.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.53571,
+      "latest_cost_price": 0.54,
       "avg_cost_price": 0.53571,
       "selling_price": 2.0,
       "recommended_monthly": 42.0,
@@ -11708,7 +11708,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 73.2
+      "margin_pct": 73.0
     },
     {
       "description": "TAB NEXIUM MUPS (ESOMEPRAZOLE) 20MG ASTRAZENECA",
@@ -11720,7 +11720,7 @@
       "available_stock": 0.0,
       "required_stock": 0.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 4.12,
       "avg_cost_price": 0.0,
       "selling_price": 9.3,
       "recommended_monthly": 0,
@@ -11736,7 +11736,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 55.7
     },
     {
       "description": "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
@@ -11782,7 +11782,7 @@
       "available_stock": 590.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/08/2027",
-      "latest_cost_price": 0.126,
+      "latest_cost_price": 0.11,
       "avg_cost_price": 0.118,
       "selling_price": 1.2,
       "recommended_monthly": 42.0,
@@ -11804,7 +11804,7 @@
       "expiry_days": 450,
       "months_supply": 14.0,
       "is_overstock": true,
-      "margin_pct": 89.5
+      "margin_pct": 90.8
     },
     {
       "description": "TAB NUELIN SR (THEOPHYLLINE) 250MG INOVA",
@@ -11980,7 +11980,7 @@
       "available_stock": 20.0,
       "required_stock": 100.0,
       "nearest_expiry": "28/02/2027",
-      "latest_cost_price": 0.265,
+      "latest_cost_price": 0.27,
       "avg_cost_price": 0.265,
       "selling_price": 1.0,
       "recommended_monthly": 15.0,
@@ -12002,7 +12002,7 @@
       "expiry_days": 266,
       "months_supply": 1.3,
       "is_overstock": false,
-      "margin_pct": 73.5
+      "margin_pct": 73.0
     },
     {
       "description": "INJ TT VACCINE (TETANUS) 0.5ML SM PHARMA",
@@ -12144,7 +12144,7 @@
       "available_stock": 100.0,
       "required_stock": 30.0,
       "nearest_expiry": "30/11/2027",
-      "latest_cost_price": 0.579,
+      "latest_cost_price": 0.58,
       "avg_cost_price": 0.579,
       "selling_price": 1.2,
       "recommended_monthly": 0,
@@ -12160,7 +12160,7 @@
       "expiry_days": 541,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 51.8
+      "margin_pct": 51.7
     },
     {
       "description": "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
@@ -12206,7 +12206,7 @@
       "available_stock": 0.0,
       "required_stock": 10.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 2.678,
+      "latest_cost_price": 2.68,
       "avg_cost_price": 2.589,
       "selling_price": 15.0,
       "recommended_monthly": 3.0,
@@ -12274,7 +12274,7 @@
       "available_stock": 31.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/12/2026",
-      "latest_cost_price": 27.0,
+      "latest_cost_price": 23.0,
       "avg_cost_price": 25.666666666667,
       "selling_price": 80.0,
       "recommended_monthly": 7.1,
@@ -12296,7 +12296,7 @@
       "expiry_days": 207,
       "months_supply": 4.4,
       "is_overstock": false,
-      "margin_pct": 66.2
+      "margin_pct": 71.2
     },
     {
       "description": "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP Pharmaceuticals S.p.A.",
@@ -12370,7 +12370,7 @@
       "available_stock": 0.0,
       "required_stock": 30.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 5.06667,
+      "latest_cost_price": 5.07,
       "avg_cost_price": 5.06667,
       "selling_price": 6.5,
       "recommended_monthly": 15.0,
@@ -12392,7 +12392,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 22.1
+      "margin_pct": 22.0
     },
     {
       "description": "SYR CEFUROXIME-125 (125MG/5ML) 50ML AXCEL KOTRA PHARMA",
@@ -12438,7 +12438,7 @@
       "available_stock": 2.0,
       "required_stock": 0.0,
       "nearest_expiry": "31/08/2028",
-      "latest_cost_price": 102.0,
+      "latest_cost_price": 153.0,
       "avg_cost_price": 102.0,
       "selling_price": 500.0,
       "recommended_monthly": 2.0,
@@ -12460,7 +12460,7 @@
       "expiry_days": 816,
       "months_supply": 1.0,
       "is_overstock": false,
-      "margin_pct": 79.6
+      "margin_pct": 69.4
     },
     {
       "description": "TAB GOUTRIC ( FEBUXOSTAT) NOVUGEN",
@@ -12472,7 +12472,7 @@
       "available_stock": 10.0,
       "required_stock": 0.0,
       "nearest_expiry": "31/07/2026",
-      "latest_cost_price": 4.7412,
+      "latest_cost_price": 4.74,
       "avg_cost_price": 2.3706,
       "selling_price": 6.5,
       "recommended_monthly": 30.0,
@@ -12630,9 +12630,9 @@
       "available_stock": 19.0,
       "required_stock": 0.0,
       "nearest_expiry": "15/09/2028",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 2.0,
       "avg_cost_price": 0.0,
-      "selling_price": 10.0,
+      "selling_price": 15.0,
       "recommended_monthly": 0,
       "velocity_method": "no_data",
       "monthly_breakdown": {},
@@ -12646,7 +12646,7 @@
       "expiry_days": 831,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 86.7
     },
     {
       "description": "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
@@ -12788,7 +12788,7 @@
       "available_stock": 0.0,
       "required_stock": 30.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 2.69667,
+      "latest_cost_price": 2.7,
       "avg_cost_price": 2.69667,
       "selling_price": 5.5,
       "recommended_monthly": 45.0,
@@ -12810,7 +12810,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 51.0
+      "margin_pct": 50.9
     },
     {
       "description": "TAB LUSEFI ( LUSEOGLIFLOZIN ) 5MG TAISHO",
@@ -12924,7 +12924,7 @@
       "available_stock": 60.0,
       "required_stock": 200.0,
       "nearest_expiry": "31/12/2028",
-      "latest_cost_price": 0.089,
+      "latest_cost_price": 0.09,
       "avg_cost_price": 0.089,
       "selling_price": 2.5,
       "recommended_monthly": 84.1,
@@ -13026,7 +13026,7 @@
       "available_stock": 0.0,
       "required_stock": 100.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.527,
+      "latest_cost_price": 0.53,
       "avg_cost_price": 0.527,
       "selling_price": 1.5,
       "recommended_monthly": 200.0,
@@ -13048,7 +13048,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 64.9
+      "margin_pct": 64.7
     },
     {
       "description": "PREVENAR 13 (PNEUMOCOCCAL POLYSACCHARIDE CONJUGATE 13-VALENT) PFIZER",
@@ -13122,7 +13122,7 @@
       "available_stock": 0.0,
       "required_stock": 5.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 23.04,
+      "latest_cost_price": 23.0,
       "avg_cost_price": 23.04,
       "selling_price": 75.0,
       "recommended_monthly": 0,
@@ -13150,7 +13150,7 @@
       "available_stock": 4.0,
       "required_stock": 0.0,
       "nearest_expiry": "28/08/2028",
-      "latest_cost_price": 8.633,
+      "latest_cost_price": 8.63,
       "avg_cost_price": 8.633,
       "selling_price": 30.0,
       "recommended_monthly": 8.0,
@@ -13184,7 +13184,7 @@
       "available_stock": 0.0,
       "required_stock": 5.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 44.9,
       "avg_cost_price": 0.0,
       "selling_price": 100.0,
       "recommended_monthly": 0,
@@ -13200,7 +13200,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 55.1
     },
     {
       "description": "INJ PREDON INJECTION 25MG/ML HEALOL PHARMACEUTICALS SDN. BHD.",
@@ -13308,7 +13308,7 @@
       "available_stock": 0.0,
       "required_stock": 0.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 4.418,
+      "latest_cost_price": 4.42,
       "avg_cost_price": 4.418,
       "selling_price": 6.5,
       "recommended_monthly": 75.0,
@@ -13432,7 +13432,7 @@
       "available_stock": 5.0,
       "required_stock": 0.0,
       "nearest_expiry": "30/08/2028",
-      "latest_cost_price": 2.522,
+      "latest_cost_price": 2.52,
       "avg_cost_price": 2.522,
       "selling_price": 10.0,
       "recommended_monthly": 0,
@@ -13460,7 +13460,7 @@
       "available_stock": 0.0,
       "required_stock": 28.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 2.00821,
+      "latest_cost_price": 2.01,
       "avg_cost_price": 2.00821,
       "selling_price": 3.5,
       "recommended_monthly": 42.0,
@@ -13494,7 +13494,7 @@
       "available_stock": 30.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/07/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 1.83,
       "avg_cost_price": 0.0,
       "selling_price": 2.75,
       "recommended_monthly": 0,
@@ -13510,7 +13510,7 @@
       "expiry_days": 419,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 33.5
     },
     {
       "description": "TAB ESCIPRA (ESCITALOPRAM) 10MG SYNERRV",
@@ -13522,7 +13522,7 @@
       "available_stock": 28.0,
       "required_stock": 28.0,
       "nearest_expiry": "31/07/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 1.0,
       "avg_cost_price": 0.0,
       "selling_price": 1.5,
       "recommended_monthly": 0,
@@ -13538,7 +13538,7 @@
       "expiry_days": 419,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 33.3
     },
     {
       "description": "TAB DESLORATADINE 5MG SYNERRV",
@@ -13550,7 +13550,7 @@
       "available_stock": 40.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/05/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 0.83,
       "avg_cost_price": 0.0,
       "selling_price": 2.0,
       "recommended_monthly": 62.9,
@@ -13572,7 +13572,7 @@
       "expiry_days": 358,
       "months_supply": 0.6,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 58.5
     },
     {
       "description": "TAB MONTULAR (MONTELUKAST) 10MG SYNERRV",
@@ -13584,9 +13584,9 @@
       "available_stock": 30.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/05/2028",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 0.76,
       "avg_cost_price": 0.0,
-      "selling_price": 1.15,
+      "selling_price": 1.5,
       "recommended_monthly": 0,
       "velocity_method": "no_data",
       "monthly_breakdown": {},
@@ -13600,7 +13600,7 @@
       "expiry_days": 724,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 49.3
     },
     {
       "description": "TAB DIASIT (SITAGLIPTIN) 100MG SYNERRV",
@@ -13612,7 +13612,7 @@
       "available_stock": 30.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/08/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 2.37,
       "avg_cost_price": 0.0,
       "selling_price": 3.55,
       "recommended_monthly": 0,
@@ -13628,7 +13628,7 @@
       "expiry_days": 450,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 33.2
     },
     {
       "description": "TAB ROSUVASTATIN 20MG SYNERRV",
@@ -13640,7 +13640,7 @@
       "available_stock": 0.0,
       "required_stock": 30.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 1.33,
       "avg_cost_price": 0.0,
       "selling_price": 2.0,
       "recommended_monthly": 15.0,
@@ -13662,7 +13662,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 33.5
     },
     {
       "description": "TAB ATORVASTATIN 20MG SYNERRV",
@@ -13674,7 +13674,7 @@
       "available_stock": 0.0,
       "required_stock": 28.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 0.85,
       "avg_cost_price": 0.0,
       "selling_price": 2.0,
       "recommended_monthly": 14.0,
@@ -13696,7 +13696,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 57.5
     },
     {
       "description": "TAB ATORVASTATIN 40MG SYNERRV",
@@ -13708,7 +13708,7 @@
       "available_stock": 100.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/08/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 1.28,
       "avg_cost_price": 0.0,
       "selling_price": 2.5,
       "recommended_monthly": 0,
@@ -13724,7 +13724,7 @@
       "expiry_days": 450,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 48.8
     },
     {
       "description": "TAB ZIOMYCIN (AZITHROMYCIN) 500MG SYNERRV",
@@ -13736,7 +13736,7 @@
       "available_stock": 0.0,
       "required_stock": 30.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 3.53,
       "avg_cost_price": 0.0,
       "selling_price": 7.0,
       "recommended_monthly": 1.5,
@@ -13758,7 +13758,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 49.6
     },
     {
       "description": "TAB FORSANEC (ETORICOXIB) 90MG SYNERRV",
@@ -13770,7 +13770,7 @@
       "available_stock": 28.0,
       "required_stock": 28.0,
       "nearest_expiry": "30/04/2028",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 3.0,
       "avg_cost_price": 0.0,
       "selling_price": 4.5,
       "recommended_monthly": 0,
@@ -13786,7 +13786,7 @@
       "expiry_days": 693,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 33.3
     },
     {
       "description": "TAB ROSUVASTATIN 10MG SYNERRV",
@@ -13798,7 +13798,7 @@
       "available_stock": 30.0,
       "required_stock": 30.0,
       "nearest_expiry": "30/04/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 1.0,
       "avg_cost_price": 0.0,
       "selling_price": 1.5,
       "recommended_monthly": 0,
@@ -13814,7 +13814,7 @@
       "expiry_days": 327,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 33.3
     },
     {
       "description": "OINTMENT BACTOPIC (MUPIROCIN) 2% 15G SYNERRV",
@@ -13826,7 +13826,7 @@
       "available_stock": 1.0,
       "required_stock": 1.0,
       "nearest_expiry": "31/10/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 18.0,
       "avg_cost_price": 0.0,
       "selling_price": 46.5,
       "recommended_monthly": 0,
@@ -13842,7 +13842,7 @@
       "expiry_days": 511,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 61.3
     },
     {
       "description": "TAB FORSANEC (ETORICOXIB) 120MG SYNERRV",
@@ -13854,7 +13854,7 @@
       "available_stock": 28.0,
       "required_stock": 28.0,
       "nearest_expiry": "31/05/2028",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 4.0,
       "avg_cost_price": 0.0,
       "selling_price": 6.0,
       "recommended_monthly": 0,
@@ -13870,7 +13870,7 @@
       "expiry_days": 724,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 33.3
     },
     {
       "description": "CAP PREZEL (PREGABALIN) 75MG SYNERRV",
@@ -13882,7 +13882,7 @@
       "available_stock": 30.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/07/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 2.95,
       "avg_cost_price": 0.0,
       "selling_price": 4.4,
       "recommended_monthly": 0,
@@ -13898,7 +13898,7 @@
       "expiry_days": 419,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 33.0
     },
     {
       "description": "TAB METSWIFT XR (METFORMIN HCl) 750MG SYNERRV",
@@ -13910,9 +13910,9 @@
       "available_stock": 100.0,
       "required_stock": 30.0,
       "nearest_expiry": "30/09/2026",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 0.8,
       "avg_cost_price": 0.0,
-      "selling_price": 0.12,
+      "selling_price": 1.5,
       "recommended_monthly": 0,
       "velocity_method": "no_data",
       "monthly_breakdown": {},
@@ -13926,7 +13926,7 @@
       "expiry_days": 115,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 46.7
     },
     {
       "description": "TAB FEXOFENADINE 180MG SYNERRV",
@@ -13938,9 +13938,9 @@
       "available_stock": 50.0,
       "required_stock": 30.0,
       "nearest_expiry": "30/04/2028",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 1.6,
       "avg_cost_price": 0.0,
-      "selling_price": 1.5,
+      "selling_price": 2.5,
       "recommended_monthly": 0,
       "velocity_method": "no_data",
       "monthly_breakdown": {},
@@ -13954,7 +13954,7 @@
       "expiry_days": 693,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 36.0
     },
     {
       "description": "TAB ZIOMYCIN (AZITHROMYCIN) 250MG SYNERRV",
@@ -13966,7 +13966,7 @@
       "available_stock": 0.0,
       "required_stock": 6.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 1.83,
       "avg_cost_price": 0.0,
       "selling_price": 5.0,
       "recommended_monthly": 3.0,
@@ -13988,7 +13988,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 63.4
     },
     {
       "description": "TAB FORSANEC (ETORICOXIB) 60MG SYNERRV",
@@ -14000,7 +14000,7 @@
       "available_stock": 28.0,
       "required_stock": 28.0,
       "nearest_expiry": "31/10/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 2.0,
       "avg_cost_price": 0.0,
       "selling_price": 3.0,
       "recommended_monthly": 0,
@@ -14016,7 +14016,7 @@
       "expiry_days": 511,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 33.3
     },
     {
       "description": "TAB TELWSIFT (TELMISARTAN) 40MG SYNERRV",
@@ -14028,9 +14028,9 @@
       "available_stock": 28.0,
       "required_stock": 28.0,
       "nearest_expiry": "31/08/2026",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 0.85,
       "avg_cost_price": 0.0,
-      "selling_price": 1.29,
+      "selling_price": 1.5,
       "recommended_monthly": 0,
       "velocity_method": "no_data",
       "monthly_breakdown": {},
@@ -14044,7 +14044,7 @@
       "expiry_days": 85,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 43.3
     },
     {
       "description": "TAB LAZINE (LEVOCETIRIZINE DIHCl) 5MG SYNERRV",
@@ -14056,7 +14056,7 @@
       "available_stock": 0.0,
       "required_stock": 30.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 0.66,
       "avg_cost_price": 0.0,
       "selling_price": 1.5,
       "recommended_monthly": 0,
@@ -14072,7 +14072,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 56.0
     },
     {
       "description": "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
@@ -14084,7 +14084,7 @@
       "available_stock": 0.0,
       "required_stock": 28.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 3.9,
       "avg_cost_price": 0.0,
       "selling_price": 5.84,
       "recommended_monthly": 14.0,
@@ -14106,7 +14106,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 33.2
     },
     {
       "description": "TAB GLIT (PIOGLITAZONE) 15MG SYNERRV",
@@ -14118,7 +14118,7 @@
       "available_stock": 0.0,
       "required_stock": 28.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 2.96,
       "avg_cost_price": 0.0,
       "selling_price": 4.5,
       "recommended_monthly": 14.0,
@@ -14140,7 +14140,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 34.2
     },
     {
       "description": "TAB METSWIFT XR (METFORMIN HCl) 1000MG SYNERRV",
@@ -14152,7 +14152,7 @@
       "available_stock": 0.0,
       "required_stock": 28.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 1.25,
       "avg_cost_price": 0.0,
       "selling_price": 2.0,
       "recommended_monthly": 0,
@@ -14168,7 +14168,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 37.5
     },
     {
       "description": "FIX DERMA MULTI ACTIVE MOISTURIZING LOTION 150ML SYNERRV",
@@ -14180,7 +14180,7 @@
       "available_stock": 1.0,
       "required_stock": 1.0,
       "nearest_expiry": "31/08/2026",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 27.0,
       "avg_cost_price": 0.0,
       "selling_price": 40.5,
       "recommended_monthly": 0,
@@ -14196,7 +14196,7 @@
       "expiry_days": 85,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 33.3
     },
     {
       "description": "FIX DERMA MOISTURIZING CREAM FOR DRY SKIN 60G SYNERRV",
@@ -14208,7 +14208,7 @@
       "available_stock": 1.0,
       "required_stock": 1.0,
       "nearest_expiry": "31/08/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 18.0,
       "avg_cost_price": 0.0,
       "selling_price": 27.0,
       "recommended_monthly": 0,
@@ -14224,7 +14224,7 @@
       "expiry_days": 450,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 33.3
     },
     {
       "description": "FIX DERMA SCAR GEL FOR SCAR 15ML SYNERRV",
@@ -14236,9 +14236,9 @@
       "available_stock": 1.0,
       "required_stock": 1.0,
       "nearest_expiry": "31/07/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 39.0,
       "avg_cost_price": 0.0,
-      "selling_price": 58.5,
+      "selling_price": 60.0,
       "recommended_monthly": 0,
       "velocity_method": "no_data",
       "monthly_breakdown": {},
@@ -14252,7 +14252,7 @@
       "expiry_days": 419,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 35.0
     },
     {
       "description": "SYR CHLORAMINE (CHLORPHENIRAMINE) 4MG/5ML 90ML DUOPHARMA",
@@ -14298,7 +14298,7 @@
       "available_stock": 80.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/07/2028",
-      "latest_cost_price": 0.315,
+      "latest_cost_price": 0.32,
       "avg_cost_price": 0.315,
       "selling_price": 2.0,
       "recommended_monthly": 10.0,
@@ -14320,7 +14320,7 @@
       "expiry_days": 785,
       "months_supply": 8.0,
       "is_overstock": true,
-      "margin_pct": 84.2
+      "margin_pct": 84.0
     },
     {
       "description": "XOIN (N-BUTYL-2-CYANOACRYLATE) TOPICAL SKIN ADHESIVE 0.25ML REEVAX PHARMA",
@@ -14400,7 +14400,7 @@
       "available_stock": 0.0,
       "required_stock": 3.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 6.36667,
+      "latest_cost_price": 6.37,
       "avg_cost_price": 6.36667,
       "selling_price": 20.0,
       "recommended_monthly": 1.5,
@@ -14434,7 +14434,7 @@
       "available_stock": 1960.0,
       "required_stock": 500.0,
       "nearest_expiry": "31/03/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 0.33,
       "avg_cost_price": 0.1639,
       "selling_price": 2.0,
       "recommended_monthly": 15.0,
@@ -14456,7 +14456,7 @@
       "expiry_days": 297,
       "months_supply": 130.7,
       "is_overstock": true,
-      "margin_pct": null
+      "margin_pct": 83.5
     },
     {
       "description": "TAB APO-ROSUVASTATIN 10MG APOTEX INC",
@@ -14468,7 +14468,7 @@
       "available_stock": 300.0,
       "required_stock": 150.0,
       "nearest_expiry": "30/09/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 1.4,
       "avg_cost_price": 0.701665,
       "selling_price": 3.5,
       "recommended_monthly": 0,
@@ -14484,7 +14484,7 @@
       "expiry_days": 480,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 60.0
     },
     {
       "description": "TAB APO-ROSUVASTATIN 20MG APOTEX INC",
@@ -14496,7 +14496,7 @@
       "available_stock": 270.0,
       "required_stock": 150.0,
       "nearest_expiry": "31/12/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 1.87,
       "avg_cost_price": 0.936665,
       "selling_price": 5.0,
       "recommended_monthly": 15.0,
@@ -14518,7 +14518,7 @@
       "expiry_days": 572,
       "months_supply": 18.0,
       "is_overstock": true,
-      "margin_pct": null
+      "margin_pct": 62.6
     },
     {
       "description": "FORA 6 BLOOD GLUCOSE TEST STRIPS 25'S KINSMEDIC",
@@ -14614,7 +14614,7 @@
       "available_stock": 28.0,
       "required_stock": 30.0,
       "nearest_expiry": "08/09/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 39.0,
       "avg_cost_price": 13.0,
       "selling_price": 55.0,
       "recommended_monthly": 0,
@@ -14630,7 +14630,7 @@
       "expiry_days": 458,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 29.1
     },
     {
       "description": "FC CAP NUTRIFORTE BUFFERED VITAMIN C 1000MG 60's ESPRIT CARE",
@@ -14670,7 +14670,7 @@
       "available_stock": 4.0,
       "required_stock": 5.0,
       "nearest_expiry": "29/05/2027",
-      "latest_cost_price": 35.71429,
+      "latest_cost_price": 50.0,
       "avg_cost_price": 35.71429,
       "selling_price": 95.0,
       "recommended_monthly": 1.5,
@@ -14692,7 +14692,7 @@
       "expiry_days": 356,
       "months_supply": 2.7,
       "is_overstock": false,
-      "margin_pct": 62.4
+      "margin_pct": 47.4
     },
     {
       "description": "NEBULE COMBINEB (IPRATROPIUM BROMIDE 0.5MG/SALBUTAMOL 2.5MG) 2.5ML AIN MEDICARE",
@@ -14738,7 +14738,7 @@
       "available_stock": 260.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/09/2028",
-      "latest_cost_price": 0.071,
+      "latest_cost_price": 0.07,
       "avg_cost_price": 0.071,
       "selling_price": 1.0,
       "recommended_monthly": 201.4,
@@ -14760,7 +14760,7 @@
       "expiry_days": 846,
       "months_supply": 1.3,
       "is_overstock": false,
-      "margin_pct": 92.9
+      "margin_pct": 93.0
     },
     {
       "description": "SMA STEP 1 1.65KG (N15) WYETH NUTRITIONALS (SGPORE) PTE LTD",
@@ -14772,7 +14772,7 @@
       "available_stock": 2.0,
       "required_stock": 0.0,
       "nearest_expiry": "17/01/2028",
-      "latest_cost_price": 194.4,
+      "latest_cost_price": NaN,
       "avg_cost_price": 194.4,
       "selling_price": 194.4,
       "recommended_monthly": 1.0,
@@ -14794,7 +14794,7 @@
       "expiry_days": 589,
       "months_supply": 2.0,
       "is_overstock": false,
-      "margin_pct": 0.0
+      "margin_pct": null
     },
     {
       "description": "PP VITAMIN C 1000MG 100'S PAHANG PHARMACY",
@@ -14840,7 +14840,7 @@
       "available_stock": 14.0,
       "required_stock": 5.0,
       "nearest_expiry": "31/12/2028",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 9.68,
       "avg_cost_price": 4.84,
       "selling_price": 20.0,
       "recommended_monthly": 0,
@@ -14856,7 +14856,7 @@
       "expiry_days": 938,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 51.6
     },
     {
       "description": "APPETON A-Z VITAMIN C 30MG PASTILLES 5'S",
@@ -14868,7 +14868,7 @@
       "available_stock": 7.0,
       "required_stock": 20.0,
       "nearest_expiry": "31/10/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 23.55,
       "avg_cost_price": 11.775,
       "selling_price": 45.0,
       "recommended_monthly": 7.5,
@@ -14890,7 +14890,7 @@
       "expiry_days": 511,
       "months_supply": 0.9,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 47.7
     },
     {
       "description": "GLENMARK ELOVERA PRO CREAM 75G GLENMARK",
@@ -14936,7 +14936,7 @@
       "available_stock": 21.0,
       "required_stock": 10.0,
       "nearest_expiry": "30/11/2028",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 14.05,
       "avg_cost_price": 7.025,
       "selling_price": 40.0,
       "recommended_monthly": 1.0,
@@ -14958,7 +14958,7 @@
       "expiry_days": 907,
       "months_supply": 21.0,
       "is_overstock": true,
-      "margin_pct": null
+      "margin_pct": 64.9
     },
     {
       "description": "ENTEROGERMINA 2BCFU ORAL SUSPENSION 5ML OPELLA HEALTHCARE",
@@ -14998,7 +14998,7 @@
       "available_stock": 0.0,
       "required_stock": 10.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.5,
+      "latest_cost_price": 2.35,
       "avg_cost_price": 2.25,
       "selling_price": 30.0,
       "recommended_monthly": 3.1,
@@ -15020,7 +15020,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 95.0
+      "margin_pct": 92.2
     },
     {
       "description": "INJ AMSUBAC (AMPICILLIN 1000MG/ SULBACTAM 500MG) 1.5 G AVERROES PHARMACEUTICALS SDN. BHD.",
@@ -15032,7 +15032,7 @@
       "available_stock": 2.0,
       "required_stock": 10.0,
       "nearest_expiry": "30/11/2026",
-      "latest_cost_price": 2.5,
+      "latest_cost_price": 7.4,
       "avg_cost_price": 4.5,
       "selling_price": 50.0,
       "recommended_monthly": 2.0,
@@ -15054,7 +15054,7 @@
       "expiry_days": 176,
       "months_supply": 1.0,
       "is_overstock": false,
-      "margin_pct": 95.0
+      "margin_pct": 85.2
     },
     {
       "description": "MABRON (TRAMADOL) CAPSULES 50MG MEDOCHEMIE LTD",
@@ -15066,7 +15066,7 @@
       "available_stock": 400.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/04/2030",
-      "latest_cost_price": 0.63826,
+      "latest_cost_price": 0.64,
       "avg_cost_price": 0.63826,
       "selling_price": 2.0,
       "recommended_monthly": 214.3,
@@ -15088,7 +15088,7 @@
       "expiry_days": 1423,
       "months_supply": 1.9,
       "is_overstock": false,
-      "margin_pct": 68.1
+      "margin_pct": 68.0
     },
     {
       "description": "TAB AUROXETIL 500 (Cefuroxime 500 Mg) Aurobindo Pharma",
@@ -15100,7 +15100,7 @@
       "available_stock": 0.0,
       "required_stock": 500.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 1.3968,
+      "latest_cost_price": 1.44,
       "avg_cost_price": 1.3968,
       "selling_price": 4.0,
       "recommended_monthly": 0,
@@ -15116,7 +15116,7 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 65.1
+      "margin_pct": 64.0
     },
     {
       "description": "KETOTOP PLASTER (KETOPROFEN) 30MG 7'S HANDOK",
@@ -15128,7 +15128,7 @@
       "available_stock": 19.0,
       "required_stock": 30.0,
       "nearest_expiry": "19/06/2029",
-      "latest_cost_price": 9.021,
+      "latest_cost_price": 9.3,
       "avg_cost_price": 9.021,
       "selling_price": 35.0,
       "recommended_monthly": 0.5,
@@ -15150,7 +15150,7 @@
       "expiry_days": 1108,
       "months_supply": 38.0,
       "is_overstock": true,
-      "margin_pct": 74.2
+      "margin_pct": 73.4
     },
     {
       "description": "PRIME ENEMA ( GLYCEROL 50% V/W ) 20ML PRIME PHARMACEUTICAL",
@@ -15196,7 +15196,7 @@
       "available_stock": 1.0,
       "required_stock": 0.0,
       "nearest_expiry": "30/04/2030",
-      "latest_cost_price": 14.55,
+      "latest_cost_price": 15.0,
       "avg_cost_price": 14.55,
       "selling_price": 45.0,
       "recommended_monthly": 0,
@@ -15212,7 +15212,7 @@
       "expiry_days": 1423,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 67.7
+      "margin_pct": 66.7
     },
     {
       "description": "TAB FENAMON (NIFEDIPINE) 10MG MEDOCHEMIE LTD",
@@ -15224,7 +15224,7 @@
       "available_stock": 999.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/06/2029",
-      "latest_cost_price": 0.18236,
+      "latest_cost_price": 0.18,
       "avg_cost_price": 0.18236,
       "selling_price": 10.0,
       "recommended_monthly": 0,
@@ -15252,7 +15252,7 @@
       "available_stock": 20.0,
       "required_stock": 50.0,
       "nearest_expiry": "30/06/2028",
-      "latest_cost_price": 0.798,
+      "latest_cost_price": 0.8,
       "avg_cost_price": 0.798,
       "selling_price": 2.0,
       "recommended_monthly": 95.7,
@@ -15274,7 +15274,7 @@
       "expiry_days": 754,
       "months_supply": 0.2,
       "is_overstock": false,
-      "margin_pct": 60.1
+      "margin_pct": 60.0
     },
     {
       "description": "CAP ESSENTIALSE MAX 600MG 30'S A.NATTERMANN & CIE. GMBH",
@@ -15286,7 +15286,7 @@
       "available_stock": 1.0,
       "required_stock": 1.0,
       "nearest_expiry": "31/01/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": NaN,
       "avg_cost_price": 0.0,
       "selling_price": 75.0,
       "recommended_monthly": 2.1,
@@ -15320,7 +15320,7 @@
       "available_stock": 12.0,
       "required_stock": 5.0,
       "nearest_expiry": "16/07/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 24.0,
       "avg_cost_price": 12.0,
       "selling_price": 55.0,
       "recommended_monthly": 0,
@@ -15336,7 +15336,7 @@
       "expiry_days": 404,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": 56.4
     },
     {
       "description": "SOFTGEL NUTRIFORTE FISH OIL DS 1200MG (VALUE PACK) 3X30'S ALPHA LABORATORIES",
@@ -15348,7 +15348,7 @@
       "available_stock": 0.0,
       "required_stock": 12.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": 117.0,
       "avg_cost_price": 0.0,
       "selling_price": 0.0,
       "recommended_monthly": 0,
@@ -15528,7 +15528,7 @@
       "available_stock": 2.0,
       "required_stock": 0.0,
       "nearest_expiry": "16/01/2027",
-      "latest_cost_price": 0.0,
+      "latest_cost_price": NaN,
       "avg_cost_price": 0.0,
       "selling_price": 120.0,
       "recommended_monthly": 0,
@@ -15546,6 +15546,5 @@
       "is_overstock": false,
       "margin_pct": null
     }
-  ],
-  "latest_po_filename": "PO_TBD_20260607.xlsx"
+  ]
 }
