@@ -1560,7 +1560,7 @@ function fAS(){
     const d=i.days_of_stock;
     const dl=d===999?'—':d===0?'<span class="p pr">OOS</span>':d<7?`<span class="p pr">${d.toFixed(0)}d</span>`:d<14?`<span class="p po">${d.toFixed(0)}d</span>`:`<span style="font-family:var(--fm);font-size:11px;color:var(--muted)">${d.toFixed(0)}d</span>`;
     const rec=i.recommended_monthly||0;
-    const dlTip=d===999?'No recent dispensing — stock isn’t moving, so there’s no run-out estimate.':d===0?'Out of stock right now.':`Estimated days until run-out = current stock ÷ avg monthly usage × 30.  ${i.available_stock} in stock ÷ ${rec.toFixed(0)}/mo ≈ ${d.toFixed(0)} days.`;
+    const dlTip=d===999?'This item hasn’t been dispensed recently, so we can’t estimate how long stock will last.':d===0?'Out of stock right now.':`At the usual rate of about ${rec.toFixed(0)} a month, the ${i.available_stock} in stock should last roughly ${d.toFixed(0)} more days.`;
     const m=i.margin_pct;const mc=m===null?'pm':m<30?'pr':m<50?'po':'pg';
     const sc=i.available_stock===0?'pr':i.needs_reorder?'po':'pg';
     const lv=pLvl(i);
