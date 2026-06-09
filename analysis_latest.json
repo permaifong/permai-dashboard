@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T12:55:57.065971",
+  "generated_at": "2026-06-09T13:07:49.236990",
   "inventory_date": "2026-06-09",
   "months_analyzed": [
     "2026-02",
@@ -18,8 +18,8 @@
     "never_dispensed_count": 83,
     "revenue_at_risk": 6817.06,
     "estimated_monthly_revenue": 43741.79,
-    "total_stock_value": null,
-    "dead_capital": null,
+    "total_stock_value": 39229.77,
+    "dead_capital": 9451.79,
     "total_patients": 627,
     "returning_patients": 100,
     "retention_rate": 15.9,
@@ -37,136 +37,136 @@
     "dow": {
       "Monday": {
         "visits": 169,
-        "revenue": 17056.99
+        "revenue": 13550.55
       },
       "Tuesday": {
         "visits": 131,
-        "revenue": 14011.73
+        "revenue": 11528.48
       },
       "Wednesday": {
         "visits": 144,
-        "revenue": 14061.58
+        "revenue": 22807.82
       },
       "Thursday": {
         "visits": 138,
-        "revenue": 18611.26
+        "revenue": 11427.58
       },
       "Friday": {
         "visits": 135,
-        "revenue": 15158.51
+        "revenue": 19967.2
       },
       "Saturday": {
         "visits": 149,
-        "revenue": 15010.6
+        "revenue": 9927.6
       },
       "Sunday": {
         "visits": 153,
-        "revenue": 18411.97
+        "revenue": 17276.6
       }
     },
     "hours": {
       "0": {
         "visits": 12,
-        "revenue": 1307.5
+        "revenue": 853.0
       },
       "1": {
         "visits": 3,
-        "revenue": 343.0
+        "revenue": 283.0
       },
       "2": {
         "visits": 5,
-        "revenue": 476.0
+        "revenue": 467.0
       },
       "3": {
         "visits": 5,
-        "revenue": 108.0
+        "revenue": 41.5
       },
       "4": {
         "visits": 1,
-        "revenue": 35.0
+        "revenue": 22.5
       },
       "5": {
         "visits": 2,
-        "revenue": 190.0
+        "revenue": 152.5
       },
       "6": {
         "visits": 2,
-        "revenue": 83.0
+        "revenue": 54.5
       },
       "7": {
         "visits": 9,
-        "revenue": 1240.0
+        "revenue": 1071.0
       },
       "8": {
         "visits": 35,
-        "revenue": 3557.53
+        "revenue": 4589.25
       },
       "9": {
         "visits": 44,
-        "revenue": 5525.0
+        "revenue": 2838.25
       },
       "10": {
         "visits": 55,
-        "revenue": 5395.4
+        "revenue": 3237.8
       },
       "11": {
         "visits": 48,
-        "revenue": 8472.46
+        "revenue": 5616.32
       },
       "12": {
         "visits": 61,
-        "revenue": 6222.2
+        "revenue": 6250.7
       },
       "13": {
         "visits": 74,
-        "revenue": 6477.6
+        "revenue": 4604.6
       },
       "14": {
         "visits": 78,
-        "revenue": 8842.4
+        "revenue": 10745.42
       },
       "15": {
         "visits": 67,
-        "revenue": 9398.2
+        "revenue": 11940.52
       },
       "16": {
         "visits": 54,
-        "revenue": 6236.02
+        "revenue": 3735.78
       },
       "17": {
         "visits": 49,
-        "revenue": 4868.24
+        "revenue": 3158.77
       },
       "18": {
         "visits": 71,
-        "revenue": 8205.32
+        "revenue": 15482.91
       },
       "19": {
         "visits": 93,
-        "revenue": 10424.38
+        "revenue": 8237.28
       },
       "20": {
         "visits": 91,
-        "revenue": 11939.54
+        "revenue": 9740.13
       },
       "21": {
         "visits": 69,
-        "revenue": 5850.13
+        "revenue": 5950.79
       },
       "22": {
         "visits": 51,
-        "revenue": 4447.98
+        "revenue": 5524.12
       },
       "23": {
         "visits": 40,
-        "revenue": 2677.74
+        "revenue": 1888.19
       }
     },
     "doctors": {
       "ABDUL RAHIM RAMDZAN (64332)": {
         "visits": 36,
-        "total_revenue": 4963.5,
-        "avg_revenue_per_visit": 137.88,
+        "total_revenue": 3083.0,
+        "avg_revenue_per_visit": 85.64,
         "avg_meds_per_visit": 3.72,
         "top_medicines": [
           "TAB CURAM (AMOXYCILLIN + CLAVULANIC ACID) 625MG SANDOZ",
@@ -178,8 +178,8 @@
       },
       "FARID WONG BIN FITRI (111119)": {
         "visits": 11,
-        "total_revenue": 659.0,
-        "avg_revenue_per_visit": 59.91,
+        "total_revenue": 202.2,
+        "avg_revenue_per_visit": 18.38,
         "avg_meds_per_visit": 3.18,
         "top_medicines": [
           "TAB PARACAP 500MG HEALTH PHARM",
@@ -191,8 +191,8 @@
       },
       "MOHD SYAFIQ BIN HARRIS (67944)": {
         "visits": 1,
-        "total_revenue": 65.0,
-        "avg_revenue_per_visit": 65.0,
+        "total_revenue": 29.0,
+        "avg_revenue_per_visit": 29.0,
         "avg_meds_per_visit": 4.0,
         "top_medicines": [
           "TAB BEAZYME (PAPAIN) 150,000 USP UNIT NORIPHARMA",
@@ -203,8 +203,8 @@
       },
       "NICHOLAS JEREMIAH (71394)": {
         "visits": 787,
-        "total_revenue": 98339.67,
-        "avg_revenue_per_visit": 124.96,
+        "total_revenue": 98209.04,
+        "avg_revenue_per_visit": 124.79,
         "avg_meds_per_visit": 3.35,
         "top_medicines": [
           "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
@@ -216,8 +216,8 @@
       },
       "NIRUSHA A/P AMERJIT SINGH (72295)": {
         "visits": 11,
-        "total_revenue": 1020.0,
-        "avg_revenue_per_visit": 92.73,
+        "total_revenue": 745.5,
+        "avg_revenue_per_visit": 67.77,
         "avg_meds_per_visit": 3.0,
         "top_medicines": [
           "TAB MEXOMIDE (METOCLOPRAMIDE) 10MG DYNAPHARM",
@@ -229,8 +229,8 @@
       },
       "OTC": {
         "visits": 173,
-        "total_revenue": 7275.47,
-        "avg_revenue_per_visit": 42.05,
+        "total_revenue": 4217.09,
+        "avg_revenue_per_visit": 24.38,
         "avg_meds_per_visit": 1.41,
         "top_medicines": [
           "TAB PARACAP 500MG HEALTH PHARM",
@@ -308,74 +308,60 @@
       },
       "top_patients": [
         {
+          "name": "CAROLYNN BERITUS",
+          "mrn": "1000083",
+          "visits": 9,
+          "total_spend": 13440.0,
+          "last_visit": "2026-05-15"
+        },
+        {
+          "name": "FARHANAH AHMAD RAZALIE",
+          "mrn": "1000079",
+          "visits": 7,
+          "total_spend": 10720.0,
+          "last_visit": "2026-05-05"
+        },
+        {
+          "name": "ARANIE BOUNING ABDULLAH",
+          "mrn": "1000269",
+          "visits": 4,
+          "total_spend": 7840.0,
+          "last_visit": "2026-04-24"
+        },
+        {
+          "name": "NORHAYATIE BINTI  ALIZAMAN",
+          "mrn": "1000002",
+          "visits": 8,
+          "total_spend": 5354.5,
+          "last_visit": "2026-06-04"
+        },
+        {
           "name": "HU WEIGANG",
           "mrn": "1000631",
           "visits": 8,
-          "total_spend": 3876.0,
+          "total_spend": 3381.5,
           "last_visit": "2026-06-02"
         },
         {
           "name": "NOOR HAMIDAH BT MUSAH",
           "mrn": "1000173",
           "visits": 9,
-          "total_spend": 2908.0,
+          "total_spend": 2219.5,
           "last_visit": "2026-06-07"
-        },
-        {
-          "name": "DANNY @ DANNILO BIN ANGAT",
-          "mrn": "1000178",
-          "visits": 2,
-          "total_spend": 2465.0,
-          "last_visit": "2026-04-30"
-        },
-        {
-          "name": "DAMIAN C.MARCUS@DAMIAN CYRINUS",
-          "mrn": "1000129",
-          "visits": 1,
-          "total_spend": 2400.0,
-          "last_visit": "2026-03-05"
         },
         {
           "name": "MARGARET THAVAMONEY JEREMIAH",
           "mrn": "1000004",
           "visits": 18,
-          "total_spend": 2335.0,
+          "total_spend": 1795.5,
           "last_visit": "2026-05-27"
-        },
-        {
-          "name": "EDWINA IVY ANTHONIUS",
-          "mrn": "1000051",
-          "visits": 17,
-          "total_spend": 1680.67,
-          "last_visit": "2026-06-01"
         },
         {
           "name": "TANG KEE CHUN",
           "mrn": "1000295",
           "visits": 4,
-          "total_spend": 1675.0,
+          "total_spend": 1596.5,
           "last_visit": "2026-05-25"
-        },
-        {
-          "name": "NG YUN CHOI",
-          "mrn": "1000137",
-          "visits": 9,
-          "total_spend": 1640.5,
-          "last_visit": "2026-06-01"
-        },
-        {
-          "name": "CAROLYNN BERITUS",
-          "mrn": "1000083",
-          "visits": 9,
-          "total_spend": 1548.8,
-          "last_visit": "2026-05-15"
-        },
-        {
-          "name": "SHARIFAH SARI BINTI DATU ASAL",
-          "mrn": "1000503",
-          "visits": 5,
-          "total_spend": 1543.0,
-          "last_visit": "2026-06-07"
         },
         {
           "name": "DATIN ALIMAH BINTI JUBAR@RAISAH",
@@ -385,67 +371,81 @@
           "last_visit": "2026-06-08"
         },
         {
-          "name": "MOHAMMAD RIDHWAN KHAN B ABDUL RASHID",
-          "mrn": "1000358",
-          "visits": 6,
-          "total_spend": 1430.0,
-          "last_visit": "2026-05-10"
-        },
-        {
           "name": "HU YU CHANG",
           "mrn": "1000198",
           "visits": 4,
-          "total_spend": 1313.0,
+          "total_spend": 1284.5,
           "last_visit": "2026-06-06"
         },
         {
-          "name": "FARHANAH AHMAD RAZALIE",
-          "mrn": "1000079",
-          "visits": 7,
-          "total_spend": 1120.0,
-          "last_visit": "2026-05-05"
+          "name": "NG YUN CHOI",
+          "mrn": "1000137",
+          "visits": 9,
+          "total_spend": 1277.5,
+          "last_visit": "2026-06-01"
+        },
+        {
+          "name": "DANNY @ DANNILO BIN ANGAT",
+          "mrn": "1000178",
+          "visits": 2,
+          "total_spend": 1210.0,
+          "last_visit": "2026-04-30"
+        },
+        {
+          "name": "DAMIAN C.MARCUS@DAMIAN CYRINUS",
+          "mrn": "1000129",
+          "visits": 1,
+          "total_spend": 1200.0,
+          "last_visit": "2026-03-05"
+        },
+        {
+          "name": "SHARIFAH SARI BINTI DATU ASAL",
+          "mrn": "1000503",
+          "visits": 5,
+          "total_spend": 1187.0,
+          "last_visit": "2026-06-07"
+        },
+        {
+          "name": "MOHAMMAD RIDHWAN KHAN B ABDUL RASHID",
+          "mrn": "1000358",
+          "visits": 6,
+          "total_spend": 695.5,
+          "last_visit": "2026-05-10"
         },
         {
           "name": "GEORGE CHIN HIN ZHAN",
           "mrn": "1000059",
           "visits": 9,
-          "total_spend": 1070.0,
+          "total_spend": 670.0,
           "last_visit": "2026-04-02"
         },
         {
-          "name": "HARSAT BIN RANDAH",
-          "mrn": "1000559",
-          "visits": 1,
-          "total_spend": 1060.0,
-          "last_visit": "2026-05-09"
+          "name": "EDWINA IVY ANTHONIUS",
+          "mrn": "1000051",
+          "visits": 17,
+          "total_spend": 628.1,
+          "last_visit": "2026-06-01"
         },
         {
-          "name": "NORHAYATIE BINTI  ALIZAMAN",
-          "mrn": "1000002",
-          "visits": 8,
-          "total_spend": 1015.0,
-          "last_visit": "2026-06-04"
-        },
-        {
-          "name": "ARANIE BOUNING ABDULLAH",
-          "mrn": "1000269",
-          "visits": 4,
-          "total_spend": 960.0,
-          "last_visit": "2026-04-24"
+          "name": "KAI HARRISON BIN MOHAMMAD HADIE",
+          "mrn": "1000611",
+          "visits": 2,
+          "total_spend": 579.0,
+          "last_visit": "2026-05-30"
         },
         {
           "name": "DR NICHOLAS JEREMIAH",
           "mrn": "1000000",
           "visits": 59,
-          "total_spend": 877.39,
+          "total_spend": 561.25,
           "last_visit": "2026-06-08"
         },
         {
-          "name": "DATIN ROHANA BINTI JAMSALI",
-          "mrn": "1000024",
-          "visits": 1,
-          "total_spend": 765.0,
-          "last_visit": "2026-02-17"
+          "name": "JULIUS JULIE GALA",
+          "mrn": "1000099",
+          "visits": 8,
+          "total_spend": 520.0,
+          "last_visit": "2026-06-08"
         }
       ]
     },
@@ -601,12 +601,12 @@
         "count": 19
       },
       {
-        "med_a": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
+        "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
         "med_b": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
         "count": 19
       },
       {
-        "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
+        "med_a": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
         "med_b": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
         "count": 19
       },
@@ -702,119 +702,119 @@
       }
     ],
     "dead_90": [
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
       "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
-      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
       "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
       "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
       "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS"
     ],
     "dead_60": [
-      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
-      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
-      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
-      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
-      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
-      "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
-      "TAB TREN (TRANEXAMIC ACID) 250MG",
-      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
-      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
-      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
       "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
-      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
       "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
-      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
       "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
-      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
-      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
-      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
       "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
-      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
-      "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
+      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
+      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
+      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
+      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
+      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
+      "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
+      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
+      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
+      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
       "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
+      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
+      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
+      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
+      "TAB TREN (TRANEXAMIC ACID) 250MG",
       "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
-      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER"
+      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
+      "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
+      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
+      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
+      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER"
     ],
     "dead_30": [
-      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
-      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
-      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "MAC DUAL (HEXYLRESORCINOL 2.4MG) ACTION LOZENGES ZIWELL",
-      "ORAL AID LOTION (CHLORHEXIDINE HCL 0.5% & TRIAMCINOLONE 0.1% & LIDOCAINE 2.5%) 6ML DUOPHARMA",
-      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
-      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
-      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
-      "LOCOA ( ESFLURBIPROFEN ) 40MG TRANSDERMAL PATCH 7'S",
       "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
-      "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
-      "TAB BEAZYME (PAPAIN) 150,000 USP UNIT NORIPHARMA",
-      "SKYCELLFLU QUADRIVALENT PREFILLED INFLUENZA VACCINE PHARMANIAGA",
-      "TAB TREN (TRANEXAMIC ACID) 250MG",
-      "LA DERMOPLEX CALAMINE LOTION 120ML DUOPHARMA",
-      "NASONEX AQUEOUS NASAL SPRAY 0.05% 60D (MOMETASONE FUROATE) SCENT-FREE ORGANON HEIST BV",
-      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
-      "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
-      "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
-      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
-      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
-      "INJECSOL MGSO4 (MAGNESIUM SULFATE 50% W/V 2.465G) 5ML VIAL AIN MEDICARE",
-      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
-      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
-      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
-      "INJ PREDON INJECTION 25MG/ML HEALOL PHARMACEUTICALS SDN. BHD.",
-      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
-      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
-      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
-      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
-      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
-      "TAB METSWIFT XR (METFORMIN HCL) 1000MG SYNERRV",
-      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
-      "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
-      "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
-      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
-      "TAB PREDNISYN (PREDNISOLONE) 5MG DUOPHARMA",
-      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
-      "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
-      "TAB ROSUVASTATIN 20MG SYNERRV",
-      "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
-      "TAB DUPHASTON (DYDROGESTERONE) 10MG ABBOTT",
-      "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
-      "DYNA CALAMINE LOTION (CALAMINE POWDER 15% W/V / MENTHOL 0.15% W/V) 100ML DYNAPHARM (M)",
-      "INJ SENSOVISC 1% 20MG (HYALURONIC ACID) ADVANCE PHARMA",
-      "SYR COLIMIX (DICYCLOMINE 5MG/ SIMETHICONE 50MG) 90ML XEPA",
-      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
-      "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
-      "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
-      "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
-      "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
-      "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
-      "TAB DELTACARBON (CHARCOAL) 250MG IMEKS",
-      "TAB ZITHROLIDE (AZITHROMYCIN)  500MG PHARMANIAGA",
-      "CAP LOMODIUM (LOPERAMIDE) 2MG DYNAPHARM",
-      "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
-      "INJ GASTRIL ( RANITIDINE ) 50MG/2ML VIAL DUOPHARMA",
-      "TAB GOUTRIC ( FEBUXOSTAT) NOVUGEN",
-      "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
-      "INJ PRIORIX (MMR) 0.5ML GSK",
-      "INJ SHINCORT (TRIAMCINOLONE ACETONIDE 40MG/ML) 1ML VIAL Y.S.P.",
-      "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
-      "VICIDE CREAM 5%  (ACYCLOVIR 15MG/G) 10G PAHANG",
-      "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
-      "WELLMEX ATOMIC ENEMA 20ML NGL TRADING",
-      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
       "SALBUNEB ( SALBUTAMOL 2.5MG/2.5ML ) AIN MEDICARE",
+      "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
+      "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
+      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
+      "INJ SENSOVISC 1% 20MG (HYALURONIC ACID) ADVANCE PHARMA",
+      "TAB DUPHASTON (DYDROGESTERONE) 10MG ABBOTT",
+      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
       "TAB NORVASC (AMLODIPINE) 5MG PFIZER",
-      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
-      "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
+      "WELLMEX ATOMIC ENEMA 20ML NGL TRADING",
+      "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
+      "ORAL AID LOTION (CHLORHEXIDINE HCL 0.5% & TRIAMCINOLONE 0.1% & LIDOCAINE 2.5%) 6ML DUOPHARMA",
+      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
       "TAB VITABION (VIT B1 100MG, VIT B6 200MG, VIT B12 200MCG) UNISON LABORATORIES",
+      "TAB PREDNISYN (PREDNISOLONE) 5MG DUOPHARMA",
+      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
+      "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
+      "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
+      "TAB BEAZYME (PAPAIN) 150,000 USP UNIT NORIPHARMA",
+      "TAB DELTACARBON (CHARCOAL) 250MG IMEKS",
+      "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
+      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
+      "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
+      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
+      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
+      "TAB METSWIFT XR (METFORMIN HCL) 1000MG SYNERRV",
+      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
+      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
+      "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
+      "LA DERMOPLEX CALAMINE LOTION 120ML DUOPHARMA",
+      "VICIDE CREAM 5%  (ACYCLOVIR 15MG/G) 10G PAHANG",
+      "MAC DUAL (HEXYLRESORCINOL 2.4MG) ACTION LOZENGES ZIWELL",
+      "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
+      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
       "TAB NUELIN SR (THEOPHYLLINE) 250MG INOVA",
+      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
+      "CAP LOMODIUM (LOPERAMIDE) 2MG DYNAPHARM",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
+      "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
+      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
+      "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
+      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
+      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
+      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
+      "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
+      "DYNA CALAMINE LOTION (CALAMINE POWDER 15% W/V / MENTHOL 0.15% W/V) 100ML DYNAPHARM (M)",
+      "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
+      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
+      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
+      "INJ SHINCORT (TRIAMCINOLONE ACETONIDE 40MG/ML) 1ML VIAL Y.S.P.",
+      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
+      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
       "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
+      "INJ GASTRIL ( RANITIDINE ) 50MG/2ML VIAL DUOPHARMA",
+      "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
+      "TAB TREN (TRANEXAMIC ACID) 250MG",
+      "INJ PRIORIX (MMR) 0.5ML GSK",
+      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
+      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
+      "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
+      "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
+      "INJ PREDON INJECTION 25MG/ML HEALOL PHARMACEUTICALS SDN. BHD.",
+      "TAB ZITHROLIDE (AZITHROMYCIN)  500MG PHARMANIAGA",
+      "LOCOA ( ESFLURBIPROFEN ) 40MG TRANSDERMAL PATCH 7'S",
+      "INJECSOL MGSO4 (MAGNESIUM SULFATE 50% W/V 2.465G) 5ML VIAL AIN MEDICARE",
+      "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
+      "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
+      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
       "TAB LOVIR ( ACYCLOVIR ) 400MG RANBAXY",
-      "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA"
+      "TAB ROSUVASTATIN 20MG SYNERRV",
+      "NASONEX AQUEOUS NASAL SPRAY 0.05% 60D (MOMETASONE FUROATE) SCENT-FREE ORGANON HEIST BV",
+      "SYR COLIMIX (DICYCLOMINE 5MG/ SIMETHICONE 50MG) 90ML XEPA",
+      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
+      "TAB GOUTRIC ( FEBUXOSTAT) NOVUGEN",
+      "SKYCELLFLU QUADRIVALENT PREFILLED INFLUENZA VACCINE PHARMANIAGA"
     ],
     "never_dispensed": [
       "TAB CASPRIN (ASPIRIN) 100MG",
@@ -1226,18 +1226,18 @@
       "2026-06": 91
     },
     "monthly_revenue": {
-      "2026-02": 9879.0,
-      "2026-03": 29302.9,
-      "2026-04": 30280.18,
-      "2026-05": 31636.28,
-      "2026-06": 11224.28
+      "2026-02": 5733.0,
+      "2026-03": 39665.19,
+      "2026-04": 28043.9,
+      "2026-05": 21628.96,
+      "2026-06": 11414.78
     },
     "daily_revenue": {
       "2026-06-01": 1626.23,
-      "2026-06-02": 1689.05,
-      "2026-06-03": 991.0,
+      "2026-06-02": 1691.05,
+      "2026-06-03": 1099.5,
       "2026-06-04": 919.0,
-      "2026-06-05": 722.0,
+      "2026-06-05": 802.0,
       "2026-06-06": 676.5,
       "2026-06-07": 2170.5,
       "2026-06-08": 2282.0,
@@ -3333,7 +3333,7 @@
       "available_stock": 0.0,
       "required_stock": 10.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": null,
+      "latest_cost_price": 0.0,
       "avg_cost_price": 2.25,
       "selling_price": 20.0,
       "recommended_monthly": 3.2,
@@ -5673,7 +5673,7 @@
       "available_stock": 0.0,
       "required_stock": 60.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": null,
+      "latest_cost_price": 0.0,
       "avg_cost_price": 0.0,
       "selling_price": 0.0,
       "recommended_monthly": 0,
@@ -6431,7 +6431,7 @@
       "available_stock": 0.0,
       "required_stock": 10.0,
       "nearest_expiry": "nan",
-      "latest_cost_price": null,
+      "latest_cost_price": 0.0,
       "avg_cost_price": 2.25,
       "selling_price": 20.0,
       "recommended_monthly": 3.2,
@@ -14663,7 +14663,7 @@
       "available_stock": 2.0,
       "required_stock": 0.0,
       "nearest_expiry": "17/01/2028",
-      "latest_cost_price": null,
+      "latest_cost_price": 0.0,
       "avg_cost_price": 194.4,
       "selling_price": 194.4,
       "recommended_monthly": 1.0,
@@ -15177,7 +15177,7 @@
       "available_stock": 1.0,
       "required_stock": 1.0,
       "nearest_expiry": "31/01/2027",
-      "latest_cost_price": null,
+      "latest_cost_price": 0.0,
       "avg_cost_price": 0.0,
       "selling_price": 75.0,
       "recommended_monthly": 1.6,
@@ -15419,7 +15419,7 @@
       "available_stock": 2.0,
       "required_stock": 0.0,
       "nearest_expiry": "16/01/2027",
-      "latest_cost_price": null,
+      "latest_cost_price": 0.0,
       "avg_cost_price": 0.0,
       "selling_price": 120.0,
       "recommended_monthly": 0,
