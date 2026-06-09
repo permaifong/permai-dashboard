@@ -1532,7 +1532,7 @@ function fAS(){
   const groups=Object.fromEntries(catOrder.map(c=>[c,[]]));
   items.forEach(i=>{const c=getCategory(i.description);(groups[c]||groups['Uncategorized']).push(i);});
 
-  const COLS=['Medicine','Available','Required','Days Left','Cost','Sell','Margin','Expiry','Status','🔥 Pop.'];
+  const COLS=['Medicine','Available','Required','Days Left','Usage/Mo','Cost','Sell','Margin','Expiry','Status','🔥 Pop.'];
   const sortGrp=(grp,cat)=>{
     const ss=asSortState[cat];
     if(!ss||ss.col<0)return grp;
@@ -1543,12 +1543,13 @@ function fAS(){
         case 1:av=a.available_stock;bv=b.available_stock;break;
         case 2:av=a.required_stock;bv=b.required_stock;break;
         case 3:av=a.days_of_stock===999?99999:a.days_of_stock;bv=b.days_of_stock===999?99999:b.days_of_stock;break;
-        case 4:av=a.latest_cost_price||0;bv=b.latest_cost_price||0;break;
-        case 5:av=a.selling_price||0;bv=b.selling_price||0;break;
-        case 6:av=a.margin_pct??-1;bv=b.margin_pct??-1;break;
-        case 7:av=a.nearest_expiry||'9999';bv=b.nearest_expiry||'9999';break;
-        case 8:av=a.available_stock===0?0:a.needs_reorder?1:2;bv=b.available_stock===0?0:b.needs_reorder?1:2;break;
-        case 9:av=pLvl(a);bv=pLvl(b);break;
+        case 4:av=a.recommended_monthly||0;bv=b.recommended_monthly||0;break;
+        case 5:av=a.latest_cost_price||0;bv=b.latest_cost_price||0;break;
+        case 6:av=a.selling_price||0;bv=b.selling_price||0;break;
+        case 7:av=a.margin_pct??-1;bv=b.margin_pct??-1;break;
+        case 8:av=a.nearest_expiry||'9999';bv=b.nearest_expiry||'9999';break;
+        case 9:av=a.available_stock===0?0:a.needs_reorder?1:2;bv=b.available_stock===0?0:b.needs_reorder?1:2;break;
+        case 10:av=pLvl(a);bv=pLvl(b);break;
         default:return 0;
       }
       if(typeof av==='string')return ss.asc?av.localeCompare(bv):bv.localeCompare(av);
@@ -1560,13 +1561,13 @@ function fAS(){
     const d=i.days_of_stock;
     const dl=d===999?'—':d===0?'<span class="p pr">OOS</span>':d<7?`<span class="p pr">${d.toFixed(0)}d</span>`:d<14?`<span class="p po">${d.toFixed(0)}d</span>`:`<span style="font-family:var(--fm);font-size:11px;color:var(--muted)">${d.toFixed(0)}d</span>`;
     const rec=i.recommended_monthly||0;
-    const dlTip=d===999?'This item hasn’t been dispensed recently, so we can’t estimate how long stock will last.':d===0?'Out of stock right now.':`At the usual rate of about ${rec.toFixed(0)} a month, the ${i.available_stock} in stock should last roughly ${d.toFixed(0)} more days.`;
+    const um=rec>0?`<span style="font-family:var(--fm);font-size:11px;color:var(--text)">${rec.toFixed(0)}</span>`:`<span style="font-family:var(--fm);font-size:11px;color:var(--border)">0</span>`;
     const m=i.margin_pct;const mc=m===null?'pm':m<30?'pr':m<50?'po':'pg';
     const sc=i.available_stock===0?'pr':i.needs_reorder?'po':'pg';
     const lv=pLvl(i);
     return`<tr><td><div class="mn">${esc(tr(i.description,46))}<small>${esc(i.brand||'')} ${esc(i.manufacturer||'')}</small></div></td>
     <td><span class="p ${sc}">${i.available_stock}</span></td><td style="color:var(--muted)">${i.required_stock}</td>
-    <td title="${esc(dlTip)}" style="cursor:help">${dl}</td><td class="cost">MYR ${fmt(i.latest_cost_price||0)}</td><td class="cost">MYR ${fmt(i.selling_price||0)}</td>
+    <td>${dl}</td><td data-sort="${rec}">${um}</td><td class="cost">MYR ${fmt(i.latest_cost_price||0)}</td><td class="cost">MYR ${fmt(i.selling_price||0)}</td>
     <td>${m!==null?`<span class="p ${mc}">${m}%</span>`:'<span class="p pm">—</span>'}</td>
     <td style="font-family:var(--fm);font-size:10px;color:var(--muted)">${i.nearest_expiry||'—'}</td>
     <td><span class="p ${sc}">${i.available_stock===0?'OOS':i.needs_reorder?'Reorder':'OK'}</span></td>
@@ -1583,11 +1584,11 @@ function fAS(){
       const act=ss.col===ci;
       return`<td onclick="sortCat(${JSON.stringify(cat)},${ci})" style="${thS}color:${act?'var(--accent)':'var(--muted)'}">${esc(lbl)}${act?`<span style="margin-left:2px">${ss.asc?'↑':'↓'}</span>`:''}</td>`;
     }).join('');
-    html+=`<tr><td colspan="10" style="background:rgba(10,124,110,.09);padding:9px 14px 8px;font-family:var(--fh);font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;border-top:2px solid rgba(10,124,110,.18);border-bottom:1px solid rgba(10,124,110,.12)">${esc(cat)}<span style="font-weight:500;font-family:var(--fm);margin-left:7px;color:var(--muted);font-size:10px">(${grp.length})</span></td></tr>`;
+    html+=`<tr><td colspan="11" style="background:rgba(10,124,110,.09);padding:9px 14px 8px;font-family:var(--fh);font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;border-top:2px solid rgba(10,124,110,.18);border-bottom:1px solid rgba(10,124,110,.12)">${esc(cat)}<span style="font-weight:500;font-family:var(--fm);margin-left:7px;color:var(--muted);font-size:10px">(${grp.length})</span></td></tr>`;
     html+=`<tr>${mhdr}</tr>`;
     html+=grp.map(mkRow).join('');
   });
-  document.getElementById('t-as').innerHTML=html||'<tr><td colspan="10" class="empty">No items.</td></tr>';
+  document.getElementById('t-as').innerHTML=html||'<tr><td colspan="11" class="empty">No items.</td></tr>';
 }
 function sAF(f,btn){asFilter=f;document.querySelectorAll('#view-allstock .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');fAS();}
 
