@@ -222,6 +222,13 @@ tr.ru td{background:rgba(255,165,2,.03)}
         <div id="row-list-today" style="overflow-y:auto;max-height:200px;display:none;flex-direction:column;gap:0"></div>
         <div id="row-list-week" style="overflow-y:auto;max-height:200px;display:flex;flex-direction:column;gap:0"></div>
         <div id="row-list-month" style="overflow-y:auto;max-height:200px;display:none;flex-direction:column;gap:0"></div>
+        <div id="added-section" style="margin-top:12px;border-top:1px solid var(--border);padding-top:10px;display:none">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <span style="font-size:12px;font-weight:700;color:var(--text)">📦 Recently Added Stock <span style="font-weight:400;color:var(--muted);font-size:11px">(last 3 days)</span></span>
+            <span id="added-count" style="font-family:var(--fm);font-size:10px;color:var(--muted)"></span>
+          </div>
+          <div id="added-list" style="overflow-y:auto;max-height:170px;display:flex;flex-direction:column;gap:0"></div>
+        </div>
       </div>
     </div>
     </div>
@@ -1140,6 +1147,21 @@ function rOverview(){
   document.getElementById('rotab-week').dataset.count=roWeek.length;
   document.getElementById('rotab-month').dataset.count=roMonth.length;
   document.getElementById('row-count').textContent=`${roWeek.length} medicine${roWeek.length!==1?'s':''}`;
+
+  // Recently Added Stock — items whose stock went up vs ~3 days ago
+  const added=D.recently_added||[];
+  const addedSec=document.getElementById('added-section');
+  if(addedSec){
+    if(added.length){
+      addedSec.style.display='block';
+      const fromTxt=D.recently_added_from?` since ${new Date(D.recently_added_from).toLocaleDateString('en-MY',{day:'numeric',month:'short'})}`:'';
+      document.getElementById('added-count').textContent=`${added.length} item${added.length!==1?'s':''}${fromTxt}`;
+      const addedRow=i=>`<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border)"><span style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;color:var(--text)">${esc(tr(i.description,46))}</span><span style="font-family:var(--fm);font-size:11px;font-weight:700;color:var(--ok);white-space:nowrap;margin-left:8px" title="${i.old_stock} → ${i.new_stock}">+${i.added}</span></div>`;
+      document.getElementById('added-list').innerHTML=added.map(addedRow).join('');
+    }else{
+      addedSec.style.display='none';
+    }
+  }
 
 
   // Stock Health — stacked bar + clickable mini-stats
