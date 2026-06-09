@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T08:03:05.162265",
+  "generated_at": "2026-06-09T12:50:03.620774",
   "inventory_date": "2026-06-09",
   "months_analyzed": [
     "2026-02",
@@ -581,12 +581,12 @@
         "count": 20
       },
       {
-        "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
+        "med_a": "SYR RETORIN (ERYTHROMYCIN) 200MG/5ML 60ML SM PHARMA",
         "med_b": "SYR UPHAMOL (PARACETAMOL) 250MG/5ML (ORANGE FLAVOURED) DUOPHARMA",
         "count": 20
       },
       {
-        "med_a": "SYR RETORIN (ERYTHROMYCIN) 200MG/5ML 60ML SM PHARMA",
+        "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
         "med_b": "SYR UPHAMOL (PARACETAMOL) 250MG/5ML (ORANGE FLAVOURED) DUOPHARMA",
         "count": 20
       },
@@ -601,12 +601,12 @@
         "count": 19
       },
       {
-        "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
+        "med_a": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
         "med_b": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
         "count": 19
       },
       {
-        "med_a": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
+        "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
         "med_b": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
         "count": 19
       },
@@ -702,119 +702,119 @@
       }
     ],
     "dead_90": [
-      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
-      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
       "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
       "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
-      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE"
+      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
+      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
+      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
+      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE"
     ],
     "dead_60": [
-      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
-      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
-      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
-      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
-      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
-      "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
-      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
-      "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
-      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
       "TAB TREN (TRANEXAMIC ACID) 250MG",
-      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
-      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
+      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
+      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
       "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
-      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
       "TAB NORMATEN (ATENOLOL) 50MG XEPA",
-      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
-      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
-      "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
+      "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
+      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
+      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
+      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
+      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
+      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
       "TAB HOVASC (AMLODIPINE) 10MG HOVID",
       "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
-      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
+      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
       "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
+      "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
+      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
       "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
-      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH"
+      "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
+      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
+      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
+      "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
+      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
+      "TAB CONCOR (BISOPROLOL) 5MG MERCKS"
     ],
     "dead_30": [
-      "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
-      "INJ PRIORIX (MMR) 0.5ML GSK",
+      "NASONEX AQUEOUS NASAL SPRAY 0.05% 60D (MOMETASONE FUROATE) SCENT-FREE ORGANON HEIST BV",
+      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
+      "CAP LOMODIUM (LOPERAMIDE) 2MG DYNAPHARM",
+      "ORAL AID LOTION (CHLORHEXIDINE HCL 0.5% & TRIAMCINOLONE 0.1% & LIDOCAINE 2.5%) 6ML DUOPHARMA",
       "SKYCELLFLU QUADRIVALENT PREFILLED INFLUENZA VACCINE PHARMANIAGA",
-      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
-      "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
-      "VICIDE CREAM 5%  (ACYCLOVIR 15MG/G) 10G PAHANG",
-      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
-      "INJECSOL MGSO4 (MAGNESIUM SULFATE 50% W/V 2.465G) 5ML VIAL AIN MEDICARE",
-      "TAB METSWIFT XR (METFORMIN HCL) 1000MG SYNERRV",
-      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
-      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
-      "WELLMEX ATOMIC ENEMA 20ML NGL TRADING",
-      "LOCOA ( ESFLURBIPROFEN ) 40MG TRANSDERMAL PATCH 7'S",
-      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
-      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
-      "TAB DELTACARBON (CHARCOAL) 250MG IMEKS",
-      "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
-      "TAB PREDNISYN (PREDNISOLONE) 5MG DUOPHARMA",
-      "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
+      "SYR COLIMIX (DICYCLOMINE 5MG/ SIMETHICONE 50MG) 90ML XEPA",
+      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
+      "TAB TREN (TRANEXAMIC ACID) 250MG",
       "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
+      "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
+      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
+      "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
+      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
+      "TAB BEAZYME (PAPAIN) 150,000 USP UNIT NORIPHARMA",
+      "TAB DELTACARBON (CHARCOAL) 250MG IMEKS",
+      "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
+      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
+      "MAC DUAL (HEXYLRESORCINOL 2.4MG) ACTION LOZENGES ZIWELL",
+      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
+      "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
       "DYNA CALAMINE LOTION (CALAMINE POWDER 15% W/V / MENTHOL 0.15% W/V) 100ML DYNAPHARM (M)",
       "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
-      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
-      "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
-      "SYR COLIMIX (DICYCLOMINE 5MG/ SIMETHICONE 50MG) 90ML XEPA",
-      "TAB TREN (TRANEXAMIC ACID) 250MG",
-      "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
-      "NASONEX AQUEOUS NASAL SPRAY 0.05% 60D (MOMETASONE FUROATE) SCENT-FREE ORGANON HEIST BV",
-      "INJ SENSOVISC 1% 20MG (HYALURONIC ACID) ADVANCE PHARMA",
-      "INJ SHINCORT (TRIAMCINOLONE ACETONIDE 40MG/ML) 1ML VIAL Y.S.P.",
-      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
-      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
-      "TAB LOVIR ( ACYCLOVIR ) 400MG RANBAXY",
-      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
-      "TAB NORVASC (AMLODIPINE) 5MG PFIZER",
-      "INJ GASTRIL ( RANITIDINE ) 50MG/2ML VIAL DUOPHARMA",
-      "TAB ZITHROLIDE (AZITHROMYCIN)  500MG PHARMANIAGA",
-      "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
-      "TAB ROSUVASTATIN 20MG SYNERRV",
-      "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
       "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
-      "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
-      "SALBUNEB ( SALBUTAMOL 2.5MG/2.5ML ) AIN MEDICARE",
-      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
-      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
-      "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
-      "TAB DUPHASTON (DYDROGESTERONE) 10MG ABBOTT",
-      "INJ PREDON INJECTION 25MG/ML HEALOL PHARMACEUTICALS SDN. BHD.",
-      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
-      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
-      "TAB VITABION (VIT B1 100MG, VIT B6 200MG, VIT B12 200MCG) UNISON LABORATORIES",
+      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
+      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
+      "TAB ROSUVASTATIN 20MG SYNERRV",
+      "LOCOA ( ESFLURBIPROFEN ) 40MG TRANSDERMAL PATCH 7'S",
       "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
-      "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
+      "TAB ZITHROLIDE (AZITHROMYCIN)  500MG PHARMANIAGA",
+      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
+      "INJ SENSOVISC 1% 20MG (HYALURONIC ACID) ADVANCE PHARMA",
+      "INJECSOL MGSO4 (MAGNESIUM SULFATE 50% W/V 2.465G) 5ML VIAL AIN MEDICARE",
+      "TAB LOVIR ( ACYCLOVIR ) 400MG RANBAXY",
+      "TAB NUELIN SR (THEOPHYLLINE) 250MG INOVA",
+      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
+      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
+      "INJ GASTRIL ( RANITIDINE ) 50MG/2ML VIAL DUOPHARMA",
+      "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
+      "LA DERMOPLEX CALAMINE LOTION 120ML DUOPHARMA",
+      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
+      "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
+      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
+      "TAB METSWIFT XR (METFORMIN HCL) 1000MG SYNERRV",
+      "SALBUNEB ( SALBUTAMOL 2.5MG/2.5ML ) AIN MEDICARE",
+      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
+      "INJ PREDON INJECTION 25MG/ML HEALOL PHARMACEUTICALS SDN. BHD.",
+      "TAB DUPHASTON (DYDROGESTERONE) 10MG ABBOTT",
+      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
+      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
+      "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
+      "VICIDE CREAM 5%  (ACYCLOVIR 15MG/G) 10G PAHANG",
+      "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
+      "TAB VITABION (VIT B1 100MG, VIT B6 200MG, VIT B12 200MCG) UNISON LABORATORIES",
+      "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
+      "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
+      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
+      "INJ PRIORIX (MMR) 0.5ML GSK",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
+      "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
       "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
       "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
-      "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
-      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
-      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
-      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
+      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
       "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
-      "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
-      "TAB BEAZYME (PAPAIN) 150,000 USP UNIT NORIPHARMA",
       "TAB GOUTRIC ( FEBUXOSTAT) NOVUGEN",
-      "LA DERMOPLEX CALAMINE LOTION 120ML DUOPHARMA",
-      "CAP LOMODIUM (LOPERAMIDE) 2MG DYNAPHARM",
-      "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
-      "ORAL AID LOTION (CHLORHEXIDINE HCL 0.5% & TRIAMCINOLONE 0.1% & LIDOCAINE 2.5%) 6ML DUOPHARMA",
-      "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
-      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
+      "TAB NORVASC (AMLODIPINE) 5MG PFIZER",
+      "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
       "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
-      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
-      "TAB NUELIN SR (THEOPHYLLINE) 250MG INOVA",
-      "MAC DUAL (HEXYLRESORCINOL 2.4MG) ACTION LOZENGES ZIWELL",
-      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH"
+      "TAB PREDNISYN (PREDNISOLONE) 5MG DUOPHARMA",
+      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
+      "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
+      "WELLMEX ATOMIC ENEMA 20ML NGL TRADING",
+      "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
+      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
+      "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
+      "INJ SHINCORT (TRIAMCINOLONE ACETONIDE 40MG/ML) 1ML VIAL Y.S.P."
     ],
     "never_dispensed": [
       "TAB CASPRIN (ASPIRIN) 100MG",
@@ -1277,7 +1277,8 @@
       "expiry_days": 905,
       "months_supply": 5.1,
       "is_overstock": false,
-      "margin_pct": 79.2
+      "margin_pct": 79.2,
+      "qty_14d": 180
     },
     {
       "description": "TABS BETAMETHASONE 0.5MG Y.S.P.",
@@ -1311,7 +1312,8 @@
       "expiry_days": 205,
       "months_supply": 2.1,
       "is_overstock": false,
-      "margin_pct": 92.7
+      "margin_pct": 92.7,
+      "qty_14d": 180
     },
     {
       "description": "TAB PARACAP 500MG HEALTH PHARM",
@@ -1345,7 +1347,8 @@
       "expiry_days": 783,
       "months_supply": 1.7,
       "is_overstock": false,
-      "margin_pct": 84.0
+      "margin_pct": 84.0,
+      "qty_14d": 70
     },
     {
       "description": "TAB SPASIL (DIPHENOXYLATE 2.5MG/ATROPINE 0.025MG) IMEKS",
@@ -1379,7 +1382,8 @@
       "expiry_days": 689,
       "months_supply": 1.8,
       "is_overstock": false,
-      "margin_pct": 89.3
+      "margin_pct": 89.3,
+      "qty_14d": 100
     },
     {
       "description": "TAB UNASYN (SULTAMICILLIN) 375MG PFIZER",
@@ -1413,7 +1417,8 @@
       "expiry_days": 570,
       "months_supply": 0.4,
       "is_overstock": false,
-      "margin_pct": 53.3
+      "margin_pct": 53.3,
+      "qty_14d": 270
     },
     {
       "description": "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
@@ -1447,7 +1452,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 64.7
+      "margin_pct": 64.7,
+      "qty_14d": 0
     },
     {
       "description": "TAB PREDNISYN (PREDNISOLONE) 5MG DUOPHARMA",
@@ -1481,7 +1487,8 @@
       "expiry_days": 236,
       "months_supply": 5.2,
       "is_overstock": false,
-      "margin_pct": 92.0
+      "margin_pct": 92.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB CURAM (AMOXYCILLIN + CLAVULANIC ACID) 625MG SANDOZ",
@@ -1515,7 +1522,8 @@
       "expiry_days": 691,
       "months_supply": 2.3,
       "is_overstock": false,
-      "margin_pct": 72.0
+      "margin_pct": 72.0,
+      "qty_14d": 80
     },
     {
       "description": "MABRON (TRAMADOL) CAPSULES 50MG MEDOCHEMIE LTD",
@@ -1549,7 +1557,8 @@
       "expiry_days": 1421,
       "months_supply": 2.4,
       "is_overstock": false,
-      "margin_pct": 68.0
+      "margin_pct": 68.0,
+      "qty_14d": 100
     },
     {
       "description": "TAB ANAREX (ORPHENADRINE 35MG/ PARACETAMOL 450MG) DUOPHARMA",
@@ -1583,7 +1592,8 @@
       "expiry_days": 752,
       "months_supply": 7.2,
       "is_overstock": true,
-      "margin_pct": 88.7
+      "margin_pct": 88.7,
+      "qty_14d": 20
     },
     {
       "description": "TAB NP PREDNISOLONE 5MG NORIPHARMA",
@@ -1617,7 +1627,8 @@
       "expiry_days": 844,
       "months_supply": 1.6,
       "is_overstock": false,
-      "margin_pct": 93.0
+      "margin_pct": 93.0,
+      "qty_14d": 120
     },
     {
       "description": "TAB CLARINASE (PSEUDOEPHEDRINE 120MG, LORATADINE 5MG) BAYER",
@@ -1651,7 +1662,8 @@
       "expiry_days": 417,
       "months_supply": 1.2,
       "is_overstock": false,
-      "margin_pct": 54.8
+      "margin_pct": 54.8,
+      "qty_14d": 60
     },
     {
       "description": "CHEWABLE SIMCONE ( SIMETICONE ) 80MG IMEKS",
@@ -1685,7 +1697,8 @@
       "expiry_days": 936,
       "months_supply": 1.6,
       "is_overstock": false,
-      "margin_pct": 84.0
+      "margin_pct": 84.0,
+      "qty_14d": 70
     },
     {
       "description": "TAB HYOMIDE (HYOSCINE BUTYLBROMIDE) 10MG DUOPHARMA",
@@ -1719,7 +1732,8 @@
       "expiry_days": 325,
       "months_supply": 8.1,
       "is_overstock": true,
-      "margin_pct": 71.0
+      "margin_pct": 71.0,
+      "qty_14d": 90
     },
     {
       "description": "TAB PANTOPRAZOLE 40MG (GASTRO-RESISTANT) SANDOZ",
@@ -1753,7 +1767,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 71.5
+      "margin_pct": 71.5,
+      "qty_14d": 84
     },
     {
       "description": "TAB PIRITON (CHLORPHENIRAMINE) 4MG DUOPHARMA",
@@ -1787,7 +1802,8 @@
       "expiry_days": 844,
       "months_supply": 7.6,
       "is_overstock": true,
-      "margin_pct": 95.0
+      "margin_pct": 95.0,
+      "qty_14d": 50
     },
     {
       "description": "CEFUROXIME 500MG ALTACEF GLENMARK",
@@ -1821,7 +1837,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 70.6
+      "margin_pct": 70.6,
+      "qty_14d": 70
     },
     {
       "description": "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
@@ -1855,7 +1872,8 @@
       "expiry_days": 844,
       "months_supply": 9.3,
       "is_overstock": true,
-      "margin_pct": 94.4
+      "margin_pct": 94.4,
+      "qty_14d": 0
     },
     {
       "description": "TAB MUCOSOLVAN (AMBROXOL) 30MG DKSH",
@@ -1889,7 +1907,8 @@
       "expiry_days": 722,
       "months_supply": 0.6,
       "is_overstock": false,
-      "margin_pct": 69.3
+      "margin_pct": 69.3,
+      "qty_14d": 30
     },
     {
       "description": "TAB GLENCET (LEVOCETRIZINE) 5MG GLENMARK",
@@ -1923,7 +1942,8 @@
       "expiry_days": 814,
       "months_supply": 1.0,
       "is_overstock": false,
-      "margin_pct": 65.3
+      "margin_pct": 65.3,
+      "qty_14d": 40
     },
     {
       "description": "TAB LUSEFI ( LUSEOGLIFLOZIN ) 5MG TAISHO",
@@ -1957,7 +1977,8 @@
       "expiry_days": 844,
       "months_supply": 1.7,
       "is_overstock": false,
-      "margin_pct": 50.0
+      "margin_pct": 50.0,
+      "qty_14d": 40
     },
     {
       "description": "TABLET METGYL (METRONIDAZOLE) 400MG SM PHARMACEUTICALS",
@@ -1991,7 +2012,8 @@
       "expiry_days": 936,
       "months_supply": 0.5,
       "is_overstock": false,
-      "margin_pct": 96.4
+      "margin_pct": 96.4,
+      "qty_14d": 50
     },
     {
       "description": "TAB MEXOMIDE (METOCLOPRAMIDE) 10MG DYNAPHARM",
@@ -2025,7 +2047,8 @@
       "expiry_days": 815,
       "months_supply": 13.6,
       "is_overstock": true,
-      "margin_pct": 94.0
+      "margin_pct": 94.0,
+      "qty_14d": 30
     },
     {
       "description": "TAB BELTAS (BILASTINE) 20MG GLENMARK",
@@ -2059,7 +2082,8 @@
       "expiry_days": 752,
       "months_supply": 0.3,
       "is_overstock": false,
-      "margin_pct": 60.0
+      "margin_pct": 60.0,
+      "qty_14d": 60
     },
     {
       "description": "TAB GLUCOPHAGE XR 1000MG METFORMIN",
@@ -2093,7 +2117,8 @@
       "expiry_days": 295,
       "months_supply": 1.9,
       "is_overstock": false,
-      "margin_pct": 56.3
+      "margin_pct": 56.3,
+      "qty_14d": 40
     },
     {
       "description": "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
@@ -2127,7 +2152,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 32.0
+      "margin_pct": 32.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB DUOFOLIC (FOLIC ACID) 5MG DUOPHARMA",
@@ -2161,7 +2187,8 @@
       "expiry_days": 629,
       "months_supply": 0.3,
       "is_overstock": false,
-      "margin_pct": 93.0
+      "margin_pct": 93.0,
+      "qty_14d": 30
     },
     {
       "description": "TAB ANTAROL (PROPRANOLOL) 40MG IMEKS",
@@ -2195,7 +2222,8 @@
       "expiry_days": 1117,
       "months_supply": 2.1,
       "is_overstock": false,
-      "margin_pct": 93.0
+      "margin_pct": 93.0,
+      "qty_14d": 35
     },
     {
       "description": "EFF GRANULES AVOSODA (SODIUM BICARBONATE) 1.916G/SACHET ABIO",
@@ -2229,7 +2257,8 @@
       "expiry_days": 844,
       "months_supply": 1.3,
       "is_overstock": false,
-      "margin_pct": 74.8
+      "margin_pct": 74.8,
+      "qty_14d": 48
     },
     {
       "description": "TAB DESLORATADINE 5MG SYNERRV",
@@ -2263,7 +2292,8 @@
       "expiry_days": 356,
       "months_supply": 0.7,
       "is_overstock": false,
-      "margin_pct": 58.5
+      "margin_pct": 58.5,
+      "qty_14d": 20
     }
   ],
   "top_revenue_items": [
@@ -2299,7 +2329,8 @@
       "expiry_days": 478,
       "months_supply": 0.6,
       "is_overstock": false,
-      "margin_pct": 35.2
+      "margin_pct": 35.2,
+      "qty_14d": 11
     },
     {
       "description": "ARTIBEST INTRA-ARTICULAR INJECTION BREGGO",
@@ -2333,7 +2364,8 @@
       "expiry_days": 878,
       "months_supply": 1.4,
       "is_overstock": false,
-      "margin_pct": 33.5
+      "margin_pct": 33.5,
+      "qty_14d": 1
     },
     {
       "description": "TAB UNASYN (SULTAMICILLIN) 375MG PFIZER",
@@ -2367,7 +2399,8 @@
       "expiry_days": 570,
       "months_supply": 0.4,
       "is_overstock": false,
-      "margin_pct": 53.3
+      "margin_pct": 53.3,
+      "qty_14d": 270
     },
     {
       "description": "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
@@ -2401,7 +2434,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 76.4
+      "margin_pct": 76.4,
+      "qty_14d": 0
     },
     {
       "description": "INJ SENSOVISC 1% 20MG (HYALURONIC ACID) ADVANCE PHARMA",
@@ -2435,7 +2469,8 @@
       "expiry_days": 814,
       "months_supply": 1.0,
       "is_overstock": false,
-      "margin_pct": 69.4
+      "margin_pct": 69.4,
+      "qty_14d": 0
     },
     {
       "description": "INJ INFLUVAC TETRA 0.5ML ABBOTT",
@@ -2469,7 +2504,8 @@
       "expiry_days": 205,
       "months_supply": 2.2,
       "is_overstock": false,
-      "margin_pct": 66.2
+      "margin_pct": 66.2,
+      "qty_14d": 7
     },
     {
       "description": "INJ TROVITE PAIR (THIAMINE HYDROCHLORIDE 250MG/5ML + PYRIDOXINE HYDROCHLORIDE 50MG/5ML + DEXTROSE MONOHYDRATE 1000MG/5ML + ASCORBIC ACID 500MG/5ML + DEXPANTHENOL 5MG/5ML + RIBOFLAVIN SODIUM PHOSPHATE 5.133MG/5ML + NICOTINAMIDE 160MG/5ML) DUOPHARMA",
@@ -2503,7 +2539,8 @@
       "expiry_days": 236,
       "months_supply": 2.3,
       "is_overstock": false,
-      "margin_pct": 64.3
+      "margin_pct": 64.3,
+      "qty_14d": 4
     },
     {
       "description": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
@@ -2537,7 +2574,8 @@
       "expiry_days": 905,
       "months_supply": 5.1,
       "is_overstock": false,
-      "margin_pct": 79.2
+      "margin_pct": 79.2,
+      "qty_14d": 180
     },
     {
       "description": "INJ BUFENCON (BETAMETHASONE 7MG/ML) 1ML Y.S.P.",
@@ -2571,7 +2609,8 @@
       "expiry_days": 722,
       "months_supply": 1.8,
       "is_overstock": false,
-      "margin_pct": 65.9
+      "margin_pct": 65.9,
+      "qty_14d": 9
     },
     {
       "description": "TAB CLARINASE (PSEUDOEPHEDRINE 120MG, LORATADINE 5MG) BAYER",
@@ -2605,7 +2644,8 @@
       "expiry_days": 417,
       "months_supply": 1.2,
       "is_overstock": false,
-      "margin_pct": 54.8
+      "margin_pct": 54.8,
+      "qty_14d": 60
     },
     {
       "description": "TAB CURAM (AMOXYCILLIN + CLAVULANIC ACID) 625MG SANDOZ",
@@ -2639,7 +2679,8 @@
       "expiry_days": 691,
       "months_supply": 2.3,
       "is_overstock": false,
-      "margin_pct": 72.0
+      "margin_pct": 72.0,
+      "qty_14d": 80
     },
     {
       "description": "INJ SUPRAXONE ( CEFTRIAXONE 1G POWDER ) PHARMEX",
@@ -2673,7 +2714,8 @@
       "expiry_days": 417,
       "months_supply": 1.1,
       "is_overstock": false,
-      "margin_pct": 84.0
+      "margin_pct": 84.0,
+      "qty_14d": 6
     },
     {
       "description": "CEFUROXIME 500MG ALTACEF GLENMARK",
@@ -2707,7 +2749,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 70.6
+      "margin_pct": 70.6,
+      "qty_14d": 70
     },
     {
       "description": "TAB LUSEFI ( LUSEOGLIFLOZIN ) 5MG TAISHO",
@@ -2741,7 +2784,8 @@
       "expiry_days": 844,
       "months_supply": 1.7,
       "is_overstock": false,
-      "margin_pct": 50.0
+      "margin_pct": 50.0,
+      "qty_14d": 40
     },
     {
       "description": "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
@@ -2775,7 +2819,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 32.0
+      "margin_pct": 32.0,
+      "qty_14d": 0
     },
     {
       "description": "IVD N/S 0.9% 500ML B. BRAUN",
@@ -2809,7 +2854,8 @@
       "expiry_days": 908,
       "months_supply": 0.8,
       "is_overstock": false,
-      "margin_pct": 92.4
+      "margin_pct": 92.4,
+      "qty_14d": 6
     },
     {
       "description": "PULMICORT (BUDESONIDE) RESPULE 1MG ASTRAZENECA",
@@ -2843,7 +2889,8 @@
       "expiry_days": 448,
       "months_supply": 1.9,
       "is_overstock": false,
-      "margin_pct": 65.6
+      "margin_pct": 65.6,
+      "qty_14d": 8
     },
     {
       "description": "TABS BETAMETHASONE 0.5MG Y.S.P.",
@@ -2877,7 +2924,8 @@
       "expiry_days": 205,
       "months_supply": 2.1,
       "is_overstock": false,
-      "margin_pct": 92.7
+      "margin_pct": 92.7,
+      "qty_14d": 180
     },
     {
       "description": "ZELLOX-II LIQUID ANTACID (ALUMINIUM H'XIDE 800MG, MAGNESIUM H'XIDE 800MG & SIMETHICONE 60MG) 100ML HOE PHARMA",
@@ -2911,7 +2959,8 @@
       "expiry_days": 905,
       "months_supply": 4.4,
       "is_overstock": false,
-      "margin_pct": 70.9
+      "margin_pct": 70.9,
+      "qty_14d": 8
     },
     {
       "description": "XOIN (N-BUTYL-2-CYANOACRYLATE) TOPICAL SKIN ADHESIVE 0.25ML REEVAX PHARMA",
@@ -2945,7 +2994,8 @@
       "expiry_days": 539,
       "months_supply": 1.3,
       "is_overstock": false,
-      "margin_pct": 90.0
+      "margin_pct": 90.0,
+      "qty_14d": 1
     }
   ],
   "reorder_items": [
@@ -2981,7 +3031,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 70.6
+      "margin_pct": 70.6,
+      "qty_14d": 70
     },
     {
       "description": "LA DERMOPLEX CALAMINE LOTION 120ML DUOPHARMA",
@@ -3015,7 +3066,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 67.3
+      "margin_pct": 67.3,
+      "qty_14d": 0
     },
     {
       "description": "TAB TREN (TRANEXAMIC ACID) 250MG",
@@ -3049,7 +3101,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 59.5
+      "margin_pct": 59.5,
+      "qty_14d": 0
     },
     {
       "description": "LOCOA ( ESFLURBIPROFEN ) 40MG TRANSDERMAL PATCH 7'S",
@@ -3083,7 +3136,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 45.0
+      "margin_pct": 45.0,
+      "qty_14d": 0
     },
     {
       "description": "CAP TRACIDOL (TRAMADOL) 50MG Y.S.P.",
@@ -3117,7 +3171,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 63.0
+      "margin_pct": 63.0,
+      "qty_14d": 10
     },
     {
       "description": "TAB ULTRACET (TRAMADOL 37.5MG/PARACETAMOL 325MG) J&J",
@@ -3151,7 +3206,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 50.9
+      "margin_pct": 50.9,
+      "qty_14d": 0
     },
     {
       "description": "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
@@ -3185,7 +3241,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 41.6
+      "margin_pct": 41.6,
+      "qty_14d": 0
     },
     {
       "description": "TAB PANTOPRAZOLE 40MG (GASTRO-RESISTANT) SANDOZ",
@@ -3219,7 +3276,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 71.5
+      "margin_pct": 71.5,
+      "qty_14d": 84
     },
     {
       "description": "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
@@ -3253,7 +3311,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 68.8
+      "margin_pct": 68.8,
+      "qty_14d": 0
     },
     {
       "description": "TAB PONTALON (MEFENAMIC ACID) 500MG Y.S.P.",
@@ -3287,7 +3346,8 @@
       "expiry_days": 601,
       "months_supply": 0.2,
       "is_overstock": false,
-      "margin_pct": 90.7
+      "margin_pct": 90.7,
+      "qty_14d": 40
     },
     {
       "description": "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
@@ -3321,7 +3381,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 56.9
+      "margin_pct": 56.9,
+      "qty_14d": 0
     },
     {
       "description": "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
@@ -3355,7 +3416,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": null,
+      "qty_14d": 0
     },
     {
       "description": "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
@@ -3389,7 +3451,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 83.0
+      "margin_pct": 83.0,
+      "qty_14d": 0
     },
     {
       "description": "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
@@ -3423,7 +3486,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 50.9
+      "margin_pct": 50.9,
+      "qty_14d": 0
     },
     {
       "description": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
@@ -3457,7 +3521,8 @@
       "expiry_days": 136,
       "months_supply": 0.2,
       "is_overstock": false,
-      "margin_pct": 80.0
+      "margin_pct": 80.0,
+      "qty_14d": 14
     },
     {
       "description": "SYR MUCOPROM (CARBOCISTEINE 100MG/ PROMETHAZINE 2.5MG /5ML) 90ML XEPA",
@@ -3491,7 +3556,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 71.2
+      "margin_pct": 71.2,
+      "qty_14d": 0
     },
     {
       "description": "MAC DUAL (HEXYLRESORCINOL 2.4MG) ACTION LOZENGES ZIWELL",
@@ -3525,7 +3591,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 57.2
+      "margin_pct": 57.2,
+      "qty_14d": 0
     },
     {
       "description": "EFFERVESCENT ACETYLCYSTIENE (N-ACETYLCYSTIENE) 600MG 2'S SANDOZ",
@@ -3559,7 +3626,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 78.3
+      "margin_pct": 78.3,
+      "qty_14d": 9
     },
     {
       "description": "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
@@ -3593,7 +3661,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 40.7
+      "margin_pct": 40.7,
+      "qty_14d": 0
     },
     {
       "description": "PROCTOSEDYL OINTMENT (FRAMYCETIN SULPHATE 1% W/W, HYDROCORTISONE 0.5% W/W, CINCHOCAINE.5% W/W, AESCULIN 1% W/W) 15G ZUELLIG PHARMA",
@@ -3627,7 +3696,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 53.3
+      "margin_pct": 53.3,
+      "qty_14d": 1
     },
     {
       "description": "ORREPASTE (TRIAMCINOLONE ACETONIDE 0.1% W/W) 5G HOE",
@@ -3661,7 +3731,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 54.6
+      "margin_pct": 54.6,
+      "qty_14d": 0
     },
     {
       "description": "AXCEL UREA (UREA 10% W/W) CREAM 20G KOTRA PHARMA",
@@ -3695,7 +3766,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 52.0
+      "margin_pct": 52.0,
+      "qty_14d": 0
     },
     {
       "description": "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
@@ -3729,7 +3801,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 76.4
+      "margin_pct": 76.4,
+      "qty_14d": 0
     },
     {
       "description": "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
@@ -3763,7 +3836,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 93.0
+      "margin_pct": 93.0,
+      "qty_14d": 0
     },
     {
       "description": "SYR BENA EXPECTORANT(DIPHENHYDRAMINE 14MG, AMMONIUM CHLORIDE 135MG/5ML) 90ML XEPA",
@@ -3797,7 +3871,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 83.0
+      "margin_pct": 83.0,
+      "qty_14d": 2
     },
     {
       "description": "DYFAZINE CREAM (SILVER SULPHADIAZINE 1%) 50G DYNAPHARM",
@@ -3831,7 +3906,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 65.9
+      "margin_pct": 65.9,
+      "qty_14d": 1
     },
     {
       "description": "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
@@ -3865,7 +3941,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 53.3
+      "margin_pct": 53.3,
+      "qty_14d": 0
     },
     {
       "description": "INJ TACARLINE (ADRENALINE 1MG/ML) 1ML DUOPHARMA",
@@ -3899,7 +3976,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 93.6
+      "margin_pct": 93.6,
+      "qty_14d": 2
     },
     {
       "description": "KEZORAL (KETOCONAZOLE 2% W/W) CREAM 15G DUOPHARMA",
@@ -3933,7 +4011,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 69.2
+      "margin_pct": 69.2,
+      "qty_14d": 0
     },
     {
       "description": "ORS PLUS (TRISODIUM CITRATE 725MG, DEXTROSE ANHYDROUS 3375MG, SODIUM CHLORIDE 650MG, POTASSIUM CHLORIDE 375MG) SACHET PHARMANIAGA",
@@ -3967,7 +4046,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 74.0
+      "margin_pct": 74.0,
+      "qty_14d": 0
     },
     {
       "description": "APPETON MV LYSINE SYRUP 120ML (VITAMIN A 1000IU + VITAMIN D3 200IU + VITAMIN B1 0.5MG + VITAMIN B2 0.5MG + VITAMIN B6 0.5MG + VITAMIN E 5IU + NICOTINAMIDE 6MG + PANTOTHENIC ACID 2MG + LYSINE 80MG) KOTRA PHARMA",
@@ -4001,7 +4081,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.8
+      "margin_pct": 33.8,
+      "qty_14d": 1
     },
     {
       "description": "LOZENGES DIFFLAM (BENZYDAMINE HYDROCHLORIDE 3MG) MINT FLAVOURED INOVA",
@@ -4035,7 +4116,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 53.7
+      "margin_pct": 53.7,
+      "qty_14d": 12
     },
     {
       "description": "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
@@ -4069,7 +4151,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 73.0
+      "margin_pct": 73.0,
+      "qty_14d": 0
     },
     {
       "description": "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
@@ -4103,7 +4186,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 40.0
+      "margin_pct": 40.0,
+      "qty_14d": 0
     },
     {
       "description": "SCABOMA LOTION  ( LINDANE 1% ) GLENMARK",
@@ -4137,7 +4221,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 50.0
+      "margin_pct": 50.0,
+      "qty_14d": 1
     },
     {
       "description": "ZYNOMAX ( AZITHROMYCIN ) POWDER FOR ORAL SUSPENSION 200MG/5ML 20ML DUOPHARMA",
@@ -4171,7 +4256,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 60.0
+      "margin_pct": 60.0,
+      "qty_14d": 0
     },
     {
       "description": "WELLMEX ATOMIC ENEMA 20ML NGL TRADING",
@@ -4205,7 +4291,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 82.1
+      "margin_pct": 82.1,
+      "qty_14d": 0
     },
     {
       "description": "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
@@ -4239,7 +4326,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 22.0
+      "margin_pct": 22.0,
+      "qty_14d": 0
     },
     {
       "description": "SYR CEFUROXIME-125 (125MG/5ML) 50ML AXCEL KOTRA PHARMA",
@@ -4273,7 +4361,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 52.9
+      "margin_pct": 52.9,
+      "qty_14d": 0
     },
     {
       "description": "TABLET COZAAR XQ 5/50MG ORGANON",
@@ -4307,7 +4396,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 50.9
+      "margin_pct": 50.9,
+      "qty_14d": 0
     },
     {
       "description": "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
@@ -4341,7 +4431,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 44.6
+      "margin_pct": 44.6,
+      "qty_14d": 0
     },
     {
       "description": "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
@@ -4375,7 +4466,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 64.7
+      "margin_pct": 64.7,
+      "qty_14d": 0
     },
     {
       "description": "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
@@ -4409,7 +4501,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 46.8
+      "margin_pct": 46.8,
+      "qty_14d": 0
     },
     {
       "description": "SYR KIDIMAC ( AZITHROMYCIN 200MG/5ML ) 30ML HEALOL",
@@ -4443,7 +4536,8 @@
       "expiry_days": 811,
       "months_supply": 0.2,
       "is_overstock": false,
-      "margin_pct": 71.2
+      "margin_pct": 71.2,
+      "qty_14d": 7
     },
     {
       "description": "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
@@ -4477,7 +4571,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 32.0
+      "margin_pct": 32.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB EXFORGE 5/80 (AMLODIPINE 5MG/ VALSARTAN 80MG) NORVATIS",
@@ -4511,7 +4606,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 42.6
+      "margin_pct": 42.6,
+      "qty_14d": 28
     },
     {
       "description": "TAB ROSUVASTATIN 20MG SYNERRV",
@@ -4545,7 +4641,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.5
+      "margin_pct": 33.5,
+      "qty_14d": 0
     },
     {
       "description": "TAB ATORVASTATIN 20MG SYNERRV",
@@ -4579,7 +4676,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 57.5
+      "margin_pct": 57.5,
+      "qty_14d": 0
     },
     {
       "description": "TAB ZIOMYCIN (AZITHROMYCIN) 500MG SYNERRV",
@@ -4613,7 +4711,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 49.6
+      "margin_pct": 49.6,
+      "qty_14d": 0
     },
     {
       "description": "TAB ZIOMYCIN (AZITHROMYCIN) 250MG SYNERRV",
@@ -4647,7 +4746,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 63.4
+      "margin_pct": 63.4,
+      "qty_14d": 0
     },
     {
       "description": "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
@@ -4681,7 +4781,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.2
+      "margin_pct": 33.2,
+      "qty_14d": 0
     },
     {
       "description": "TAB GLIT (PIOGLITAZONE) 15MG SYNERRV",
@@ -4715,7 +4816,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 34.2
+      "margin_pct": 34.2,
+      "qty_14d": 0
     },
     {
       "description": "DYNA CALAMINE LOTION (CALAMINE POWDER 15% W/V / MENTHOL 0.15% W/V) 100ML DYNAPHARM (M)",
@@ -4749,7 +4851,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 68.2
+      "margin_pct": 68.2,
+      "qty_14d": 0
     },
     {
       "description": "INJ GARASENT (GENTAMICIN SULPHATE  80MG/2ML AMP) DUOPHARMA",
@@ -4783,7 +4886,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 92.2
+      "margin_pct": 92.2,
+      "qty_14d": 1
     },
     {
       "description": "TAB UNASYN (SULTAMICILLIN) 375MG PFIZER",
@@ -4817,7 +4921,8 @@
       "expiry_days": 570,
       "months_supply": 0.4,
       "is_overstock": false,
-      "margin_pct": 53.3
+      "margin_pct": 53.3,
+      "qty_14d": 270
     },
     {
       "description": "TAB DEXALONE ( DEXAMETHASONE ) 0.5MG DUOPHARMA",
@@ -4851,7 +4956,8 @@
       "expiry_days": 875,
       "months_supply": 0.3,
       "is_overstock": false,
-      "margin_pct": 94.7
+      "margin_pct": 94.7,
+      "qty_14d": 10
     },
     {
       "description": "TAB DUOFOLIC (FOLIC ACID) 5MG DUOPHARMA",
@@ -4885,7 +4991,8 @@
       "expiry_days": 629,
       "months_supply": 0.3,
       "is_overstock": false,
-      "margin_pct": 93.0
+      "margin_pct": 93.0,
+      "qty_14d": 30
     },
     {
       "description": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
@@ -4919,7 +5026,8 @@
       "expiry_days": 356,
       "months_supply": 0.4,
       "is_overstock": false,
-      "margin_pct": 75.3
+      "margin_pct": 75.3,
+      "qty_14d": 10
     },
     {
       "description": "SYR SEDILIX-RX LINCTUS (DEXTROMETHORPHAN 15MG/ PROMETHAZINE 3.125MG/ PHENYLEPHRINE 5MG EVERY 5ML)  90ML XEPA",
@@ -4953,7 +5061,8 @@
       "expiry_days": 661,
       "months_supply": 0.3,
       "is_overstock": false,
-      "margin_pct": 76.4
+      "margin_pct": 76.4,
+      "qty_14d": 4
     },
     {
       "description": "TAB GOUTRIC ( FEBUXOSTAT) NOVUGEN",
@@ -4987,7 +5096,8 @@
       "expiry_days": 52,
       "months_supply": 0.3,
       "is_overstock": false,
-      "margin_pct": 27.1
+      "margin_pct": 27.1,
+      "qty_14d": 0
     },
     {
       "description": "TAB BELTAS (BILASTINE) 20MG GLENMARK",
@@ -5021,7 +5131,8 @@
       "expiry_days": 752,
       "months_supply": 0.3,
       "is_overstock": false,
-      "margin_pct": 60.0
+      "margin_pct": 60.0,
+      "qty_14d": 60
     }
   ],
   "all_items": [
@@ -5057,7 +5168,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 70.6
+      "margin_pct": 70.6,
+      "qty_14d": 70
     },
     {
       "description": "LA DERMOPLEX CALAMINE LOTION 120ML DUOPHARMA",
@@ -5091,7 +5203,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 67.3
+      "margin_pct": 67.3,
+      "qty_14d": 0
     },
     {
       "description": "TAB GLUCOPHAGE XR 1000MG METFORMIN",
@@ -5125,7 +5238,8 @@
       "expiry_days": 295,
       "months_supply": 1.9,
       "is_overstock": false,
-      "margin_pct": 56.3
+      "margin_pct": 56.3,
+      "qty_14d": 40
     },
     {
       "description": "TAB CASPRIN (ASPIRIN) 100MG",
@@ -5153,7 +5267,8 @@
       "expiry_days": 356,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 53.3
+      "margin_pct": 53.3,
+      "qty_14d": 0
     },
     {
       "description": "TAB CARDIPRIN (ASPIRIN 100MG & GLYCINE 45MG) 100MG RB HEALTHCARE",
@@ -5181,7 +5296,8 @@
       "expiry_days": 295,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 50.0
+      "margin_pct": 50.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB EXFORGE 10MG/160MG (AMLODIPINE / VALSARTAN ) NORVATIS",
@@ -5209,7 +5325,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 52.8
+      "margin_pct": 52.8,
+      "qty_14d": 0
     },
     {
       "description": "TAB NORVASC (AMLODIPINE) 10MG PFIZER",
@@ -5237,7 +5354,8 @@
       "expiry_days": 264,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 42.2
+      "margin_pct": 42.2,
+      "qty_14d": 0
     },
     {
       "description": "TAB TREN (TRANEXAMIC ACID) 250MG",
@@ -5271,7 +5389,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 59.5
+      "margin_pct": 59.5,
+      "qty_14d": 0
     },
     {
       "description": "LOCOA ( ESFLURBIPROFEN ) 40MG TRANSDERMAL PATCH 7'S",
@@ -5305,7 +5424,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 45.0
+      "margin_pct": 45.0,
+      "qty_14d": 0
     },
     {
       "description": "CAP TRACIDOL (TRAMADOL) 50MG Y.S.P.",
@@ -5339,7 +5459,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 63.0
+      "margin_pct": 63.0,
+      "qty_14d": 10
     },
     {
       "description": "TAB VASTAREL MR ( TRIMETAZIDINE ) 35MG",
@@ -5367,7 +5488,8 @@
       "expiry_days": 174,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 51.6
+      "margin_pct": 51.6,
+      "qty_14d": 0
     },
     {
       "description": "TAB ULTRACET (TRAMADOL 37.5MG/PARACETAMOL 325MG) J&J",
@@ -5401,7 +5523,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 50.9
+      "margin_pct": 50.9,
+      "qty_14d": 0
     },
     {
       "description": "TAB UNASYN (SULTAMICILLIN) 375MG PFIZER",
@@ -5435,7 +5558,8 @@
       "expiry_days": 570,
       "months_supply": 0.4,
       "is_overstock": false,
-      "margin_pct": 53.3
+      "margin_pct": 53.3,
+      "qty_14d": 270
     },
     {
       "description": "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
@@ -5469,7 +5593,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 41.6
+      "margin_pct": 41.6,
+      "qty_14d": 0
     },
     {
       "description": "TAB CRESTOR ( ROSUVASTATIN )10MG ASTRAZENECA",
@@ -5497,7 +5622,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 38.8
+      "margin_pct": 38.8,
+      "qty_14d": 0
     },
     {
       "description": "TAB PROCHLOR (PROCHLORPERAZINE) 5MG DUOPHARMA",
@@ -5531,7 +5657,8 @@
       "expiry_days": 722,
       "months_supply": 1.4,
       "is_overstock": false,
-      "margin_pct": 93.0
+      "margin_pct": 93.0,
+      "qty_14d": 20
     },
     {
       "description": "TAB PREDNISYN (PREDNISOLONE) 5MG DUOPHARMA",
@@ -5565,7 +5692,8 @@
       "expiry_days": 236,
       "months_supply": 5.2,
       "is_overstock": false,
-      "margin_pct": 92.0
+      "margin_pct": 92.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 10MG/10MG SERVIER",
@@ -5593,7 +5721,8 @@
       "expiry_days": 661,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 62.9
+      "margin_pct": 62.9,
+      "qty_14d": 0
     },
     {
       "description": "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
@@ -5627,7 +5756,8 @@
       "expiry_days": 448,
       "months_supply": 14.0,
       "is_overstock": true,
-      "margin_pct": 56.4
+      "margin_pct": 56.4,
+      "qty_14d": 0
     },
     {
       "description": "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/5MG SERVIER",
@@ -5661,7 +5791,8 @@
       "expiry_days": 722,
       "months_supply": 12.0,
       "is_overstock": true,
-      "margin_pct": 53.1
+      "margin_pct": 53.1,
+      "qty_14d": 30
     },
     {
       "description": "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 10MG/5MG SERVIER",
@@ -5689,7 +5820,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": null,
+      "qty_14d": 0
     },
     {
       "description": "TAB COVINANCE (PERINDOPRIL) 8MG PHARMANIAGA",
@@ -5717,7 +5849,8 @@
       "expiry_days": 356,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 60.0
+      "margin_pct": 60.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB PARACAP 500MG HEALTH PHARM",
@@ -5751,7 +5884,8 @@
       "expiry_days": 783,
       "months_supply": 1.7,
       "is_overstock": false,
-      "margin_pct": 84.0
+      "margin_pct": 84.0,
+      "qty_14d": 70
     },
     {
       "description": "TAB PANTOPRAZOLE 40MG (GASTRO-RESISTANT) SANDOZ",
@@ -5785,7 +5919,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 71.5
+      "margin_pct": 71.5,
+      "qty_14d": 84
     },
     {
       "description": "TAB ANAREX (ORPHENADRINE 35MG/ PARACETAMOL 450MG) DUOPHARMA",
@@ -5819,7 +5954,8 @@
       "expiry_days": 752,
       "months_supply": 7.2,
       "is_overstock": true,
-      "margin_pct": 88.7
+      "margin_pct": 88.7,
+      "qty_14d": 20
     },
     {
       "description": "TAB NORFOX (NORFLOXACIN) 400MG MILRIN PHARMA",
@@ -5847,7 +5983,8 @@
       "expiry_days": 437,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 76.0
+      "margin_pct": 76.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB NORCOLUT (NORETHISTERONE) 5MG PAHANG PHARMACY",
@@ -5881,7 +6018,8 @@
       "expiry_days": 325,
       "months_supply": 1.0,
       "is_overstock": false,
-      "margin_pct": 75.0
+      "margin_pct": 75.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB MEXOMIDE (METOCLOPRAMIDE) 10MG DYNAPHARM",
@@ -5915,7 +6053,8 @@
       "expiry_days": 815,
       "months_supply": 13.6,
       "is_overstock": true,
-      "margin_pct": 94.0
+      "margin_pct": 94.0,
+      "qty_14d": 30
     },
     {
       "description": "TAB GLUCOXIT (METFORMIN) 500MG DUOPHARMA",
@@ -5943,7 +6082,8 @@
       "expiry_days": 752,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 91.0
+      "margin_pct": 91.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB GLENCET (LEVOCETRIZINE) 5MG GLENMARK",
@@ -5977,7 +6117,8 @@
       "expiry_days": 814,
       "months_supply": 1.0,
       "is_overstock": false,
-      "margin_pct": 65.3
+      "margin_pct": 65.3,
+      "qty_14d": 40
     },
     {
       "description": "TAB VOREN (DICLOFENAC SODIUM) 50MG Y.S.P.",
@@ -6011,7 +6152,8 @@
       "expiry_days": 967,
       "months_supply": 3.2,
       "is_overstock": false,
-      "margin_pct": 92.0
+      "margin_pct": 92.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB IBUPROFEN 400MG Y.S.P.",
@@ -6045,7 +6187,8 @@
       "expiry_days": 601,
       "months_supply": 2.6,
       "is_overstock": false,
-      "margin_pct": 80.0
+      "margin_pct": 80.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB ZITHROLIDE (AZITHROMYCIN)  500MG PHARMANIAGA",
@@ -6079,7 +6222,8 @@
       "expiry_days": 875,
       "months_supply": 1.8,
       "is_overstock": false,
-      "margin_pct": 78.0
+      "margin_pct": 78.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB CIPROGLEN (CIPROFLOXACIN) 500MG GLENMARK",
@@ -6113,7 +6257,8 @@
       "expiry_days": 174,
       "months_supply": 24.5,
       "is_overstock": true,
-      "margin_pct": 85.6
+      "margin_pct": 85.6,
+      "qty_14d": 50
     },
     {
       "description": "TAB CURAM (AMOXYCILLIN + CLAVULANIC ACID) 625MG SANDOZ",
@@ -6147,7 +6292,8 @@
       "expiry_days": 691,
       "months_supply": 2.3,
       "is_overstock": false,
-      "margin_pct": 72.0
+      "margin_pct": 72.0,
+      "qty_14d": 80
     },
     {
       "description": "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
@@ -6181,7 +6327,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 68.8
+      "margin_pct": 68.8,
+      "qty_14d": 0
     },
     {
       "description": "TAB PONTALON (MEFENAMIC ACID) 500MG Y.S.P.",
@@ -6215,7 +6362,8 @@
       "expiry_days": 601,
       "months_supply": 0.2,
       "is_overstock": false,
-      "margin_pct": 90.7
+      "margin_pct": 90.7,
+      "qty_14d": 40
     },
     {
       "description": "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
@@ -6249,7 +6397,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 56.9
+      "margin_pct": 56.9,
+      "qty_14d": 0
     },
     {
       "description": "INJ PANTOCID (PANTOPRAZOLE) 40MG SUN PHARMA",
@@ -6283,7 +6432,8 @@
       "expiry_days": 509,
       "months_supply": 2.2,
       "is_overstock": false,
-      "margin_pct": 70.0
+      "margin_pct": 70.0,
+      "qty_14d": 3
     },
     {
       "description": "INJ PIRIMAT (CHLORPHENIRAMINE) 10MG/ML DUOPHARMA",
@@ -6317,7 +6467,8 @@
       "expiry_days": 875,
       "months_supply": 3.1,
       "is_overstock": false,
-      "margin_pct": 91.2
+      "margin_pct": 91.2,
+      "qty_14d": 2
     },
     {
       "description": "INJ ACUGESIC (TAMADOL) 50MG/ML DUOPHARMA",
@@ -6351,7 +6502,8 @@
       "expiry_days": 936,
       "months_supply": 2.8,
       "is_overstock": false,
-      "margin_pct": 83.7
+      "margin_pct": 83.7,
+      "qty_14d": 5
     },
     {
       "description": "INJ VOREN ( DICLOFENAC SODIUM ) 75MG/3ML Y.S.P.",
@@ -6385,7 +6537,8 @@
       "expiry_days": 1390,
       "months_supply": 21.7,
       "is_overstock": true,
-      "margin_pct": 94.5
+      "margin_pct": 94.5,
+      "qty_14d": 1
     },
     {
       "description": "TAB PIRITON (CHLORPHENIRAMINE) 4MG DUOPHARMA",
@@ -6419,7 +6572,8 @@
       "expiry_days": 844,
       "months_supply": 7.6,
       "is_overstock": true,
-      "margin_pct": 95.0
+      "margin_pct": 95.0,
+      "qty_14d": 50
     },
     {
       "description": "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
@@ -6453,7 +6607,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": null,
+      "qty_14d": 0
     },
     {
       "description": "DUOVENT NEBULE (IPRATROPIUM + FENOTEROL) 4ML UNITHER",
@@ -6487,7 +6642,8 @@
       "expiry_days": 417,
       "months_supply": 3.6,
       "is_overstock": false,
-      "margin_pct": 85.0
+      "margin_pct": 85.0,
+      "qty_14d": 6
     },
     {
       "description": "PULMICORT (BUDESONIDE) RESPULE 1MG ASTRAZENECA",
@@ -6521,7 +6677,8 @@
       "expiry_days": 448,
       "months_supply": 1.9,
       "is_overstock": false,
-      "margin_pct": 65.6
+      "margin_pct": 65.6,
+      "qty_14d": 8
     },
     {
       "description": "NEBULE VENTOLIN (SALBUTAMOL) 2.5MG/2.5ML GSK",
@@ -6555,7 +6712,8 @@
       "expiry_days": 782,
       "months_supply": 2.5,
       "is_overstock": false,
-      "margin_pct": 80.7
+      "margin_pct": 80.7,
+      "qty_14d": 2
     },
     {
       "description": "TAB ZITHROMAX (AZITHROMYCIN) 250MG 6'S PFIZER",
@@ -6589,7 +6747,8 @@
       "expiry_days": 509,
       "months_supply": 0.5,
       "is_overstock": false,
-      "margin_pct": 43.5
+      "margin_pct": 43.5,
+      "qty_14d": 1
     },
     {
       "description": "SYR RETORIN (ERYTHROMYCIN) 200MG/5ML 60ML SM PHARMA",
@@ -6623,7 +6782,8 @@
       "expiry_days": 875,
       "months_supply": 0.6,
       "is_overstock": false,
-      "margin_pct": 84.0
+      "margin_pct": 84.0,
+      "qty_14d": 2
     },
     {
       "description": "SYR METROGYL (METRONIDAZOLE) 200MG/5ML 100ML UNIMED",
@@ -6657,7 +6817,8 @@
       "expiry_days": 630,
       "months_supply": 14.3,
       "is_overstock": true,
-      "margin_pct": 71.7
+      "margin_pct": 71.7,
+      "qty_14d": 0
     },
     {
       "description": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
@@ -6691,7 +6852,8 @@
       "expiry_days": 905,
       "months_supply": 5.1,
       "is_overstock": false,
-      "margin_pct": 79.2
+      "margin_pct": 79.2,
+      "qty_14d": 180
     },
     {
       "description": "DYNA DOXYCYCLINE 100MG DYNAPHARM",
@@ -6725,7 +6887,8 @@
       "expiry_days": 844,
       "months_supply": 6.6,
       "is_overstock": true,
-      "margin_pct": 91.5
+      "margin_pct": 91.5,
+      "qty_14d": 0
     },
     {
       "description": "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
@@ -6759,7 +6922,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 83.0
+      "margin_pct": 83.0,
+      "qty_14d": 0
     },
     {
       "description": "SUPP VOREN (DICLOFENAC SODIUM) 25MG Y.S.P.",
@@ -6793,7 +6957,8 @@
       "expiry_days": 174,
       "months_supply": 2.5,
       "is_overstock": false,
-      "margin_pct": 72.3
+      "margin_pct": 72.3,
+      "qty_14d": 1
     },
     {
       "description": "SUPP VOREN (DICLOFENAC SODIUM) 50MG Y.S.P.",
@@ -6827,7 +6992,8 @@
       "expiry_days": 174,
       "months_supply": 0.8,
       "is_overstock": false,
-      "margin_pct": 73.5
+      "margin_pct": 73.5,
+      "qty_14d": 6
     },
     {
       "description": "PORO (PARACETAMOL) SUPPOSITORY 125MG Y.S.P.",
@@ -6861,7 +7027,8 @@
       "expiry_days": 205,
       "months_supply": 30.7,
       "is_overstock": true,
-      "margin_pct": 85.8
+      "margin_pct": 85.8,
+      "qty_14d": 7
     },
     {
       "description": "PORO (PARACETAMOL) SUPPOSITORY 250MG Y.S.P.",
@@ -6895,7 +7062,8 @@
       "expiry_days": 783,
       "months_supply": 39.4,
       "is_overstock": true,
-      "margin_pct": 80.8
+      "margin_pct": 80.8,
+      "qty_14d": 1
     },
     {
       "description": "CAP BIOZOLE (FLUCANAZOLE) 150MG MEDISPEC",
@@ -6929,7 +7097,8 @@
       "expiry_days": 784,
       "months_supply": 1.6,
       "is_overstock": false,
-      "margin_pct": 75.4
+      "margin_pct": 75.4,
+      "qty_14d": 0
     },
     {
       "description": "CANDID (CLOTRIMAZOLE 1% W/W) CREAM  20G GLENMARK",
@@ -6963,7 +7132,8 @@
       "expiry_days": 905,
       "months_supply": 1.9,
       "is_overstock": false,
-      "margin_pct": 62.4
+      "margin_pct": 62.4,
+      "qty_14d": 1
     },
     {
       "description": "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
@@ -6997,7 +7167,8 @@
       "expiry_days": 722,
       "months_supply": 4.0,
       "is_overstock": false,
-      "margin_pct": 58.9
+      "margin_pct": 58.9,
+      "qty_14d": 0
     },
     {
       "description": "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
@@ -7031,7 +7202,8 @@
       "expiry_days": 356,
       "months_supply": 8.0,
       "is_overstock": true,
-      "margin_pct": 52.6
+      "margin_pct": 52.6,
+      "qty_14d": 0
     },
     {
       "description": "CANDAZOLE LOTION (CLOTRIMAZOLE 1% W/W) 10ML HOE",
@@ -7065,7 +7237,8 @@
       "expiry_days": 236,
       "months_supply": 0.6,
       "is_overstock": false,
-      "margin_pct": 50.0
+      "margin_pct": 50.0,
+      "qty_14d": 1
     },
     {
       "description": "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
@@ -7099,7 +7272,8 @@
       "expiry_days": 502,
       "months_supply": 12.0,
       "is_overstock": true,
-      "margin_pct": 51.2
+      "margin_pct": 51.2,
+      "qty_14d": 0
     },
     {
       "description": "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
@@ -7133,7 +7307,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 50.9
+      "margin_pct": 50.9,
+      "qty_14d": 0
     },
     {
       "description": "CANDID V-1 (CLOTRIMAZOLE 500MG) PESSARY GLENMARK",
@@ -7167,7 +7342,8 @@
       "expiry_days": 967,
       "months_supply": 3.2,
       "is_overstock": false,
-      "margin_pct": 46.8
+      "margin_pct": 46.8,
+      "qty_14d": 1
     },
     {
       "description": "GENTAMICIN 0.3% CREAM W/W 10G NORIPHARMA",
@@ -7201,7 +7377,8 @@
       "expiry_days": 417,
       "months_supply": 1.5,
       "is_overstock": false,
-      "margin_pct": 86.2
+      "margin_pct": 86.2,
+      "qty_14d": 10
     },
     {
       "description": "INJ SUPRAXONE ( CEFTRIAXONE 1G POWDER ) PHARMEX",
@@ -7235,7 +7412,8 @@
       "expiry_days": 417,
       "months_supply": 1.1,
       "is_overstock": false,
-      "margin_pct": 84.0
+      "margin_pct": 84.0,
+      "qty_14d": 6
     },
     {
       "description": "INJ ZYCORT (HYDROCORTISONE) 100MG VIAL SM PHARMA",
@@ -7269,7 +7447,8 @@
       "expiry_days": 691,
       "months_supply": 1.5,
       "is_overstock": false,
-      "margin_pct": 84.6
+      "margin_pct": 84.6,
+      "qty_14d": 4
     },
     {
       "description": "TABS BETAMETHASONE 0.5MG Y.S.P.",
@@ -7303,7 +7482,8 @@
       "expiry_days": 205,
       "months_supply": 2.1,
       "is_overstock": false,
-      "margin_pct": 92.7
+      "margin_pct": 92.7,
+      "qty_14d": 180
     },
     {
       "description": "TAB DEXALONE ( DEXAMETHASONE ) 0.5MG DUOPHARMA",
@@ -7337,7 +7517,8 @@
       "expiry_days": 875,
       "months_supply": 0.3,
       "is_overstock": false,
-      "margin_pct": 94.7
+      "margin_pct": 94.7,
+      "qty_14d": 10
     },
     {
       "description": "TAB MUCOSOLVAN (AMBROXOL) 30MG DKSH",
@@ -7371,7 +7552,8 @@
       "expiry_days": 722,
       "months_supply": 0.6,
       "is_overstock": false,
-      "margin_pct": 69.3
+      "margin_pct": 69.3,
+      "qty_14d": 30
     },
     {
       "description": "TAB FUSIX (FRUSEMIDE) 40MG SM PHARMA",
@@ -7405,7 +7587,8 @@
       "expiry_days": 325,
       "months_supply": 8.0,
       "is_overstock": true,
-      "margin_pct": 96.0
+      "margin_pct": 96.0,
+      "qty_14d": 10
     },
     {
       "description": "INJ METHYCOBAL (MECOBALAMIN B12) 500MCG 1ML VIAL EISAI",
@@ -7439,7 +7622,8 @@
       "expiry_days": 448,
       "months_supply": 0.8,
       "is_overstock": false,
-      "margin_pct": 86.4
+      "margin_pct": 86.4,
+      "qty_14d": 3
     },
     {
       "description": "TAB DUOFOLIC (FOLIC ACID) 5MG DUOPHARMA",
@@ -7473,7 +7657,8 @@
       "expiry_days": 629,
       "months_supply": 0.3,
       "is_overstock": false,
-      "margin_pct": 93.0
+      "margin_pct": 93.0,
+      "qty_14d": 30
     },
     {
       "description": "ZELLOX-II LIQUID ANTACID (ALUMINIUM H'XIDE 800MG, MAGNESIUM H'XIDE 800MG & SIMETHICONE 60MG) 100ML HOE PHARMA",
@@ -7507,7 +7692,8 @@
       "expiry_days": 905,
       "months_supply": 4.4,
       "is_overstock": false,
-      "margin_pct": 70.9
+      "margin_pct": 70.9,
+      "qty_14d": 8
     },
     {
       "description": "TAB SPASIL (DIPHENOXYLATE 2.5MG/ATROPINE 0.025MG) IMEKS",
@@ -7541,7 +7727,8 @@
       "expiry_days": 689,
       "months_supply": 1.8,
       "is_overstock": false,
-      "margin_pct": 89.3
+      "margin_pct": 89.3,
+      "qty_14d": 100
     },
     {
       "description": "TAB SMOOD (DOMPERIDONE) 10MG HOVID",
@@ -7569,7 +7756,8 @@
       "expiry_days": 570,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 92.0
+      "margin_pct": 92.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB SHINTAMET (CIMETIDINE) 400MG Y.S.P.",
@@ -7603,7 +7791,8 @@
       "expiry_days": 752,
       "months_supply": 0.8,
       "is_overstock": false,
-      "margin_pct": 61.3
+      "margin_pct": 61.3,
+      "qty_14d": 10
     },
     {
       "description": "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
@@ -7637,7 +7826,8 @@
       "expiry_days": 750,
       "months_supply": 7.5,
       "is_overstock": true,
-      "margin_pct": 50.0
+      "margin_pct": 50.0,
+      "qty_14d": 0
     },
     {
       "description": "SYR COLIMIX (DICYCLOMINE 5MG/ SIMETHICONE 50MG) 90ML XEPA",
@@ -7671,7 +7861,8 @@
       "expiry_days": 782,
       "months_supply": 1.3,
       "is_overstock": false,
-      "margin_pct": 62.2
+      "margin_pct": 62.2,
+      "qty_14d": 0
     },
     {
       "description": "CAP LOMODIUM (LOPERAMIDE) 2MG DYNAPHARM",
@@ -7705,7 +7896,8 @@
       "expiry_days": 1240,
       "months_supply": 2.9,
       "is_overstock": false,
-      "margin_pct": 94.0
+      "margin_pct": 94.0,
+      "qty_14d": 0
     },
     {
       "description": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
@@ -7739,7 +7931,8 @@
       "expiry_days": 356,
       "months_supply": 0.4,
       "is_overstock": false,
-      "margin_pct": 75.3
+      "margin_pct": 75.3,
+      "qty_14d": 10
     },
     {
       "description": "MDI VENTOLIN EVOHALER (SALBUTAMOL 100MCG) GSK",
@@ -7773,7 +7966,8 @@
       "expiry_days": 371,
       "months_supply": 3.0,
       "is_overstock": false,
-      "margin_pct": 47.8
+      "margin_pct": 47.8,
+      "qty_14d": 0
     },
     {
       "description": "INJ SHINCORT (TRIAMCINOLONE ACETONIDE 40MG/ML) 1ML VIAL Y.S.P.",
@@ -7807,7 +8001,8 @@
       "expiry_days": 936,
       "months_supply": 1.9,
       "is_overstock": false,
-      "margin_pct": 83.7
+      "margin_pct": 83.7,
+      "qty_14d": 0
     },
     {
       "description": "TAB DUPHASTON (DYDROGESTERONE) 10MG ABBOTT",
@@ -7841,7 +8036,8 @@
       "expiry_days": 1391,
       "months_supply": 1.2,
       "is_overstock": false,
-      "margin_pct": 38.7
+      "margin_pct": 38.7,
+      "qty_14d": 0
     },
     {
       "description": "TAB NEXIUM MUPS (ESOMEPRAZOLE) 40MG ASTRAZENECA",
@@ -7875,7 +8071,8 @@
       "expiry_days": 417,
       "months_supply": 2.7,
       "is_overstock": false,
-      "margin_pct": 43.5
+      "margin_pct": 43.5,
+      "qty_14d": 14
     },
     {
       "description": "TAB NORVASC (AMLODIPINE) 5MG PFIZER",
@@ -7909,7 +8106,8 @@
       "expiry_days": 264,
       "months_supply": 4.6,
       "is_overstock": false,
-      "margin_pct": 47.4
+      "margin_pct": 47.4,
+      "qty_14d": 0
     },
     {
       "description": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
@@ -7943,7 +8141,8 @@
       "expiry_days": 136,
       "months_supply": 0.2,
       "is_overstock": false,
-      "margin_pct": 80.0
+      "margin_pct": 80.0,
+      "qty_14d": 14
     },
     {
       "description": "SYR MUCOPROM (CARBOCISTEINE 100MG/ PROMETHAZINE 2.5MG /5ML) 90ML XEPA",
@@ -7977,7 +8176,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 71.2
+      "margin_pct": 71.2,
+      "qty_14d": 0
     },
     {
       "description": "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
@@ -8011,7 +8211,8 @@
       "expiry_days": 356,
       "months_supply": 2.0,
       "is_overstock": false,
-      "margin_pct": 53.0
+      "margin_pct": 53.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB LOVIR ( ACYCLOVIR ) 400MG RANBAXY",
@@ -8045,7 +8246,8 @@
       "expiry_days": 1056,
       "months_supply": 5.6,
       "is_overstock": false,
-      "margin_pct": 64.9
+      "margin_pct": 64.9,
+      "qty_14d": 0
     },
     {
       "description": "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
@@ -8079,7 +8281,8 @@
       "expiry_days": 844,
       "months_supply": 9.3,
       "is_overstock": true,
-      "margin_pct": 94.4
+      "margin_pct": 94.4,
+      "qty_14d": 0
     },
     {
       "description": "TAB HYOMIDE (HYOSCINE BUTYLBROMIDE) 10MG DUOPHARMA",
@@ -8113,7 +8316,8 @@
       "expiry_days": 325,
       "months_supply": 8.1,
       "is_overstock": true,
-      "margin_pct": 71.0
+      "margin_pct": 71.0,
+      "qty_14d": 90
     },
     {
       "description": "TAB HOVASC (AMLODIPINE) 5MG HOVID",
@@ -8147,7 +8351,8 @@
       "expiry_days": 661,
       "months_supply": 4.7,
       "is_overstock": false,
-      "margin_pct": 84.0
+      "margin_pct": 84.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB HOVASC (AMLODIPINE) 10MG HOVID",
@@ -8181,7 +8386,8 @@
       "expiry_days": 783,
       "months_supply": 8.0,
       "is_overstock": true,
-      "margin_pct": 82.5
+      "margin_pct": 82.5,
+      "qty_14d": 0
     },
     {
       "description": "TAB ANTAROL (PROPRANOLOL) 40MG IMEKS",
@@ -8215,7 +8421,8 @@
       "expiry_days": 1117,
       "months_supply": 2.1,
       "is_overstock": false,
-      "margin_pct": 93.0
+      "margin_pct": 93.0,
+      "qty_14d": 35
     },
     {
       "description": "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
@@ -8249,7 +8456,8 @@
       "expiry_days": 814,
       "months_supply": 498.0,
       "is_overstock": true,
-      "margin_pct": 96.0
+      "margin_pct": 96.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB CELEBIB (CELECOXIB) 200MG SYNERRV",
@@ -8283,7 +8491,8 @@
       "expiry_days": 905,
       "months_supply": 4.7,
       "is_overstock": false,
-      "margin_pct": 69.1
+      "margin_pct": 69.1,
+      "qty_14d": 10
     },
     {
       "description": "NASAL DROPS ILIADIN  0.025% DECONGESTANT (1-6 YEARS) P&G",
@@ -8311,7 +8520,8 @@
       "expiry_days": 356,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 56.2
+      "margin_pct": 56.2,
+      "qty_14d": 0
     },
     {
       "description": "NASAL DROPS ILIADIN 0.01% (OXYMETHAZOLINE) DECONGESTANT (< 12MTHS ) P&G",
@@ -8345,7 +8555,8 @@
       "expiry_days": 386,
       "months_supply": 1.5,
       "is_overstock": false,
-      "margin_pct": 44.8
+      "margin_pct": 44.8,
+      "qty_14d": 0
     },
     {
       "description": "DIFFLAM FORTE THROAT SPRAY  (BENZYDAMINE 0.3% W/V) ADULTS & CHILD (>6YRS) INOVA",
@@ -8379,7 +8590,8 @@
       "expiry_days": 875,
       "months_supply": 2.0,
       "is_overstock": false,
-      "margin_pct": 47.5
+      "margin_pct": 47.5,
+      "qty_14d": 2
     },
     {
       "description": "TAB PLAVIX (CLOPIDOGREL) 75MG SANOFI",
@@ -8407,7 +8619,8 @@
       "expiry_days": 814,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 30.6
+      "margin_pct": 30.6,
+      "qty_14d": 0
     },
     {
       "description": "EYE/EAR DROPS DEXTRACIN (DEXAMETHASONE & NEOMYCIN) XEPA",
@@ -8441,7 +8654,8 @@
       "expiry_days": 570,
       "months_supply": 1.4,
       "is_overstock": false,
-      "margin_pct": 75.0
+      "margin_pct": 75.0,
+      "qty_14d": 2
     },
     {
       "description": "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
@@ -8475,7 +8689,8 @@
       "expiry_days": 1207,
       "months_supply": 4.0,
       "is_overstock": false,
-      "margin_pct": 85.3
+      "margin_pct": 85.3,
+      "qty_14d": 0
     },
     {
       "description": "TAB ESCAPELLE (LEVONORGESTREL) 1.5MG 1'S PAHANG PHARMACY",
@@ -8509,7 +8724,8 @@
       "expiry_days": 905,
       "months_supply": 2.7,
       "is_overstock": false,
-      "margin_pct": 53.7
+      "margin_pct": 53.7,
+      "qty_14d": 0
     },
     {
       "description": "TAB YASMIN (DROSPIRENONE 3MG/ ETHINYLESTRADIOL 0.03MG) BAYER",
@@ -8537,7 +8753,8 @@
       "expiry_days": 601,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 48.2
+      "margin_pct": 48.2,
+      "qty_14d": 0
     },
     {
       "description": "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
@@ -8571,7 +8788,8 @@
       "expiry_days": 356,
       "months_supply": 2.0,
       "is_overstock": false,
-      "margin_pct": 48.0
+      "margin_pct": 48.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB TOLCHICINE (COLCHICINE) 0.6MG IMEKS",
@@ -8605,7 +8823,8 @@
       "expiry_days": 661,
       "months_supply": 29.4,
       "is_overstock": true,
-      "margin_pct": 85.8
+      "margin_pct": 85.8,
+      "qty_14d": 0
     },
     {
       "description": "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
@@ -8639,7 +8858,8 @@
       "expiry_days": 1421,
       "months_supply": 4.0,
       "is_overstock": false,
-      "margin_pct": 43.6
+      "margin_pct": 43.6,
+      "qty_14d": 0
     },
     {
       "description": "TAB BILAXTEN (BILASTINE) 20mg MENARINI",
@@ -8667,7 +8887,8 @@
       "expiry_days": 1360,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 52.0
+      "margin_pct": 52.0,
+      "qty_14d": 0
     },
     {
       "description": "SYRUP NOVOMIN (DIMENHYDRINATE) 15MG/5ML 60ML (ORANGE FLV) XEPA",
@@ -8701,7 +8922,8 @@
       "expiry_days": 1209,
       "months_supply": 0.7,
       "is_overstock": false,
-      "margin_pct": 72.5
+      "margin_pct": 72.5,
+      "qty_14d": 1
     },
     {
       "description": "VOREN (DICLOFENAC SODIUM 1%W/W) GEL PLUS 20G Y.SP.",
@@ -8735,7 +8957,8 @@
       "expiry_days": 722,
       "months_supply": 3.3,
       "is_overstock": false,
-      "margin_pct": 64.0
+      "margin_pct": 64.0,
+      "qty_14d": 0
     },
     {
       "description": "FLANIL (METHYL SALICYLATE 10.20%, W/W, EUGENOL 1.36% W/W, MENTHOL 5.44% W/W) CREAM 30G MEDISPEC",
@@ -8769,7 +8992,8 @@
       "expiry_days": 879,
       "months_supply": 2.4,
       "is_overstock": false,
-      "margin_pct": 62.5
+      "margin_pct": 62.5,
+      "qty_14d": 0
     },
     {
       "description": "TAB NORMATEN (ATENOLOL) 50MG XEPA",
@@ -8803,7 +9027,8 @@
       "expiry_days": 1148,
       "months_supply": 2.0,
       "is_overstock": false,
-      "margin_pct": 73.0
+      "margin_pct": 73.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB NORMATEN (ATENOLOL) 100MG XEPA",
@@ -8831,7 +9056,8 @@
       "expiry_days": 844,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 65.3
+      "margin_pct": 65.3,
+      "qty_14d": 0
     },
     {
       "description": "TAB APROVEL (IRBESARTAN) 300MG SANOFI",
@@ -8859,7 +9085,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 50.5
+      "margin_pct": 50.5,
+      "qty_14d": 0
     },
     {
       "description": "TAB COAPROVEL (IRBESARTAN/ HYDROCHOLOTHIAZIDE) 150MG/12.5MG SANOFI",
@@ -8887,7 +9114,8 @@
       "expiry_days": 416,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 54.5
+      "margin_pct": 54.5,
+      "qty_14d": 0
     },
     {
       "description": "TAB NOVOMIN (DIMENHYDRINATE) 50MG XEPA",
@@ -8915,7 +9143,8 @@
       "expiry_days": 1301,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 81.3
+      "margin_pct": 81.3,
+      "qty_14d": 0
     },
     {
       "description": "TAB DELTACARBON (CHARCOAL) 250MG IMEKS",
@@ -8949,7 +9178,8 @@
       "expiry_days": 1086,
       "months_supply": 4.0,
       "is_overstock": false,
-      "margin_pct": 70.7
+      "margin_pct": 70.7,
+      "qty_14d": 0
     },
     {
       "description": "TAB BETASERC (BETAHISTINE) 24MG ABBOTT",
@@ -8983,7 +9213,8 @@
       "expiry_days": 539,
       "months_supply": 1.3,
       "is_overstock": false,
-      "margin_pct": 49.4
+      "margin_pct": 49.4,
+      "qty_14d": 0
     },
     {
       "description": "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
@@ -9017,7 +9248,8 @@
       "expiry_days": 791,
       "months_supply": 1.0,
       "is_overstock": false,
-      "margin_pct": 51.7
+      "margin_pct": 51.7,
+      "qty_14d": 0
     },
     {
       "description": "MAC DUAL (HEXYLRESORCINOL 2.4MG) ACTION LOZENGES ZIWELL",
@@ -9051,7 +9283,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 57.2
+      "margin_pct": 57.2,
+      "qty_14d": 0
     },
     {
       "description": "EFFERVESCENT ACETYLCYSTIENE (N-ACETYLCYSTIENE) 600MG 2'S SANDOZ",
@@ -9085,7 +9318,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 78.3
+      "margin_pct": 78.3,
+      "qty_14d": 9
     },
     {
       "description": "TAB COPASTIN (CLOPERASTINE) 10MG Y.S.P.",
@@ -9119,7 +9353,8 @@
       "expiry_days": 206,
       "months_supply": 4.0,
       "is_overstock": false,
-      "margin_pct": 84.0
+      "margin_pct": 84.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
@@ -9153,7 +9388,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 40.7
+      "margin_pct": 40.7,
+      "qty_14d": 0
     },
     {
       "description": "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
@@ -9187,7 +9423,8 @@
       "expiry_days": 295,
       "months_supply": 1.0,
       "is_overstock": false,
-      "margin_pct": 49.0
+      "margin_pct": 49.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB CONCOR (BISOPROLOL) 2.5MG IMEKS",
@@ -9215,7 +9452,8 @@
       "expiry_days": 295,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 48.8
+      "margin_pct": 48.8,
+      "qty_14d": 0
     },
     {
       "description": "SYR SEDILIX-RX LINCTUS (DEXTROMETHORPHAN 15MG/ PROMETHAZINE 3.125MG/ PHENYLEPHRINE 5MG EVERY 5ML)  90ML XEPA",
@@ -9249,7 +9487,8 @@
       "expiry_days": 661,
       "months_supply": 0.3,
       "is_overstock": false,
-      "margin_pct": 76.4
+      "margin_pct": 76.4,
+      "qty_14d": 4
     },
     {
       "description": "TAB ROWATINEX ( PINENE 31MG, CAMPHENE 31MG, CINEOL 3MG, FENCHONE 4MG, BORNEOL 10MG, ANETHOL 4MG ) DCH AURIGA",
@@ -9277,7 +9516,8 @@
       "expiry_days": 295,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 56.0
+      "margin_pct": 56.0,
+      "qty_14d": 0
     },
     {
       "description": "SYR TUSSIDEX (DEXTROMETHORPHAN 15MG/5ML) 90ML XEPA",
@@ -9311,7 +9551,8 @@
       "expiry_days": 844,
       "months_supply": 5.0,
       "is_overstock": false,
-      "margin_pct": 72.0
+      "margin_pct": 72.0,
+      "qty_14d": 1
     },
     {
       "description": "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
@@ -9345,7 +9586,8 @@
       "expiry_days": 630,
       "months_supply": 4.0,
       "is_overstock": false,
-      "margin_pct": 52.8
+      "margin_pct": 52.8,
+      "qty_14d": 0
     },
     {
       "description": "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
@@ -9379,7 +9621,8 @@
       "expiry_days": 1056,
       "months_supply": 4.0,
       "is_overstock": false,
-      "margin_pct": 46.7
+      "margin_pct": 46.7,
+      "qty_14d": 0
     },
     {
       "description": "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
@@ -9413,7 +9656,8 @@
       "expiry_days": 814,
       "months_supply": 4.0,
       "is_overstock": false,
-      "margin_pct": 52.3
+      "margin_pct": 52.3,
+      "qty_14d": 0
     },
     {
       "description": "PROCTOSEDYL OINTMENT (FRAMYCETIN SULPHATE 1% W/W, HYDROCORTISONE 0.5% W/W, CINCHOCAINE.5% W/W, AESCULIN 1% W/W) 15G ZUELLIG PHARMA",
@@ -9447,7 +9691,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 53.3
+      "margin_pct": 53.3,
+      "qty_14d": 1
     },
     {
       "description": "ORREPASTE (TRIAMCINOLONE ACETONIDE 0.1% W/W) 5G HOE",
@@ -9481,7 +9726,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 54.6
+      "margin_pct": 54.6,
+      "qty_14d": 0
     },
     {
       "description": "CREAM MOMATE (MOMETASONE 0.1% W/W) 15G GLENMARK",
@@ -9515,7 +9761,8 @@
       "expiry_days": 174,
       "months_supply": 1.2,
       "is_overstock": false,
-      "margin_pct": 70.3
+      "margin_pct": 70.3,
+      "qty_14d": 1
     },
     {
       "description": "CREAM HYOSONE ( HYDROCORTISONE 1% W/W ) 15G DUOPHARMA",
@@ -9549,7 +9796,8 @@
       "expiry_days": 539,
       "months_supply": 5.2,
       "is_overstock": false,
-      "margin_pct": 74.0
+      "margin_pct": 74.0,
+      "qty_14d": 1
     },
     {
       "description": "CREAM BEAVATE (BETAMETHASONE 0.01%) 15G DUOPHARMA",
@@ -9583,7 +9831,8 @@
       "expiry_days": 814,
       "months_supply": 5.0,
       "is_overstock": false,
-      "margin_pct": 71.6
+      "margin_pct": 71.6,
+      "qty_14d": 1
     },
     {
       "description": "CREAM CLODERM (CLOBETASOL 0.05% W/W) 15G HOE",
@@ -9611,7 +9860,8 @@
       "expiry_days": 539,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 65.0
+      "margin_pct": 65.0,
+      "qty_14d": 0
     },
     {
       "description": "AXCEL UREA (UREA 10% W/W) CREAM 20G KOTRA PHARMA",
@@ -9645,7 +9895,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 52.0
+      "margin_pct": 52.0,
+      "qty_14d": 0
     },
     {
       "description": "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
@@ -9679,7 +9930,8 @@
       "expiry_days": 722,
       "months_supply": 3.3,
       "is_overstock": false,
-      "margin_pct": 50.2
+      "margin_pct": 50.2,
+      "qty_14d": 0
     },
     {
       "description": "TAB CLARINASE (PSEUDOEPHEDRINE 120MG, LORATADINE 5MG) BAYER",
@@ -9713,7 +9965,8 @@
       "expiry_days": 417,
       "months_supply": 1.2,
       "is_overstock": false,
-      "margin_pct": 54.8
+      "margin_pct": 54.8,
+      "qty_14d": 60
     },
     {
       "description": "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
@@ -9747,7 +10000,8 @@
       "expiry_days": 630,
       "months_supply": 1.0,
       "is_overstock": false,
-      "margin_pct": 44.7
+      "margin_pct": 44.7,
+      "qty_14d": 0
     },
     {
       "description": "ORAL AID LOTION (CHLORHEXIDINE HCl 0.5% & TRIAMCINOLONE 0.1% & LIDOCAINE 2.5%) 6ML DUOPHARMA",
@@ -9775,7 +10029,8 @@
       "expiry_days": 601,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 72.2
+      "margin_pct": 72.2,
+      "qty_14d": 0
     },
     {
       "description": "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
@@ -9809,7 +10064,8 @@
       "expiry_days": 752,
       "months_supply": 4.0,
       "is_overstock": false,
-      "margin_pct": 52.3
+      "margin_pct": 52.3,
+      "qty_14d": 0
     },
     {
       "description": "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
@@ -9843,7 +10099,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 76.4
+      "margin_pct": 76.4,
+      "qty_14d": 0
     },
     {
       "description": "IVD N/S 0.9% 500ML B. BRAUN",
@@ -9877,7 +10134,8 @@
       "expiry_days": 908,
       "months_supply": 0.8,
       "is_overstock": false,
-      "margin_pct": 92.4
+      "margin_pct": 92.4,
+      "qty_14d": 6
     },
     {
       "description": "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
@@ -9911,7 +10169,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 93.0
+      "margin_pct": 93.0,
+      "qty_14d": 0
     },
     {
       "description": "SYR BENA EXPECTORANT(DIPHENHYDRAMINE 14MG, AMMONIUM CHLORIDE 135MG/5ML) 90ML XEPA",
@@ -9945,7 +10204,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 83.0
+      "margin_pct": 83.0,
+      "qty_14d": 2
     },
     {
       "description": "DYFAZINE CREAM (SILVER SULPHADIAZINE 1%) 50G DYNAPHARM",
@@ -9979,7 +10239,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 65.9
+      "margin_pct": 65.9,
+      "qty_14d": 1
     },
     {
       "description": "DEXALTIN (DEXAMETHASONE 1MG/G) ORALPASTE 2G PHARMAFORTE",
@@ -10013,7 +10274,8 @@
       "expiry_days": 205,
       "months_supply": 6.2,
       "is_overstock": true,
-      "margin_pct": 60.6
+      "margin_pct": 60.6,
+      "qty_14d": 1
     },
     {
       "description": "TAB CAFFOX ( ERGOTAMINE TARTRATE 1MG + CAFFINE 100MG ) IMEKS",
@@ -10047,7 +10309,8 @@
       "expiry_days": 886,
       "months_supply": 1.4,
       "is_overstock": false,
-      "margin_pct": 63.5
+      "margin_pct": 63.5,
+      "qty_14d": 0
     },
     {
       "description": "TAB ARCOXIA ( ETORICOXIB ) 120MG ORGANON",
@@ -10075,7 +10338,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 44.1
+      "margin_pct": 44.1,
+      "qty_14d": 0
     },
     {
       "description": "TAB ARCOXIA ( ETORICOXIB ) 90MG ORGANON",
@@ -10109,7 +10373,8 @@
       "expiry_days": 725,
       "months_supply": 3.9,
       "is_overstock": false,
-      "margin_pct": 29.6
+      "margin_pct": 29.6,
+      "qty_14d": 0
     },
     {
       "description": "TAB VELOXIN (MECLOZINE 25MG/PYRIDOXINE 50MG) PHARM-D",
@@ -10143,7 +10408,8 @@
       "expiry_days": 661,
       "months_supply": 0.7,
       "is_overstock": false,
-      "margin_pct": 47.0
+      "margin_pct": 47.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB DAPOTAB (METHYLDOPA) 250MG HOVID",
@@ -10171,7 +10437,8 @@
       "expiry_days": 567,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 78.5
+      "margin_pct": 78.5,
+      "qty_14d": 0
     },
     {
       "description": "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
@@ -10205,7 +10472,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 53.3
+      "margin_pct": 53.3,
+      "qty_14d": 0
     },
     {
       "description": "ALLERGOCROM  (SODIUM CROMOGLYCATE ) 2% EYE DROPS 10ML PHARMAFORTE URSAPHARM",
@@ -10233,7 +10501,8 @@
       "expiry_days": 386,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 45.0
+      "margin_pct": 45.0,
+      "qty_14d": 0
     },
     {
       "description": "AQUA CREAM (PARAFFIN, WHITE SOFT CREAM) 500GM DUOPHARMA",
@@ -10261,7 +10530,8 @@
       "expiry_days": 661,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 66.0
+      "margin_pct": 66.0,
+      "qty_14d": 0
     },
     {
       "description": "BIOFLOR SACHETS ( SACCHAROMYCES BOULARDII ) SERVIER",
@@ -10295,7 +10565,8 @@
       "expiry_days": 780,
       "months_supply": 15.3,
       "is_overstock": true,
-      "margin_pct": 38.3
+      "margin_pct": 38.3,
+      "qty_14d": 0
     },
     {
       "description": "BABY DROPS 30ML( VITAMIN A 1333IU, VITAMIN D3 438IU, VITAMIN E 6.57IU, VITAMIN B1 218MCG, VITAMIN B2 336MCG, VITAMIN B6 108MCG, NICOTINAMIDE 2.15MG, TAURINE 15MG, L-LYSINE 20MG PER ML) APPETON",
@@ -10323,7 +10594,8 @@
       "expiry_days": 691,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.4
+      "margin_pct": 33.4,
+      "qty_14d": 0
     },
     {
       "description": "TAB APROVEL (IRBESARTAN) 150MG SANOFI",
@@ -10351,7 +10623,8 @@
       "expiry_days": 325,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 48.0
+      "margin_pct": 48.0,
+      "qty_14d": 0
     },
     {
       "description": "INJ GASTRIL ( RANITIDINE ) 50MG/2ML VIAL DUOPHARMA",
@@ -10385,7 +10658,8 @@
       "expiry_days": 570,
       "months_supply": 13.0,
       "is_overstock": true,
-      "margin_pct": 84.6
+      "margin_pct": 84.6,
+      "qty_14d": 0
     },
     {
       "description": "INJ LINCOMYCIN (LINCOMYCIN) 300MG/ML Y.SP.",
@@ -10419,7 +10693,8 @@
       "expiry_days": 144,
       "months_supply": 25.0,
       "is_overstock": true,
-      "margin_pct": 96.4
+      "margin_pct": 96.4,
+      "qty_14d": 2
     },
     {
       "description": "INJ BUFENCON (BETAMETHASONE 7MG/ML) 1ML Y.S.P.",
@@ -10453,7 +10728,8 @@
       "expiry_days": 722,
       "months_supply": 1.8,
       "is_overstock": false,
-      "margin_pct": 65.9
+      "margin_pct": 65.9,
+      "qty_14d": 9
     },
     {
       "description": "INJ TROVITE PAIR (THIAMINE HYDROCHLORIDE 250MG/5ML + PYRIDOXINE HYDROCHLORIDE 50MG/5ML + DEXTROSE MONOHYDRATE 1000MG/5ML + ASCORBIC ACID 500MG/5ML + DEXPANTHENOL 5MG/5ML + RIBOFLAVIN SODIUM PHOSPHATE 5.133MG/5ML + NICOTINAMIDE 160MG/5ML) DUOPHARMA",
@@ -10487,7 +10763,8 @@
       "expiry_days": 236,
       "months_supply": 2.3,
       "is_overstock": false,
-      "margin_pct": 64.3
+      "margin_pct": 64.3,
+      "qty_14d": 4
     },
     {
       "description": "INJ COPAN (HYOSCINE BUTYLBROMIDE 20MG/ML) 1ML VIAL DUOPHARMA",
@@ -10521,7 +10798,8 @@
       "expiry_days": 783,
       "months_supply": 1.6,
       "is_overstock": false,
-      "margin_pct": 90.8
+      "margin_pct": 90.8,
+      "qty_14d": 5
     },
     {
       "description": "INJ LARTIL (PROCHLORPERAZINE MESYLATE)12.5MG/ML 1ML VIAL DUOPHARMA",
@@ -10555,7 +10833,8 @@
       "expiry_days": 539,
       "months_supply": 5.7,
       "is_overstock": false,
-      "margin_pct": 88.4
+      "margin_pct": 88.4,
+      "qty_14d": 0
     },
     {
       "description": "INJECSOL MgSO4 (Magnesium Sulfate 50% W/v 2.465G) 5ML VIAL AIN MEDICARE",
@@ -10583,7 +10862,8 @@
       "expiry_days": 287,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 60.0
+      "margin_pct": 60.0,
+      "qty_14d": 0
     },
     {
       "description": "INJ MALON ( METOCLOPRAMIDE ) 10MG/2ML DUOPHARMA",
@@ -10617,7 +10897,8 @@
       "expiry_days": 752,
       "months_supply": 1.4,
       "is_overstock": false,
-      "margin_pct": 89.3
+      "margin_pct": 89.3,
+      "qty_14d": 3
     },
     {
       "description": "INJ AMINOPHYLLIN 250MG/10ML FRESENIUS",
@@ -10645,7 +10926,8 @@
       "expiry_days": 509,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 90.0
+      "margin_pct": 90.0,
+      "qty_14d": 0
     },
     {
       "description": "INJ TACARLINE (ADRENALINE 1MG/ML) 1ML DUOPHARMA",
@@ -10679,7 +10961,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 93.6
+      "margin_pct": 93.6,
+      "qty_14d": 2
     },
     {
       "description": "INJ FUSIX ( FRUSDEMIDE ) 20MG/2ML SM PHARMACEUTICALS",
@@ -10707,7 +10990,8 @@
       "expiry_days": 325,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 94.0
+      "margin_pct": 94.0,
+      "qty_14d": 0
     },
     {
       "description": "INJ ACIPAN (ATROPINE SULPHATE) 1MG/ML 1ML DUOPHARMA",
@@ -10735,7 +11019,8 @@
       "expiry_days": 448,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 93.4
+      "margin_pct": 93.4,
+      "qty_14d": 0
     },
     {
       "description": "INFUSOL N/S 500ML ( SODIUM CHLORIDE 0.9% W/V ) AIN MEDICARE",
@@ -10769,7 +11054,8 @@
       "expiry_days": 1584,
       "months_supply": 2.6,
       "is_overstock": false,
-      "margin_pct": 93.6
+      "margin_pct": 93.6,
+      "qty_14d": 1
     },
     {
       "description": "TAB COAPROVEL  (IRBESARTAN/HYDROCHLOROTHIAZIDE) 300MG/12.5MG SANOFI",
@@ -10797,7 +11083,8 @@
       "expiry_days": 478,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 42.5
+      "margin_pct": 42.5,
+      "qty_14d": 0
     },
     {
       "description": "TAB LORADINE (LORATIDINE)10MG Y.S.P.",
@@ -10831,7 +11118,8 @@
       "expiry_days": 629,
       "months_supply": 6.0,
       "is_overstock": false,
-      "margin_pct": 77.0
+      "margin_pct": 77.0,
+      "qty_14d": 10
     },
     {
       "description": "CERUMOL EAR WAX SOFTNER DROPS 10ML",
@@ -10865,7 +11153,8 @@
       "expiry_days": 783,
       "months_supply": 4.4,
       "is_overstock": false,
-      "margin_pct": 58.3
+      "margin_pct": 58.3,
+      "qty_14d": 0
     },
     {
       "description": "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
@@ -10899,7 +11188,8 @@
       "expiry_days": 752,
       "months_supply": 7.0,
       "is_overstock": true,
-      "margin_pct": 54.0
+      "margin_pct": 54.0,
+      "qty_14d": 0
     },
     {
       "description": "CIPMAX (CIPROFLOXACIN 0.3%) EYE DROPS 5ML SAMCHUNDANG",
@@ -10933,7 +11223,8 @@
       "expiry_days": 470,
       "months_supply": 2.6,
       "is_overstock": false,
-      "margin_pct": 62.0
+      "margin_pct": 62.0,
+      "qty_14d": 2
     },
     {
       "description": "TAB INOX (ITRACONAZOLE)100MG HOVID",
@@ -10967,7 +11258,8 @@
       "expiry_days": 630,
       "months_supply": 5.0,
       "is_overstock": false,
-      "margin_pct": 65.4
+      "margin_pct": 65.4,
+      "qty_14d": 0
     },
     {
       "description": "A SCABS ( PERMETHRIN 5% ) LOTION 30ML HOE",
@@ -10995,7 +11287,8 @@
       "expiry_days": 661,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 53.6
+      "margin_pct": 53.6,
+      "qty_14d": 0
     },
     {
       "description": "INFUSOL N/S 250ML (SODIUM CHLORIDE 0.9% ) AIN MEDICARE",
@@ -11029,7 +11322,8 @@
       "expiry_days": 1520,
       "months_supply": 0.5,
       "is_overstock": false,
-      "margin_pct": 83.8
+      "margin_pct": 83.8,
+      "qty_14d": 8
     },
     {
       "description": "IVD HARTMANN'S SOLUTION 500ML B. BRAUN",
@@ -11057,7 +11351,8 @@
       "expiry_days": 1181,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 92.6
+      "margin_pct": 92.6,
+      "qty_14d": 0
     },
     {
       "description": "INFUSOL NSD5% 500ML (DEXTROSE ANHYDROUS 5%W/V, SODIUM CHLORIDE 0.9%W/V) AIN MEDICARE",
@@ -11085,7 +11380,8 @@
       "expiry_days": 21,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 92.2
+      "margin_pct": 92.2,
+      "qty_14d": 0
     },
     {
       "description": "INFUSOL IV INFUSION D5% (DEXTROSE ANHYDROUS 5%W/V) AIN MEDICARE",
@@ -11113,7 +11409,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 93.0
+      "margin_pct": 93.0,
+      "qty_14d": 0
     },
     {
       "description": "EFF GRANULES AVOSODA (SODIUM BICARBONATE) 1.916G/SACHET ABIO",
@@ -11147,7 +11444,8 @@
       "expiry_days": 844,
       "months_supply": 1.3,
       "is_overstock": false,
-      "margin_pct": 74.8
+      "margin_pct": 74.8,
+      "qty_14d": 48
     },
     {
       "description": "TAB POSTINOR 2 (LEVONORGESTREL 0.75MG) 2'S Gedeon Richter Plc",
@@ -11175,7 +11473,8 @@
       "expiry_days": 629,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 65.1
+      "margin_pct": 65.1,
+      "qty_14d": 0
     },
     {
       "description": "CANDACORT CREAM (CLOTRIMAZOLE 1% / HYDROCORTISONE 1% ) 15G HOE",
@@ -11209,7 +11508,8 @@
       "expiry_days": 540,
       "months_supply": 3.3,
       "is_overstock": false,
-      "margin_pct": 67.3
+      "margin_pct": 67.3,
+      "qty_14d": 0
     },
     {
       "description": "KEZORAL (KETOCONAZOLE 2% W/W) CREAM 15G DUOPHARMA",
@@ -11243,7 +11543,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 69.2
+      "margin_pct": 69.2,
+      "qty_14d": 0
     },
     {
       "description": "VICIDE CREAM 5%  (ACYCLOVIR 15MG/G) 10G PAHANG",
@@ -11277,7 +11578,8 @@
       "expiry_days": 752,
       "months_supply": 4.0,
       "is_overstock": false,
-      "margin_pct": 70.2
+      "margin_pct": 70.2,
+      "qty_14d": 0
     },
     {
       "description": "T3 MYCIN LOTION (CLINDAMYCIN PHOSPHATE 1%) 30ML HOE",
@@ -11305,7 +11607,8 @@
       "expiry_days": 509,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 46.0
+      "margin_pct": 46.0,
+      "qty_14d": 0
     },
     {
       "description": "KAOLIN-PECTIN (PECTIN 25MG/5ML, LIGHT KAOLIN 1G/5ML) 120ML DYNA",
@@ -11333,7 +11636,8 @@
       "expiry_days": 782,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 76.8
+      "margin_pct": 76.8,
+      "qty_14d": 0
     },
     {
       "description": "ORS PLUS (TRISODIUM CITRATE 725MG, DEXTROSE ANHYDROUS 3375MG, SODIUM CHLORIDE 650MG, POTASSIUM CHLORIDE 375MG) SACHET PHARMANIAGA",
@@ -11367,7 +11671,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 74.0
+      "margin_pct": 74.0,
+      "qty_14d": 0
     },
     {
       "description": "APPETON MV LYSINE SYRUP 120ML (VITAMIN A 1000IU + VITAMIN D3 200IU + VITAMIN B1 0.5MG + VITAMIN B2 0.5MG + VITAMIN B6 0.5MG + VITAMIN E 5IU + NICOTINAMIDE 6MG + PANTOTHENIC ACID 2MG + LYSINE 80MG) KOTRA PHARMA",
@@ -11401,7 +11706,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.8
+      "margin_pct": 33.8,
+      "qty_14d": 1
     },
     {
       "description": "LOZENGES DIFFLAM (BENZYDAMINE HYDROCHLORIDE 3MG) MINT FLAVOURED INOVA",
@@ -11435,7 +11741,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 53.7
+      "margin_pct": 53.7,
+      "qty_14d": 12
     },
     {
       "description": "AEVA THYMOL GARGLE 120ML APEX",
@@ -11469,7 +11776,8 @@
       "expiry_days": 752,
       "months_supply": 1.1,
       "is_overstock": false,
-      "margin_pct": 73.5
+      "margin_pct": 73.5,
+      "qty_14d": 0
     },
     {
       "description": "SUPP DIMENHYDRINATE 50MG DRIMINATE Y.S.P",
@@ -11503,7 +11811,8 @@
       "expiry_days": 601,
       "months_supply": 0.5,
       "is_overstock": false,
-      "margin_pct": 79.5
+      "margin_pct": 79.5,
+      "qty_14d": 6
     },
     {
       "description": "SUPP BISACODYL 5MG BISACODYL Y.S.P",
@@ -11531,7 +11840,8 @@
       "expiry_days": 113,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 91.3
+      "margin_pct": 91.3,
+      "qty_14d": 0
     },
     {
       "description": "KLORAXIN EYE OINTMENT ( CHLORAMPHENICOL 1%) 5G UNIMED",
@@ -11565,7 +11875,8 @@
       "expiry_days": 601,
       "months_supply": 1.0,
       "is_overstock": false,
-      "margin_pct": 86.0
+      "margin_pct": 86.0,
+      "qty_14d": 1
     },
     {
       "description": "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
@@ -11599,7 +11910,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 73.0
+      "margin_pct": 73.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB NEXIUM MUPS (ESOMEPRAZOLE) 20MG ASTRAZENECA",
@@ -11627,7 +11939,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 55.7
+      "margin_pct": 55.7,
+      "qty_14d": 0
     },
     {
       "description": "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
@@ -11661,7 +11974,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 40.0
+      "margin_pct": 40.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB BEAZYME (PAPAIN) 150,000 USP UNIT NORIPHARMA",
@@ -11695,7 +12009,8 @@
       "expiry_days": 448,
       "months_supply": 14.0,
       "is_overstock": true,
-      "margin_pct": 89.2
+      "margin_pct": 89.2,
+      "qty_14d": 0
     },
     {
       "description": "TAB NUELIN SR (THEOPHYLLINE) 250MG INOVA",
@@ -11729,7 +12044,8 @@
       "expiry_days": 236,
       "months_supply": 1.6,
       "is_overstock": false,
-      "margin_pct": 61.0
+      "margin_pct": 61.0,
+      "qty_14d": 0
     },
     {
       "description": "SCABOMA LOTION  ( LINDANE 1% ) GLENMARK",
@@ -11763,7 +12079,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 50.0
+      "margin_pct": 50.0,
+      "qty_14d": 1
     },
     {
       "description": "NITROSOL SUBLINGUAL AEROSOL SPRAY 400mcg/PER SPRAY VITAMODE",
@@ -11791,7 +12108,8 @@
       "expiry_days": 539,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": null,
+      "qty_14d": 0
     },
     {
       "description": "ZYNOMAX ( AZITHROMYCIN ) POWDER FOR ORAL SUSPENSION 200MG/5ML 20ML DUOPHARMA",
@@ -11825,7 +12143,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 60.0
+      "margin_pct": 60.0,
+      "qty_14d": 0
     },
     {
       "description": "SYR UPHAMOL (PARACETAMOL) 250MG/5ML (ORANGE FLAVOURED) DUOPHARMA",
@@ -11859,7 +12178,8 @@
       "expiry_days": 875,
       "months_supply": 3.5,
       "is_overstock": false,
-      "margin_pct": 80.0
+      "margin_pct": 80.0,
+      "qty_14d": 11
     },
     {
       "description": "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
@@ -11893,7 +12213,8 @@
       "expiry_days": 264,
       "months_supply": 1.3,
       "is_overstock": false,
-      "margin_pct": 73.0
+      "margin_pct": 73.0,
+      "qty_14d": 0
     },
     {
       "description": "INJ TT VACCINE (TETANUS) 0.5ML SM PHARMA",
@@ -11927,7 +12248,8 @@
       "expiry_days": 417,
       "months_supply": 1.2,
       "is_overstock": false,
-      "margin_pct": 85.0
+      "margin_pct": 85.0,
+      "qty_14d": 0
     },
     {
       "description": "INJ TYPHIM IV ( TYPHOID VACCINE ) SANOFI",
@@ -11961,7 +12283,8 @@
       "expiry_days": 386,
       "months_supply": 0.5,
       "is_overstock": false,
-      "margin_pct": 46.4
+      "margin_pct": 46.4,
+      "qty_14d": 2
     },
     {
       "description": "INJ CLEXANE (ENOXAPARIN) 4000 IU (40 Mg) SANOFI",
@@ -11989,7 +12312,8 @@
       "expiry_days": 562,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 60.1
+      "margin_pct": 60.1,
+      "qty_14d": 0
     },
     {
       "description": "INJ LAKAN 1% ( LIGNOCAINE ) ML VIAL DUOPHARMA",
@@ -12023,7 +12347,8 @@
       "expiry_days": 539,
       "months_supply": 11.9,
       "is_overstock": true,
-      "margin_pct": 26.4
+      "margin_pct": 26.4,
+      "qty_14d": 1
     },
     {
       "description": "TAB STORVAS C (ATORVASTATIN) 10MG RANBAXY",
@@ -12051,7 +12376,8 @@
       "expiry_days": 539,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 51.7
+      "margin_pct": 51.7,
+      "qty_14d": 0
     },
     {
       "description": "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
@@ -12085,7 +12411,8 @@
       "expiry_days": 539,
       "months_supply": 0.5,
       "is_overstock": false,
-      "margin_pct": 54.7
+      "margin_pct": 54.7,
+      "qty_14d": 0
     },
     {
       "description": "WELLMEX ATOMIC ENEMA 20ML NGL TRADING",
@@ -12119,7 +12446,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 82.1
+      "margin_pct": 82.1,
+      "qty_14d": 0
     },
     {
       "description": "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
@@ -12153,7 +12481,8 @@
       "expiry_days": 1291,
       "months_supply": 1.0,
       "is_overstock": false,
-      "margin_pct": 73.8
+      "margin_pct": 73.8,
+      "qty_14d": 0
     },
     {
       "description": "INJ INFLUVAC TETRA 0.5ML ABBOTT",
@@ -12187,7 +12516,8 @@
       "expiry_days": 205,
       "months_supply": 2.2,
       "is_overstock": false,
-      "margin_pct": 66.2
+      "margin_pct": 66.2,
+      "qty_14d": 7
     },
     {
       "description": "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP Pharmaceuticals S.p.A.",
@@ -12215,7 +12545,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 30.2
+      "margin_pct": 30.2,
+      "qty_14d": 0
     },
     {
       "description": "ARTIBEST INTRA-ARTICULAR INJECTION BREGGO",
@@ -12249,7 +12580,8 @@
       "expiry_days": 878,
       "months_supply": 1.4,
       "is_overstock": false,
-      "margin_pct": 33.5
+      "margin_pct": 33.5,
+      "qty_14d": 1
     },
     {
       "description": "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
@@ -12283,7 +12615,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 22.0
+      "margin_pct": 22.0,
+      "qty_14d": 0
     },
     {
       "description": "SYR CEFUROXIME-125 (125MG/5ML) 50ML AXCEL KOTRA PHARMA",
@@ -12317,7 +12650,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 52.9
+      "margin_pct": 52.9,
+      "qty_14d": 0
     },
     {
       "description": "INJ SENSOVISC 1% 20MG (HYALURONIC ACID) ADVANCE PHARMA",
@@ -12351,7 +12685,8 @@
       "expiry_days": 814,
       "months_supply": 1.0,
       "is_overstock": false,
-      "margin_pct": 69.4
+      "margin_pct": 69.4,
+      "qty_14d": 0
     },
     {
       "description": "TAB GOUTRIC ( FEBUXOSTAT) NOVUGEN",
@@ -12385,7 +12720,8 @@
       "expiry_days": 52,
       "months_supply": 0.3,
       "is_overstock": false,
-      "margin_pct": 27.1
+      "margin_pct": 27.1,
+      "qty_14d": 0
     },
     {
       "description": "KOOL FEVER (FOR CHILDREN) 2'S HEFEI KOBAYASHI DAILY",
@@ -12419,7 +12755,8 @@
       "expiry_days": 702,
       "months_supply": 3.4,
       "is_overstock": false,
-      "margin_pct": 50.2
+      "margin_pct": 50.2,
+      "qty_14d": 0
     },
     {
       "description": "GENGIGEL SPRAY ( SODIUM HYALURONATE 0.01% ) 20ML PHARMANIAGA",
@@ -12447,7 +12784,8 @@
       "expiry_days": 325,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 50.0
+      "margin_pct": 50.0,
+      "qty_14d": 0
     },
     {
       "description": "IBUFEN SYRUP (IBUPROFEN 100MG/ 5ML) DYNAPHARM",
@@ -12481,7 +12819,8 @@
       "expiry_days": 814,
       "months_supply": 2.0,
       "is_overstock": false,
-      "margin_pct": 78.2
+      "margin_pct": 78.2,
+      "qty_14d": 0
     },
     {
       "description": "Axcel Lignocaine-P Cream 5G KOTRA PHARMA",
@@ -12509,7 +12848,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": null,
+      "qty_14d": 0
     },
     {
       "description": "AQUA CREAM 30G",
@@ -12537,7 +12877,8 @@
       "expiry_days": 829,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 86.7
+      "margin_pct": 86.7,
+      "qty_14d": 0
     },
     {
       "description": "TAB CIATUFF (TADALAFIL) 20MG SYNERRV",
@@ -12571,7 +12912,8 @@
       "expiry_days": 995,
       "months_supply": 10.0,
       "is_overstock": true,
-      "margin_pct": 51.0
+      "margin_pct": 51.0,
+      "qty_14d": 0
     },
     {
       "description": "INFUSOL N/S 10ML ( SODIUM CHLORIDE 0.9% W/V ) AIN MEDICARE",
@@ -12599,7 +12941,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": null,
+      "qty_14d": 0
     },
     {
       "description": "CHEWABLE SIMCONE ( SIMETICONE ) 80MG IMEKS",
@@ -12633,7 +12976,8 @@
       "expiry_days": 936,
       "months_supply": 1.6,
       "is_overstock": false,
-      "margin_pct": 84.0
+      "margin_pct": 84.0,
+      "qty_14d": 70
     },
     {
       "description": "DYNAVATE-N (BETAMETHASONE 0.1 % | NEOMYCIN SULPHATE 0.5%) CREAM 15G DYNAPHARM",
@@ -12667,7 +13011,8 @@
       "expiry_days": 844,
       "months_supply": 5.6,
       "is_overstock": false,
-      "margin_pct": 82.9
+      "margin_pct": 82.9,
+      "qty_14d": 1
     },
     {
       "description": "TABLET COZAAR XQ 5/50MG ORGANON",
@@ -12701,7 +13046,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 50.9
+      "margin_pct": 50.9,
+      "qty_14d": 0
     },
     {
       "description": "TAB LUSEFI ( LUSEOGLIFLOZIN ) 5MG TAISHO",
@@ -12735,7 +13081,8 @@
       "expiry_days": 844,
       "months_supply": 1.7,
       "is_overstock": false,
-      "margin_pct": 50.0
+      "margin_pct": 50.0,
+      "qty_14d": 40
     },
     {
       "description": "S/C MOUNJARO (TIRZEPATIDE 25MG/ML) 2.5MG DOSE LILLY",
@@ -12769,7 +13116,8 @@
       "expiry_days": 478,
       "months_supply": 0.6,
       "is_overstock": false,
-      "margin_pct": 35.2
+      "margin_pct": 35.2,
+      "qty_14d": 11
     },
     {
       "description": "INJ PRIORIX (MMR) 0.5ML GSK",
@@ -12803,7 +13151,8 @@
       "expiry_days": 814,
       "months_supply": 2.0,
       "is_overstock": false,
-      "margin_pct": 45.1
+      "margin_pct": 45.1,
+      "qty_14d": 0
     },
     {
       "description": "TABLET METGYL (METRONIDAZOLE) 400MG SM PHARMACEUTICALS",
@@ -12837,7 +13186,8 @@
       "expiry_days": 936,
       "months_supply": 0.5,
       "is_overstock": false,
-      "margin_pct": 96.4
+      "margin_pct": 96.4,
+      "qty_14d": 50
     },
     {
       "description": "SYR ENHANCIN (AMOXYCILLIN AND CLAVULANIC ACID 312.5MG/5ML ) 60ML RANBAXY",
@@ -12871,7 +13221,8 @@
       "expiry_days": 325,
       "months_supply": 3.1,
       "is_overstock": false,
-      "margin_pct": 76.0
+      "margin_pct": 76.0,
+      "qty_14d": 4
     },
     {
       "description": "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
@@ -12905,7 +13256,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 44.6
+      "margin_pct": 44.6,
+      "qty_14d": 0
     },
     {
       "description": "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
@@ -12939,7 +13291,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 64.7
+      "margin_pct": 64.7,
+      "qty_14d": 0
     },
     {
       "description": "PREVENAR 13 (PNEUMOCOCCAL POLYSACCHARIDE CONJUGATE 13-VALENT) PFIZER",
@@ -12967,7 +13320,8 @@
       "expiry_days": 356,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": null,
+      "qty_14d": 0
     },
     {
       "description": "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
@@ -13001,7 +13355,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 46.8
+      "margin_pct": 46.8,
+      "qty_14d": 0
     },
     {
       "description": "SKYCellflu Quadrivalent Prefilled Influenza Vaccine PHARMANIAGA",
@@ -13029,7 +13384,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 69.3
+      "margin_pct": 69.3,
+      "qty_14d": 0
     },
     {
       "description": "SYR KIDIMAC ( AZITHROMYCIN 200MG/5ML ) 30ML HEALOL",
@@ -13063,7 +13419,8 @@
       "expiry_days": 811,
       "months_supply": 0.2,
       "is_overstock": false,
-      "margin_pct": 71.2
+      "margin_pct": 71.2,
+      "qty_14d": 7
     },
     {
       "description": "NASONEX AQUEOUS NASAL SPRAY (MOMETASONE FUROATE 0.05%) 60D ORGANON",
@@ -13091,7 +13448,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 55.1
+      "margin_pct": 55.1,
+      "qty_14d": 0
     },
     {
       "description": "INJ PREDON INJECTION 25MG/ML HEALOL PHARMACEUTICALS SDN. BHD.",
@@ -13125,7 +13483,8 @@
       "expiry_days": 998,
       "months_supply": 16.0,
       "is_overstock": true,
-      "margin_pct": 94.7
+      "margin_pct": 94.7,
+      "qty_14d": 0
     },
     {
       "description": "SYR EMCOF-SF (HERBAL COUGH SYRUP) 100ML BioCare Pharmaceutical",
@@ -13153,7 +13512,8 @@
       "expiry_days": 417,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 75.2
+      "margin_pct": 75.2,
+      "qty_14d": 0
     },
     {
       "description": "SYR IXIME ( CEFIXIME 100MG/5ML ) 50ML LUPIN",
@@ -13187,7 +13547,8 @@
       "expiry_days": 417,
       "months_supply": 5.0,
       "is_overstock": false,
-      "margin_pct": 41.3
+      "margin_pct": 41.3,
+      "qty_14d": 4
     },
     {
       "description": "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
@@ -13221,7 +13582,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 32.0
+      "margin_pct": 32.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB PROGIT ( ITOPRIDE HYDROCHLORIDE ) 50MG PRO MED",
@@ -13249,7 +13611,8 @@
       "expiry_days": 144,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.3
+      "margin_pct": 33.3,
+      "qty_14d": 0
     },
     {
       "description": "SALBUNEB ( SALBUTAMOL 2.5MG/2.5ML ) AIN MEDICARE",
@@ -13283,7 +13646,8 @@
       "expiry_days": 549,
       "months_supply": 118.0,
       "is_overstock": true,
-      "margin_pct": 88.4
+      "margin_pct": 88.4,
+      "qty_14d": 0
     },
     {
       "description": "SYR DESTACURE ( DESLORATIDINE 2.5MG/5ML ) 60ML HEALOL",
@@ -13311,7 +13675,8 @@
       "expiry_days": 752,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 65.1
+      "margin_pct": 65.1,
+      "qty_14d": 0
     },
     {
       "description": "WELLMEX ATOMIC ENEMA 10ML 2'S NGL TRADING",
@@ -13339,7 +13704,8 @@
       "expiry_days": 813,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 74.8
+      "margin_pct": 74.8,
+      "qty_14d": 0
     },
     {
       "description": "TAB EXFORGE 5/80 (AMLODIPINE 5MG/ VALSARTAN 80MG) NORVATIS",
@@ -13373,7 +13739,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 42.6
+      "margin_pct": 42.6,
+      "qty_14d": 28
     },
     {
       "description": "TAB DIASIT (SITAGLIPTIN) 50MG SYNERRV",
@@ -13401,7 +13768,8 @@
       "expiry_days": 417,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.5
+      "margin_pct": 33.5,
+      "qty_14d": 0
     },
     {
       "description": "TAB ESCIPRA (ESCITALOPRAM) 10MG SYNERRV",
@@ -13429,7 +13797,8 @@
       "expiry_days": 417,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.3
+      "margin_pct": 33.3,
+      "qty_14d": 0
     },
     {
       "description": "TAB DESLORATADINE 5MG SYNERRV",
@@ -13463,7 +13832,8 @@
       "expiry_days": 356,
       "months_supply": 0.7,
       "is_overstock": false,
-      "margin_pct": 58.5
+      "margin_pct": 58.5,
+      "qty_14d": 20
     },
     {
       "description": "TAB MONTULAR (MONTELUKAST) 10MG SYNERRV",
@@ -13491,7 +13861,8 @@
       "expiry_days": 722,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 49.3
+      "margin_pct": 49.3,
+      "qty_14d": 0
     },
     {
       "description": "TAB DIASIT (SITAGLIPTIN) 100MG SYNERRV",
@@ -13519,7 +13890,8 @@
       "expiry_days": 448,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.2
+      "margin_pct": 33.2,
+      "qty_14d": 0
     },
     {
       "description": "TAB ROSUVASTATIN 20MG SYNERRV",
@@ -13553,7 +13925,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.5
+      "margin_pct": 33.5,
+      "qty_14d": 0
     },
     {
       "description": "TAB ATORVASTATIN 20MG SYNERRV",
@@ -13587,7 +13960,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 57.5
+      "margin_pct": 57.5,
+      "qty_14d": 0
     },
     {
       "description": "TAB ATORVASTATIN 40MG SYNERRV",
@@ -13615,7 +13989,8 @@
       "expiry_days": 448,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 48.8
+      "margin_pct": 48.8,
+      "qty_14d": 0
     },
     {
       "description": "TAB ZIOMYCIN (AZITHROMYCIN) 500MG SYNERRV",
@@ -13649,7 +14024,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 49.6
+      "margin_pct": 49.6,
+      "qty_14d": 0
     },
     {
       "description": "TAB FORSANEC (ETORICOXIB) 90MG SYNERRV",
@@ -13677,7 +14053,8 @@
       "expiry_days": 691,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.3
+      "margin_pct": 33.3,
+      "qty_14d": 0
     },
     {
       "description": "TAB ROSUVASTATIN 10MG SYNERRV",
@@ -13705,7 +14082,8 @@
       "expiry_days": 325,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.3
+      "margin_pct": 33.3,
+      "qty_14d": 0
     },
     {
       "description": "OINTMENT BACTOPIC (MUPIROCIN) 2% 15G SYNERRV",
@@ -13733,7 +14111,8 @@
       "expiry_days": 509,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 61.3
+      "margin_pct": 61.3,
+      "qty_14d": 0
     },
     {
       "description": "TAB FORSANEC (ETORICOXIB) 120MG SYNERRV",
@@ -13761,7 +14140,8 @@
       "expiry_days": 722,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.3
+      "margin_pct": 33.3,
+      "qty_14d": 0
     },
     {
       "description": "CAP PREZEL (PREGABALIN) 75MG SYNERRV",
@@ -13789,7 +14169,8 @@
       "expiry_days": 417,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.0
+      "margin_pct": 33.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB METSWIFT XR (METFORMIN HCl) 750MG SYNERRV",
@@ -13817,7 +14198,8 @@
       "expiry_days": 113,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 46.7
+      "margin_pct": 46.7,
+      "qty_14d": 0
     },
     {
       "description": "TAB FEXOFENADINE 180MG SYNERRV",
@@ -13845,7 +14227,8 @@
       "expiry_days": 691,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 36.0
+      "margin_pct": 36.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB ZIOMYCIN (AZITHROMYCIN) 250MG SYNERRV",
@@ -13879,7 +14262,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 63.4
+      "margin_pct": 63.4,
+      "qty_14d": 0
     },
     {
       "description": "TAB FORSANEC (ETORICOXIB) 60MG SYNERRV",
@@ -13907,7 +14291,8 @@
       "expiry_days": 509,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.3
+      "margin_pct": 33.3,
+      "qty_14d": 0
     },
     {
       "description": "TAB TELWSIFT (TELMISARTAN) 40MG SYNERRV",
@@ -13935,7 +14320,8 @@
       "expiry_days": 83,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 43.3
+      "margin_pct": 43.3,
+      "qty_14d": 0
     },
     {
       "description": "TAB LAZINE (LEVOCETIRIZINE DIHCl) 5MG SYNERRV",
@@ -13963,7 +14349,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 56.0
+      "margin_pct": 56.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
@@ -13997,7 +14384,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.2
+      "margin_pct": 33.2,
+      "qty_14d": 0
     },
     {
       "description": "TAB GLIT (PIOGLITAZONE) 15MG SYNERRV",
@@ -14031,7 +14419,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 34.2
+      "margin_pct": 34.2,
+      "qty_14d": 0
     },
     {
       "description": "TAB METSWIFT XR (METFORMIN HCl) 1000MG SYNERRV",
@@ -14059,7 +14448,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 37.5
+      "margin_pct": 37.5,
+      "qty_14d": 0
     },
     {
       "description": "FIX DERMA MULTI ACTIVE MOISTURIZING LOTION 150ML SYNERRV",
@@ -14087,7 +14477,8 @@
       "expiry_days": 83,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.3
+      "margin_pct": 33.3,
+      "qty_14d": 0
     },
     {
       "description": "FIX DERMA MOISTURIZING CREAM FOR DRY SKIN 60G SYNERRV",
@@ -14115,7 +14506,8 @@
       "expiry_days": 448,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.3
+      "margin_pct": 33.3,
+      "qty_14d": 0
     },
     {
       "description": "FIX DERMA SCAR GEL FOR SCAR 15ML SYNERRV",
@@ -14143,7 +14535,8 @@
       "expiry_days": 417,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 35.0
+      "margin_pct": 35.0,
+      "qty_14d": 0
     },
     {
       "description": "SYR CHLORAMINE (CHLORPHENIRAMINE) 4MG/5ML 90ML DUOPHARMA",
@@ -14177,7 +14570,8 @@
       "expiry_days": 752,
       "months_supply": 5.1,
       "is_overstock": false,
-      "margin_pct": 87.0
+      "margin_pct": 87.0,
+      "qty_14d": 7
     },
     {
       "description": "TAB ZOLTEROL SR (DICLOFENAC SODIUM) 100MG DUOPHARMA",
@@ -14211,7 +14605,8 @@
       "expiry_days": 783,
       "months_supply": 8.0,
       "is_overstock": true,
-      "margin_pct": 84.0
+      "margin_pct": 84.0,
+      "qty_14d": 0
     },
     {
       "description": "XOIN (N-BUTYL-2-CYANOACRYLATE) TOPICAL SKIN ADHESIVE 0.25ML REEVAX PHARMA",
@@ -14245,7 +14640,8 @@
       "expiry_days": 539,
       "months_supply": 1.3,
       "is_overstock": false,
-      "margin_pct": 90.0
+      "margin_pct": 90.0,
+      "qty_14d": 1
     },
     {
       "description": "TAB VITABION (VIT B1 100MG, VIT B6 200MG, VIT B12 200MCG) UNISON LABORATORIES",
@@ -14279,7 +14675,8 @@
       "expiry_days": 386,
       "months_supply": 48.8,
       "is_overstock": true,
-      "margin_pct": 72.0
+      "margin_pct": 72.0,
+      "qty_14d": 0
     },
     {
       "description": "DYNA CALAMINE LOTION (CALAMINE POWDER 15% W/V / MENTHOL 0.15% W/V) 100ML DYNAPHARM (M)",
@@ -14313,7 +14710,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 68.2
+      "margin_pct": 68.2,
+      "qty_14d": 0
     },
     {
       "description": "CAP APO-PIROXICAM 20MG APOTEX INC",
@@ -14347,7 +14745,8 @@
       "expiry_days": 295,
       "months_supply": 130.7,
       "is_overstock": true,
-      "margin_pct": 83.5
+      "margin_pct": 83.5,
+      "qty_14d": 20
     },
     {
       "description": "TAB APO-ROSUVASTATIN 10MG APOTEX INC",
@@ -14375,7 +14774,8 @@
       "expiry_days": 478,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 60.0
+      "margin_pct": 60.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB APO-ROSUVASTATIN 20MG APOTEX INC",
@@ -14409,7 +14809,8 @@
       "expiry_days": 570,
       "months_supply": 18.0,
       "is_overstock": true,
-      "margin_pct": 62.6
+      "margin_pct": 62.6,
+      "qty_14d": 30
     },
     {
       "description": "FORA 6 BLOOD GLUCOSE TEST STRIPS 25'S KINSMEDIC",
@@ -14437,7 +14838,8 @@
       "expiry_days": 526,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 90.1
+      "margin_pct": 90.1,
+      "qty_14d": 0
     },
     {
       "description": "TAB APO-ATORVASTATIN 20MG APOTEX INC",
@@ -14465,7 +14867,8 @@
       "expiry_days": 417,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": null,
+      "qty_14d": 0
     },
     {
       "description": "TAB APO-ALENDRONATE 70MG 4'S APOTEX INC",
@@ -14493,7 +14896,8 @@
       "expiry_days": 509,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": null,
+      "qty_14d": 0
     },
     {
       "description": "SOFTGEL NUTRIFORTE FISH OIL DS 1200MG 30's ALPHA LABORATORIES",
@@ -14521,7 +14925,8 @@
       "expiry_days": 456,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 29.1
+      "margin_pct": 29.1,
+      "qty_14d": 0
     },
     {
       "description": "FC CAP NUTRIFORTE BUFFERED VITAMIN C 1000MG 60's ESPRIT CARE",
@@ -14549,7 +14954,8 @@
       "expiry_days": 601,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": null,
+      "qty_14d": 0
     },
     {
       "description": "MONITAZONE (MOMETASONE FUROATE) 50MCG/ACTUATION NASAL SPRAY 140MD SHAMCHUNDANG PHARM",
@@ -14583,7 +14989,8 @@
       "expiry_days": 354,
       "months_supply": 2.7,
       "is_overstock": false,
-      "margin_pct": 47.4
+      "margin_pct": 47.4,
+      "qty_14d": 0
     },
     {
       "description": "NEBULE COMBINEB (IPRATROPIUM BROMIDE 0.5MG/SALBUTAMOL 2.5MG) 2.5ML AIN MEDICARE",
@@ -14617,7 +15024,8 @@
       "expiry_days": 550,
       "months_supply": 118.0,
       "is_overstock": true,
-      "margin_pct": 88.0
+      "margin_pct": 88.0,
+      "qty_14d": 0
     },
     {
       "description": "TAB NP PREDNISOLONE 5MG NORIPHARMA",
@@ -14651,7 +15059,8 @@
       "expiry_days": 844,
       "months_supply": 1.6,
       "is_overstock": false,
-      "margin_pct": 93.0
+      "margin_pct": 93.0,
+      "qty_14d": 120
     },
     {
       "description": "SMA STEP 1 1.65KG (N15) WYETH NUTRITIONALS (SGPORE) PTE LTD",
@@ -14685,7 +15094,8 @@
       "expiry_days": 587,
       "months_supply": 2.0,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": null,
+      "qty_14d": 0
     },
     {
       "description": "PP VITAMIN C 1000MG 100'S PAHANG PHARMACY",
@@ -14719,7 +15129,8 @@
       "expiry_days": 417,
       "months_supply": 5.3,
       "is_overstock": false,
-      "margin_pct": 49.2
+      "margin_pct": 49.2,
+      "qty_14d": 2
     },
     {
       "description": "COUNTERPAIN ANALGESIC BALM 30G PT TAISHO PHARMACEURICAL",
@@ -14747,7 +15158,8 @@
       "expiry_days": 936,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 51.6
+      "margin_pct": 51.6,
+      "qty_14d": 0
     },
     {
       "description": "APPETON A-Z VITAMIN C 30MG PASTILLES 5'S",
@@ -14781,7 +15193,8 @@
       "expiry_days": 509,
       "months_supply": 1.2,
       "is_overstock": false,
-      "margin_pct": 47.7
+      "margin_pct": 47.7,
+      "qty_14d": 4
     },
     {
       "description": "GLENMARK ELOVERA PRO CREAM 75G GLENMARK",
@@ -14815,7 +15228,8 @@
       "expiry_days": 630,
       "months_supply": 4.0,
       "is_overstock": false,
-      "margin_pct": 45.6
+      "margin_pct": 45.6,
+      "qty_14d": 3
     },
     {
       "description": "SYR RHINATIOL (2% CARBOCISTINE) CHILDREN 100MG/5ML 125ML UNITHER LIQUID MANUFACTURING",
@@ -14849,7 +15263,8 @@
       "expiry_days": 905,
       "months_supply": 7.7,
       "is_overstock": true,
-      "margin_pct": 64.9
+      "margin_pct": 64.9,
+      "qty_14d": 3
     },
     {
       "description": "ENTEROGERMINA 2BCFU ORAL SUSPENSION 5ML OPELLA HEALTHCARE",
@@ -14877,7 +15292,8 @@
       "expiry_days": 448,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 35.2
+      "margin_pct": 35.2,
+      "qty_14d": 0
     },
     {
       "description": "INJ GARASENT (GENTAMICIN SULPHATE  80MG/2ML AMP) DUOPHARMA",
@@ -14911,7 +15327,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 92.2
+      "margin_pct": 92.2,
+      "qty_14d": 1
     },
     {
       "description": "INJ AMSUBAC (AMPICILLIN 1000MG/ SULBACTAM 500MG) 1.5 G AVERROES PHARMACEUTICALS SDN. BHD.",
@@ -14945,7 +15362,8 @@
       "expiry_days": 174,
       "months_supply": 1.0,
       "is_overstock": false,
-      "margin_pct": 85.2
+      "margin_pct": 85.2,
+      "qty_14d": 0
     },
     {
       "description": "MABRON (TRAMADOL) CAPSULES 50MG MEDOCHEMIE LTD",
@@ -14979,7 +15397,8 @@
       "expiry_days": 1421,
       "months_supply": 2.4,
       "is_overstock": false,
-      "margin_pct": 68.0
+      "margin_pct": 68.0,
+      "qty_14d": 100
     },
     {
       "description": "TAB AUROXETIL 500 (Cefuroxime 500 Mg) Aurobindo Pharma",
@@ -15007,7 +15426,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 64.0
+      "margin_pct": 64.0,
+      "qty_14d": 0
     },
     {
       "description": "KETOTOP PLASTER (KETOPROFEN) 30MG 7'S HANDOK",
@@ -15041,7 +15461,8 @@
       "expiry_days": 1106,
       "months_supply": 38.0,
       "is_overstock": true,
-      "margin_pct": 73.4
+      "margin_pct": 73.4,
+      "qty_14d": 1
     },
     {
       "description": "PRIME ENEMA ( GLYCEROL 50% V/W ) 20ML PRIME PHARMACEUTICAL",
@@ -15075,7 +15496,8 @@
       "expiry_days": 1056,
       "months_supply": 19.4,
       "is_overstock": true,
-      "margin_pct": 66.0
+      "margin_pct": 66.0,
+      "qty_14d": 3
     },
     {
       "description": "J.BIO PAIN RELIEF COOL PATCH ( Methyl Salicylate[3.47 %w/w], L-MENTHOL[2.31 %w/w] ) 5'S Jeil Health Science Inc.",
@@ -15103,7 +15525,8 @@
       "expiry_days": 1421,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 66.7
+      "margin_pct": 66.7,
+      "qty_14d": 0
     },
     {
       "description": "TAB FENAMON (NIFEDIPINE) 10MG MEDOCHEMIE LTD",
@@ -15131,7 +15554,8 @@
       "expiry_days": 1117,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 98.2
+      "margin_pct": 98.2,
+      "qty_14d": 0
     },
     {
       "description": "TAB BELTAS (BILASTINE) 20MG GLENMARK",
@@ -15165,7 +15589,8 @@
       "expiry_days": 752,
       "months_supply": 0.3,
       "is_overstock": false,
-      "margin_pct": 60.0
+      "margin_pct": 60.0,
+      "qty_14d": 60
     },
     {
       "description": "CAP ESSENTIALSE MAX 600MG 30'S A.NATTERMANN & CIE. GMBH",
@@ -15199,7 +15624,8 @@
       "expiry_days": 236,
       "months_supply": 0.6,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": null,
+      "qty_14d": 1
     },
     {
       "description": "TAB NUTRIFORTE VITAMIN D3 400IU 90'S YANLING NATURAL HYGIENE",
@@ -15227,7 +15653,8 @@
       "expiry_days": 402,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 56.4
+      "margin_pct": 56.4,
+      "qty_14d": 0
     },
     {
       "description": "SOFTGEL NUTRIFORTE FISH OIL DS 1200MG (VALUE PACK) 3X30'S ALPHA LABORATORIES",
@@ -15255,7 +15682,8 @@
       "expiry_days": null,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": null,
+      "qty_14d": 0
     },
     {
       "description": "DERIVA SCAR LIPOGEL 15ML GLENMARK",
@@ -15289,7 +15717,8 @@
       "expiry_days": 601,
       "months_supply": 10.0,
       "is_overstock": true,
-      "margin_pct": 48.9
+      "margin_pct": 48.9,
+      "qty_14d": 2
     },
     {
       "description": "OXY-NASE ( OXYMETAZOLINE) 0.05% 15ML HOE",
@@ -15323,7 +15752,8 @@
       "expiry_days": 937,
       "months_supply": 2.5,
       "is_overstock": false,
-      "margin_pct": 60.2
+      "margin_pct": 60.2,
+      "qty_14d": 1
     },
     {
       "description": "DEZOR PLUS SHAMPOO (KETOCONAZOLE 2%) 60ML HOE PHARMACEUTICALS",
@@ -15351,7 +15781,8 @@
       "expiry_days": 206,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 70.0
+      "margin_pct": 70.0,
+      "qty_14d": 0
     },
     {
       "description": "TERNAFIN (TERBINAFINE 1%) CREAM 15G NORIPHARMA",
@@ -15379,7 +15810,8 @@
       "expiry_days": 783,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 69.8
+      "margin_pct": 69.8,
+      "qty_14d": 0
     },
     {
       "description": "ROSKEN SKIN REPAIR DRY SKIN CREAM 75ML DKSH",
@@ -15407,7 +15839,8 @@
       "expiry_days": 860,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 49.6
+      "margin_pct": 49.6,
+      "qty_14d": 0
     },
     {
       "description": "EPIFLOR YOGURT POWDER WITH PROBIOTICS 2GX30 SACHETS MD PHARMA SDN BHD",
@@ -15435,7 +15868,8 @@
       "expiry_days": 221,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": null
+      "margin_pct": null,
+      "qty_14d": 0
     },
     {
       "description": "KPLASS KNEE PAIN RELIEF PATCH KPLASS SINGAPORE",
@@ -15463,7 +15897,8 @@
       "expiry_days": 52,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 68.8
+      "margin_pct": 68.8,
+      "qty_14d": 0
     },
     {
       "description": "TAB RALSIN (TERAZOSIN) 2MG DUOPHARMA",
@@ -15491,7 +15926,8 @@
       "expiry_days": 356,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 73.1
+      "margin_pct": 73.1,
+      "qty_14d": 0
     },
     {
       "description": "CAP HEPALIFE 2X15'S UAB ACONITUM",
@@ -15519,7 +15955,8 @@
       "expiry_days": 478,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 33.3
+      "margin_pct": 33.3,
+      "qty_14d": 0
     },
     {
       "description": "SYR CETIZ ( CETRIZINE ) 75ML AV MANUFACTURING",
@@ -15547,7 +15984,8 @@
       "expiry_days": 1056,
       "months_supply": null,
       "is_overstock": false,
-      "margin_pct": 80.3
+      "margin_pct": 80.3,
+      "qty_14d": 0
     },
     {
       "description": "TAB PANTOPRAZOLE BEXIMCO 40MG GASTRO-RESISTANT",
@@ -15581,8 +16019,8 @@
       "expiry_days": 325,
       "months_supply": 44.3,
       "is_overstock": true,
-      "margin_pct": 68.0
+      "margin_pct": 68.0,
+      "qty_14d": 20
     }
-  ],
-  "latest_po_filename": "PO_TBD_20260609.xlsx"
+  ]
 }
