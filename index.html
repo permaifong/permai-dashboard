@@ -183,6 +183,9 @@ tr.ru td{background:rgba(255,165,2,.03)}
   <div class="ni" onclick="V('combos',this)"><span class="ni-icon">🔗</span>Medicine Combos</div>
   <div class="ni" onclick="V('spikes',this)"><span class="ni-icon">📡</span>Spike Detection<span class="nb nb-r" id="b-spikes">—</span></div>
 
+  <div class="nl">Loss Control</div>
+  <div class="ni" onclick="V('shrinkage',this)"><span class="ni-icon">🔍</span>Stock Discrepancies<span class="nb nb-r" id="b-shrinkage">—</span></div>
+
   <div class="nl">Business</div>
   <div class="ni" onclick="V('revenue',this)"><span class="ni-icon">💰</span>Revenue & Margin</div>
   <div class="ni" onclick="V('categories',this)"><span class="ni-icon">🏷</span>Categories</div>
@@ -496,6 +499,47 @@ tr.ru td{background:rgba(255,165,2,.03)}
       <thead><tr><th>Category</th><th>Medicines</th><th>Units/Mo</th><th>Revenue/Mo</th><th>Revenue Share</th></tr></thead>
       <tbody id="t-cats"></tbody>
     </table></div></div>
+  </div>
+
+  <!-- STOCK DISCREPANCIES (LOSS CONTROL) -->
+  <div class="view fi" id="view-shrinkage">
+    <div class="sh"><h2>Stock Discrepancies</h2><span class="sub" id="sk-sub">unexplained stock loss</span></div>
+    <div class="ab ab-r"><div class="ab-icon">🔍</div><div>
+      <div class="ab-title">Stock that left the shelf but was never dispensed</div>
+      <div class="ab-body">For every medicine we compare each morning's stock count against the next morning's, minus what the dispensary recorded in between: <b>expected = opening − dispensed</b>. When the shelf ends up <b>lower</b> than expected, that gap is unexplained loss. A shelf that ends <b>higher</b> just means stock was received, so it is never flagged — receiving can only hide a loss, never invent one. These are <b>leads to investigate, not proof</b>: expired or damaged write-offs, manual stock-count corrections, branch returns/transfers, or a sale logged under a slightly different name all look the same. The full day-by-day math is shown per item (click a row) so a human can verify each one.</div>
+    </div></div>
+    <div id="sk-lock" class="panel" style="max-width:390px;margin:24px auto;text-align:center;padding:30px 26px">
+      <div style="font-size:30px;margin-bottom:8px">🔒</div>
+      <div style="font-weight:700;font-size:15px;margin-bottom:4px">Restricted section</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:16px">Loss-control data is password protected.</div>
+      <input id="sk-pw" type="password" placeholder="Enter section password" onkeydown="if(event.key==='Enter')unlockSK()" style="width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:13px;margin-bottom:10px;font-family:var(--fm)">
+      <div id="sk-pw-err" style="display:none;color:var(--danger);font-size:11px;margin-bottom:10px">Wrong password. Try again.</div>
+      <button onclick="unlockSK()" style="width:100%;padding:10px;border:1px solid var(--accent);background:rgba(0,212,170,.08);color:var(--accent);border-radius:8px;font-weight:600;cursor:pointer;font-size:13px">Unlock</button>
+    </div>
+    <div id="sk-content" style="display:none">
+    <div class="sg" id="sk-stats"></div>
+    <div class="panel">
+      <div class="ph"><span class="pt">Unexplained Loss by Medicine</span><span class="pb" id="sk-range">—</span>
+        <span style="margin-left:auto;display:flex;gap:6px" id="sk-filter-btns">
+          <span class="fb active" onclick="sSK('all',this)">All</span>
+          <span class="fb" onclick="sSK('nodisp',this)">No dispensing record</span>
+        </span>
+      </div>
+      <div class="ts"><table class="dt">
+        <thead><tr>
+          <th>Medicine</th>
+          <th title="Units that left the shelf but were never dispensed, over the whole period. = opening stock − units sold − actual stock left.">Missing (unaccounted)</th>
+          <th title="Units the dispensary officially recorded handing out over the period — the legitimate 'out' we subtract from stock.">Sold / Given Out</th>
+          <th title="How many SEPARATE days this medicine came up short. Many days = a recurring leak; 1 day = a one-off (often a stock correction or write-off).">Days Affected</th>
+          <th title="Cost price per unit (what the clinic pays to buy it).">Unit Cost</th>
+          <th title="Missing units × cost price — what it costs to REPLACE the missing stock.">Capital Lost</th>
+          <th title="Missing units × selling price — the REVENUE those units would have earned if sold.">Sales Lost</th>
+          <th></th>
+        </tr></thead>
+        <tbody id="t-sk"></tbody>
+      </table></div>
+    </div>
+    </div><!-- /sk-content -->
   </div>
 
   </div><!-- /views -->
@@ -983,6 +1027,35 @@ function V(name,el){
   el.classList.add('active');
   const badge=el.querySelector('.nb');
   if(badge) badge.textContent='';
+  if(name==='shrinkage') applySKLock();
+}
+
+// ── Section password gate (Stock Discrepancies) ───────────────────
+let skUnlocked=false;
+const SK_PASSWORD='amber2026';
+function applySKLock(){
+  const lock=document.getElementById('sk-lock');
+  const content=document.getElementById('sk-content');
+  const sub=document.getElementById('sk-sub');
+  const badge=document.getElementById('b-shrinkage');
+  const a=(typeof D!=='undefined'&&D)?D.stock_audit:null;
+  if(!lock||!content)return;
+  if(skUnlocked){
+    lock.style.display='none';content.style.display='';
+    if(sub)sub.textContent=(a&&a.available)?`${a.items_flagged} medicine${a.items_flagged===1?'':'s'} with unexplained loss`:'unavailable';
+    if(badge)badge.textContent=(a&&a.available)?(a.items_flagged||0):'0';
+  }else{
+    lock.style.display='';content.style.display='none';
+    if(sub)sub.textContent='🔒 password protected';
+    if(badge)badge.textContent='🔒';
+    const e=document.getElementById('sk-pw-err');if(e)e.style.display='none';
+    const i=document.getElementById('sk-pw');if(i){i.value='';setTimeout(()=>i.focus(),60);}
+  }
+}
+function unlockSK(){
+  const i=document.getElementById('sk-pw');
+  if(i&&i.value===SK_PASSWORD){skUnlocked=true;applySKLock();}
+  else{const e=document.getElementById('sk-pw-err');if(e)e.style.display='block';if(i){i.value='';i.focus();}}
 }
 function showAlertsTab(tab,btn){
   ['reorder','expiry','dead'].forEach(t=>{const e=document.getElementById('atab-'+t);if(e)e.style.display=t===tab?'':'none';});
@@ -1023,8 +1096,91 @@ function render(){
   document.getElementById('b-spikes').textContent=(a.spikes||[]).length;
 
   rOverview();rOrdering();rReorder();rExpiry();rDeadStock();rFastMovers();rOverstock();rAllStock();
-  rOperations();rDoctors();rStaff();rPatients();rCombos();rSpikes();rRevenue();rCategories();
+  rOperations();rDoctors();rStaff();rPatients();rCombos();rSpikes();rRevenue();rCategories();rShrinkage();
+  applySKLock();
   initTips();
+}
+
+// ── STOCK DISCREPANCIES (LOSS CONTROL) ────────────────────────────
+let skFilter='all';
+function sSK(f,btn){
+  skFilter=f;
+  document.querySelectorAll('#sk-filter-btns .fb').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  rShrinkageTable();
+}
+function toggleSK(i){
+  const r=document.getElementById('sk-d-'+i);const c=document.getElementById('sk-c-'+i);
+  if(!r)return;
+  const open=r.style.display==='none';
+  r.style.display=open?'':'none';
+  if(c)c.textContent=open?'▾':'▸';
+}
+function rShrinkage(){
+  const a=D.stock_audit||{};
+  const sub=document.getElementById('sk-sub');
+  const badge=document.getElementById('b-shrinkage');
+  if(!a.available){
+    if(badge)badge.textContent='0';
+    if(sub)sub.textContent='unavailable';
+    document.getElementById('sk-stats').innerHTML='';
+    document.getElementById('sk-range').textContent='';
+    document.getElementById('t-sk').innerHTML=`<tr><td colspan="8" class="empty">${esc(a.reason||'Not enough daily stock snapshots yet to reconcile. Need at least 2 days of allstock downloads.')}</td></tr>`;
+    return;
+  }
+  if(badge)badge.textContent=a.items_flagged||0;
+  if(sub)sub.textContent=`${a.items_flagged} medicine${a.items_flagged===1?'':'s'} with unexplained loss`;
+  document.getElementById('sk-range').textContent=`${a.date_from} → ${a.date_to} · ${a.snapshots} daily snapshots`;
+  document.getElementById('sk-stats').innerHTML=`
+    <div class="sc sc-r"><div class="sl">Sales / Revenue Lost</div><div class="sv sv-r" style="font-size:20px;margin-top:4px">MYR ${fmt(a.total_missing_sales)}</div><div class="ss">missing stock valued at selling price</div></div>
+    <div class="sc sc-o"><div class="sl">Capital Lost (at cost)</div><div class="sv sv-o" style="font-size:20px;margin-top:4px">MYR ${fmt(a.total_missing_value)}</div><div class="ss">what it costs to replace it</div></div>
+    <div class="sc sc-r"><div class="sl">Units Unaccounted For</div><div class="sv sv-r">${(a.total_missing_units||0).toLocaleString('en-MY')}</div><div class="ss">across ${a.items_flagged} medicines</div></div>
+    <div class="sc sc-t"><div class="sl">Period Audited</div><div class="sv sv-t">${a.snapshots} days</div><div class="ss">${a.date_from} → ${a.date_to}</div></div>`;
+  rShrinkageTable();
+}
+function rShrinkageTable(){
+  const a=D.stock_audit||{};
+  let items=(a.items||[]).slice();
+  if(skFilter==='nodisp')items=items.filter(i=>i.dispensed_total===0);
+  const tb=document.getElementById('t-sk');
+  if(!items.length){tb.innerHTML='<tr><td colspan="8" class="empty">No items match this filter.</td></tr>';return;}
+  tb.innerHTML=items.map((it,i)=>{
+    const inact=it.status&&it.status.toLowerCase()==='inactive'
+      ?' <span class="p pm" style="font-size:9px;padding:1px 5px">inactive</span>':'';
+    const noDisp=it.dispensed_total===0
+      ?' <span class="p pr" style="font-size:9px;padding:1px 5px">0 dispensed</span>':'';
+    const ev=it.events.map(e=>`<tr>
+        <td style="font-family:var(--fm);font-size:11px">${e.from} → ${e.to}</td>
+        <td class="qn">${e.opening}</td><td class="qn">${e.dispensed}</td>
+        <td class="qn">${e.expected}</td><td class="qn">${e.closing}</td>
+        <td style="font-weight:700;color:var(--danger)">−${e.missing}</td></tr>`).join('');
+    return`<tr onclick="toggleSK(${i})" style="cursor:pointer">
+      <td><div class="mn">${esc(tr(it.description,46))}${inact}${noDisp}<small>${esc(it.code||'')}</small></div></td>
+      <td><span class="p pr">${it.missing_units} ${esc(it.uom||'')}</span></td>
+      <td class="qn">${it.dispensed_total}</td>
+      <td class="qn">${it.days_flagged}</td>
+      <td class="qn">${it.unit_cost?('MYR '+fmt(it.unit_cost)):'—'}</td>
+      <td style="font-weight:700;color:var(--warning)">MYR ${fmt(it.missing_value)}</td>
+      <td style="font-weight:700;color:var(--danger)">MYR ${fmt(it.missing_sales)}</td>
+      <td><span id="sk-c-${i}" style="color:var(--muted);font-size:13px">▸</span></td>
+    </tr>
+    <tr id="sk-d-${i}" style="display:none"><td colspan="8" style="background:var(--surface);padding:0">
+      <div style="padding:10px 16px">
+        <div style="font-size:11px;color:var(--muted);margin-bottom:7px;font-family:var(--fm)">Day-by-day reconciliation &mdash; <b>stock at start − units sold = what should be left</b>, compared to the next morning's actual count. The gap is what's missing.</div>
+        <table class="dt" style="width:100%">
+          <thead><tr>
+            <th title="The overnight gap between two morning stock counts.">Stock count (from → to)</th>
+            <th title="Units on the shelf at the start (first morning's count).">Stock at start</th>
+            <th title="Units the dispensary recorded handing out during that gap.">Sold / Given Out</th>
+            <th title="What should be left = stock at start − sold.">Should be left</th>
+            <th title="Units actually on the shelf at the next morning's count.">Actually left</th>
+            <th title="The shortfall = should be left − actually left.">Missing</th>
+          </tr></thead>
+          <tbody>${ev}</tbody>
+        </table>
+      </div>
+    </td></tr>`;
+  }).join('');
 }
 
 // ── SORTABLE TABLES ───────────────────────────────────────────────
