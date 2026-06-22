@@ -529,7 +529,7 @@ tr.ru td{background:rgba(255,165,2,.03)}
         <thead><tr>
           <th>Medicine</th>
           <th title="Units that left the shelf but were never dispensed, over the whole period. = opening stock − units sold − actual stock left.">Missing (unaccounted)</th>
-          <th title="Units the dispensary officially recorded handing out over the period — the legitimate 'out' we subtract from stock.">Sold / Given Out</th>
+          <th title="Total units the dispensary recorded handing out over the WHOLE audited period — not just the flagged day(s). Shown for context: compare it to Missing. A big Missing next to a tiny Sold means the loss dwarfs normal usage.">Sold / Given Out<br><span style="font-weight:400;font-size:9px;color:var(--muted)">(whole period)</span></th>
           <th title="How many SEPARATE days this medicine came up short. Many days = a recurring leak; 1 day = a one-off (often a stock correction or write-off).">Days Affected</th>
           <th title="Cost price per unit (what the clinic pays to buy it).">Unit Cost</th>
           <th title="Missing units × cost price — what it costs to REPLACE the missing stock.">Capital Lost</th>
@@ -1154,6 +1154,10 @@ function rShrinkageTable(){
         <td class="qn">${e.opening}</td><td class="qn">${e.dispensed}</td>
         <td class="qn">${e.expected}</td><td class="qn">${e.closing}</td>
         <td style="font-weight:700;color:var(--danger)">−${e.missing}</td></tr>`).join('');
+    const flaggedDisp=Math.round(it.events.reduce((s,e)=>s+(e.dispensed||0),0)*10)/10;
+    const u=esc(it.uom||'units');
+    const ctx=`Over the whole audited period, <b>${it.dispensed_total} ${u}</b> were legitimately sold/given out`
+      +` — of which <b>${flaggedDisp}</b> on the flagged day(s) below. The <b style="color:var(--danger)">${it.missing_units} ${u}</b> missing is ON TOP of that, and unexplained.`;
     return`<tr onclick="toggleSK(${i})" style="cursor:pointer">
       <td><div class="mn">${esc(tr(it.description,46))}${inact}${noDisp}<small>${esc(it.code||'')}</small></div></td>
       <td><span class="p pr">${it.missing_units} ${esc(it.uom||'')}</span></td>
@@ -1166,6 +1170,7 @@ function rShrinkageTable(){
     </tr>
     <tr id="sk-d-${i}" style="display:none"><td colspan="8" style="background:var(--surface);padding:0">
       <div style="padding:10px 16px">
+        <div style="font-size:11.5px;color:var(--text);margin-bottom:8px;line-height:1.5;background:var(--card);border:1px solid var(--border);border-radius:7px;padding:8px 11px">${ctx}</div>
         <div style="font-size:11px;color:var(--muted);margin-bottom:7px;font-family:var(--fm)">Day-by-day reconciliation &mdash; <b>stock at start − units sold = what should be left</b>, compared to the next morning's actual count. The gap is what's missing.</div>
         <table class="dt" style="width:100%">
           <thead><tr>
