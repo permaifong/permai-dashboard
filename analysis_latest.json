@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T08:03:09.263108",
+  "generated_at": "2026-06-22T10:32:26.456927",
   "inventory_date": "2026-06-22",
   "months_analyzed": [
     "2026-02",
@@ -672,13 +672,13 @@
         "count": 17
       },
       {
-        "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
-        "med_b": "SYR RETORIN (ERYTHROMYCIN) 200MG/5ML 60ML SM PHARMA",
+        "med_a": "PULMICORT (BUDESONIDE) RESPULE 1MG ASTRAZENECA",
+        "med_b": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
         "count": 17
       },
       {
-        "med_a": "PULMICORT (BUDESONIDE) RESPULE 1MG ASTRAZENECA",
-        "med_b": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
+        "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
+        "med_b": "SYR RETORIN (ERYTHROMYCIN) 200MG/5ML 60ML SM PHARMA",
         "count": 17
       },
       {
@@ -718,150 +718,150 @@
       }
     ],
     "dead_90": [
-      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
-      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
-      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
-      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
-      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
-      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
-      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
-      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
       "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
-      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE"
+      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
+      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
+      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
+      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
+      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
+      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
+      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
+      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
+      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER"
     ],
     "dead_60": [
-      "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
-      "TAB LOVIR ( ACYCLOVIR ) 400MG RANBAXY",
-      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
-      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
-      "INJ PRIORIX (MMR) 0.5ML GSK",
-      "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
-      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
-      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
-      "NASONEX AQUEOUS NASAL SPRAY 0.05% 60D (MOMETASONE FUROATE) SCENT-FREE ORGANON HEIST BV",
-      "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
-      "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
-      "TAB TREN (TRANEXAMIC ACID) 250MG",
-      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
-      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
-      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
-      "TAB NUELIN SR (THEOPHYLLINE) 250MG INOVA",
-      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
-      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
-      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
-      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
-      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
-      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
-      "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
-      "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
-      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
-      "CAP LOMODIUM (LOPERAMIDE) 2MG DYNAPHARM",
-      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
-      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
-      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
-      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
-      "VICIDE CREAM 5%  (ACYCLOVIR 15MG/G) 10G PAHANG",
-      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
-      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
       "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
-      "SYR COLIMIX (DICYCLOMINE 5MG/ SIMETHICONE 50MG) 90ML XEPA",
       "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
-      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH"
+      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
+      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
+      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
+      "NASONEX AQUEOUS NASAL SPRAY 0.05% 60D (MOMETASONE FUROATE) SCENT-FREE ORGANON HEIST BV",
+      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
+      "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
+      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
+      "CAP LOMODIUM (LOPERAMIDE) 2MG DYNAPHARM",
+      "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
+      "VICIDE CREAM 5%  (ACYCLOVIR 15MG/G) 10G PAHANG",
+      "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
+      "INJ PRIORIX (MMR) 0.5ML GSK",
+      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
+      "TAB NUELIN SR (THEOPHYLLINE) 250MG INOVA",
+      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
+      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
+      "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
+      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
+      "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
+      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
+      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
+      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
+      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
+      "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
+      "SYR COLIMIX (DICYCLOMINE 5MG/ SIMETHICONE 50MG) 90ML XEPA",
+      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
+      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
+      "TAB TREN (TRANEXAMIC ACID) 250MG",
+      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
+      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
+      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
+      "TAB LOVIR ( ACYCLOVIR ) 400MG RANBAXY",
+      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
+      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
+      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER"
     ],
     "dead_30": [
-      "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
-      "TAB PREDNISYN (PREDNISOLONE) 5MG DUOPHARMA",
-      "AXCEL UREA (UREA 10% W/W) CREAM 20G KOTRA PHARMA",
-      "INJ SHINCORT (TRIAMCINOLONE ACETONIDE 40MG/ML) 1ML VIAL Y.S.P.",
-      "SYR MUCOPROM (CARBOCISTEINE 100MG/ PROMETHAZINE 2.5MG /5ML) 90ML XEPA",
-      "INJ SENSOVISC 1% 20MG (HYALURONIC ACID) ADVANCE PHARMA",
-      "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
-      "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
-      "TAB TREN (TRANEXAMIC ACID) 250MG",
-      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
-      "TAB NUELIN SR (THEOPHYLLINE) 250MG INOVA",
-      "TAB NORCOLUT (NORETHISTERONE) 5MG PAHANG PHARMACY",
-      "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
-      "TAB VITABION (VIT B1 100MG, VIT B6 200MG, VIT B12 200MCG) UNISON LABORATORIES",
-      "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
-      "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
-      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
-      "ORS PLUS (TRISODIUM CITRATE 725MG, DEXTROSE ANHYDROUS 3375MG, SODIUM CHLORIDE 650MG, POTASSIUM CHLORIDE 375MG) SACHET PHARMANIAGA",
-      "TAB METSWIFT XR (METFORMIN HCL) 1000MG SYNERRV",
-      "SYR COLIMIX (DICYCLOMINE 5MG/ SIMETHICONE 50MG) 90ML XEPA",
-      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
-      "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
-      "LA DERMOPLEX CALAMINE LOTION 120ML DUOPHARMA",
-      "TAB VOREN (DICLOFENAC SODIUM) 50MG Y.S.P.",
       "NEBULE COMBINEB (IPRATROPIUM BROMIDE 0.5MG/SALBUTAMOL 2.5MG) 2.5ML AIN MEDICARE",
-      "NASONEX AQUEOUS NASAL SPRAY 0.05% 60D (MOMETASONE FUROATE) SCENT-FREE ORGANON HEIST BV",
-      "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
-      "ZYNOMAX ( AZITHROMYCIN ) POWDER FOR ORAL SUSPENSION 200MG/5ML 20ML DUOPHARMA",
-      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
-      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
-      "VOREN (DICLOFENAC SODIUM 1%W/W) GEL PLUS 20G Y.SP.",
-      "TABLET COZAAR XQ 5/50MG ORGANON",
-      "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
-      "SKYCELLFLU QUADRIVALENT PREFILLED INFLUENZA VACCINE PHARMANIAGA",
-      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
-      "SYR CEFUROXIME-125 (125MG/5ML) 50ML AXCEL KOTRA PHARMA",
-      "DYNA DOXYCYCLINE 100MG DYNAPHARM",
-      "TAB ZOLTEROL SR (DICLOFENAC SODIUM) 100MG DUOPHARMA",
-      "TAB LOVIR ( ACYCLOVIR ) 400MG RANBAXY",
-      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
-      "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
-      "TAB ZIOMYCIN (AZITHROMYCIN) 250MG SYNERRV",
-      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
-      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
-      "TAB CAFFOX ( ERGOTAMINE TARTRATE 1MG + CAFFINE 100MG ) IMEKS",
-      "TAB ZIOMYCIN (AZITHROMYCIN) 500MG SYNERRV",
-      "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
-      "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
-      "DYNA CALAMINE LOTION (CALAMINE POWDER 15% W/V / MENTHOL 0.15% W/V) 100ML DYNAPHARM (M)",
-      "CERUMOL EAR WAX SOFTNER DROPS 10ML",
-      "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
-      "TAB INOX (ITRACONAZOLE)100MG HOVID",
-      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
-      "CAP LOMODIUM (LOPERAMIDE) 2MG DYNAPHARM",
-      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
-      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
-      "IBUFEN SYRUP (IBUPROFEN 100MG/ 5ML) DYNAPHARM",
-      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "KEZORAL (KETOCONAZOLE 2% W/W) CREAM 15G DUOPHARMA",
-      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
-      "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
-      "TAB GLIT (PIOGLITAZONE) 15MG SYNERRV",
-      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
       "INJ PRIORIX (MMR) 0.5ML GSK",
-      "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
-      "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
-      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
-      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
-      "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
-      "INJ LARTIL (PROCHLORPERAZINE MESYLATE)12.5MG/ML 1ML VIAL DUOPHARMA",
-      "WELLMEX ATOMIC ENEMA 20ML NGL TRADING",
-      "TAB VELOXIN (MECLOZINE 25MG/PYRIDOXINE 50MG) PHARM-D",
-      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
-      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
-      "TAB NORVASC (AMLODIPINE) 5MG PFIZER",
-      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
-      "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
-      "TAB ATORVASTATIN 20MG SYNERRV",
-      "TAB DUPHASTON (DYDROGESTERONE) 10MG ABBOTT",
-      "SALBUNEB ( SALBUTAMOL 2.5MG/2.5ML ) AIN MEDICARE",
-      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
-      "TAB ROSUVASTATIN 20MG SYNERRV",
-      "LOCOA ( ESFLURBIPROFEN ) 40MG TRANSDERMAL PATCH 7'S",
-      "VICIDE CREAM 5%  (ACYCLOVIR 15MG/G) 10G PAHANG",
+      "DYNA CALAMINE LOTION (CALAMINE POWDER 15% W/V / MENTHOL 0.15% W/V) 100ML DYNAPHARM (M)",
       "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
+      "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
+      "DYNA DOXYCYCLINE 100MG DYNAPHARM",
+      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
+      "TAB CAFFOX ( ERGOTAMINE TARTRATE 1MG + CAFFINE 100MG ) IMEKS",
+      "VOREN (DICLOFENAC SODIUM 1%W/W) GEL PLUS 20G Y.SP.",
+      "TAB ZIOMYCIN (AZITHROMYCIN) 500MG SYNERRV",
+      "ORS PLUS (TRISODIUM CITRATE 725MG, DEXTROSE ANHYDROUS 3375MG, SODIUM CHLORIDE 650MG, POTASSIUM CHLORIDE 375MG) SACHET PHARMANIAGA",
+      "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
+      "INJ SENSOVISC 1% 20MG (HYALURONIC ACID) ADVANCE PHARMA",
+      "IBUFEN SYRUP (IBUPROFEN 100MG/ 5ML) DYNAPHARM",
+      "TAB ATORVASTATIN 20MG SYNERRV",
+      "WELLMEX ATOMIC ENEMA 20ML NGL TRADING",
+      "TAB TREN (TRANEXAMIC ACID) 250MG",
+      "TAB VOREN (DICLOFENAC SODIUM) 50MG Y.S.P.",
+      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
+      "TAB DIANE 35 (CYPROTERONE 2MG/ ETHINYLESTRADIOL 0.035MG) BAYER",
       "CAP BIOZOLE (FLUCANAZOLE) 150MG MEDISPEC",
+      "INJ SHINCORT (TRIAMCINOLONE ACETONIDE 40MG/ML) 1ML VIAL Y.S.P.",
+      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
+      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
+      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
+      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
+      "SYR MUCOPROM (CARBOCISTEINE 100MG/ PROMETHAZINE 2.5MG /5ML) 90ML XEPA",
+      "TAB GLIT (PIOGLITAZONE) 15MG SYNERRV",
       "TAB GOUTRIC ( FEBUXOSTAT) NOVUGEN",
-      "TAB CONCOR (BISOPROLOL) 5MG MERCKS"
+      "TAB NORCOLUT (NORETHISTERONE) 5MG PAHANG PHARMACY",
+      "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
+      "TAB VELOXIN (MECLOZINE 25MG/PYRIDOXINE 50MG) PHARM-D",
+      "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
+      "TAB NUELIN SR (THEOPHYLLINE) 250MG INOVA",
+      "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
+      "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
+      "CANDID-B ( CLOTRIMAZOLE 1%W/W /BECLOMETHASONE 0.025%W/W ) CREAM 15G Y.S.P.",
+      "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "LOCOA ( ESFLURBIPROFEN ) 40MG TRANSDERMAL PATCH 7'S",
+      "TABLET COZAAR XQ 5/50MG ORGANON",
+      "SKYCELLFLU QUADRIVALENT PREFILLED INFLUENZA VACCINE PHARMANIAGA",
+      "SYR CEFUROXIME-125 (125MG/5ML) 50ML AXCEL KOTRA PHARMA",
+      "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
+      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
+      "TAB NORVASC (AMLODIPINE) 5MG PFIZER",
+      "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
+      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
+      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
+      "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
+      "CAP LOMODIUM (LOPERAMIDE) 2MG DYNAPHARM",
+      "LA DERMOPLEX CALAMINE LOTION 120ML DUOPHARMA",
+      "SYR LACTUL (LACTULOSE 670MG/ML) 100ML Y.S.P.",
+      "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
+      "VICIDE CREAM 5%  (ACYCLOVIR 15MG/G) 10G PAHANG",
+      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
+      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
+      "SALBUNEB ( SALBUTAMOL 2.5MG/2.5ML ) AIN MEDICARE",
+      "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
+      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
+      "TAB DUPHASTON (DYDROGESTERONE) 10MG ABBOTT",
+      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
+      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
+      "TAB METSWIFT XR (METFORMIN HCL) 1000MG SYNERRV",
+      "INJ LARTIL (PROCHLORPERAZINE MESYLATE)12.5MG/ML 1ML VIAL DUOPHARMA",
+      "AXCEL UREA (UREA 10% W/W) CREAM 20G KOTRA PHARMA",
+      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
+      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
+      "TAB INOX (ITRACONAZOLE)100MG HOVID",
+      "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
+      "TAB LOVIR ( ACYCLOVIR ) 400MG RANBAXY",
+      "KEZORAL (KETOCONAZOLE 2% W/W) CREAM 15G DUOPHARMA",
+      "NASONEX AQUEOUS NASAL SPRAY 0.05% 60D (MOMETASONE FUROATE) SCENT-FREE ORGANON HEIST BV",
+      "TAB PREDNISYN (PREDNISOLONE) 5MG DUOPHARMA",
+      "ZYNOMAX ( AZITHROMYCIN ) POWDER FOR ORAL SUSPENSION 200MG/5ML 20ML DUOPHARMA",
+      "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
+      "SYR COLIMIX (DICYCLOMINE 5MG/ SIMETHICONE 50MG) 90ML XEPA",
+      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
+      "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
+      "TAB ZIOMYCIN (AZITHROMYCIN) 250MG SYNERRV",
+      "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
+      "TAB ROSUVASTATIN 20MG SYNERRV",
+      "TAB VITABION (VIT B1 100MG, VIT B6 200MG, VIT B12 200MCG) UNISON LABORATORIES",
+      "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
+      "TAB ZOLTEROL SR (DICLOFENAC SODIUM) 100MG DUOPHARMA",
+      "CERUMOL EAR WAX SOFTNER DROPS 10ML",
+      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
+      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
+      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA"
     ],
     "never_dispensed": [
       "TAB CASPRIN (ASPIRIN) 100MG",
@@ -14801,5 +14801,2988 @@
       "margin_pct": null
     }
   ],
+  "stock_audit": {
+    "available": true,
+    "date_from": "2026-05-28",
+    "date_to": "2026-06-22",
+    "snapshots": 26,
+    "event_floor": 1.0,
+    "total_missing_units": 1362.0,
+    "total_missing_value": 4281.57,
+    "total_missing_sales": 20978.3,
+    "items_flagged": 90,
+    "items": [
+      {
+        "description": "ENTEROGERMINA 2BCFU ORAL SUSPENSION 5ML OPELLA HEALTHCARE",
+        "code": "MAL12085088X",
+        "uom": "BOX",
+        "status": "Active",
+        "unit_cost": 38.85,
+        "unit_sell": 120.0,
+        "missing_units": 57.0,
+        "missing_value": 2214.45,
+        "missing_sales": 6840.0,
+        "days_flagged": 1,
+        "dispensed_total": 4.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 60.0,
+            "dispensed": 0.0,
+            "expected": 60.0,
+            "closing": 3.0,
+            "missing": 57.0
+          }
+        ]
+      },
+      {
+        "description": "SOFTGEL NUTRIFORTE FISH OIL DS 1200MG 30's ALPHA LABORATORIES",
+        "code": "MAL11055006NCR",
+        "uom": "BOTTLE",
+        "status": "Active",
+        "unit_cost": 13.0,
+        "unit_sell": 55.0,
+        "missing_units": 31.0,
+        "missing_value": 403.0,
+        "missing_sales": 1705.0,
+        "days_flagged": 1,
+        "dispensed_total": 1.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 60.0,
+            "dispensed": 0.0,
+            "expected": 60.0,
+            "closing": 29.0,
+            "missing": 31.0
+          }
+        ]
+      },
+      {
+        "description": "S/C MOUNJARO (TIRZEPATIDE 25MG/ML) 2.5MG DOSE LILLY",
+        "code": "MAL25076009AZ",
+        "uom": "DOSE",
+        "status": "Active",
+        "unit_cost": 103.67,
+        "unit_sell": 160.0,
+        "missing_units": 3.0,
+        "missing_value": 311.0,
+        "missing_sales": 480.0,
+        "days_flagged": 1,
+        "dispensed_total": 21.5,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-06",
+            "to": "2026-06-07",
+            "opening": 24.0,
+            "dispensed": 1.0,
+            "expected": 23.0,
+            "closing": 20.0,
+            "missing": 3.0
+          }
+        ]
+      },
+      {
+        "description": "TAB NEXIUM MUPS (ESOMEPRAZOLE) 40MG ASTRAZENECA",
+        "code": "MAL20020239ARZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 6.78,
+        "unit_sell": 12.0,
+        "missing_units": 21.0,
+        "missing_value": 142.42,
+        "missing_sales": 252.0,
+        "days_flagged": 2,
+        "dispensed_total": 49.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-20",
+            "to": "2026-06-21",
+            "opening": 63.0,
+            "dispensed": 0.0,
+            "expected": 63.0,
+            "closing": 49.0,
+            "missing": 14.0
+          },
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 70.0,
+            "dispensed": 0.0,
+            "expected": 70.0,
+            "closing": 63.0,
+            "missing": 7.0
+          }
+        ]
+      },
+      {
+        "description": "INJ BUFENCON (BETAMETHASONE 7MG/ML) 1ML Y.S.P.",
+        "code": "MAL16015037AZ",
+        "uom": "ML",
+        "status": "Active",
+        "unit_cost": 11.91,
+        "unit_sell": 35.0,
+        "missing_units": 11.0,
+        "missing_value": 131.06,
+        "missing_sales": 385.0,
+        "days_flagged": 5,
+        "dispensed_total": 28.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-18",
+            "to": "2026-06-19",
+            "opening": 26.0,
+            "dispensed": 2.0,
+            "expected": 24.0,
+            "closing": 18.0,
+            "missing": 6.0
+          },
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 47.0,
+            "dispensed": 0.0,
+            "expected": 47.0,
+            "closing": 45.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 50.0,
+            "dispensed": 2.0,
+            "expected": 48.0,
+            "closing": 47.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-14",
+            "to": "2026-06-15",
+            "opening": 34.0,
+            "dispensed": 3.0,
+            "expected": 31.0,
+            "closing": 30.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 29.0,
+            "dispensed": 2.0,
+            "expected": 27.0,
+            "closing": 26.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "TAB AUROXETIL 500 (Cefuroxime 500 Mg) Aurobindo Pharma",
+        "code": "MAL11125017AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 1.44,
+        "unit_sell": 4.0,
+        "missing_units": 70.0,
+        "missing_value": 100.8,
+        "missing_sales": 280.0,
+        "days_flagged": 3,
+        "dispensed_total": 140.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 50.0,
+            "dispensed": 0.0,
+            "expected": 50.0,
+            "closing": 10.0,
+            "missing": 40.0
+          },
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 440.0,
+            "dispensed": 10.0,
+            "expected": 430.0,
+            "closing": 410.0,
+            "missing": 20.0
+          },
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 10.0,
+            "dispensed": 0.0,
+            "expected": 10.0,
+            "closing": 0.0,
+            "missing": 10.0
+          }
+        ]
+      },
+      {
+        "description": "INJ INFLUVAC TETRA 0.5ML ABBOTT",
+        "code": "MAL20061585ARZ",
+        "uom": "PRE-FILLED SYRINGE",
+        "status": "Active",
+        "unit_cost": 27.0,
+        "unit_sell": 80.0,
+        "missing_units": 3.0,
+        "missing_value": 81.0,
+        "missing_sales": 240.0,
+        "days_flagged": 1,
+        "dispensed_total": 13.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-04",
+            "to": "2026-06-05",
+            "opening": 34.0,
+            "dispensed": 0.0,
+            "expected": 34.0,
+            "closing": 31.0,
+            "missing": 3.0
+          }
+        ]
+      },
+      {
+        "description": "VASOFIX BRAUNULE (LL) 22GX1\"(BLUE)",
+        "code": "0104022495094360173009011025k28g8b12",
+        "uom": "PIECES",
+        "status": "Active",
+        "unit_cost": 5.1,
+        "unit_sell": 6.4,
+        "missing_units": 12.0,
+        "missing_value": 61.2,
+        "missing_sales": 76.8,
+        "days_flagged": 8,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-14",
+            "to": "2026-06-15",
+            "opening": 135.0,
+            "dispensed": 0.0,
+            "expected": 135.0,
+            "closing": 132.0,
+            "missing": 3.0
+          },
+          {
+            "from": "2026-06-09",
+            "to": "2026-06-10",
+            "opening": 139.0,
+            "dispensed": 0.0,
+            "expected": 139.0,
+            "closing": 137.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-06-13",
+            "to": "2026-06-14",
+            "opening": 137.0,
+            "dispensed": 0.0,
+            "expected": 137.0,
+            "closing": 135.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-06-01",
+            "to": "2026-06-02",
+            "opening": 141.0,
+            "dispensed": 0.0,
+            "expected": 141.0,
+            "closing": 140.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-07",
+            "to": "2026-06-08",
+            "opening": 140.0,
+            "dispensed": 0.0,
+            "expected": 140.0,
+            "closing": 139.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-15",
+            "to": "2026-06-16",
+            "opening": 132.0,
+            "dispensed": 0.0,
+            "expected": 132.0,
+            "closing": 131.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-16",
+            "to": "2026-06-17",
+            "opening": 131.0,
+            "dispensed": 0.0,
+            "expected": 131.0,
+            "closing": 130.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-19",
+            "to": "2026-06-20",
+            "opening": 133.0,
+            "dispensed": 0.0,
+            "expected": 133.0,
+            "closing": 132.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
+        "code": "MAL20020154AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.63,
+        "unit_sell": 3.5,
+        "missing_units": 80.0,
+        "missing_value": 50.13,
+        "missing_sales": 280.0,
+        "days_flagged": 3,
+        "dispensed_total": 430.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 1810.0,
+            "dispensed": 10.0,
+            "expected": 1800.0,
+            "closing": 1760.0,
+            "missing": 40.0
+          },
+          {
+            "from": "2026-06-04",
+            "to": "2026-06-05",
+            "opening": 1720.0,
+            "dispensed": 20.0,
+            "expected": 1700.0,
+            "closing": 1680.0,
+            "missing": 20.0
+          },
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 1470.0,
+            "dispensed": 30.0,
+            "expected": 1440.0,
+            "closing": 1420.0,
+            "missing": 20.0
+          }
+        ]
+      },
+      {
+        "description": "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/5MG SERVIER",
+        "code": "MAL20091910AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 1.53,
+        "unit_sell": 6.5,
+        "missing_units": 30.0,
+        "missing_value": 45.8,
+        "missing_sales": 195.0,
+        "days_flagged": 1,
+        "dispensed_total": 30.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 210.0,
+            "dispensed": 0.0,
+            "expected": 210.0,
+            "closing": 180.0,
+            "missing": 30.0
+          }
+        ]
+      },
+      {
+        "description": "INJ TROVITE PAIR (THIAMINE HYDROCHLORIDE 250MG/5ML + PYRIDOXINE HYDROCHLORIDE 50MG/5ML + DEXTROSE MONOHYDRATE 1000MG/5ML + ASCORBIC ACID 500MG/5ML + DEXPANTHENOL 5MG/5ML + RIBOFLAVIN SODIUM PHOSPHATE 5.133MG/5ML + NICOTINAMIDE 160MG/5ML) DUOPHARMA",
+        "code": "MAL15025043AZ",
+        "uom": "AMPULE PAIR",
+        "status": "Active",
+        "unit_cost": 38.6,
+        "unit_sell": 110.0,
+        "missing_units": 1.0,
+        "missing_value": 38.6,
+        "missing_sales": 110.0,
+        "days_flagged": 1,
+        "dispensed_total": 10.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-19",
+            "to": "2026-06-20",
+            "opening": 26.0,
+            "dispensed": 2.0,
+            "expected": 24.0,
+            "closing": 23.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "MABRON (TRAMADOL) CAPSULES 50MG MEDOCHEMIE LTD",
+        "code": "MAL19900462AZ",
+        "uom": "CAPSULE",
+        "status": "Active",
+        "unit_cost": 0.64,
+        "unit_sell": 2.0,
+        "missing_units": 60.0,
+        "missing_value": 38.3,
+        "missing_sales": 120.0,
+        "days_flagged": 2,
+        "dispensed_total": 160.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-06",
+            "to": "2026-06-07",
+            "opening": 450.0,
+            "dispensed": 0.0,
+            "expected": 450.0,
+            "closing": 400.0,
+            "missing": 50.0
+          },
+          {
+            "from": "2026-06-21",
+            "to": "2026-06-22",
+            "opening": 340.0,
+            "dispensed": 0.0,
+            "expected": 340.0,
+            "closing": 330.0,
+            "missing": 10.0
+          }
+        ]
+      },
+      {
+        "description": "TAB CLARINASE (PSEUDOEPHEDRINE 120MG, LORATADINE 5MG) BAYER",
+        "code": "MAL19930250ACZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 1.81,
+        "unit_sell": 4.0,
+        "missing_units": 20.0,
+        "missing_value": 36.28,
+        "missing_sales": 80.0,
+        "days_flagged": 1,
+        "dispensed_total": 150.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 120.0,
+            "dispensed": 0.0,
+            "expected": 120.0,
+            "closing": 100.0,
+            "missing": 20.0
+          }
+        ]
+      },
+      {
+        "description": "INJ PANTOCID (PANTOPRAZOLE) 40MG SUN PHARMA",
+        "code": "MAL10053651AZ",
+        "uom": "VIAL",
+        "status": "Active",
+        "unit_cost": 12.0,
+        "unit_sell": 40.0,
+        "missing_units": 3.0,
+        "missing_value": 36.0,
+        "missing_sales": 120.0,
+        "days_flagged": 2,
+        "dispensed_total": 12.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 13.0,
+            "dispensed": 0.0,
+            "expected": 13.0,
+            "closing": 11.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-06-19",
+            "to": "2026-06-20",
+            "opening": 11.0,
+            "dispensed": 0.0,
+            "expected": 11.0,
+            "closing": 10.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "DIFFLAM FORTE THROAT SPRAY  (BENZYDAMINE 0.3% W/V) ADULTS & CHILD (>6YRS) INOVA",
+        "code": "MAL08051758AZ",
+        "uom": "BOTTLE",
+        "status": "Active",
+        "unit_cost": 31.5,
+        "unit_sell": 60.0,
+        "missing_units": 1.0,
+        "missing_value": 31.5,
+        "missing_sales": 60.0,
+        "days_flagged": 1,
+        "dispensed_total": 5.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-04",
+            "to": "2026-06-05",
+            "opening": 5.0,
+            "dispensed": 0.0,
+            "expected": 5.0,
+            "closing": 4.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "SYR EMCOF-SF (HERBAL COUGH SYRUP) 100ML BioCare Pharmaceutical",
+        "code": "MAL23106106TC",
+        "uom": "BOTTLE",
+        "status": "Active",
+        "unit_cost": 6.2,
+        "unit_sell": 25.0,
+        "missing_units": 5.0,
+        "missing_value": 31.0,
+        "missing_sales": 125.0,
+        "days_flagged": 2,
+        "dispensed_total": 17.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 35.0,
+            "dispensed": 2.0,
+            "expected": 33.0,
+            "closing": 29.0,
+            "missing": 4.0
+          },
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 44.0,
+            "dispensed": 1.0,
+            "expected": 43.0,
+            "closing": 42.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "ZELLOX-II LIQUID ANTACID (ALUMINIUM H'XIDE 800MG, MAGNESIUM H'XIDE 800MG & SIMETHICONE 60MG) 100ML HOE PHARMA",
+        "code": "MAL11045011X",
+        "uom": "BOX",
+        "status": "Active",
+        "unit_cost": 7.1,
+        "unit_sell": 25.0,
+        "missing_units": 4.0,
+        "missing_value": 28.4,
+        "missing_sales": 100.0,
+        "days_flagged": 3,
+        "dispensed_total": 20.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 88.0,
+            "dispensed": 1.0,
+            "expected": 87.0,
+            "closing": 85.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 74.0,
+            "dispensed": 0.0,
+            "expected": 74.0,
+            "closing": 73.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-19",
+            "to": "2026-06-20",
+            "opening": 73.0,
+            "dispensed": 0.0,
+            "expected": 73.0,
+            "closing": 72.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "TAB ZITHROMAX (AZITHROMYCIN) 250MG 6'S PFIZER",
+        "code": "MAL19985908ACZ",
+        "uom": "PACKET",
+        "status": "Active",
+        "unit_cost": 28.27,
+        "unit_sell": 75.0,
+        "missing_units": 1.0,
+        "missing_value": 28.27,
+        "missing_sales": 75.0,
+        "days_flagged": 1,
+        "dispensed_total": 3.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 1.0,
+            "dispensed": 0.0,
+            "expected": 1.0,
+            "closing": 0.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "TAB PANTOPRAZOLE 40MG (GASTRO-RESISTANT) SANDOZ",
+        "code": "MAL17035047AZ",
+        "uom": "TABLET",
+        "status": "Inactive",
+        "unit_cost": 0.57,
+        "unit_sell": 2.0,
+        "missing_units": 42.0,
+        "missing_value": 24.0,
+        "missing_sales": 84.0,
+        "days_flagged": 2,
+        "dispensed_total": 84.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 84.0,
+            "dispensed": 0.0,
+            "expected": 84.0,
+            "closing": 56.0,
+            "missing": 28.0
+          },
+          {
+            "from": "2026-06-03",
+            "to": "2026-06-04",
+            "opening": 28.0,
+            "dispensed": 0.0,
+            "expected": 28.0,
+            "closing": 14.0,
+            "missing": 14.0
+          }
+        ]
+      },
+      {
+        "description": "SYR IXIME ( CEFIXIME 100MG/5ML ) 50ML LUPIN",
+        "code": "MAL08051746AZ",
+        "uom": "BOTTLE",
+        "status": "Active",
+        "unit_cost": 22.0,
+        "unit_sell": 75.0,
+        "missing_units": 1.0,
+        "missing_value": 22.0,
+        "missing_sales": 75.0,
+        "days_flagged": 1,
+        "dispensed_total": 4.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 17.0,
+            "dispensed": 0.0,
+            "expected": 17.0,
+            "closing": 16.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "TAB APO-ROSUVASTATIN 10MG APOTEX INC",
+        "code": "MAL18106041AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.7,
+        "unit_sell": 3.5,
+        "missing_units": 30.0,
+        "missing_value": 21.05,
+        "missing_sales": 105.0,
+        "days_flagged": 1,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 300.0,
+            "dispensed": 0.0,
+            "expected": 300.0,
+            "closing": 270.0,
+            "missing": 30.0
+          }
+        ]
+      },
+      {
+        "description": "ANB INFUSION SET DRIP WITH IV NEEDLE 21G",
+        "code": "INFUSION-SET",
+        "uom": "SET",
+        "status": "Active",
+        "unit_cost": 2.2,
+        "unit_sell": 5.0,
+        "missing_units": 9.0,
+        "missing_value": 19.8,
+        "missing_sales": 45.0,
+        "days_flagged": 7,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-09",
+            "to": "2026-06-10",
+            "opening": 31.0,
+            "dispensed": 0.0,
+            "expected": 31.0,
+            "closing": 29.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-06-13",
+            "to": "2026-06-14",
+            "opening": 29.0,
+            "dispensed": 0.0,
+            "expected": 29.0,
+            "closing": 27.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-06-01",
+            "to": "2026-06-02",
+            "opening": 33.0,
+            "dispensed": 0.0,
+            "expected": 33.0,
+            "closing": 32.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-07",
+            "to": "2026-06-08",
+            "opening": 32.0,
+            "dispensed": 0.0,
+            "expected": 32.0,
+            "closing": 31.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-14",
+            "to": "2026-06-15",
+            "opening": 27.0,
+            "dispensed": 0.0,
+            "expected": 27.0,
+            "closing": 26.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-16",
+            "to": "2026-06-17",
+            "opening": 26.0,
+            "dispensed": 0.0,
+            "expected": 26.0,
+            "closing": 25.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-19",
+            "to": "2026-06-20",
+            "opening": 46.0,
+            "dispensed": 0.0,
+            "expected": 46.0,
+            "closing": 45.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "TAB CURAM (AMOXYCILLIN + CLAVULANIC ACID) 625MG SANDOZ",
+        "code": "MAL05090013ASRZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.98,
+        "unit_sell": 3.5,
+        "missing_units": 20.0,
+        "missing_value": 19.6,
+        "missing_sales": 70.0,
+        "days_flagged": 2,
+        "dispensed_total": 150.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 490.0,
+            "dispensed": 0.0,
+            "expected": 490.0,
+            "closing": 480.0,
+            "missing": 10.0
+          },
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 360.0,
+            "dispensed": 10.0,
+            "expected": 350.0,
+            "closing": 340.0,
+            "missing": 10.0
+          }
+        ]
+      },
+      {
+        "description": "SYR SEDILIX-RX LINCTUS (DEXTROMETHORPHAN 15MG/ PROMETHAZINE 3.125MG/ PHENYLEPHRINE 5MG EVERY 5ML)  90ML XEPA",
+        "code": "MAL07061427AZ",
+        "uom": "BOTTLE",
+        "status": "Active",
+        "unit_cost": 5.9,
+        "unit_sell": 25.0,
+        "missing_units": 3.0,
+        "missing_value": 17.7,
+        "missing_sales": 75.0,
+        "days_flagged": 2,
+        "dispensed_total": 7.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 7.0,
+            "dispensed": 0.0,
+            "expected": 7.0,
+            "closing": 5.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-06-04",
+            "to": "2026-06-05",
+            "opening": 4.0,
+            "dispensed": 0.0,
+            "expected": 4.0,
+            "closing": 3.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
+        "code": "MAL19910171AZ",
+        "uom": "BOTTLE",
+        "status": "Active",
+        "unit_cost": 3.5,
+        "unit_sell": 18.0,
+        "missing_units": 5.0,
+        "missing_value": 17.5,
+        "missing_sales": 90.0,
+        "days_flagged": 3,
+        "dispensed_total": 17.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 13.0,
+            "dispensed": 1.0,
+            "expected": 12.0,
+            "closing": 10.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 21.0,
+            "dispensed": 1.0,
+            "expected": 20.0,
+            "closing": 18.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 7.0,
+            "dispensed": 0.0,
+            "expected": 7.0,
+            "closing": 6.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "TAB BELTAS (BILASTINE) 20MG GLENMARK",
+        "code": "MAL24106024AZ",
+        "uom": "TABLET",
+        "status": "Inactive",
+        "unit_cost": 0.4,
+        "unit_sell": 2.0,
+        "missing_units": 40.0,
+        "missing_value": 15.96,
+        "missing_sales": 80.0,
+        "days_flagged": 2,
+        "dispensed_total": 90.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 100.0,
+            "dispensed": 0.0,
+            "expected": 100.0,
+            "closing": 80.0,
+            "missing": 20.0
+          },
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 80.0,
+            "dispensed": 0.0,
+            "expected": 80.0,
+            "closing": 60.0,
+            "missing": 20.0
+          }
+        ]
+      },
+      {
+        "description": "TAB HYOMIDE (HYOSCINE BUTYLBROMIDE) 10MG DUOPHARMA",
+        "code": "MAL05101675AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.29,
+        "unit_sell": 1.0,
+        "missing_units": 50.0,
+        "missing_value": 14.5,
+        "missing_sales": 50.0,
+        "days_flagged": 3,
+        "dispensed_total": 170.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-04",
+            "to": "2026-06-05",
+            "opening": 980.0,
+            "dispensed": 0.0,
+            "expected": 980.0,
+            "closing": 960.0,
+            "missing": 20.0
+          },
+          {
+            "from": "2026-06-08",
+            "to": "2026-06-09",
+            "opening": 960.0,
+            "dispensed": 0.0,
+            "expected": 960.0,
+            "closing": 940.0,
+            "missing": 20.0
+          },
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 990.0,
+            "dispensed": 0.0,
+            "expected": 990.0,
+            "closing": 980.0,
+            "missing": 10.0
+          }
+        ]
+      },
+      {
+        "description": "TAB ESCAPELLE (LEVONORGESTREL) 1.5MG 1'S PAHANG PHARMACY",
+        "code": "MAL06030792AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 12.5,
+        "unit_sell": 27.0,
+        "missing_units": 1.0,
+        "missing_value": 12.5,
+        "missing_sales": 27.0,
+        "days_flagged": 1,
+        "dispensed_total": 1.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-10",
+            "to": "2026-06-11",
+            "opening": 4.0,
+            "dispensed": 0.0,
+            "expected": 4.0,
+            "closing": 3.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "EFF GRANULES AVOSODA (SODIUM BICARBONATE) 1.916G/SACHET ABIO",
+        "code": "MAL11060031XC",
+        "uom": "SACHET",
+        "status": "Active",
+        "unit_cost": 1.01,
+        "unit_sell": 4.0,
+        "missing_units": 12.0,
+        "missing_value": 12.12,
+        "missing_sales": 48.0,
+        "days_flagged": 1,
+        "dispensed_total": 84.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-08",
+            "to": "2026-06-09",
+            "opening": 84.0,
+            "dispensed": 0.0,
+            "expected": 84.0,
+            "closing": 72.0,
+            "missing": 12.0
+          }
+        ]
+      },
+      {
+        "description": "TAB BILAXTEN (BILASTINE) 20mg MENARINI",
+        "code": "MAL14085008AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 1.2,
+        "unit_sell": 2.5,
+        "missing_units": 10.0,
+        "missing_value": 12.0,
+        "missing_sales": 25.0,
+        "days_flagged": 1,
+        "dispensed_total": 110.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-14",
+            "to": "2026-06-15",
+            "opening": 470.0,
+            "dispensed": 20.0,
+            "expected": 450.0,
+            "closing": 440.0,
+            "missing": 10.0
+          }
+        ]
+      },
+      {
+        "description": "TAB APO-ALPRAZ (ALPRAZOLAM) 0.5MG",
+        "code": "MAL19984327ARZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 1.19,
+        "unit_sell": 7.0,
+        "missing_units": 10.0,
+        "missing_value": 11.94,
+        "missing_sales": 70.0,
+        "days_flagged": 1,
+        "dispensed_total": 100.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 450.0,
+            "dispensed": 20.0,
+            "expected": 430.0,
+            "closing": 420.0,
+            "missing": 10.0
+          }
+        ]
+      },
+      {
+        "description": "TAB PANTOPRAZOLE BEXIMCO 40MG GASTRO-RESISTANT",
+        "code": "MAL15065044AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.56,
+        "unit_sell": 2.5,
+        "missing_units": 20.0,
+        "missing_value": 11.17,
+        "missing_sales": 50.0,
+        "days_flagged": 1,
+        "dispensed_total": 220.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 1340.0,
+            "dispensed": 20.0,
+            "expected": 1320.0,
+            "closing": 1300.0,
+            "missing": 20.0
+          }
+        ]
+      },
+      {
+        "description": "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
+        "code": "MAL10053679X",
+        "uom": "SACHET",
+        "status": "Active",
+        "unit_cost": 1.66,
+        "unit_sell": 3.0,
+        "missing_units": 6.0,
+        "missing_value": 9.96,
+        "missing_sales": 18.0,
+        "days_flagged": 1,
+        "dispensed_total": 9.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-20",
+            "to": "2026-06-21",
+            "opening": 12.0,
+            "dispensed": 0.0,
+            "expected": 12.0,
+            "closing": 6.0,
+            "missing": 6.0
+          }
+        ]
+      },
+      {
+        "description": "LOZENGES DIFFLAM (BENZYDAMINE HYDROCHLORIDE 3MG) MINT FLAVOURED INOVA",
+        "code": "MAL14075075ACZ",
+        "uom": "LOZENGES",
+        "status": "Inactive",
+        "unit_cost": 1.62,
+        "unit_sell": 3.5,
+        "missing_units": 6.0,
+        "missing_value": 9.74,
+        "missing_sales": 21.0,
+        "days_flagged": 1,
+        "dispensed_total": 12.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 12.0,
+            "dispensed": 0.0,
+            "expected": 12.0,
+            "closing": 6.0,
+            "missing": 6.0
+          }
+        ]
+      },
+      {
+        "description": "DEEPBLUE 5 IN 1 RAPID TEST KIT",
+        "code": "IVDC8704325-211071",
+        "uom": "1",
+        "status": "Active",
+        "unit_cost": 9.7,
+        "unit_sell": 75.0,
+        "missing_units": 1.0,
+        "missing_value": 9.7,
+        "missing_sales": 75.0,
+        "days_flagged": 1,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-20",
+            "to": "2026-06-21",
+            "opening": 19.0,
+            "dispensed": 0.0,
+            "expected": 19.0,
+            "closing": 18.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "DUOVENT NEBULE (IPRATROPIUM + FENOTEROL) 4ML UNITHER",
+        "code": "MAL11030089ACZ",
+        "uom": "RESPULE",
+        "status": "Active",
+        "unit_cost": 4.5,
+        "unit_sell": 30.0,
+        "missing_units": 2.0,
+        "missing_value": 9.0,
+        "missing_sales": 60.0,
+        "days_flagged": 1,
+        "dispensed_total": 12.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 46.0,
+            "dispensed": 1.0,
+            "expected": 45.0,
+            "closing": 43.0,
+            "missing": 2.0
+          }
+        ]
+      },
+      {
+        "description": "EFFERVESCENT ACETYLCYSTIENE (N-ACETYLCYSTIENE) 600MG 2'S SANDOZ",
+        "code": "MAL17107050XCZ",
+        "uom": "STRIP",
+        "status": "Active",
+        "unit_cost": 2.86,
+        "unit_sell": 13.0,
+        "missing_units": 3.0,
+        "missing_value": 8.58,
+        "missing_sales": 39.0,
+        "days_flagged": 1,
+        "dispensed_total": 11.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 9.0,
+            "dispensed": 0.0,
+            "expected": 9.0,
+            "closing": 6.0,
+            "missing": 3.0
+          }
+        ]
+      },
+      {
+        "description": "TABS BETAMETHASONE 0.5MG Y.S.P.",
+        "code": "MAL19940031AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.11,
+        "unit_sell": 1.5,
+        "missing_units": 80.0,
+        "missing_value": 8.43,
+        "missing_sales": 120.0,
+        "days_flagged": 3,
+        "dispensed_total": 380.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 840.0,
+            "dispensed": 20.0,
+            "expected": 820.0,
+            "closing": 780.0,
+            "missing": 40.0
+          },
+          {
+            "from": "2026-06-04",
+            "to": "2026-06-05",
+            "opening": 730.0,
+            "dispensed": 10.0,
+            "expected": 720.0,
+            "closing": 700.0,
+            "missing": 20.0
+          },
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 530.0,
+            "dispensed": 10.0,
+            "expected": 520.0,
+            "closing": 500.0,
+            "missing": 20.0
+          }
+        ]
+      },
+      {
+        "description": "SYR ENHANCIN (AMOXYCILLIN AND CLAVULANIC ACID 312.5MG/5ML ) 60ML RANBAXY",
+        "code": "MAL20001809AZ",
+        "uom": "BOTTLE",
+        "status": "Active",
+        "unit_cost": 8.4,
+        "unit_sell": 35.0,
+        "missing_units": 1.0,
+        "missing_value": 8.4,
+        "missing_sales": 35.0,
+        "days_flagged": 1,
+        "dispensed_total": 5.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 6.0,
+            "dispensed": 0.0,
+            "expected": 6.0,
+            "closing": 5.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "KOOL FEVER (FOR CHILDREN) 2'S HEFEI KOBAYASHI DAILY",
+        "code": "24987072005532",
+        "uom": "PACKET",
+        "status": "Active",
+        "unit_cost": 3.98,
+        "unit_sell": 8.0,
+        "missing_units": 2.0,
+        "missing_value": 7.96,
+        "missing_sales": 16.0,
+        "days_flagged": 1,
+        "dispensed_total": 2.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 13.0,
+            "dispensed": 0.0,
+            "expected": 13.0,
+            "closing": 11.0,
+            "missing": 2.0
+          }
+        ]
+      },
+      {
+        "description": "TAB PARACAP 500MG HEALTH PHARM",
+        "code": "MED0685",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.16,
+        "unit_sell": 1.0,
+        "missing_units": 50.0,
+        "missing_value": 7.85,
+        "missing_sales": 50.0,
+        "days_flagged": 4,
+        "dispensed_total": 220.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-20",
+            "to": "2026-06-21",
+            "opening": 260.0,
+            "dispensed": 10.0,
+            "expected": 250.0,
+            "closing": 230.0,
+            "missing": 20.0
+          },
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 430.0,
+            "dispensed": 0.0,
+            "expected": 430.0,
+            "closing": 420.0,
+            "missing": 10.0
+          },
+          {
+            "from": "2026-06-04",
+            "to": "2026-06-05",
+            "opening": 420.0,
+            "dispensed": 0.0,
+            "expected": 420.0,
+            "closing": 410.0,
+            "missing": 10.0
+          },
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 330.0,
+            "dispensed": 0.0,
+            "expected": 330.0,
+            "closing": 320.0,
+            "missing": 10.0
+          }
+        ]
+      },
+      {
+        "description": "KEZORAL (KETOCONAZOLE 2% W/W) CREAM 15G DUOPHARMA",
+        "code": "MAL19988491AZ",
+        "uom": "TUBE",
+        "status": "Active",
+        "unit_cost": 7.7,
+        "unit_sell": 25.0,
+        "missing_units": 1.0,
+        "missing_value": 7.7,
+        "missing_sales": 25.0,
+        "days_flagged": 1,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 1.0,
+            "dispensed": 0.0,
+            "expected": 1.0,
+            "closing": 0.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "TAB NP PREDNISOLONE 5MG NORIPHARMA",
+        "code": "MAL20012727AZ",
+        "uom": "TABLET",
+        "status": "Inactive",
+        "unit_cost": 0.07,
+        "unit_sell": 1.0,
+        "missing_units": 100.0,
+        "missing_value": 7.1,
+        "missing_sales": 100.0,
+        "days_flagged": 5,
+        "dispensed_total": 380.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 380.0,
+            "dispensed": 20.0,
+            "expected": 360.0,
+            "closing": 340.0,
+            "missing": 20.0
+          },
+          {
+            "from": "2026-06-11",
+            "to": "2026-06-12",
+            "opening": 260.0,
+            "dispensed": 20.0,
+            "expected": 240.0,
+            "closing": 220.0,
+            "missing": 20.0
+          },
+          {
+            "from": "2026-06-14",
+            "to": "2026-06-15",
+            "opening": 220.0,
+            "dispensed": 60.0,
+            "expected": 160.0,
+            "closing": 140.0,
+            "missing": 20.0
+          },
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 120.0,
+            "dispensed": 20.0,
+            "expected": 100.0,
+            "closing": 80.0,
+            "missing": 20.0
+          },
+          {
+            "from": "2026-06-19",
+            "to": "2026-06-20",
+            "opening": 60.0,
+            "dispensed": 20.0,
+            "expected": 40.0,
+            "closing": 20.0,
+            "missing": 20.0
+          }
+        ]
+      },
+      {
+        "description": "SYR FUCON (HYOSCINE-N-BUTYLBROMIDE) 1MG/ML 60ML Y.S.P.",
+        "code": "MAL12015003AZ",
+        "uom": "BOTTLE",
+        "status": "Active",
+        "unit_cost": 7.05,
+        "unit_sell": 15.0,
+        "missing_units": 1.0,
+        "missing_value": 7.05,
+        "missing_sales": 15.0,
+        "days_flagged": 1,
+        "dispensed_total": 1.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-20",
+            "to": "2026-06-21",
+            "opening": 3.0,
+            "dispensed": 0.0,
+            "expected": 3.0,
+            "closing": 2.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "SYR RHINATIOL (2% CARBOCISTINE) CHILDREN 100MG/5ML 125ML UNITHER LIQUID MANUFACTURING",
+        "code": "MAL19910914X",
+        "uom": "BOTTLE",
+        "status": "Active",
+        "unit_cost": 7.03,
+        "unit_sell": 40.0,
+        "missing_units": 1.0,
+        "missing_value": 7.03,
+        "missing_sales": 40.0,
+        "days_flagged": 1,
+        "dispensed_total": 4.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 20.0,
+            "dispensed": 0.0,
+            "expected": 20.0,
+            "closing": 19.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
+        "code": "MAL19987356AZ",
+        "uom": "BOTTLE",
+        "status": "Active",
+        "unit_cost": 2.33,
+        "unit_sell": 15.0,
+        "missing_units": 3.0,
+        "missing_value": 7.0,
+        "missing_sales": 45.0,
+        "days_flagged": 2,
+        "dispensed_total": 14.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 18.0,
+            "dispensed": 0.0,
+            "expected": 18.0,
+            "closing": 16.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 14.0,
+            "dispensed": 0.0,
+            "expected": 14.0,
+            "closing": 13.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "SYR UPHAMOL (PARACETAMOL) 250MG/5ML (ORANGE FLAVOURED) DUOPHARMA",
+        "code": "MAL19991447XZ",
+        "uom": "1",
+        "status": "Active",
+        "unit_cost": 3.3,
+        "unit_sell": 15.0,
+        "missing_units": 2.0,
+        "missing_value": 6.6,
+        "missing_sales": 30.0,
+        "days_flagged": 2,
+        "dispensed_total": 16.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 61.0,
+            "dispensed": 1.0,
+            "expected": 60.0,
+            "closing": 59.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-20",
+            "to": "2026-06-21",
+            "opening": 59.0,
+            "dispensed": 0.0,
+            "expected": 59.0,
+            "closing": 58.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "INJ MALON ( METOCLOPRAMIDE ) 10MG/2ML DUOPHARMA",
+        "code": "MAL19985556AZ",
+        "uom": "VIAL",
+        "status": "Active",
+        "unit_cost": 2.14,
+        "unit_sell": 20.0,
+        "missing_units": 3.0,
+        "missing_value": 6.42,
+        "missing_sales": 60.0,
+        "days_flagged": 2,
+        "dispensed_total": 11.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 7.0,
+            "dispensed": 0.0,
+            "expected": 7.0,
+            "closing": 5.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-06-19",
+            "to": "2026-06-20",
+            "opening": 5.0,
+            "dispensed": 0.0,
+            "expected": 5.0,
+            "closing": 4.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "GENTAMICIN 0.3% CREAM W/W 10G NORIPHARMA",
+        "code": "MAL19970614AZ",
+        "uom": "TUBE",
+        "status": "Active",
+        "unit_cost": 2.76,
+        "unit_sell": 20.0,
+        "missing_units": 2.0,
+        "missing_value": 5.52,
+        "missing_sales": 40.0,
+        "days_flagged": 1,
+        "dispensed_total": 19.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 21.0,
+            "dispensed": 3.0,
+            "expected": 18.0,
+            "closing": 16.0,
+            "missing": 2.0
+          }
+        ]
+      },
+      {
+        "description": "(TM) INFUSION SET WITH NEEDLE (1 PIECE)",
+        "code": "GB8557120-48011",
+        "uom": "1",
+        "status": "Active",
+        "unit_cost": 2.72,
+        "unit_sell": 5.0,
+        "missing_units": 2.0,
+        "missing_value": 5.43,
+        "missing_sales": 10.0,
+        "days_flagged": 2,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-15",
+            "to": "2026-06-16",
+            "opening": 27.0,
+            "dispensed": 0.0,
+            "expected": 27.0,
+            "closing": 26.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 26.0,
+            "dispensed": 0.0,
+            "expected": 26.0,
+            "closing": 25.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "TAB GLENCET (LEVOCETRIZINE) 5MG GLENMARK",
+        "code": "MAL12010006AZ",
+        "uom": "TABLET",
+        "status": "Inactive",
+        "unit_cost": 0.52,
+        "unit_sell": 1.5,
+        "missing_units": 10.0,
+        "missing_value": 5.24,
+        "missing_sales": 15.0,
+        "days_flagged": 1,
+        "dispensed_total": 60.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 130.0,
+            "dispensed": 0.0,
+            "expected": 130.0,
+            "closing": 120.0,
+            "missing": 10.0
+          }
+        ]
+      },
+      {
+        "description": "EYE/EAR DROPS DEXTRACIN (DEXAMETHASONE & NEOMYCIN) XEPA",
+        "code": "MAL19871175AZ",
+        "uom": "BOTTLE",
+        "status": "Active",
+        "unit_cost": 5.0,
+        "unit_sell": 20.0,
+        "missing_units": 1.0,
+        "missing_value": 5.0,
+        "missing_sales": 20.0,
+        "days_flagged": 1,
+        "dispensed_total": 3.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-04",
+            "to": "2026-06-05",
+            "opening": 6.0,
+            "dispensed": 0.0,
+            "expected": 6.0,
+            "closing": 5.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "INFUSOL N/S 250ML (SODIUM CHLORIDE 0.9% ) AIN MEDICARE",
+        "code": "MAL19962087AZ-250",
+        "uom": "UNIT",
+        "status": "Active",
+        "unit_cost": 5.0,
+        "unit_sell": 30.0,
+        "missing_units": 1.0,
+        "missing_value": 5.0,
+        "missing_sales": 30.0,
+        "days_flagged": 1,
+        "dispensed_total": 18.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-19",
+            "to": "2026-06-20",
+            "opening": 16.0,
+            "dispensed": 1.0,
+            "expected": 15.0,
+            "closing": 14.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "DEXALTIN (DEXAMETHASONE 1MG/G) ORALPASTE 2G PHARMAFORTE",
+        "code": "MAL17015024ACRZ",
+        "uom": "TUBE",
+        "status": "Active",
+        "unit_cost": 4.92,
+        "unit_sell": 25.0,
+        "missing_units": 1.0,
+        "missing_value": 4.92,
+        "missing_sales": 25.0,
+        "days_flagged": 1,
+        "dispensed_total": 1.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 15.0,
+            "dispensed": 0.0,
+            "expected": 15.0,
+            "closing": 14.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "SYR CETIZ ( CETRIZINE ) 75ML AV MANUFACTURING",
+        "code": "MAL08111799AZ",
+        "uom": "BOTTLE",
+        "status": "Active",
+        "unit_cost": 4.92,
+        "unit_sell": 25.0,
+        "missing_units": 1.0,
+        "missing_value": 4.92,
+        "missing_sales": 25.0,
+        "days_flagged": 1,
+        "dispensed_total": 1.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-20",
+            "to": "2026-06-21",
+            "opening": 30.0,
+            "dispensed": 0.0,
+            "expected": 30.0,
+            "closing": 29.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "INJ ACUGESIC (TAMADOL) 50MG/ML DUOPHARMA",
+        "code": "MAL19962866AZ",
+        "uom": "VIAL",
+        "status": "Active",
+        "unit_cost": 4.9,
+        "unit_sell": 30.0,
+        "missing_units": 1.0,
+        "missing_value": 4.9,
+        "missing_sales": 30.0,
+        "days_flagged": 1,
+        "dispensed_total": 8.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-08",
+            "to": "2026-06-09",
+            "opening": 20.0,
+            "dispensed": 0.0,
+            "expected": 20.0,
+            "closing": 19.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "SYR CHLORAMINE (CHLORPHENIRAMINE) 4MG/5ML 90ML DUOPHARMA",
+        "code": "MAL19860101AZ",
+        "uom": "BOTTLE",
+        "status": "Active",
+        "unit_cost": 1.62,
+        "unit_sell": 25.0,
+        "missing_units": 3.0,
+        "missing_value": 4.88,
+        "missing_sales": 75.0,
+        "days_flagged": 3,
+        "dispensed_total": 8.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-29",
+            "to": "2026-05-30",
+            "opening": 67.0,
+            "dispensed": 0.0,
+            "expected": 67.0,
+            "closing": 66.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 65.0,
+            "dispensed": 0.0,
+            "expected": 65.0,
+            "closing": 64.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-06",
+            "to": "2026-06-07",
+            "opening": 63.0,
+            "dispensed": 1.0,
+            "expected": 62.0,
+            "closing": 61.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "TAB LORADINE (LORATIDINE)10MG Y.S.P.",
+        "code": "MAL20021013AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.23,
+        "unit_sell": 1.0,
+        "missing_units": 20.0,
+        "missing_value": 4.64,
+        "missing_sales": 20.0,
+        "days_flagged": 2,
+        "dispensed_total": 20.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-29",
+            "to": "2026-05-30",
+            "opening": 160.0,
+            "dispensed": 0.0,
+            "expected": 160.0,
+            "closing": 150.0,
+            "missing": 10.0
+          },
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 150.0,
+            "dispensed": 0.0,
+            "expected": 150.0,
+            "closing": 140.0,
+            "missing": 10.0
+          }
+        ]
+      },
+      {
+        "description": "INJ GASTRIL ( RANITIDINE ) 50MG/2ML VIAL DUOPHARMA",
+        "code": "MAL19972531AZ",
+        "uom": "VIAL",
+        "status": "Active",
+        "unit_cost": 4.61,
+        "unit_sell": 30.0,
+        "missing_units": 1.0,
+        "missing_value": 4.61,
+        "missing_sales": 30.0,
+        "days_flagged": 1,
+        "dispensed_total": 3.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-21",
+            "to": "2026-06-22",
+            "opening": 11.0,
+            "dispensed": 1.0,
+            "expected": 10.0,
+            "closing": 9.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "INJ COPAN (HYOSCINE BUTYLBROMIDE 20MG/ML) 1ML VIAL DUOPHARMA",
+        "code": "MAL19970963AZ",
+        "uom": "VIAL",
+        "status": "Active",
+        "unit_cost": 2.3,
+        "unit_sell": 25.0,
+        "missing_units": 2.0,
+        "missing_value": 4.6,
+        "missing_sales": 50.0,
+        "days_flagged": 2,
+        "dispensed_total": 9.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-08",
+            "to": "2026-06-09",
+            "opening": 13.0,
+            "dispensed": 0.0,
+            "expected": 13.0,
+            "closing": 12.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-21",
+            "to": "2026-06-22",
+            "opening": 8.0,
+            "dispensed": 1.0,
+            "expected": 7.0,
+            "closing": 6.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "SYR RETORIN (ERYTHROMYCIN) 200MG/5ML 60ML SM PHARMA",
+        "code": "MAL19961700AZ",
+        "uom": "BOTTLE",
+        "status": "Active",
+        "unit_cost": 4.0,
+        "unit_sell": 25.0,
+        "missing_units": 1.0,
+        "missing_value": 4.0,
+        "missing_sales": 25.0,
+        "days_flagged": 1,
+        "dispensed_total": 5.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 23.0,
+            "dispensed": 0.0,
+            "expected": 23.0,
+            "closing": 22.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "INJ TT VACCINE (TETANUS) 0.5ML SM PHARMA",
+        "code": "MAL13035064AZ",
+        "uom": "0.5ML",
+        "status": "Active",
+        "unit_cost": 3.75,
+        "unit_sell": 25.0,
+        "missing_units": 1.0,
+        "missing_value": 3.75,
+        "missing_sales": 25.0,
+        "days_flagged": 1,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 8.0,
+            "dispensed": 0.0,
+            "expected": 8.0,
+            "closing": 7.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "INJ PIRIMAT (CHLORPHENIRAMINE) 10MG/ML DUOPHARMA",
+        "code": "MAL19970958AZ",
+        "uom": "VIAL",
+        "status": "Active",
+        "unit_cost": 1.75,
+        "unit_sell": 20.0,
+        "missing_units": 2.0,
+        "missing_value": 3.5,
+        "missing_sales": 40.0,
+        "days_flagged": 2,
+        "dispensed_total": 8.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 6.0,
+            "dispensed": 0.0,
+            "expected": 6.0,
+            "closing": 5.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-14",
+            "to": "2026-06-15",
+            "opening": 43.0,
+            "dispensed": 3.0,
+            "expected": 40.0,
+            "closing": 39.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "IBUFEN SYRUP (IBUPROFEN 100MG/ 5ML) DYNAPHARM",
+        "code": "MAL19984404AZ",
+        "uom": "BTL",
+        "status": "Active",
+        "unit_cost": 3.5,
+        "unit_sell": 15.0,
+        "missing_units": 1.0,
+        "missing_value": 3.5,
+        "missing_sales": 15.0,
+        "days_flagged": 1,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 3.0,
+            "dispensed": 0.0,
+            "expected": 3.0,
+            "closing": 2.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "TAB SPASIL (DIPHENOXYLATE 2.5MG/ATROPINE 0.025MG) IMEKS",
+        "code": "MAL19921520AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.16,
+        "unit_sell": 1.5,
+        "missing_units": 20.0,
+        "missing_value": 3.28,
+        "missing_sales": 30.0,
+        "days_flagged": 1,
+        "dispensed_total": 160.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-04",
+            "to": "2026-06-05",
+            "opening": 420.0,
+            "dispensed": 0.0,
+            "expected": 420.0,
+            "closing": 400.0,
+            "missing": 20.0
+          }
+        ]
+      },
+      {
+        "description": "INJ LINCOMYCIN (LINCOMYCIN) 300MG/ML Y.SP.",
+        "code": "MAL21046016AZ",
+        "uom": "ML",
+        "status": "Active",
+        "unit_cost": 1.08,
+        "unit_sell": 30.0,
+        "missing_units": 3.0,
+        "missing_value": 3.24,
+        "missing_sales": 90.0,
+        "days_flagged": 1,
+        "dispensed_total": 5.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-18",
+            "to": "2026-06-19",
+            "opening": 97.0,
+            "dispensed": 0.0,
+            "expected": 97.0,
+            "closing": 94.0,
+            "missing": 3.0
+          }
+        ]
+      },
+      {
+        "description": "DEEPBLUE DENGUE NS1 RAPID TEST",
+        "code": "GA7614024-177104",
+        "uom": "1",
+        "status": "Active",
+        "unit_cost": 3.1,
+        "unit_sell": 50.0,
+        "missing_units": 1.0,
+        "missing_value": 3.1,
+        "missing_sales": 50.0,
+        "days_flagged": 1,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 25.0,
+            "dispensed": 0.0,
+            "expected": 25.0,
+            "closing": 24.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "KLORAXIN EYE OINTMENT ( CHLORAMPHENICOL 1%) 5G UNIMED",
+        "code": "MAL09072753AZ",
+        "uom": "TUBE",
+        "status": "Active",
+        "unit_cost": 2.8,
+        "unit_sell": 20.0,
+        "missing_units": 1.0,
+        "missing_value": 2.8,
+        "missing_sales": 20.0,
+        "days_flagged": 1,
+        "dispensed_total": 1.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-04",
+            "to": "2026-06-05",
+            "opening": 3.0,
+            "dispensed": 0.0,
+            "expected": 3.0,
+            "closing": 2.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "TAB CIPROGLEN (CIPROFLOXACIN) 500MG GLENMARK",
+        "code": "MAL07021411AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.27,
+        "unit_sell": 2.5,
+        "missing_units": 10.0,
+        "missing_value": 2.7,
+        "missing_sales": 25.0,
+        "days_flagged": 1,
+        "dispensed_total": 70.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-08",
+            "to": "2026-06-09",
+            "opening": 1100.0,
+            "dispensed": 0.0,
+            "expected": 1100.0,
+            "closing": 1090.0,
+            "missing": 10.0
+          }
+        ]
+      },
+      {
+        "description": "SYR BENA EXPECTORANT(DIPHENHYDRAMINE 14MG, AMMONIUM CHLORIDE 135MG/5ML) 90ML XEPA",
+        "code": "MAL16105026AZ",
+        "uom": "BOTTLE",
+        "status": "Active",
+        "unit_cost": 2.55,
+        "unit_sell": 20.0,
+        "missing_units": 1.0,
+        "missing_value": 2.55,
+        "missing_sales": 20.0,
+        "days_flagged": 1,
+        "dispensed_total": 2.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 1.0,
+            "dispensed": 0.0,
+            "expected": 1.0,
+            "closing": 0.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "SURGICAL PORE 10X16CM",
+        "code": "LARGE-PLASTER",
+        "uom": "1",
+        "status": "Active",
+        "unit_cost": 2.55,
+        "unit_sell": 15.0,
+        "missing_units": 1.0,
+        "missing_value": 2.55,
+        "missing_sales": 15.0,
+        "days_flagged": 1,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-05",
+            "to": "2026-06-06",
+            "opening": 10.0,
+            "dispensed": 0.0,
+            "expected": 10.0,
+            "closing": 9.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "TAB ANTAROL (PROPRANOLOL) 40MG IMEKS",
+        "code": "MAL20033516ACZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.07,
+        "unit_sell": 1.0,
+        "missing_units": 32.0,
+        "missing_value": 2.24,
+        "missing_sales": 32.0,
+        "days_flagged": 3,
+        "dispensed_total": 62.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-05",
+            "to": "2026-06-06",
+            "opening": 148.0,
+            "dispensed": 0.0,
+            "expected": 148.0,
+            "closing": 118.0,
+            "missing": 30.0
+          },
+          {
+            "from": "2026-06-03",
+            "to": "2026-06-04",
+            "opening": 149.0,
+            "dispensed": 0.0,
+            "expected": 149.0,
+            "closing": 148.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 100.0,
+            "dispensed": 0.0,
+            "expected": 100.0,
+            "closing": 99.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "CHEWABLE SIMCONE ( SIMETICONE ) 80MG IMEKS",
+        "code": "MAL20001834X",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.11,
+        "unit_sell": 1.0,
+        "missing_units": 20.0,
+        "missing_value": 2.19,
+        "missing_sales": 20.0,
+        "days_flagged": 1,
+        "dispensed_total": 160.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 280.0,
+            "dispensed": 0.0,
+            "expected": 280.0,
+            "closing": 260.0,
+            "missing": 20.0
+          }
+        ]
+      },
+      {
+        "description": "TAB PONTALON (MEFENAMIC ACID) 500MG Y.S.P.",
+        "code": "MAL19930603AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.17,
+        "unit_sell": 2.0,
+        "missing_units": 10.0,
+        "missing_value": 1.73,
+        "missing_sales": 20.0,
+        "days_flagged": 1,
+        "dispensed_total": 60.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-03",
+            "to": "2026-06-04",
+            "opening": 30.0,
+            "dispensed": 0.0,
+            "expected": 30.0,
+            "closing": 20.0,
+            "missing": 10.0
+          }
+        ]
+      },
+      {
+        "description": "INJ VOREN ( DICLOFENAC SODIUM ) 75MG/3ML Y.S.P.",
+        "code": "MAL19890638AZ",
+        "uom": "VIAL",
+        "status": "Active",
+        "unit_cost": 1.66,
+        "unit_sell": 30.0,
+        "missing_units": 1.0,
+        "missing_value": 1.66,
+        "missing_sales": 30.0,
+        "days_flagged": 1,
+        "dispensed_total": 3.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 106.0,
+            "dispensed": 0.0,
+            "expected": 106.0,
+            "closing": 105.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "SUPP VOREN (DICLOFENAC SODIUM) 25MG Y.S.P.",
+        "code": "MAL19985559AZ",
+        "uom": "SUPPOSITORIES",
+        "status": "Active",
+        "unit_cost": 1.66,
+        "unit_sell": 6.0,
+        "missing_units": 1.0,
+        "missing_value": 1.66,
+        "missing_sales": 6.0,
+        "days_flagged": 1,
+        "dispensed_total": 4.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 5.0,
+            "dispensed": 0.0,
+            "expected": 5.0,
+            "closing": 4.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "CAP APO-PIROXICAM 20MG APOTEX INC",
+        "code": "MAL19984713ARZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.16,
+        "unit_sell": 2.0,
+        "missing_units": 10.0,
+        "missing_value": 1.64,
+        "missing_sales": 20.0,
+        "days_flagged": 1,
+        "dispensed_total": 20.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 1970.0,
+            "dispensed": 0.0,
+            "expected": 1970.0,
+            "closing": 1960.0,
+            "missing": 10.0
+          }
+        ]
+      },
+      {
+        "description": "TAB PREDNISYN (PREDNISOLONE) 5MG DUOPHARMA",
+        "code": "MAL19870561ACZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.08,
+        "unit_sell": 1.0,
+        "missing_units": 20.0,
+        "missing_value": 1.51,
+        "missing_sales": 20.0,
+        "days_flagged": 1,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-09",
+            "to": "2026-06-10",
+            "opening": 1000.0,
+            "dispensed": 0.0,
+            "expected": 1000.0,
+            "closing": 980.0,
+            "missing": 20.0
+          }
+        ]
+      },
+      {
+        "description": "TAB PROCHLOR (PROCHLORPERAZINE) 5MG DUOPHARMA",
+        "code": "MED0724",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.07,
+        "unit_sell": 1.0,
+        "missing_units": 20.0,
+        "missing_value": 1.4,
+        "missing_sales": 20.0,
+        "days_flagged": 1,
+        "dispensed_total": 20.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-04",
+            "to": "2026-06-05",
+            "opening": 80.0,
+            "dispensed": 0.0,
+            "expected": 80.0,
+            "closing": 60.0,
+            "missing": 20.0
+          }
+        ]
+      },
+      {
+        "description": "INJ PREDON INJECTION 25MG/ML HEALOL PHARMACEUTICALS SDN. BHD.",
+        "code": "MAL19986420AZ",
+        "uom": "ML",
+        "status": "Active",
+        "unit_cost": 1.32,
+        "unit_sell": 25.0,
+        "missing_units": 1.0,
+        "missing_value": 1.32,
+        "missing_sales": 25.0,
+        "days_flagged": 1,
+        "dispensed_total": 2.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 9.0,
+            "dispensed": 0.0,
+            "expected": 9.0,
+            "closing": 8.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "TAB PIRITON (CHLORPHENIRAMINE) 4MG DUOPHARMA",
+        "code": "MAL19860095AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.05,
+        "unit_sell": 1.0,
+        "missing_units": 20.0,
+        "missing_value": 1.02,
+        "missing_sales": 20.0,
+        "days_flagged": 2,
+        "dispensed_total": 160.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-10",
+            "to": "2026-06-11",
+            "opening": 840.0,
+            "dispensed": 0.0,
+            "expected": 840.0,
+            "closing": 830.0,
+            "missing": 10.0
+          },
+          {
+            "from": "2026-06-14",
+            "to": "2026-06-15",
+            "opening": 810.0,
+            "dispensed": 30.0,
+            "expected": 780.0,
+            "closing": 770.0,
+            "missing": 10.0
+          }
+        ]
+      },
+      {
+        "description": "UNDERPAD 40CM X 60CM",
+        "code": "UNDP40X60NFET10",
+        "uom": "Pieces",
+        "status": "Active",
+        "unit_cost": 0.6,
+        "unit_sell": 2.0,
+        "missing_units": 1.0,
+        "missing_value": 0.6,
+        "missing_sales": 2.0,
+        "days_flagged": 1,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-08",
+            "to": "2026-06-09",
+            "opening": 50.0,
+            "dispensed": 0.0,
+            "expected": 50.0,
+            "closing": 49.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "TAB FENAMON (NIFEDIPINE) 10MG MEDOCHEMIE LTD",
+        "code": "MAL19861587AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0.18,
+        "unit_sell": 10.0,
+        "missing_units": 1.0,
+        "missing_value": 0.18,
+        "missing_sales": 10.0,
+        "days_flagged": 1,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 1000.0,
+            "dispensed": 0.0,
+            "expected": 1000.0,
+            "closing": 999.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "DISPOSABLE ALCOHOL SWAB 1'S",
+        "code": "DISP-ALCOHOLSWAB",
+        "uom": "Pieces",
+        "status": "Active",
+        "unit_cost": 0.07,
+        "unit_sell": 0,
+        "missing_units": 2.0,
+        "missing_value": 0.14,
+        "missing_sales": 0.0,
+        "days_flagged": 2,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-15",
+            "to": "2026-06-16",
+            "opening": 499.0,
+            "dispensed": 0.0,
+            "expected": 499.0,
+            "closing": 498.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-16",
+            "to": "2026-06-17",
+            "opening": 498.0,
+            "dispensed": 0.0,
+            "expected": 498.0,
+            "closing": 497.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "PLASTER",
+        "code": "PLASTER",
+        "uom": "1",
+        "status": "Active",
+        "unit_cost": 0.03,
+        "unit_sell": 0.5,
+        "missing_units": 2.0,
+        "missing_value": 0.06,
+        "missing_sales": 1.0,
+        "days_flagged": 2,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-15",
+            "to": "2026-06-16",
+            "opening": 500.0,
+            "dispensed": 0.0,
+            "expected": 500.0,
+            "closing": 499.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-16",
+            "to": "2026-06-17",
+            "opening": 499.0,
+            "dispensed": 0.0,
+            "expected": 499.0,
+            "closing": 498.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "(NFET) COTTON BALL",
+        "code": "GA4757424-168920",
+        "uom": "1",
+        "status": "Active",
+        "unit_cost": 0.02,
+        "unit_sell": 0.5,
+        "missing_units": 1.0,
+        "missing_value": 0.02,
+        "missing_sales": 0.5,
+        "days_flagged": 1,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-15",
+            "to": "2026-06-16",
+            "opening": 500.0,
+            "dispensed": 0.0,
+            "expected": 500.0,
+            "closing": 499.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "GENERAL DISPOSABLE ITEMS",
+        "code": "PMCARE",
+        "uom": "1",
+        "status": "Active",
+        "unit_cost": 0,
+        "unit_sell": 5.0,
+        "missing_units": 67.0,
+        "missing_value": 0.0,
+        "missing_sales": 335.0,
+        "days_flagged": 23,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-19",
+            "to": "2026-06-20",
+            "opening": 9760.0,
+            "dispensed": 0.0,
+            "expected": 9760.0,
+            "closing": 9752.0,
+            "missing": 8.0
+          },
+          {
+            "from": "2026-06-09",
+            "to": "2026-06-10",
+            "opening": 9784.0,
+            "dispensed": 0.0,
+            "expected": 9784.0,
+            "closing": 9778.0,
+            "missing": 6.0
+          },
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 9815.0,
+            "dispensed": 0.0,
+            "expected": 9815.0,
+            "closing": 9810.0,
+            "missing": 5.0
+          },
+          {
+            "from": "2026-06-01",
+            "to": "2026-06-02",
+            "opening": 9805.0,
+            "dispensed": 0.0,
+            "expected": 9805.0,
+            "closing": 9800.0,
+            "missing": 5.0
+          },
+          {
+            "from": "2026-06-04",
+            "to": "2026-06-05",
+            "opening": 9795.0,
+            "dispensed": 0.0,
+            "expected": 9795.0,
+            "closing": 9790.0,
+            "missing": 5.0
+          },
+          {
+            "from": "2026-06-14",
+            "to": "2026-06-15",
+            "opening": 9774.0,
+            "dispensed": 0.0,
+            "expected": 9774.0,
+            "closing": 9769.0,
+            "missing": 5.0
+          },
+          {
+            "from": "2026-06-03",
+            "to": "2026-06-04",
+            "opening": 9799.0,
+            "dispensed": 0.0,
+            "expected": 9799.0,
+            "closing": 9795.0,
+            "missing": 4.0
+          },
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 9766.0,
+            "dispensed": 0.0,
+            "expected": 9766.0,
+            "closing": 9762.0,
+            "missing": 4.0
+          },
+          {
+            "from": "2026-06-05",
+            "to": "2026-06-06",
+            "opening": 9790.0,
+            "dispensed": 0.0,
+            "expected": 9790.0,
+            "closing": 9787.0,
+            "missing": 3.0
+          },
+          {
+            "from": "2026-05-30",
+            "to": "2026-05-31",
+            "opening": 9809.0,
+            "dispensed": 0.0,
+            "expected": 9809.0,
+            "closing": 9807.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 9807.0,
+            "dispensed": 0.0,
+            "expected": 9807.0,
+            "closing": 9805.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-06-08",
+            "to": "2026-06-09",
+            "opening": 9786.0,
+            "dispensed": 0.0,
+            "expected": 9786.0,
+            "closing": 9784.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-06-13",
+            "to": "2026-06-14",
+            "opening": 9776.0,
+            "dispensed": 0.0,
+            "expected": 9776.0,
+            "closing": 9774.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-06-16",
+            "to": "2026-06-17",
+            "opening": 9768.0,
+            "dispensed": 0.0,
+            "expected": 9768.0,
+            "closing": 9766.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-06-18",
+            "to": "2026-06-19",
+            "opening": 9762.0,
+            "dispensed": 0.0,
+            "expected": 9762.0,
+            "closing": 9760.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-06-20",
+            "to": "2026-06-21",
+            "opening": 9752.0,
+            "dispensed": 0.0,
+            "expected": 9752.0,
+            "closing": 9750.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-06-21",
+            "to": "2026-06-22",
+            "opening": 9750.0,
+            "dispensed": 0.0,
+            "expected": 9750.0,
+            "closing": 9748.0,
+            "missing": 2.0
+          },
+          {
+            "from": "2026-05-29",
+            "to": "2026-05-30",
+            "opening": 9810.0,
+            "dispensed": 0.0,
+            "expected": 9810.0,
+            "closing": 9809.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-02",
+            "to": "2026-06-03",
+            "opening": 9800.0,
+            "dispensed": 0.0,
+            "expected": 9800.0,
+            "closing": 9799.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-06",
+            "to": "2026-06-07",
+            "opening": 9787.0,
+            "dispensed": 0.0,
+            "expected": 9787.0,
+            "closing": 9786.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-11",
+            "to": "2026-06-12",
+            "opening": 9778.0,
+            "dispensed": 0.0,
+            "expected": 9778.0,
+            "closing": 9777.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-12",
+            "to": "2026-06-13",
+            "opening": 9777.0,
+            "dispensed": 0.0,
+            "expected": 9777.0,
+            "closing": 9776.0,
+            "missing": 1.0
+          },
+          {
+            "from": "2026-06-15",
+            "to": "2026-06-16",
+            "opening": 9769.0,
+            "dispensed": 0.0,
+            "expected": 9769.0,
+            "closing": 9768.0,
+            "missing": 1.0
+          }
+        ]
+      },
+      {
+        "description": "TAB DESLORATADINE 5MG SYNERRV",
+        "code": "MAL19056115AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0,
+        "unit_sell": 2.0,
+        "missing_units": 10.0,
+        "missing_value": 0.0,
+        "missing_sales": 20.0,
+        "days_flagged": 1,
+        "dispensed_total": 20.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-04",
+            "to": "2026-06-05",
+            "opening": 60.0,
+            "dispensed": 10.0,
+            "expected": 50.0,
+            "closing": 40.0,
+            "missing": 10.0
+          }
+        ]
+      },
+      {
+        "description": "TAB LAZINE (LEVOCETIRIZINE DIHCl) 5MG SYNERRV",
+        "code": "MAL11070006AZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 0,
+        "unit_sell": 1.5,
+        "missing_units": 10.0,
+        "missing_value": 0.0,
+        "missing_sales": 15.0,
+        "days_flagged": 1,
+        "dispensed_total": 130.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 340.0,
+            "dispensed": 40.0,
+            "expected": 300.0,
+            "closing": 290.0,
+            "missing": 10.0
+          }
+        ]
+      },
+      {
+        "description": "FC CAP NUTRIFORTE BUFFERED VITAMIN C 1000MG 60's ESPRIT CARE",
+        "code": "MAL24096083NC",
+        "uom": "BOTTLE",
+        "status": "Active",
+        "unit_cost": 0,
+        "unit_sell": 55.0,
+        "missing_units": 118.0,
+        "missing_value": 0.0,
+        "missing_sales": 6490.0,
+        "days_flagged": 1,
+        "dispensed_total": 1.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-05-28",
+            "to": "2026-05-29",
+            "opening": 120.0,
+            "dispensed": 0.0,
+            "expected": 120.0,
+            "closing": 2.0,
+            "missing": 118.0
+          }
+        ]
+      }
+    ]
+  },
   "latest_po_filename": "PO_TBD_20260622.xlsx"
 }
