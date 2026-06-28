@@ -75,6 +75,8 @@
   .icbtn { border:none; background:none; color:#c4cdd6; font-size:15px; cursor:pointer; flex:none; padding:0 3px; line-height:1; transition:color .15s; }
   .icbtn:hover { color:#7d8a98; }
   .icbtn.del:hover { color:#e0556b; }
+  .icbtn.editing { color:#10b981; font-size:18px; font-weight:800; }
+  .icbtn.editing:hover { color:#0e9e72; }
 
   .badges { display:flex; flex-wrap:wrap; gap:6px; margin:7px 0 0 31px; }
   .due {
@@ -261,7 +263,7 @@ function activeNode(id, t) {
       <span class="pdot ${pr}" title="${pr} priority"></span>
       <div class="check"></div>
       <div class="txt"></div>
-      <button class="icbtn edit" title="Edit">✎</button>
+      <button class="icbtn edit ${editing.has(id) ? "editing" : ""}" title="${editing.has(id) ? "Done editing" : "Edit"}">${editing.has(id) ? "✓" : "✎"}</button>
       <button class="icbtn del" title="Delete">&times;</button>
     </div>
     <div class="badges">${di ? `<span class="due ${di.cls}">${di.label}</span>` : ""}</div>
