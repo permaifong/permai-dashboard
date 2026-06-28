@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Family Task Board</title>
+<title>PERMAI TASK LIST</title>
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
 <style>
   :root { --bg:#eef1f5; --card:#fff; --ink:#1d2733; --muted:#93a1b0; --line:#e6ebf0; }
@@ -15,8 +15,8 @@
   }
   .wrap { max-width:none; margin:0 auto; }
   header { text-align:center; margin-bottom:26px; }
-  h1 { font-size:26px; font-weight:800; letter-spacing:-0.5px; }
-  .sub { color:var(--muted); font-size:13px; margin-top:5px; }
+  h1 { font-size:40px; font-weight:800; letter-spacing:0.5px; }
+  .sub { color:var(--muted); font-size:15px; margin-top:7px; }
 
   .board { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
   @media (max-width:760px){ .board{ grid-template-columns:1fr; } }
@@ -28,18 +28,18 @@
   }
   .col-head { display:flex; align-items:center; gap:11px; padding:16px 18px 14px; }
   .avatar {
-    width:38px; height:38px; border-radius:50%; display:grid; place-items:center;
-    color:#fff; font-weight:700; font-size:15px; background:var(--c);
+    width:44px; height:44px; border-radius:50%; display:grid; place-items:center;
+    color:#fff; font-weight:700; font-size:18px; background:var(--c);
     box-shadow:0 3px 10px var(--cs); flex:none;
   }
-  .col-name { font-size:16px; font-weight:700; flex:1; }
-  .count { font-size:12px; font-weight:700; color:var(--c); background:var(--csoft); border-radius:20px; padding:3px 10px; }
+  .col-name { font-size:20px; font-weight:700; flex:1; }
+  .count { font-size:14px; font-weight:700; color:var(--c); background:var(--csoft); border-radius:20px; padding:4px 12px; }
   .over-pill { font-size:11px; font-weight:700; color:#fff; background:#e0556b; border-radius:20px; padding:3px 8px; margin-left:6px; }
 
   .add { display:flex; gap:8px; padding:0 14px 12px; }
   .add input {
     flex:1; border:1.5px solid var(--line); border-radius:11px; padding:11px 13px;
-    font-size:14px; background:#fafbfc; color:var(--ink); outline:none; transition:border-color .15s; min-width:0;
+    font-size:16px; background:#fafbfc; color:var(--ink); outline:none; transition:border-color .15s; min-width:0;
   }
   .add input:focus { border-color:var(--c); background:#fff; }
   .add button {
@@ -70,7 +70,7 @@
   }
   .check.on { background:var(--c); border-color:var(--c); }
   .check.on::after { content:"✓"; color:#fff; font-size:13px; font-weight:800; }
-  .txt { flex:1; font-size:14.5px; line-height:1.35; word-break:break-word; padding-top:1px; cursor:grab; }
+  .txt { flex:1; font-size:17px; line-height:1.4; word-break:break-word; padding-top:1px; cursor:grab; }
   .task.done .txt { text-decoration:line-through; }
   .icbtn { border:none; background:none; color:#c4cdd6; font-size:15px; cursor:pointer; flex:none; padding:0 3px; line-height:1; transition:color .15s; }
   .icbtn:hover { color:#7d8a98; }
@@ -78,7 +78,7 @@
 
   .badges { display:flex; flex-wrap:wrap; gap:6px; margin:7px 0 0 31px; }
   .due {
-    font-size:11px; font-weight:700; border-radius:7px; padding:2px 8px; display:inline-flex; gap:4px; align-items:center;
+    font-size:13px; font-weight:700; border-radius:7px; padding:3px 10px; display:inline-flex; gap:4px; align-items:center;
   }
   .due.over { background:#fdeaed; color:#d23f57; }
   .due.today { background:#fff1e3; color:#e07c1a; }
@@ -118,7 +118,7 @@
 <body>
 <div class="wrap">
   <header>
-    <h1>🗂️ Family Task Board</h1>
+    <h1>🗂️ PERMAI TASK LIST</h1>
     <div class="sub">Drag a card between people · set due dates &amp; priority · syncs live</div>
   </header>
   <div class="board" id="board"></div>
