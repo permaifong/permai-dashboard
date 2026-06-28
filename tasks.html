@@ -4,129 +4,124 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Family Task Board</title>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
 <style>
-  :root {
-    --bg: #eef1f5;
-    --card: #ffffff;
-    --ink: #1d2733;
-    --muted: #93a1b0;
-    --line: #e6ebf0;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  :root { --bg:#eef1f5; --card:#fff; --ink:#1d2733; --muted:#93a1b0; --line:#e6ebf0; }
+  * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-    background: linear-gradient(160deg, #eef1f5 0%, #e4e9f0 100%);
-    color: var(--ink);
-    min-height: 100vh;
-    padding: 28px 18px 60px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+    background:linear-gradient(160deg,#eef1f5 0%,#e4e9f0 100%);
+    color:var(--ink); min-height:100vh; padding:28px 18px 60px;
   }
-  .wrap { max-width: 1120px; margin: 0 auto; }
+  .wrap { max-width:1120px; margin:0 auto; }
+  header { text-align:center; margin-bottom:26px; }
+  h1 { font-size:26px; font-weight:800; letter-spacing:-0.5px; }
+  .sub { color:var(--muted); font-size:13px; margin-top:5px; }
 
-  header { text-align: center; margin-bottom: 26px; }
-  h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
-  .sub { color: var(--muted); font-size: 13px; margin-top: 5px; }
-
-  .board {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-  }
-  @media (max-width: 760px) {
-    .board { grid-template-columns: 1fr; }
-  }
+  .board { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  @media (max-width:760px){ .board{ grid-template-columns:1fr; } }
 
   .col {
-    background: var(--card);
-    border-radius: 18px;
-    box-shadow: 0 6px 24px rgba(40,60,90,0.07);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    border-top: 5px solid var(--c);
+    background:var(--card); border-radius:18px;
+    box-shadow:0 6px 24px rgba(40,60,90,0.07); overflow:hidden;
+    display:flex; flex-direction:column; border-top:5px solid var(--c);
   }
-  .col-head {
-    display: flex; align-items: center; gap: 11px;
-    padding: 16px 18px 14px;
-  }
+  .col-head { display:flex; align-items:center; gap:11px; padding:16px 18px 14px; }
   .avatar {
-    width: 38px; height: 38px; border-radius: 50%;
-    display: grid; place-items: center;
-    color: #fff; font-weight: 700; font-size: 15px;
-    background: var(--c);
-    box-shadow: 0 3px 10px var(--cs);
-    flex: none;
+    width:38px; height:38px; border-radius:50%; display:grid; place-items:center;
+    color:#fff; font-weight:700; font-size:15px; background:var(--c);
+    box-shadow:0 3px 10px var(--cs); flex:none;
   }
-  .col-name { font-size: 16px; font-weight: 700; flex: 1; }
-  .count {
-    font-size: 12px; font-weight: 700; color: var(--c);
-    background: var(--csoft); border-radius: 20px;
-    padding: 3px 10px;
-  }
+  .col-name { font-size:16px; font-weight:700; flex:1; }
+  .count { font-size:12px; font-weight:700; color:var(--c); background:var(--csoft); border-radius:20px; padding:3px 10px; }
+  .over-pill { font-size:11px; font-weight:700; color:#fff; background:#e0556b; border-radius:20px; padding:3px 8px; margin-left:6px; }
 
-  .add {
-    display: flex; gap: 8px; padding: 0 14px 14px;
-  }
+  .add { display:flex; gap:8px; padding:0 14px 12px; }
   .add input {
-    flex: 1; border: 1.5px solid var(--line); border-radius: 11px;
-    padding: 11px 13px; font-size: 14px; background: #fafbfc;
-    color: var(--ink); outline: none; transition: border-color .15s;
-    min-width: 0;
+    flex:1; border:1.5px solid var(--line); border-radius:11px; padding:11px 13px;
+    font-size:14px; background:#fafbfc; color:var(--ink); outline:none; transition:border-color .15s; min-width:0;
   }
-  .add input:focus { border-color: var(--c); background: #fff; }
+  .add input:focus { border-color:var(--c); background:#fff; }
   .add button {
-    border: none; background: var(--c); color: #fff;
-    border-radius: 11px; padding: 0 15px; font-size: 20px;
-    font-weight: 600; cursor: pointer; line-height: 1; flex: none;
-    transition: transform .1s, filter .15s;
+    border:none; background:var(--c); color:#fff; border-radius:11px; padding:0 15px;
+    font-size:20px; font-weight:600; cursor:pointer; line-height:1; flex:none; transition:transform .1s,filter .15s;
   }
-  .add button:hover { filter: brightness(1.05); }
-  .add button:active { transform: scale(0.92); }
+  .add button:hover { filter:brightness(1.05); }
+  .add button:active { transform:scale(0.92); }
 
-  .tasks { padding: 0 14px 16px; flex: 1; min-height: 60px; }
+  .tasks { padding:0 14px 6px; flex:1; min-height:52px; }
+  .tasks.drag-over { background:var(--csoft); border-radius:12px; }
 
   .task {
-    display: flex; align-items: flex-start; gap: 11px;
-    background: #fafbfc; border: 1px solid var(--line);
-    border-radius: 12px; padding: 12px 13px; margin-bottom: 9px;
-    animation: pop .18s ease;
+    background:#fafbfc; border:1px solid var(--line); border-radius:12px;
+    padding:10px 12px; margin-bottom:9px; animation:pop .18s ease;
   }
-  @keyframes pop { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
-  .task.done { opacity: 0.5; }
+  @keyframes pop { from{opacity:0;transform:translateY(-4px);} to{opacity:1;transform:none;} }
+  .task.done { opacity:.5; }
+  .sortable-ghost { opacity:.35; }
+  .sortable-chosen { box-shadow:0 8px 22px rgba(40,60,90,.18); }
 
+  .task-main { display:flex; align-items:flex-start; gap:10px; }
+  .pdot { width:9px; height:9px; border-radius:50%; flex:none; margin-top:6px; }
+  .pdot.high{ background:#e0556b; } .pdot.med{ background:#f3a93c; } .pdot.low{ background:#c4cdd6; }
   .check {
-    width: 21px; height: 21px; flex: none; margin-top: 1px;
-    border: 2px solid #cdd6df; border-radius: 7px;
-    cursor: pointer; display: grid; place-items: center;
-    transition: all .12s;
+    width:21px; height:21px; flex:none; margin-top:1px; border:2px solid #cdd6df;
+    border-radius:7px; cursor:pointer; display:grid; place-items:center; transition:all .12s;
   }
-  .check.on { background: var(--c); border-color: var(--c); }
-  .check.on::after { content: "✓"; color: #fff; font-size: 13px; font-weight: 800; }
+  .check.on { background:var(--c); border-color:var(--c); }
+  .check.on::after { content:"✓"; color:#fff; font-size:13px; font-weight:800; }
+  .txt { flex:1; font-size:14.5px; line-height:1.35; word-break:break-word; padding-top:1px; cursor:grab; }
+  .task.done .txt { text-decoration:line-through; }
+  .icbtn { border:none; background:none; color:#c4cdd6; font-size:15px; cursor:pointer; flex:none; padding:0 3px; line-height:1; transition:color .15s; }
+  .icbtn:hover { color:#7d8a98; }
+  .icbtn.del:hover { color:#e0556b; }
 
-  .txt { flex: 1; font-size: 14.5px; line-height: 1.35; word-break: break-word; padding-top: 1px; }
-  .task.done .txt { text-decoration: line-through; }
-
-  .del {
-    border: none; background: none; color: #c4cdd6;
-    font-size: 17px; cursor: pointer; flex: none; padding: 0 2px;
-    line-height: 1; transition: color .15s;
+  .badges { display:flex; flex-wrap:wrap; gap:6px; margin:7px 0 0 31px; }
+  .due {
+    font-size:11px; font-weight:700; border-radius:7px; padding:2px 8px; display:inline-flex; gap:4px; align-items:center;
   }
-  .del:hover { color: #e0556b; }
+  .due.over { background:#fdeaed; color:#d23f57; }
+  .due.today { background:#fff1e3; color:#e07c1a; }
+  .due.soon { background:#fff8e6; color:#bb8a1a; }
+  .due.later { background:#eef1f5; color:#7d8a98; }
 
-  .col-empty { text-align: center; color: var(--muted); font-size: 13px; padding: 22px 0; }
+  .editor { margin:9px 0 2px; padding:10px; background:#fff; border:1px dashed var(--line); border-radius:10px; }
+  .editor.hide { display:none; }
+  .erow { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .editor label { font-size:11px; color:var(--muted); font-weight:600; }
+  .editor input[type=date] { border:1px solid var(--line); border-radius:8px; padding:5px 8px; font-size:13px; color:var(--ink); }
+  .pri { display:flex; gap:5px; }
+  .pri button {
+    border:1.5px solid var(--line); background:#fff; border-radius:8px; padding:4px 9px;
+    font-size:11px; font-weight:700; cursor:pointer; color:#7d8a98;
+  }
+  .pri button.sel-high { border-color:#e0556b; color:#e0556b; background:#fdeaed; }
+  .pri button.sel-med  { border-color:#f3a93c; color:#e07c1a; background:#fff1e3; }
+  .pri button.sel-low  { border-color:#9aa6b2; color:#7d8a98; background:#eef1f5; }
+  .clr { border:none; background:none; color:#aeb8c2; font-size:11px; cursor:pointer; text-decoration:underline; }
 
-  .status { text-align: center; font-size: 12px; color: var(--muted); margin-top: 26px; }
-  .err { color: #e0556b; }
+  .drawer { border-top:1px solid var(--line); margin:4px 0 0; }
+  .drawer-head {
+    display:flex; align-items:center; gap:8px; padding:11px 16px; cursor:pointer;
+    font-size:12px; font-weight:700; color:var(--muted); user-select:none;
+  }
+  .drawer-head .caret { transition:transform .15s; }
+  .drawer-head.open .caret { transform:rotate(90deg); }
+  .drawer-body { padding:0 14px 10px; }
+  .drawer-body.hide { display:none; }
+
+  .col-empty { text-align:center; color:var(--muted); font-size:13px; padding:18px 0; }
+  .status { text-align:center; font-size:12px; color:var(--muted); margin-top:26px; }
+  .err { color:#e0556b; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <h1>🗂️ Family Task Board</h1>
-    <div class="sub">Live for everyone with the link · changes sync instantly</div>
+    <div class="sub">Drag a card between people · set due dates &amp; priority · syncs live</div>
   </header>
-
   <div class="board" id="board"></div>
-
   <div id="status" class="status">Connecting…</div>
 </div>
 
@@ -146,111 +141,215 @@ const firebaseConfig = {
   appId: "1:1050539460224:web:0357111582c97d31b98865"
 };
 
-// People = columns. id is what we store in the doc's `by` field.
 const PEOPLE = [
-  { id: "NICK", name: "Nick", c: "#3b82f6", cs: "rgba(59,130,246,.35)",  csoft: "#e8f0fe" },
-  { id: "IVY",  name: "Ivy",  c: "#10b981", cs: "rgba(16,185,129,.35)",  csoft: "#e3f7ef" },
-  { id: "FYB",  name: "FYB",  c: "#8b5cf6", cs: "rgba(139,92,246,.35)",  csoft: "#efe9fd" }
+  { id:"NICK", name:"Nick", c:"#3b82f6", cs:"rgba(59,130,246,.35)",  csoft:"#e8f0fe" },
+  { id:"IVY",  name:"Ivy",  c:"#10b981", cs:"rgba(16,185,129,.35)",  csoft:"#e3f7ef" },
+  { id:"FYB",  name:"FYB",  c:"#8b5cf6", cs:"rgba(139,92,246,.35)",  csoft:"#efe9fd" }
 ];
+const PRIO = { high:0, med:1, low:2 };
 
 const statusEl = document.getElementById("status");
 const boardEl  = document.getElementById("board");
 
 let db;
-try {
-  db = getFirestore(initializeApp(firebaseConfig));
-} catch (e) {
-  statusEl.innerHTML = '<span class="err">Firebase init failed.</span>';
-}
-
+try { db = getFirestore(initializeApp(firebaseConfig)); }
+catch (e) { statusEl.innerHTML = '<span class="err">Firebase init failed.</span>'; }
 const tasksCol = () => collection(db, "tasks");
 
-// Build the 3 columns once. Each keeps its own input + task list element.
-const listEls = {};
+// per-column UI state (not persisted)
+const drawerOpen = { NICK:false, IVY:false, FYB:false };
+const editing = new Set();           // task ids whose editor is open
+const sortables = {};                // owner -> Sortable instance
+let lastItems = [];                  // cached snapshot for re-render on UI toggles
+
+// ---- build static column shells once ----
+const activeEls = {}, drawerHeadEls = {}, drawerBodyEls = {}, countEls = {}, overEls = {};
 for (const p of PEOPLE) {
   const col = document.createElement("div");
   col.className = "col";
   col.style.setProperty("--c", p.c);
   col.style.setProperty("--cs", p.cs);
   col.style.setProperty("--csoft", p.csoft);
-
   col.innerHTML = `
     <div class="col-head">
       <div class="avatar">${p.name.charAt(0)}</div>
       <div class="col-name">${p.name}</div>
       <div class="count" id="count-${p.id}">0</div>
+      <div class="over-pill" id="over-${p.id}" style="display:none"></div>
     </div>
     <div class="add">
       <input type="text" placeholder="Add task for ${p.name}…" autocomplete="off" id="in-${p.id}" />
       <button id="btn-${p.id}">+</button>
     </div>
-    <div class="tasks" id="list-${p.id}"></div>
-  `;
+    <div class="tasks" id="list-${p.id}" data-owner="${p.id}"></div>
+    <div class="drawer">
+      <div class="drawer-head" id="dh-${p.id}"><span class="caret">▶</span><span id="dl-${p.id}">Done</span></div>
+      <div class="drawer-body hide" id="db-${p.id}"></div>
+    </div>`;
   boardEl.appendChild(col);
-  listEls[p.id] = col.querySelector(`#list-${p.id}`);
+
+  activeEls[p.id]     = col.querySelector(`#list-${p.id}`);
+  drawerHeadEls[p.id] = col.querySelector(`#dh-${p.id}`);
+  drawerBodyEls[p.id] = col.querySelector(`#db-${p.id}`);
+  countEls[p.id]      = col.querySelector(`#count-${p.id}`);
+  overEls[p.id]       = col.querySelector(`#over-${p.id}`);
 
   const input = col.querySelector(`#in-${p.id}`);
   const addFn = async () => {
     const text = input.value.trim();
     if (!text || !db) return;
     input.value = "";
-    try {
-      await addDoc(tasksCol(), { text, done: false, by: p.id, created: serverTimestamp() });
-    } catch (e) {
-      statusEl.innerHTML = '<span class="err">Could not save — check Firestore rules.</span>';
-    }
+    try { await addDoc(tasksCol(), { text, done:false, by:p.id, priority:"med", due:null, created:serverTimestamp() }); }
+    catch (e) { statusEl.innerHTML = '<span class="err">Could not save — check Firestore rules.</span>'; }
   };
   col.querySelector(`#btn-${p.id}`).onclick = addFn;
   input.addEventListener("keydown", e => { if (e.key === "Enter") addFn(); });
+
+  drawerHeadEls[p.id].onclick = () => { drawerOpen[p.id] = !drawerOpen[p.id]; renderBoard(lastItems); };
+
+  // drag-to-reassign: dropping a card into this list sets its owner
+  sortables[p.id] = new Sortable(activeEls[p.id], {
+    group: "tasks", animation: 150, draggable: ".task",
+    filter: ".check,.icbtn,.editor,.editor *,.due,input,button",
+    preventOnFilter: false,
+    onAdd: (evt) => {
+      const id = evt.item.dataset.id;
+      const owner = evt.to.dataset.owner;
+      if (id && owner) updateDoc(doc(db, "tasks", id), { by: owner });
+    }
+  });
 }
 
-const toggle = (id, done) => updateDoc(doc(db, "tasks", id), { done: !done });
-const remove = (id) => deleteDoc(doc(db, "tasks", id));
+// ---- helpers ----
+const toggleDone = (id, done) => updateDoc(doc(db,"tasks",id), { done: !done });
+const remove     = (id) => deleteDoc(doc(db,"tasks",id));
+const setDue     = (id, v) => updateDoc(doc(db,"tasks",id), { due: v || null });
+const setPrio    = (id, p) => updateDoc(doc(db,"tasks",id), { priority: p });
 
-function taskNode(id, t) {
+function dueInfo(due) {
+  if (!due) return null;
+  const t = new Date(); t.setHours(0,0,0,0);
+  const d = new Date(due + "T00:00:00");
+  const diff = Math.round((d - t) / 86400000);
+  const dstr = d.toLocaleDateString(undefined, { day:"numeric", month:"short" });
+  if (diff < 0)  return { cls:"over",  label:"Overdue · " + dstr };
+  if (diff === 0) return { cls:"today", label:"Today" };
+  if (diff === 1) return { cls:"today", label:"Tomorrow" };
+  if (diff <= 3)  return { cls:"soon",  label:dstr };
+  return { cls:"later", label:dstr };
+}
+
+function sortKey(a, b) {
+  const pa = PRIO[a.t.priority] ?? 1, pb = PRIO[b.t.priority] ?? 1;
+  if (pa !== pb) return pa - pb;
+  const da = a.t.due ? new Date(a.t.due).getTime() : Infinity;
+  const dbb = b.t.due ? new Date(b.t.due).getTime() : Infinity;
+  if (da !== dbb) return da - dbb;
+  const ca = a.t.created?.seconds || 0, cb = b.t.created?.seconds || 0;
+  return ca - cb;
+}
+
+function activeNode(id, t) {
   const row = document.createElement("div");
-  row.className = "task" + (t.done ? " done" : "");
+  row.className = "task";
+  row.dataset.id = id;
 
-  const chk = document.createElement("div");
-  chk.className = "check" + (t.done ? " on" : "");
-  chk.onclick = () => toggle(id, t.done);
-
-  const txt = document.createElement("div");
-  txt.className = "txt";
-  txt.textContent = t.text;
-
-  const del = document.createElement("button");
-  del.className = "del";
-  del.innerHTML = "&times;";
-  del.title = "Delete";
-  del.onclick = () => remove(id);
-
-  row.append(chk, txt, del);
+  const di = dueInfo(t.due);
+  const pr = t.priority || "med";
+  row.innerHTML = `
+    <div class="task-main">
+      <span class="pdot ${pr}" title="${pr} priority"></span>
+      <div class="check"></div>
+      <div class="txt"></div>
+      <button class="icbtn edit" title="Edit">✎</button>
+      <button class="icbtn del" title="Delete">&times;</button>
+    </div>
+    <div class="badges">${di ? `<span class="due ${di.cls}">${di.label}</span>` : ""}</div>
+    <div class="editor ${editing.has(id) ? "" : "hide"}">
+      <div class="erow">
+        <label>Due</label>
+        <input type="date" value="${t.due || ""}" />
+        <button class="clr">clear</button>
+      </div>
+      <div class="erow" style="margin-top:8px">
+        <label>Priority</label>
+        <div class="pri">
+          <button data-p="high" class="${pr==="high"?"sel-high":""}">High</button>
+          <button data-p="med"  class="${pr==="med" ?"sel-med" :""}">Med</button>
+          <button data-p="low"  class="${pr==="low" ?"sel-low" :""}">Low</button>
+        </div>
+      </div>
+    </div>`;
+  row.querySelector(".txt").textContent = t.text;
+  row.querySelector(".check").onclick = () => toggleDone(id, t.done);
+  row.querySelector(".del").onclick = () => remove(id);
+  row.querySelector(".edit").onclick = () => {
+    if (editing.has(id)) editing.delete(id); else editing.add(id);
+    renderBoard(lastItems);
+  };
+  row.querySelector('input[type=date]').onchange = (e) => setDue(id, e.target.value);
+  row.querySelector(".clr").onclick = () => setDue(id, "");
+  row.querySelectorAll(".pri button").forEach(b => b.onclick = () => setPrio(id, b.dataset.p));
   return row;
+}
+
+function doneNode(id, t) {
+  const row = document.createElement("div");
+  row.className = "task done";
+  row.innerHTML = `
+    <div class="task-main">
+      <div class="check on"></div>
+      <div class="txt"></div>
+      <button class="icbtn del" title="Delete">&times;</button>
+    </div>`;
+  row.querySelector(".txt").textContent = t.text;
+  row.querySelector(".check").onclick = () => toggleDone(id, t.done); // un-complete
+  row.querySelector(".del").onclick = () => remove(id);
+  return row;
+}
+
+function renderBoard(items) {
+  const active = {}, done = {};
+  PEOPLE.forEach(p => { active[p.id] = []; done[p.id] = []; });
+  items.forEach(({ id, t }) => {
+    if (!active[t.by]) return;            // ignore tasks for unknown owners
+    (t.done ? done[t.by] : active[t.by]).push({ id, t });
+  });
+
+  for (const p of PEOPLE) {
+    const a = active[p.id].sort(sortKey);
+    const d = done[p.id].sort((x,y) => (y.t.created?.seconds||0)-(x.t.created?.seconds||0));
+
+    const el = activeEls[p.id];
+    el.innerHTML = "";
+    if (!a.length) el.innerHTML = '<div class="col-empty">No tasks — drag one here or add above</div>';
+    else a.forEach(({ id, t }) => el.appendChild(activeNode(id, t)));
+
+    countEls[p.id].textContent = a.length;
+    const overdue = a.filter(x => { const di = dueInfo(x.t.due); return di && di.cls === "over"; }).length;
+    overEls[p.id].style.display = overdue ? "inline-block" : "none";
+    overEls[p.id].textContent = overdue ? overdue + " overdue" : "";
+
+    drawerHeadEls[p.id].querySelector(`#dl-${p.id}`).textContent = "Done (" + d.length + ")";
+    drawerHeadEls[p.id].classList.toggle("open", drawerOpen[p.id]);
+    const body = drawerBodyEls[p.id];
+    body.classList.toggle("hide", !drawerOpen[p.id]);
+    body.innerHTML = "";
+    if (drawerOpen[p.id]) {
+      if (!d.length) body.innerHTML = '<div class="col-empty">Nothing done yet</div>';
+      else d.forEach(({ id, t }) => body.appendChild(doneNode(id, t)));
+    }
+  }
 }
 
 if (db) {
   const q = query(tasksCol(), orderBy("created", "asc"));
   onSnapshot(q, snap => {
-    // bucket tasks by person
-    const buckets = {}; PEOPLE.forEach(p => buckets[p.id] = []);
-    snap.forEach(d => {
-      const t = d.data();
-      if (buckets[t.by]) buckets[t.by].push({ id: d.id, t });
-    });
-
-    for (const p of PEOPLE) {
-      const el = listEls[p.id];
-      el.innerHTML = "";
-      const items = buckets[p.id];
-      document.getElementById(`count-${p.id}`).textContent = items.length;
-      if (!items.length) {
-        el.innerHTML = '<div class="col-empty">No tasks yet</div>';
-      } else {
-        items.forEach(({ id, t }) => el.appendChild(taskNode(id, t)));
-      }
-    }
-    statusEl.textContent = "Live · " + snap.size + " task" + (snap.size === 1 ? "" : "s") + " total";
+    lastItems = [];
+    snap.forEach(dd => lastItems.push({ id: dd.id, t: dd.data() }));
+    renderBoard(lastItems);
+    const n = snap.size;
+    statusEl.textContent = "Live · " + n + " task" + (n === 1 ? "" : "s") + " total";
   }, err => {
     statusEl.innerHTML = '<span class="err">Connection error: ' + err.code + '</span>';
   });
