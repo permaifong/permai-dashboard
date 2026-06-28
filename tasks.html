@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>PERMAI TASK LIST</title>
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 <style>
   :root { --bg:#eef1f5; --card:#fff; --ink:#1d2733; --muted:#93a1b0; --line:#e6ebf0; }
   * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
@@ -62,7 +63,7 @@
   .sortable-chosen { box-shadow:0 8px 22px rgba(40,60,90,.18); }
 
   .task-main { display:flex; align-items:flex-start; gap:10px; }
-  .pdot { width:9px; height:9px; border-radius:50%; flex:none; margin-top:6px; }
+  .pdot { width:9px; height:9px; border-radius:50%; flex:none; margin-top:8px; }
   .pdot.high{ background:#e0556b; } .pdot.med{ background:#f3a93c; } .pdot.low{ background:#c4cdd6; }
   .check {
     width:25px; height:25px; flex:none; margin-top:1px; border:2px solid #cdd6df;
@@ -86,11 +87,12 @@
   .due.today { background:#fff1e3; color:#e07c1a; }
   .due.soon { background:#fff8e6; color:#bb8a1a; }
   .due.later { background:#eef1f5; color:#7d8a98; }
+  .rep-badge { background:#eef4ff; color:#3b72d6; }
 
   .editor { margin:9px 0 2px; padding:10px; background:#fff; border:1px dashed var(--line); border-radius:10px; }
   .editor.hide { display:none; }
   .erow { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-  .editor label { font-size:13px; color:var(--muted); font-weight:600; }
+  .editor label { font-size:13px; color:var(--muted); font-weight:600; min-width:54px; }
   .editor input[type=date] { border:1px solid var(--line); border-radius:8px; padding:6px 9px; font-size:16px; color:var(--ink); }
   .pri { display:flex; gap:5px; }
   .pri button {
@@ -100,7 +102,8 @@
   .pri button.sel-high { border-color:#e0556b; color:#e0556b; background:#fdeaed; }
   .pri button.sel-med  { border-color:#f3a93c; color:#e07c1a; background:#fff1e3; }
   .pri button.sel-low  { border-color:#9aa6b2; color:#7d8a98; background:#eef1f5; }
-  .clr { border:none; background:none; color:#aeb8c2; font-size:11px; cursor:pointer; text-decoration:underline; }
+  .pri button.sel-rep  { border-color:#3b72d6; color:#3b72d6; background:#eef4ff; }
+  .clr { border:none; background:none; color:#aeb8c2; font-size:13px; cursor:pointer; text-decoration:underline; }
 
   .drawer { border-top:1px solid var(--line); margin:4px 0 0; }
   .drawer-head {
@@ -113,7 +116,30 @@
   .drawer-body.hide { display:none; }
 
   .col-empty { text-align:center; color:var(--muted); font-size:16px; padding:18px 0; }
-  .status { text-align:center; font-size:14px; color:var(--muted); margin-top:26px; }
+
+  /* activity */
+  .activity {
+    width:75%; margin:26px auto 0; background:var(--card); border-radius:16px;
+    box-shadow:0 6px 24px rgba(40,60,90,0.07); overflow:hidden;
+  }
+  @media (max-width:760px){ .activity{ width:auto; } }
+  .act-head {
+    display:flex; align-items:center; gap:8px; padding:14px 18px; cursor:pointer;
+    font-size:16px; font-weight:700; user-select:none;
+  }
+  .act-head .caret { transition:transform .15s; color:var(--muted); }
+  .act-head.open .caret { transform:rotate(90deg); }
+  .act-body { padding:0 18px 14px; max-height:300px; overflow-y:auto; }
+  .act-body.hide { display:none; }
+  .act-item { display:flex; gap:10px; align-items:baseline; padding:7px 0; border-top:1px solid var(--line); font-size:15px; }
+  .act-item:first-child { border-top:none; }
+  .act-ico { flex:none; }
+  .act-txt { flex:1; color:var(--ink); }
+  .act-txt b { font-weight:700; }
+  .act-time { flex:none; color:var(--muted); font-size:13px; }
+  .act-empty { color:var(--muted); font-size:14px; padding:10px 0; }
+
+  .status { text-align:center; font-size:14px; color:var(--muted); margin-top:22px; }
   .err { color:#e0556b; }
 </style>
 </head>
@@ -121,17 +147,23 @@
 <div class="wrap">
   <header>
     <h1>🗂️ PERMAI TASK LIST</h1>
-    <div class="sub">Drag a card between people · set due dates &amp; priority · syncs live</div>
+    <div class="sub">Drag a card between people · due dates, priority &amp; repeats · syncs live</div>
   </header>
   <div class="board" id="board"></div>
-  <div id="status" class="status">Connecting…</div>
 </div>
+
+<div class="activity">
+  <div class="act-head open" id="act-head"><span class="caret">▶</span><span>📋 Recent activity</span></div>
+  <div class="act-body" id="act-body"></div>
+</div>
+
+<div id="status" class="status">Connecting…</div>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
   getFirestore, collection, addDoc, deleteDoc, updateDoc, doc,
-  onSnapshot, query, orderBy, serverTimestamp
+  onSnapshot, query, orderBy, limit, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -149,6 +181,7 @@ const PEOPLE = [
   { id:"FYB",  name:"FYB",  c:"#8b5cf6", cs:"rgba(139,92,246,.35)",  csoft:"#efe9fd" }
 ];
 const PRIO = { high:0, med:1, low:2 };
+const nameOf = (id) => (PEOPLE.find(p => p.id === id) || {}).name || id;
 
 const statusEl = document.getElementById("status");
 const boardEl  = document.getElementById("board");
@@ -157,14 +190,43 @@ let db;
 try { db = getFirestore(initializeApp(firebaseConfig)); }
 catch (e) { statusEl.innerHTML = '<span class="err">Firebase init failed.</span>'; }
 const tasksCol = () => collection(db, "tasks");
+const actCol   = () => collection(db, "activity");
+
+// ---- celebration: confetti + soft chime ----
+let actx;
+function chime() {
+  try {
+    actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+    if (actx.state === "suspended") actx.resume();
+    const now = actx.currentTime;
+    [880, 1318.5].forEach((f, i) => {
+      const o = actx.createOscillator(), g = actx.createGain();
+      o.type = "sine"; o.frequency.value = f;
+      o.connect(g); g.connect(actx.destination);
+      const t = now + i * 0.09;
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(0.16, t + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.30);
+      o.start(t); o.stop(t + 0.32);
+    });
+  } catch (e) {}
+}
+function celebrate() {
+  if (window.confetti) confetti({ particleCount: 70, spread: 62, startVelocity: 38, origin: { y: 0.75 } });
+  chime();
+}
+
+// ---- activity log ----
+function addActivity(action, text, person) {
+  addDoc(actCol(), { action, text, person, ts: serverTimestamp() }).catch(() => {});
+}
 
 // per-column UI state (not persisted)
 const drawerOpen = { NICK:false, IVY:false, FYB:false };
-const editing = new Set();           // task ids whose editor is open
-const sortables = {};                // owner -> Sortable instance
-let lastItems = [];                  // cached snapshot for re-render on UI toggles
+const editing = new Set();
+const sortables = {};
+let lastItems = [];
 
-// ---- build static column shells once ----
 const activeEls = {}, drawerHeadEls = {}, drawerBodyEls = {}, countEls = {}, overEls = {};
 for (const p of PEOPLE) {
   const col = document.createElement("div");
@@ -201,15 +263,16 @@ for (const p of PEOPLE) {
     const text = input.value.trim();
     if (!text || !db) return;
     input.value = "";
-    try { await addDoc(tasksCol(), { text, done:false, by:p.id, priority:"med", due:null, created:serverTimestamp() }); }
-    catch (e) { statusEl.innerHTML = '<span class="err">Could not save — check Firestore rules.</span>'; }
+    try {
+      await addDoc(tasksCol(), { text, done:false, by:p.id, priority:"med", due:null, repeat:null, created:serverTimestamp() });
+      addActivity("add", text, p.id);
+    } catch (e) { statusEl.innerHTML = '<span class="err">Could not save — check Firestore rules.</span>'; }
   };
   col.querySelector(`#btn-${p.id}`).onclick = addFn;
   input.addEventListener("keydown", e => { if (e.key === "Enter") addFn(); });
 
   drawerHeadEls[p.id].onclick = () => { drawerOpen[p.id] = !drawerOpen[p.id]; renderBoard(lastItems); };
 
-  // drag-to-reassign: dropping a card into this list sets its owner
   sortables[p.id] = new Sortable(activeEls[p.id], {
     group: "tasks", animation: 150, draggable: ".task",
     filter: ".check,.icbtn,.editor,.editor *,.due,input,button",
@@ -217,16 +280,49 @@ for (const p of PEOPLE) {
     onAdd: (evt) => {
       const id = evt.item.dataset.id;
       const owner = evt.to.dataset.owner;
-      if (id && owner) updateDoc(doc(db, "tasks", id), { by: owner });
+      if (id && owner) {
+        updateDoc(doc(db, "tasks", id), { by: owner });
+        const it = lastItems.find(x => x.id === id);
+        if (it) addActivity("move", it.t.text, owner);
+      }
     }
   });
 }
 
-// ---- helpers ----
-const toggleDone = (id, done) => updateDoc(doc(db,"tasks",id), { done: !done });
-const remove     = (id) => deleteDoc(doc(db,"tasks",id));
-const setDue     = (id, v) => updateDoc(doc(db,"tasks",id), { due: v || null });
-const setPrio    = (id, p) => updateDoc(doc(db,"tasks",id), { priority: p });
+document.getElementById("act-head").onclick = (e) => {
+  const h = e.currentTarget, b = document.getElementById("act-body");
+  const open = !h.classList.contains("open");
+  h.classList.toggle("open", open);
+  b.classList.toggle("hide", !open);
+};
+
+// ---- task ops ----
+const remove   = (id) => deleteDoc(doc(db,"tasks",id));
+const setDue   = (id, v) => updateDoc(doc(db,"tasks",id), { due: v || null });
+const setPrio  = (id, p) => updateDoc(doc(db,"tasks",id), { priority: p });
+const setRepeat= (id, r) => updateDoc(doc(db,"tasks",id), { repeat: r === "none" ? null : r });
+const uncomplete = (id) => updateDoc(doc(db,"tasks",id), { done:false });
+
+function nextDue(due, repeat) {
+  let base = due ? new Date(due + "T00:00:00") : new Date(new Date().setHours(0,0,0,0));
+  const today = new Date(new Date().setHours(0,0,0,0));
+  if (base < today) base = today;
+  base.setDate(base.getDate() + (repeat === "weekly" ? 7 : 1));
+  const y = base.getFullYear(), m = String(base.getMonth()+1).padStart(2,"0"), d = String(base.getDate()).padStart(2,"0");
+  return `${y}-${m}-${d}`;
+}
+
+async function completeTask(id, t) {
+  celebrate();
+  addActivity("done", t.text, t.by);
+  if (t.repeat === "daily" || t.repeat === "weekly") {
+    await addDoc(tasksCol(), {
+      text:t.text, done:false, by:t.by, priority:t.priority || "med",
+      due: nextDue(t.due, t.repeat), repeat:t.repeat, created:serverTimestamp()
+    });
+  }
+  await updateDoc(doc(db,"tasks",id), { done:true });
+}
 
 function dueInfo(due) {
   if (!due) return null;
@@ -247,27 +343,30 @@ function sortKey(a, b) {
   const da = a.t.due ? new Date(a.t.due).getTime() : Infinity;
   const dbb = b.t.due ? new Date(b.t.due).getTime() : Infinity;
   if (da !== dbb) return da - dbb;
-  const ca = a.t.created?.seconds || 0, cb = b.t.created?.seconds || 0;
-  return ca - cb;
+  return (a.t.created?.seconds || 0) - (b.t.created?.seconds || 0);
 }
 
 function activeNode(id, t) {
   const row = document.createElement("div");
   row.className = "task";
   row.dataset.id = id;
-
   const di = dueInfo(t.due);
   const pr = t.priority || "med";
+  const rep = t.repeat || "none";
+  const isEd = editing.has(id);
   row.innerHTML = `
     <div class="task-main">
       <span class="pdot ${pr}" title="${pr} priority"></span>
       <div class="check"></div>
       <div class="txt"></div>
-      <button class="icbtn edit ${editing.has(id) ? "editing" : ""}" title="${editing.has(id) ? "Done editing" : "Edit"}">${editing.has(id) ? "✓" : "✎"}</button>
+      <button class="icbtn edit ${isEd ? "editing" : ""}" title="${isEd ? "Done editing" : "Edit"}">${isEd ? "✓" : "✎"}</button>
       <button class="icbtn del" title="Delete">&times;</button>
     </div>
-    <div class="badges">${di ? `<span class="due ${di.cls}">${di.label}</span>` : ""}</div>
-    <div class="editor ${editing.has(id) ? "" : "hide"}">
+    <div class="badges">
+      ${di ? `<span class="due ${di.cls}">${di.label}</span>` : ""}
+      ${t.repeat ? `<span class="due rep-badge">🔁 ${t.repeat}</span>` : ""}
+    </div>
+    <div class="editor ${isEd ? "" : "hide"}">
       <div class="erow">
         <label>Due</label>
         <input type="date" value="${t.due || ""}" />
@@ -281,9 +380,17 @@ function activeNode(id, t) {
           <button data-p="low"  class="${pr==="low" ?"sel-low" :""}">Low</button>
         </div>
       </div>
+      <div class="erow" style="margin-top:8px">
+        <label>Repeat</label>
+        <div class="pri rep">
+          <button data-r="none"   class="${rep==="none"  ?"sel-rep":""}">None</button>
+          <button data-r="daily"  class="${rep==="daily" ?"sel-rep":""}">Daily</button>
+          <button data-r="weekly" class="${rep==="weekly"?"sel-rep":""}">Weekly</button>
+        </div>
+      </div>
     </div>`;
   row.querySelector(".txt").textContent = t.text;
-  row.querySelector(".check").onclick = () => toggleDone(id, t.done);
+  row.querySelector(".check").onclick = () => completeTask(id, t);
   row.querySelector(".del").onclick = () => remove(id);
   row.querySelector(".edit").onclick = () => {
     if (editing.has(id)) editing.delete(id); else editing.add(id);
@@ -291,7 +398,8 @@ function activeNode(id, t) {
   };
   row.querySelector('input[type=date]').onchange = (e) => setDue(id, e.target.value);
   row.querySelector(".clr").onclick = () => setDue(id, "");
-  row.querySelectorAll(".pri button").forEach(b => b.onclick = () => setPrio(id, b.dataset.p));
+  row.querySelectorAll(".pri:not(.rep) button").forEach(b => b.onclick = () => setPrio(id, b.dataset.p));
+  row.querySelectorAll(".rep button").forEach(b => b.onclick = () => setRepeat(id, b.dataset.r));
   return row;
 }
 
@@ -305,7 +413,7 @@ function doneNode(id, t) {
       <button class="icbtn del" title="Delete">&times;</button>
     </div>`;
   row.querySelector(".txt").textContent = t.text;
-  row.querySelector(".check").onclick = () => toggleDone(id, t.done); // un-complete
+  row.querySelector(".check").onclick = () => uncomplete(id);
   row.querySelector(".del").onclick = () => remove(id);
   return row;
 }
@@ -314,7 +422,7 @@ function renderBoard(items) {
   const active = {}, done = {};
   PEOPLE.forEach(p => { active[p.id] = []; done[p.id] = []; });
   items.forEach(({ id, t }) => {
-    if (!active[t.by]) return;            // ignore tasks for unknown owners
+    if (!active[t.by]) return;
     (t.done ? done[t.by] : active[t.by]).push({ id, t });
   });
 
@@ -344,17 +452,54 @@ function renderBoard(items) {
   }
 }
 
+function relTime(sec) {
+  if (!sec) return "just now";
+  const diff = Math.floor(Date.now()/1000 - sec);
+  if (diff < 60) return "just now";
+  if (diff < 3600) return Math.floor(diff/60) + "m ago";
+  if (diff < 86400) return Math.floor(diff/3600) + "h ago";
+  return Math.floor(diff/86400) + "d ago";
+}
+const ACT = {
+  add:  { ico:"➕", verb:"added",     prep:"for" },
+  done: { ico:"✅", verb:"completed", prep:"·"   },
+  move: { ico:"↔️", verb:"moved",     prep:"to"  }
+};
+function renderActivity(rows) {
+  const body = document.getElementById("act-body");
+  if (!rows.length) { body.innerHTML = '<div class="act-empty">No activity yet.</div>'; return; }
+  body.innerHTML = "";
+  rows.forEach(a => {
+    const meta = ACT[a.action] || { ico:"•", verb:a.action, prep:"" };
+    const item = document.createElement("div");
+    item.className = "act-item";
+    const txt = document.createElement("div");
+    txt.className = "act-txt";
+    txt.innerHTML = `${meta.verb} <b></b> ${meta.prep} ${nameOf(a.person)}`;
+    txt.querySelector("b").textContent = '"' + a.text + '"';
+    item.innerHTML = `<span class="act-ico">${meta.ico}</span>`;
+    item.appendChild(txt);
+    const time = document.createElement("span");
+    time.className = "act-time";
+    time.textContent = relTime(a.ts?.seconds);
+    item.appendChild(time);
+    body.appendChild(item);
+  });
+}
+
 if (db) {
-  const q = query(tasksCol(), orderBy("created", "asc"));
-  onSnapshot(q, snap => {
+  onSnapshot(query(tasksCol(), orderBy("created","asc")), snap => {
     lastItems = [];
     snap.forEach(dd => lastItems.push({ id: dd.id, t: dd.data() }));
     renderBoard(lastItems);
     const n = snap.size;
     statusEl.textContent = "Live · " + n + " task" + (n === 1 ? "" : "s") + " total";
-  }, err => {
-    statusEl.innerHTML = '<span class="err">Connection error: ' + err.code + '</span>';
-  });
+  }, err => { statusEl.innerHTML = '<span class="err">Connection error: ' + err.code + '</span>'; });
+
+  onSnapshot(query(actCol(), orderBy("ts","desc"), limit(25)), snap => {
+    const rows = []; snap.forEach(d => rows.push(d.data()));
+    renderActivity(rows);
+  }, () => {});
 }
 </script>
 </body>
