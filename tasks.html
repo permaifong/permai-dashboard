@@ -872,7 +872,11 @@ function renderBoard() {
     const a = active[p.id].sort(sortKey);
     const d = done[p.id].sort((x,y) => (y.t.doneAt?.seconds||0)-(x.t.doneAt?.seconds||0));
 
-    if (colEls[p.id]) colEls[p.id].classList.toggle("dim", filters.person && p.id !== filters.person);
+    const col = colEls[p.id];
+    if (col) {
+      col.classList.toggle("dim", filters.person && p.id !== filters.person);
+      col.style.display = (filters.search && !a.length && !d.length) ? "none" : "";  // hide columns with no match while searching
+    }
 
     const el = activeEls[p.id];
     el.innerHTML = "";
