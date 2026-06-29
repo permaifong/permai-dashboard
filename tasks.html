@@ -241,6 +241,11 @@
   .modal-actions .primary { background:#0c66e4; color:#fff; }
   .modal-actions .ghost { background:rgba(127,140,160,.18); color:var(--ink); }
   .modal-actions .danger { background:#fdeaed; color:#d23f57; }
+  .modal-actions .complete-task { background:#10b981; color:#fff; padding:12px 22px; font-size:15px; font-weight:800; }
+  .modal-actions .complete-task:hover { filter:brightness(1.06); }
+  .modal-actions .complete-task.undo { background:transparent; color:var(--muted); border:1.5px solid var(--line); font-weight:700; }
+  .modal-actions .tm-done { background:#0c66e4; color:#fff; padding:12px 22px; font-size:15px; font-weight:800; }
+  .modal-actions .tm-done:hover { filter:brightness(1.06); }
   .pm-err { color:#e0556b; font-size:13px; margin-top:10px; min-height:16px; }
 
   /* ---- label manager rows ---- */
@@ -413,9 +418,9 @@
       <div class="inrow" style="margin-top:8px"><textarea id="tmCmtNew" rows="1" placeholder="Write a comment…"></textarea><button class="miniadd" id="tmCmtAdd">+</button></div>
     </div>
     <div class="modal-actions">
-      <button class="primary" id="tmComplete">Complete</button>
+      <button class="complete-task" id="tmComplete">✅ Complete task</button>
       <span style="flex:1"></span>
-      <button class="ghost" id="tmClose">Close</button>
+      <button class="tm-done" id="tmClose">✓ Done</button>
     </div>
   </div>
 </div>
@@ -1049,8 +1054,8 @@ function renderTaskModal() {
   }).join("") : '<div class="act-empty">No comments yet.</div>';
 
   const cb = document.getElementById("tmComplete");
-  cb.textContent = t.done ? "Un-complete" : "Complete";
-  cb.className = t.done ? "ghost" : "primary";
+  cb.textContent = t.done ? "↩ Un-complete" : "✅ Complete task";
+  cb.className = t.done ? "complete-task undo" : "complete-task";
 }
 
 const commitTitle = () => {
