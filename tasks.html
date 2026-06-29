@@ -233,6 +233,20 @@
   .credit { margin-left:auto; opacity:.7; }
   .err { color:#e0556b; }
 
+  /* ---- collapsible activity rail ---- */
+  .collapsebtn { border:none; background:none; color:var(--muted); font-size:16px; font-weight:800; cursor:pointer; line-height:1; letter-spacing:-3px; padding:0 4px; }
+  .collapsebtn:hover { color:#0c66e4; }
+  .actReopen {
+    position:fixed; top:62px; right:8px; z-index:40; border:1.5px solid var(--line);
+    background:var(--card); color:var(--muted); border-radius:8px; padding:7px 10px;
+    font-size:13px; font-weight:800; letter-spacing:-2px; cursor:pointer; display:none;
+    box-shadow:0 2px 8px rgba(9,30,66,.18);
+  }
+  .actReopen:hover { color:#0c66e4; }
+  body.act-collapsed .right { display:none; }
+  body.act-collapsed .actReopen { display:block; }
+  @media (min-width:901px) { body.act-collapsed .app { grid-template-columns:240px 1fr 0; } }
+
   /* ---- modals ---- */
   .modal { position:fixed; inset:0; background:rgba(9,30,66,.45); display:grid; place-items:center; z-index:50; overflow:auto; padding:20px 0; }
   .modal.hide { display:none; }
@@ -364,7 +378,7 @@
   </main>
 
   <aside class="right">
-    <div class="rail-h">📋 Activity</div>
+    <div class="rail-h rail-h-row"><span>📋 Activity</span><button class="collapsebtn" id="actToggle" title="Hide activity">»»</button></div>
     <div id="act-body"></div>
   </aside>
 
@@ -374,6 +388,7 @@
     <span class="credit">family board · syncs live</span>
   </footer>
 </div>
+<button id="actReopen" class="actReopen" title="Show activity">«« 📋</button>
 
 <!-- person modal -->
 <div class="modal hide" id="personModal">
@@ -453,7 +468,8 @@ const firebaseConfig = {
 };
 
 const PRIO = { high:0, med:1, low:2 };
-const PALETTE = ["#3b82f6","#10b981","#8b5cf6","#ef4444","#f59e0b","#ec4899","#14b8a6","#6366f1","#0ea5e9","#84cc16"];
+// maximally-distinct categorical palette (white text stays legible on every one)
+const PALETTE = ["#e6194b","#4363d8","#3cb44b","#f58231","#911eb4","#008080","#f032e6","#9a6324","#800000","#000075"];
 const DONE_WINDOW = 7 * 86400; // seconds
 const esc = (s) => String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 const safeColor = (c) => /^#[0-9a-fA-F]{3,8}$/.test(c) ? c : "#9aa6b2";   // colors reach style="" — keep them inert
@@ -1157,6 +1173,14 @@ document.getElementById("themeBtn").onclick = () => {
   applyTheme();
 };
 applyTheme();
+
+// ---- collapsible activity rail ----
+function applyAct() {
+  document.body.classList.toggle("act-collapsed", localStorage.getItem("permai_act") === "off");
+}
+document.getElementById("actToggle").onclick  = () => { localStorage.setItem("permai_act", "off"); applyAct(); };
+document.getElementById("actReopen").onclick = () => { localStorage.setItem("permai_act", "on");  applyAct(); };
+applyAct();
 
 // ---- footer ----
 function updateFooter() {
