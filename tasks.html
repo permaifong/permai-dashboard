@@ -29,7 +29,8 @@
   }
   .brand { font-size:23px; font-weight:800; letter-spacing:.3px; white-space:nowrap; }
   .today { color:var(--muted); font-size:14px; white-space:nowrap; }
-  .search-wrap { margin-left:auto; position:relative; }
+  .hspacer { flex:1; }
+  .search-wrap { position:relative; }
   .search-wrap::before { content:"🔍"; position:absolute; left:11px; top:50%; transform:translateY(-50%); font-size:13px; opacity:.6; }
   #search {
     border:1.5px solid var(--line); border-radius:10px; padding:9px 13px 9px 32px;
@@ -154,7 +155,15 @@
   .rep-badge { background:#eef4ff; color:#3b72d6; }
   .t-meta { display:flex; flex-wrap:wrap; gap:11px; margin:7px 0 0 31px; font-size:12px; color:var(--muted); font-weight:700; }
   .t-meta span { display:inline-flex; gap:3px; align-items:center; }
+  .t-meta span[data-tip] { cursor:help; }
   .t-meta .chk-done { color:#10b981; }
+  #hovertip {
+    position:fixed; z-index:80; max-width:280px; background:#1d2733; color:#fff;
+    padding:9px 11px; border-radius:8px; font-size:13px; line-height:1.5;
+    white-space:pre-wrap; word-break:break-word; box-shadow:0 6px 20px rgba(9,30,66,.4);
+    pointer-events:none; display:none;
+  }
+  body.dark #hovertip { background:#0f1316; border:1px solid #2c333a; }
 
   .pri { display:flex; gap:5px; flex-wrap:wrap; }
   .pri button { border:1.5px solid var(--line); background:var(--card); border-radius:8px; padding:5px 11px; font-size:12px; font-weight:700; cursor:pointer; color:#7d8a98; }
@@ -315,11 +324,13 @@
   <header class="topbar">
     <span class="brand">🗂️ PERMAI</span>
     <span class="today" id="today"></span>
-    <div class="search-wrap"><input type="text" id="search" placeholder="Search tasks…" autocomplete="off" /></div>
+    <span class="hspacer"></span>
     <div class="hctrl">
       <select class="whoami" id="whoami" title="Who are you? (used to sign your comments)"></select>
       <button class="iconbtn" id="themeBtn" title="Toggle dark mode">🌙</button>
     </div>
+    <span class="hspacer"></span>
+    <div class="search-wrap"><input type="text" id="search" placeholder="Search tasks…" autocomplete="off" /></div>
   </header>
 
   <aside class="left">
@@ -488,6 +499,29 @@ const nameOf = (id) => personById(id).name;
 const labelById = (id) => labels.find(l => l.id === id);
 const getTask = (id) => (lastItems.find(x => x.id === id) || {}).t;
 
+// ---- hover tooltip for card meta cues (read notes/checklist/comments without opening) ----
+const hovertip = document.createElement("div");
+hovertip.id = "hovertip";
+document.body.appendChild(hovertip);
+function showTip(text, e) {
+  if (!text) return;
+  hovertip.textContent = text;
+  hovertip.style.display = "block";
+  const pad = 12, r = hovertip.getBoundingClientRect();
+  let x = e.clientX + 14, y = e.clientY + 16;
+  if (x + r.width > innerWidth - pad) x = innerWidth - r.width - pad;
+  if (y + r.height > innerHeight - pad) y = e.clientY - r.height - 14;
+  hovertip.style.left = Math.max(pad, x) + "px";
+  hovertip.style.top = Math.max(pad, y) + "px";
+}
+function hideTip() { hovertip.style.display = "none"; }
+function tipFor(t, type) {
+  if (type === "notes") return (t.notes || "").trim();
+  if (type === "chk") return (t.checklist || []).map(c => (c.done ? "☑ " : "☐ ") + c.text).join("\n");
+  if (type === "cmt") return (t.comments || []).slice().sort((a,b) => a.ts - b.ts).slice(-3).map(c => nameOf(c.by) + ": " + c.text).join("\n");
+  return "";
+}
+
 // ---- celebration ----
 let actx;
 function chime() {
@@ -613,9 +647,9 @@ function activeNode(id, t) {
   const chk = t.checklist || []; const cdone = chk.filter(c => c.done).length;
   const ncm = (t.comments || []).length; const hasNotes = !!(t.notes && t.notes.trim());
   const meta = [];
-  if (hasNotes) meta.push(`<span title="Has notes">📝</span>`);
-  if (chk.length) meta.push(`<span class="${cdone===chk.length?"chk-done":""}" title="Checklist">✔ ${cdone}/${chk.length}</span>`);
-  if (ncm) meta.push(`<span title="Comments">💬 ${ncm}</span>`);
+  if (hasNotes) meta.push(`<span data-tip="notes">📝</span>`);
+  if (chk.length) meta.push(`<span data-tip="chk" class="${cdone===chk.length?"chk-done":""}">✔ ${cdone}/${chk.length}</span>`);
+  if (ncm) meta.push(`<span data-tip="cmt">💬 ${ncm}</span>`);
   row.innerHTML = `
     ${tl.length ? `<div class="t-labels">${tl.map(l => `<span class="t-label" style="background:${safeColor(l.color)}" title="${esc(l.name)}"></span>`).join("")}</div>` : ""}
     <div class="task-main">
@@ -631,6 +665,13 @@ function activeNode(id, t) {
   row.querySelector(".txt").textContent = t.text;
   row.querySelector(".check").onclick = (e) => { e.stopPropagation(); completeTask(id, t); };
   row.onclick = () => { if (justDragged) return; openTask(id); };
+  row.querySelectorAll(".t-meta span[data-tip]").forEach(s => {
+    const tip = tipFor(t, s.dataset.tip);
+    if (!tip) return;
+    s.addEventListener("mouseenter", e => showTip(tip, e));
+    s.addEventListener("mousemove", e => showTip(tip, e));
+    s.addEventListener("mouseleave", hideTip);
+  });
   return row;
 }
 
