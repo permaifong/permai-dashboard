@@ -11,12 +11,12 @@
   /* aurora mesh: 3 drifting gradient blobs that blend; GPU-only (translate3d, no blur) */
   #aurora { position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
   #aurora .blob { position:absolute; top:0; left:0; border-radius:50%; will-change:transform; background:radial-gradient(circle, var(--c) 0%, transparent 68%); }
-  #aurora .b1 { width:920px;  height:920px;  margin:-460px 0 0 -460px; --c:#4f7cff; opacity:.30; }
-  #aurora .b2 { width:1040px; height:1040px; margin:-520px 0 0 -520px; --c:#8b5cff; opacity:.26; }
-  #aurora .b3 { width:820px;  height:820px;  margin:-410px 0 0 -410px; --c:#13b6a8; opacity:.24; }
-  body.dark #aurora .b1 { opacity:.42; }
-  body.dark #aurora .b2 { opacity:.36; }
-  body.dark #aurora .b3 { opacity:.34; }
+  #aurora .b1 { width:920px;  height:920px;  margin:-460px 0 0 -460px; --c:#4f7cff; opacity:.12; }
+  #aurora .b2 { width:1040px; height:1040px; margin:-520px 0 0 -520px; --c:#8b5cff; opacity:.10; }
+  #aurora .b3 { width:820px;  height:820px;  margin:-410px 0 0 -410px; --c:#13b6a8; opacity:.09; }
+  body.dark #aurora .b1 { opacity:.20; }
+  body.dark #aurora .b2 { opacity:.17; }
+  body.dark #aurora .b3 { opacity:.15; }
   * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
   html, body { height:100%; }
   body {
