@@ -109,7 +109,8 @@
     border-top:4px solid var(--c); transition:opacity .15s;
   }
   .col.dim { opacity:.35; }
-  .col-head { display:flex; align-items:center; gap:10px; padding:13px 12px 10px; }
+  .col-head { display:flex; align-items:center; gap:10px; padding:13px 12px 10px; cursor:grab; }
+  .col-head:active { cursor:grabbing; }
   .avatar {
     width:34px; height:34px; border-radius:50%; display:grid; place-items:center;
     color:#fff; font-weight:700; font-size:15px; background:var(--c); box-shadow:0 2px 6px var(--cs); flex:none;
@@ -504,6 +505,7 @@ let lastItems = [];
 const drawerOpen = {};
 const completing = new Set();
 const sortables = {};
+let boardSort = null;   // drag-reorder of the whole columns (people)
 const filters = { search: "", person: null, priority: "all", label: null };
 let showHistory = false;
 let justDragged = false;   // suppress the post-drag synthetic click that would open the modal
@@ -710,6 +712,7 @@ function doneNode(id, t) {
 const colEls = {}, activeEls = {}, drawerHeadEls = {}, drawerBodyEls = {}, countEls = {}, overEls = {};
 function renderColumns() {
   Object.values(sortables).forEach(s => { try { s.destroy(); } catch (e) {} });
+  if (boardSort) { try { boardSort.destroy(); } catch (e) {} boardSort = null; }
   [sortables, colEls, activeEls, drawerHeadEls, drawerBodyEls, countEls, overEls]
     .forEach(m => { for (const k in m) delete m[k]; });
   Object.keys(drawerOpen).forEach(id => { if (!people.some(p => p.id === id)) delete drawerOpen[id]; });
@@ -719,6 +722,7 @@ function renderColumns() {
     if (!(p.id in drawerOpen)) drawerOpen[p.id] = false;
     const col = document.createElement("div");
     col.className = "col";
+    col.dataset.pid = p.id;
     const sc = safeColor(p.color);
     col.style.setProperty("--c", sc);
     col.style.setProperty("--cs", vCS(sc));
@@ -789,6 +793,16 @@ function renderColumns() {
       }
     });
   }
+
+  // drag a column by its header to reorder members; persist each person's order
+  boardSort = new Sortable(boardEl, {
+    draggable: ".col", handle: ".col-head", animation: 150,
+    onEnd: () => {
+      [...boardEl.querySelectorAll(".col")].forEach((c, i) => {
+        if (c.dataset.pid) updateDoc(doc(db, "people", c.dataset.pid), { order: i }).catch(() => {});
+      });
+    }
+  });
 }
 
 function syncColumns() {
