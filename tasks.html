@@ -143,7 +143,7 @@
   .sortable-chosen { box-shadow:0 8px 22px rgba(9,30,66,.28); }
 
   .t-labels { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:6px; }
-  .t-label { height:8px; min-width:36px; border-radius:4px; }
+  .t-label { display:inline-flex; align-items:center; padding:2px 9px; border-radius:5px; font-size:11px; font-weight:700; color:#fff; line-height:1.5; }
   .task-main { display:flex; align-items:flex-start; gap:9px; }
   .pdot { width:8px; height:8px; border-radius:50%; flex:none; margin-top:7px; }
   .pdot.high{ background:#e0556b; } .pdot.med{ background:#f3a93c; } .pdot.low{ background:#c4cdd6; }
@@ -711,7 +711,7 @@ function activeNode(id, t) {
   if (chk.length) meta.push(`<span data-tip="chk" class="${cdone===chk.length?"chk-done":""}">✔ ${cdone}/${chk.length}</span>`);
   if (ncm) meta.push(`<span data-tip="cmt">💬 ${ncm}</span>`);
   row.innerHTML = `
-    ${tl.length ? `<div class="t-labels">${tl.map(l => `<span class="t-label" style="background:${safeColor(l.color)}" title="${esc(l.name)}"></span>`).join("")}</div>` : ""}
+    ${tl.length ? `<div class="t-labels">${tl.map(l => `<span class="t-label" style="background:${safeColor(l.color)}">${esc(l.name)}</span>`).join("")}</div>` : ""}
     <div class="task-main">
       <span class="pdot ${pr}" title="${pr} priority"></span>
       <div class="check"></div>
@@ -1291,7 +1291,7 @@ applyAct();
 // ---- ambient orb: big, translucent, drifts slowly + bounces off the edges (behind the board) ----
 const orb = document.getElementById("orb");
 const orbBtn = document.getElementById("orbBtn");
-let ox = innerWidth * 0.3, oy = innerHeight * 0.4, vx = 0.22, vy = 0.17, orbRaf = null;
+let ox = innerWidth * 0.3, oy = innerHeight * 0.4, vx = 0.275, vy = 0.213, orbRaf = null;
 function orbLoop() {
   ox += vx; oy += vy;
   if (ox < 0 || ox > innerWidth)  vx = -vx;   // slow bounce off the viewport edges
