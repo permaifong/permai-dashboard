@@ -316,6 +316,22 @@
   .inrow input:focus, .inrow textarea:focus { border-color:#4c9aff; }
   .miniadd { border:none; background:#0c66e4; color:#fff; border-radius:9px; padding:0 15px; height:38px; font-size:18px; font-weight:700; cursor:pointer; flex:none; }
 
+  /* compact pill bar + collapsible sections */
+  .tm-pills { display:flex; flex-wrap:wrap; gap:7px; margin-top:12px; }
+  .tm-pill { display:inline-flex; align-items:center; gap:5px; border:1.5px solid var(--line); background:var(--bg); border-radius:16px; padding:6px 13px; font-size:13px; font-weight:700; color:var(--ink); cursor:pointer; }
+  .tm-pill.unset { color:var(--muted); }
+  .tm-pill.active { border-color:#0c66e4; box-shadow:0 0 0 2px #e6efff; }
+  .tm-lchip { display:inline-flex; align-items:center; border-radius:14px; padding:6px 11px; font-size:12px; font-weight:700; color:#fff; }
+  .tm-edit:not(:empty) { margin-top:10px; padding:10px; background:var(--bg); border:1px dashed var(--line); border-radius:9px; }
+  .clrbtn { border:none; background:none; color:var(--muted); font-size:12px; cursor:pointer; text-decoration:underline; }
+  .tm-acc { border-top:1px solid var(--line); margin-top:12px; padding-top:11px; }
+  .tm-acc-head { display:flex; align-items:center; gap:8px; cursor:pointer; font-size:15px; font-weight:700; color:var(--ink); user-select:none; }
+  .tm-acc-head .summary { color:var(--muted); font-weight:600; font-size:13px; }
+  .tm-acc-head .caret { margin-left:auto; color:var(--muted); font-size:12px; transition:transform .15s; }
+  .tm-acc-head.open .caret { transform:rotate(90deg); }
+  .tm-acc-body { margin-top:10px; }
+  .tm-acc-body.hide { display:none; }
+
   /* ---- dark mode ---- */
   body.dark { --bg:#1d2125; --card:#22272b; --ink:#c7d1db; --muted:#8c9bab; --line:#2c333a; --rail:#1b1f23; color-scheme:dark; }
   body.dark .col { background:#15191c; }
@@ -430,20 +446,31 @@
   <div class="modal-card tm-card">
     <input class="tm-title" id="tmTitle" placeholder="Task name" />
     <div class="tm-meta-owner" id="tmOwner"></div>
-    <div class="tm-row" id="tmFields" style="margin-top:8px"></div>
-    <div class="tm-sec"><div class="tm-h">Labels</div><div class="tm-row" id="tmLabels"></div></div>
-    <div class="tm-sec"><div class="tm-h">Notes</div><textarea class="tm-notes" id="tmNotes" placeholder="Add notes…"></textarea></div>
-    <div class="tm-sec">
-      <div class="tm-h">Checklist <span id="tmChkProg"></span></div>
-      <div class="chk-prog"><i id="tmChkBar"></i></div>
-      <div class="chk-list" id="tmChk"></div>
-      <div class="inrow"><input id="tmChkNew" placeholder="Add an item…" autocomplete="off" /><button class="miniadd" id="tmChkAdd">+</button></div>
+    <div class="tm-pills" id="tmPills"></div>
+    <div class="tm-edit" id="tmEditPanel"></div>
+
+    <div class="tm-acc" id="tmNotesRow">
+      <div class="tm-acc-head" id="tmNotesHead"></div>
+      <div class="tm-acc-body hide" id="tmNotesBody">
+        <textarea class="tm-notes" id="tmNotes" placeholder="Add notes…"></textarea>
+      </div>
     </div>
-    <div class="tm-sec">
-      <div class="tm-h">Comments</div>
-      <div id="tmComments"></div>
-      <div class="inrow" style="margin-top:8px"><textarea id="tmCmtNew" rows="1" placeholder="Write a comment…"></textarea><button class="miniadd" id="tmCmtAdd">+</button></div>
+    <div class="tm-acc" id="tmChkRow">
+      <div class="tm-acc-head" id="tmChkHead"></div>
+      <div class="tm-acc-body hide" id="tmChkBody">
+        <div class="chk-prog"><i id="tmChkBar"></i></div>
+        <div class="chk-list" id="tmChk"></div>
+        <div class="inrow"><input id="tmChkNew" placeholder="Add an item…" autocomplete="off" /><button class="miniadd" id="tmChkAdd">+</button></div>
+      </div>
     </div>
+    <div class="tm-acc" id="tmCmtRow">
+      <div class="tm-acc-head" id="tmCmtHead"></div>
+      <div class="tm-acc-body hide" id="tmCmtBody">
+        <div id="tmComments"></div>
+        <div class="inrow" style="margin-top:8px"><textarea id="tmCmtNew" rows="1" placeholder="Write a comment…"></textarea><button class="miniadd" id="tmCmtAdd">+</button></div>
+      </div>
+    </div>
+
     <div class="modal-actions">
       <button class="complete-task" id="tmComplete">✅ Complete task</button>
       <span style="flex:1"></span>
@@ -1056,9 +1083,15 @@ const tmNotes = document.getElementById("tmNotes");
 const tmChkNew = document.getElementById("tmChkNew");
 const tmCmtNew = document.getElementById("tmCmtNew");
 let openTaskId = null;
+let tmPill = null;                                   // which pill editor is open (due/prio/repeat/labels)
+const tmShow = { notes:false, chk:false, cmt:false }; // which content sections are expanded
 const modalHasFocus = () => taskModal.contains(document.activeElement);
 
-function openTask(id) { openTaskId = id; taskModal.classList.remove("hide"); renderTaskModal(); }
+function openTask(id) {
+  openTaskId = id; tmPill = null;
+  tmShow.notes = false; tmShow.chk = true; tmShow.cmt = true;   // checklist + comments open by default
+  taskModal.classList.remove("hide"); renderTaskModal();
+}
 function closeTask() { openTaskId = null; taskModal.classList.add("hide"); }
 
 function renderTaskModal() {
@@ -1075,35 +1108,65 @@ function renderTaskModal() {
     `in <b style="color:${safeColor(owner.color)}">${esc(owner.name)}</b>'s list${t.done ? " · ✅ completed" : ""}`;
 
   const pr = t.priority || "med", rep = t.repeat || "none";
-  const fields = document.getElementById("tmFields");
-  fields.innerHTML = `
-    <input type="date" class="tm-date" id="tmDue" value="${t.due || ""}" />
-    <div class="pri">
+  const di = dueInfo(t.due);
+  const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+  const setL = (t.labels || []).map(labelById).filter(Boolean);
+  const prColor = pr === "high" ? "#e0556b" : pr === "low" ? "#7d8a98" : "#e07c1a";
+
+  // ---- pill bar (overview; click a pill to edit) ----
+  const pills = document.getElementById("tmPills");
+  pills.innerHTML =
+    `<span class="tm-pill ${t.due?"":"unset"} ${tmPill==="due"?"active":""}" data-pill="due">📅 ${t.due ? esc(di.label) : "Due"}</span>` +
+    `<span class="tm-pill ${tmPill==="prio"?"active":""}" data-pill="prio" style="color:${prColor}">🚩 ${cap(pr)}</span>` +
+    `<span class="tm-pill ${t.repeat?"":"unset"} ${tmPill==="repeat"?"active":""}" data-pill="repeat">🔁 ${t.repeat ? cap(t.repeat) : "Repeat"}</span>` +
+    setL.map(l => `<span class="tm-lchip" style="background:${safeColor(l.color)}">${esc(l.name)}</span>`).join("") +
+    `<span class="tm-pill ${tmPill==="labels"?"active":""}" data-pill="labels">🏷 ${setL.length ? "Edit" : "+ Label"}</span>`;
+  pills.querySelectorAll(".tm-pill").forEach(p =>
+    p.onclick = () => { tmPill = tmPill === p.dataset.pill ? null : p.dataset.pill; renderTaskModal(); });
+
+  // ---- inline editor for the active pill ----
+  const ep = document.getElementById("tmEditPanel");
+  ep.innerHTML = "";
+  if (tmPill === "due") {
+    ep.innerHTML = `<div class="tm-row"><input type="date" class="tm-date" id="tmDue" value="${t.due || ""}" /><button class="clrbtn" id="tmDueClr">clear</button></div>`;
+    ep.querySelector("#tmDue").onchange = (e) => { setDue(id, e.target.value); tmPill = null; renderTaskModal(); };
+    ep.querySelector("#tmDueClr").onclick = () => { setDue(id, ""); tmPill = null; renderTaskModal(); };
+  } else if (tmPill === "prio") {
+    ep.innerHTML = `<div class="pri">
       <button data-p="high" class="${pr==="high"?"sel-high":""}">High</button>
       <button data-p="med"  class="${pr==="med" ?"sel-med" :""}">Med</button>
-      <button data-p="low"  class="${pr==="low" ?"sel-low" :""}">Low</button>
-    </div>
-    <div class="pri rep">
+      <button data-p="low"  class="${pr==="low" ?"sel-low" :""}">Low</button></div>`;
+    ep.querySelectorAll("button").forEach(b => b.onclick = () => { setPrio(id, b.dataset.p); tmPill = null; renderTaskModal(); });
+  } else if (tmPill === "repeat") {
+    ep.innerHTML = `<div class="pri rep">
       <button data-r="none"   class="${rep==="none"  ?"sel-rep":""}">No repeat</button>
       <button data-r="daily"  class="${rep==="daily" ?"sel-rep":""}">Daily</button>
-      <button data-r="weekly" class="${rep==="weekly"?"sel-rep":""}">Weekly</button>
-    </div>`;
-  document.getElementById("tmDue").onchange = (e) => setDue(id, e.target.value);
-  fields.querySelectorAll(".pri:not(.rep) button").forEach(b => b.onclick = () => setPrio(id, b.dataset.p));
-  fields.querySelectorAll(".rep button").forEach(b => b.onclick = () => setRepeat(id, b.dataset.r));
-
-  const lt = document.getElementById("tmLabels");
-  if (!labels.length) lt.innerHTML = '<span style="color:var(--muted);font-size:13px">No labels yet — use “manage” in the sidebar.</span>';
-  else {
-    lt.innerHTML = labels.map(l => {
-      const on = (t.labels || []).includes(l.id);
-      return `<span class="ltoggle ${on?"on":""}" data-l="${l.id}" style="background:${safeColor(l.color)}">${esc(l.name)}</span>`;
-    }).join("");
-    lt.querySelectorAll(".ltoggle").forEach(s => s.onclick = () => toggleTaskLabel(id, s.dataset.l));
+      <button data-r="weekly" class="${rep==="weekly"?"sel-rep":""}">Weekly</button></div>`;
+    ep.querySelectorAll("button").forEach(b => b.onclick = () => { setRepeat(id, b.dataset.r); tmPill = null; renderTaskModal(); });
+  } else if (tmPill === "labels") {
+    if (!labels.length) ep.innerHTML = '<span style="color:var(--muted);font-size:13px">No labels yet — use “manage” in the sidebar.</span>';
+    else {
+      ep.innerHTML = `<div class="tm-row">${labels.map(l => {
+        const on = (t.labels || []).includes(l.id);
+        return `<span class="ltoggle ${on?"on":""}" data-l="${l.id}" style="background:${safeColor(l.color)}">${esc(l.name)}</span>`;
+      }).join("")}</div>`;
+      ep.querySelectorAll(".ltoggle").forEach(s => s.onclick = () => toggleTaskLabel(id, s.dataset.l));
+    }
   }
 
+  // ---- notes (collapsible) ----
+  const notesPrev = (t.notes || "").trim().replace(/\s+/g, " ");
+  const notesHead = document.getElementById("tmNotesHead");
+  notesHead.className = "tm-acc-head" + (tmShow.notes ? " open" : "");
+  notesHead.innerHTML = `<span>📝 Notes</span><span class="summary">${notesPrev ? esc(notesPrev.slice(0,42)) + (notesPrev.length>42?"…":"") : "none"}</span><span class="caret">▶</span>`;
+  document.getElementById("tmNotesBody").classList.toggle("hide", !tmShow.notes);
+
+  // ---- checklist (collapsible) ----
   const chk = t.checklist || []; const cdone = chk.filter(c => c.done).length;
-  document.getElementById("tmChkProg").textContent = chk.length ? `(${cdone}/${chk.length})` : "";
+  const chkHead = document.getElementById("tmChkHead");
+  chkHead.className = "tm-acc-head" + (tmShow.chk ? " open" : "");
+  chkHead.innerHTML = `<span>✔ Checklist</span><span class="summary">${chk.length ? cdone+"/"+chk.length : "none"}</span><span class="caret">▶</span>`;
+  document.getElementById("tmChkBody").classList.toggle("hide", !tmShow.chk);
   document.getElementById("tmChkBar").style.width = chk.length ? Math.round(cdone/chk.length*100) + "%" : "0%";
   const chkHost = document.getElementById("tmChk");
   chkHost.innerHTML = chk.map((c) => `<div class="chk-item ${c.done?"done":""}">
@@ -1115,6 +1178,10 @@ function renderTaskModal() {
   chkHost.querySelectorAll(".chk-del").forEach(b => b.onclick = () => removeCheckItem(id, b.dataset.i));
 
   const cm = (t.comments || []).slice().sort((a,b) => a.ts - b.ts);
+  const cmtHead = document.getElementById("tmCmtHead");
+  cmtHead.className = "tm-acc-head" + (tmShow.cmt ? " open" : "");
+  cmtHead.innerHTML = `<span>💬 Comments</span><span class="summary">${cm.length || "none"}</span><span class="caret">▶</span>`;
+  document.getElementById("tmCmtBody").classList.toggle("hide", !tmShow.cmt);
   const ch = document.getElementById("tmComments");
   ch.innerHTML = cm.length ? cm.map(c => {
     const p = personById(c.by);
@@ -1137,6 +1204,11 @@ const commitTitle = () => {
 tmTitle.addEventListener("blur", commitTitle);
 tmTitle.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); tmTitle.blur(); } });
 tmNotes.addEventListener("blur", () => { if (openTaskId) setNotes(openTaskId, tmNotes.value); });
+
+// collapsible section toggles
+document.getElementById("tmNotesHead").onclick = () => { tmShow.notes = !tmShow.notes; renderTaskModal(); };
+document.getElementById("tmChkHead").onclick  = () => { tmShow.chk  = !tmShow.chk;  renderTaskModal(); };
+document.getElementById("tmCmtHead").onclick  = () => { tmShow.cmt  = !tmShow.cmt;  renderTaskModal(); };
 
 const doChkAdd = () => { if (openTaskId && tmChkNew.value.trim()) { addCheckItem(openTaskId, tmChkNew.value); tmChkNew.value = ""; } };
 document.getElementById("tmChkAdd").onclick = doChkAdd;
