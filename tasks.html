@@ -7,162 +7,303 @@
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 <style>
-  :root { --bg:#eef1f5; --card:#fff; --ink:#1d2733; --muted:#93a1b0; --line:#e6ebf0; }
+  :root { --bg:#f4f5f7; --card:#fff; --ink:#172b4d; --muted:#6b778c; --line:#e4e8ee; --rail:#fbfcfd; }
   * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+  html, body { height:100%; }
   body {
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
-    background:linear-gradient(160deg,#eef1f5 0%,#e4e9f0 100%);
-    color:var(--ink); min-height:100vh; padding:28px 18px 60px;
+    background:var(--bg); color:var(--ink); overflow:hidden;
   }
-  .wrap { width:75%; margin:0 auto; }
-  header { text-align:center; margin-bottom:26px; }
-  h1 { font-size:48px; font-weight:800; letter-spacing:0.5px; }
-  .sub { color:var(--muted); font-size:18px; margin-top:7px; }
 
-  .board { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-  @media (max-width:760px){ .board{ grid-template-columns:1fr; } .wrap{ width:auto; } }
+  /* ---- app shell ---- */
+  .app {
+    display:grid; height:100vh;
+    grid-template-columns:240px 1fr 300px;
+    grid-template-rows:auto 1fr auto;
+    grid-template-areas:"header header header" "left main right" "footer footer footer";
+  }
+
+  .topbar {
+    grid-area:header; display:flex; align-items:center; gap:18px;
+    padding:12px 22px; background:#fff; border-bottom:1px solid var(--line);
+  }
+  .brand { font-size:23px; font-weight:800; letter-spacing:.3px; white-space:nowrap; }
+  .today { color:var(--muted); font-size:14px; white-space:nowrap; }
+  .search-wrap { margin-left:auto; position:relative; }
+  .search-wrap::before { content:"🔍"; position:absolute; left:11px; top:50%; transform:translateY(-50%); font-size:13px; opacity:.6; }
+  #search {
+    border:1.5px solid var(--line); border-radius:10px; padding:9px 13px 9px 32px;
+    font-size:15px; background:#fafbfc; color:var(--ink); outline:none; width:260px; transition:border-color .15s;
+  }
+  #search:focus { border-color:#4c9aff; background:#fff; }
+
+  /* ---- rails ---- */
+  .left  { grid-area:left;  background:var(--rail); border-right:1px solid var(--line); overflow-y:auto; padding:16px 14px; }
+  .right { grid-area:right; background:var(--rail); border-left:1px solid var(--line);  overflow-y:auto; padding:16px 16px; }
+  .rail-sec { margin-bottom:22px; }
+  .rail-h { font-size:12px; font-weight:800; letter-spacing:.7px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+
+  .nav { display:flex; flex-direction:column; gap:4px; margin-bottom:22px; }
+  .navbtn {
+    text-align:left; border:none; background:none; border-radius:9px; padding:10px 12px;
+    font-size:16px; font-weight:600; color:var(--ink); cursor:pointer; transition:background .12s;
+  }
+  .navbtn:hover { background:#eef1f5; }
+  .navbtn.active { background:#e6efff; color:#0c66e4; }
+
+  .member {
+    display:flex; align-items:center; gap:9px; padding:7px 9px; border-radius:9px;
+    cursor:pointer; transition:background .12s; margin-bottom:2px;
+  }
+  .member:hover { background:#eef1f5; }
+  .member.sel { background:#e6efff; }
+  .m-dot { width:14px; height:14px; border-radius:50%; flex:none; }
+  .m-name { flex:1; font-size:16px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .m-count { font-size:13px; font-weight:700; color:var(--muted); }
+  .m-edit { border:none; background:none; color:#aab4c0; font-size:14px; cursor:pointer; padding:2px 4px; opacity:0; transition:opacity .12s,color .12s; }
+  .member:hover .m-edit { opacity:1; }
+  .m-edit:hover { color:#0c66e4; }
+  .addperson {
+    width:100%; margin-top:8px; border:1.5px dashed var(--line); background:none; border-radius:9px;
+    padding:9px; font-size:14px; font-weight:700; color:var(--muted); cursor:pointer; transition:all .12s;
+  }
+  .addperson:hover { border-color:#4c9aff; color:#0c66e4; background:#f0f6ff; }
+
+  .prifilter { display:flex; flex-wrap:wrap; gap:6px; }
+  .prifilter button {
+    border:1.5px solid var(--line); background:#fff; border-radius:8px; padding:6px 12px;
+    font-size:13px; font-weight:700; color:#7d8a98; cursor:pointer;
+  }
+  .prifilter button.active { border-color:#0c66e4; color:#0c66e4; background:#e6efff; }
+
+  /* ---- main board ---- */
+  .main { grid-area:main; overflow:auto; padding:18px; }
+  .board { display:flex; gap:14px; align-items:flex-start; min-height:100%; }
+  @media (max-width:900px) {
+    .app { grid-template-columns:1fr; grid-template-rows:auto auto 1fr auto auto;
+           grid-template-areas:"header" "left" "main" "right" "footer"; }
+    .board { flex-direction:column; }
+    .col { width:100%; min-width:0; max-height:none; }
+    .tasks { overflow-y:visible; }
+    .right { max-height:240px; }
+    #search { width:160px; }
+  }
 
   .col {
-    background:var(--card); border-radius:18px;
-    box-shadow:0 6px 24px rgba(40,60,90,0.07); overflow:hidden;
-    display:flex; flex-direction:column; border-top:5px solid var(--c);
+    width:300px; min-width:300px; max-height:100%;
+    background:#ebecf0; border-radius:13px; display:flex; flex-direction:column;
+    border-top:4px solid var(--c); transition:opacity .15s;
   }
-  .col-head { display:flex; align-items:center; gap:11px; padding:16px 18px 14px; }
+  .col.dim { opacity:.35; }
+  .col-head { display:flex; align-items:center; gap:10px; padding:13px 12px 10px; }
   .avatar {
-    width:52px; height:52px; border-radius:50%; display:grid; place-items:center;
-    color:#fff; font-weight:700; font-size:22px; background:var(--c);
-    box-shadow:0 3px 10px var(--cs); flex:none;
+    width:34px; height:34px; border-radius:50%; display:grid; place-items:center;
+    color:#fff; font-weight:700; font-size:15px; background:var(--c); box-shadow:0 2px 6px var(--cs); flex:none;
   }
-  .col-name { font-size:24px; font-weight:700; flex:1; }
-  .count { font-size:17px; font-weight:700; color:var(--c); background:var(--csoft); border-radius:20px; padding:4px 13px; }
-  .over-pill { font-size:13px; font-weight:700; color:#fff; background:#e0556b; border-radius:20px; padding:3px 9px; margin-left:6px; }
+  .col-name { font-size:18px; font-weight:700; flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .count { font-size:14px; font-weight:700; color:var(--c); background:var(--csoft); border-radius:20px; padding:3px 11px; }
+  .over-pill { font-size:12px; font-weight:700; color:#fff; background:#e0556b; border-radius:20px; padding:2px 8px; margin-left:5px; }
 
-  .add { display:flex; gap:8px; padding:0 14px 12px; }
-  .add input {
-    flex:1; border:1.5px solid var(--line); border-radius:11px; padding:11px 13px;
-    font-size:19px; background:#fafbfc; color:var(--ink); outline:none; transition:border-color .15s; min-width:0;
-  }
-  .add input:focus { border-color:var(--c); background:#fff; }
-  .add button {
-    border:none; background:var(--c); color:#fff; border-radius:11px; padding:0 15px;
-    font-size:24px; font-weight:600; cursor:pointer; line-height:1; flex:none; transition:transform .1s,filter .15s;
-  }
-  .add button:hover { filter:brightness(1.05); }
-  .add button:active { transform:scale(0.92); }
-
-  .tasks { padding:0 14px 6px; flex:1; min-height:52px; }
-  .tasks.drag-over { background:var(--csoft); border-radius:12px; }
+  .tasks { padding:2px 12px; overflow-y:auto; flex:1; min-height:30px; }
+  .tasks.drag-over { background:var(--csoft); }
 
   .task {
-    background:#fafbfc; border:1px solid var(--line); border-radius:12px;
-    padding:10px 12px; margin-bottom:9px; animation:pop .18s ease;
+    background:#fff; border-radius:9px; box-shadow:0 1px 2px rgba(9,30,66,.18);
+    padding:9px 11px; margin-bottom:8px; animation:pop .18s ease;
   }
   @keyframes pop { from{opacity:0;transform:translateY(-4px);} to{opacity:1;transform:none;} }
-  .task.done { opacity:.5; }
+  .task.done { opacity:.6; }
   .sortable-ghost { opacity:.35; }
-  .sortable-chosen { box-shadow:0 8px 22px rgba(40,60,90,.18); }
+  .sortable-chosen { box-shadow:0 8px 22px rgba(9,30,66,.28); }
 
-  .task-main { display:flex; align-items:flex-start; gap:10px; }
-  .pdot { width:9px; height:9px; border-radius:50%; flex:none; margin-top:8px; }
+  .task-main { display:flex; align-items:flex-start; gap:9px; }
+  .pdot { width:8px; height:8px; border-radius:50%; flex:none; margin-top:7px; }
   .pdot.high{ background:#e0556b; } .pdot.med{ background:#f3a93c; } .pdot.low{ background:#c4cdd6; }
   .check {
-    width:25px; height:25px; flex:none; margin-top:1px; border:2px solid #cdd6df;
-    border-radius:7px; cursor:pointer; display:grid; place-items:center; transition:all .12s;
+    width:22px; height:22px; flex:none; margin-top:0; border:2px solid #cdd6df;
+    border-radius:6px; cursor:pointer; display:grid; place-items:center; transition:all .12s;
   }
   .check.on { background:var(--c); border-color:var(--c); }
-  .check.on::after { content:"✓"; color:#fff; font-size:15px; font-weight:800; }
-  .txt { flex:1; font-size:20px; line-height:1.4; word-break:break-word; padding-top:1px; cursor:grab; }
+  .check.on::after { content:"✓"; color:#fff; font-size:13px; font-weight:800; }
+  .txt { flex:1; font-size:16px; line-height:1.4; word-break:break-word; padding-top:1px; cursor:grab; }
   .task.done .txt { text-decoration:line-through; }
-  .icbtn { border:none; background:none; color:#c4cdd6; font-size:18px; cursor:pointer; flex:none; padding:0 3px; line-height:1; transition:color .15s; }
+  .icbtn { border:none; background:none; color:#c4cdd6; font-size:16px; cursor:pointer; flex:none; padding:0 2px; line-height:1; transition:color .15s; }
   .icbtn:hover { color:#7d8a98; }
-  .icbtn.del:hover { color:#e0556b; }
-  .icbtn.editing { color:#10b981; font-size:18px; font-weight:800; }
+  .icbtn.editing { color:#10b981; font-weight:800; }
   .icbtn.editing:hover { color:#0e9e72; }
 
   .badges { display:flex; flex-wrap:wrap; gap:6px; margin:7px 0 0 31px; }
-  .due {
-    font-size:15px; font-weight:700; border-radius:7px; padding:3px 11px; display:inline-flex; gap:4px; align-items:center;
-  }
+  .due { font-size:13px; font-weight:700; border-radius:7px; padding:2px 10px; display:inline-flex; gap:4px; align-items:center; }
   .due.over { background:#fdeaed; color:#d23f57; }
   .due.today { background:#fff1e3; color:#e07c1a; }
   .due.soon { background:#fff8e6; color:#bb8a1a; }
   .due.later { background:#eef1f5; color:#7d8a98; }
   .rep-badge { background:#eef4ff; color:#3b72d6; }
 
-  .editor { margin:9px 0 2px; padding:10px; background:#fff; border:1px dashed var(--line); border-radius:10px; }
+  .editor { margin:9px 0 2px; padding:10px; background:#f7f9fb; border:1px dashed var(--line); border-radius:9px; }
   .editor.hide { display:none; }
   .erow { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-  .editor label { font-size:13px; color:var(--muted); font-weight:600; min-width:54px; }
-  .editor input[type=date] { border:1px solid var(--line); border-radius:8px; padding:6px 9px; font-size:16px; color:var(--ink); }
-  .pri { display:flex; gap:5px; }
-  .pri button {
-    border:1.5px solid var(--line); background:#fff; border-radius:8px; padding:5px 11px;
-    font-size:13px; font-weight:700; cursor:pointer; color:#7d8a98;
+  .erow + .erow { margin-top:8px; }
+  .editor label { font-size:12px; color:var(--muted); font-weight:700; min-width:52px; }
+  .editor input[type=date], .editor input.edtext {
+    border:1px solid var(--line); border-radius:8px; padding:6px 9px; font-size:14px; color:var(--ink); background:#fff;
   }
+  .editor input.edtext { flex:1; min-width:120px; }
+  .pri { display:flex; gap:5px; }
+  .pri button { border:1.5px solid var(--line); background:#fff; border-radius:8px; padding:5px 11px; font-size:12px; font-weight:700; cursor:pointer; color:#7d8a98; }
   .pri button.sel-high { border-color:#e0556b; color:#e0556b; background:#fdeaed; }
   .pri button.sel-med  { border-color:#f3a93c; color:#e07c1a; background:#fff1e3; }
   .pri button.sel-low  { border-color:#9aa6b2; color:#7d8a98; background:#eef1f5; }
   .pri button.sel-rep  { border-color:#3b72d6; color:#3b72d6; background:#eef4ff; }
-  .clr { border:none; background:none; color:#aeb8c2; font-size:13px; cursor:pointer; text-decoration:underline; }
+  .clr { border:none; background:none; color:#aeb8c2; font-size:12px; cursor:pointer; text-decoration:underline; }
 
-  .drawer { border-top:1px solid var(--line); margin:4px 0 0; }
+  /* ---- add a card ---- */
+  .addcard { padding:8px 12px 12px; }
+  .addcard-btn {
+    width:100%; text-align:left; border:none; background:none; border-radius:8px; padding:8px 10px;
+    font-size:15px; font-weight:600; color:var(--muted); cursor:pointer; transition:background .12s;
+  }
+  .addcard-btn:hover { background:rgba(9,30,66,.06); color:var(--ink); }
+  .addcard-form { display:none; gap:7px; }
+  .addcard-form.show { display:flex; }
+  .addcard-form input {
+    flex:1; border:1.5px solid var(--c); border-radius:8px; padding:9px 11px; font-size:15px;
+    background:#fff; color:var(--ink); outline:none; min-width:0;
+  }
+  .addcard-form button {
+    border:none; background:var(--c); color:#fff; border-radius:8px; padding:0 14px;
+    font-size:20px; font-weight:600; cursor:pointer; line-height:1; flex:none;
+  }
+
+  /* ---- done drawer ---- */
+  .drawer { margin:0; }
   .drawer-head {
-    display:flex; align-items:center; gap:8px; padding:11px 16px; cursor:pointer;
-    font-size:14px; font-weight:700; color:var(--muted); user-select:none;
+    display:flex; align-items:center; gap:8px; padding:9px 16px 12px; cursor:pointer;
+    font-size:13px; font-weight:700; color:var(--muted); user-select:none;
   }
   .drawer-head .caret { transition:transform .15s; }
   .drawer-head.open .caret { transform:rotate(90deg); }
-  .drawer-body { padding:0 14px 10px; }
+  .drawer-body { padding:0 12px 8px; }
   .drawer-body.hide { display:none; }
+  .col-empty { text-align:center; color:var(--muted); font-size:14px; padding:14px 8px; }
 
-  .col-empty { text-align:center; color:var(--muted); font-size:16px; padding:18px 0; }
+  /* ---- history ---- */
+  .history.hide { display:none; }
+  .history { max-width:780px; }
+  .hist-h { font-size:22px; font-weight:800; margin-bottom:4px; }
+  .hist-sub { color:var(--muted); font-size:14px; margin-bottom:18px; }
+  .hist-row {
+    display:flex; align-items:center; gap:12px; background:#fff; border:1px solid var(--line);
+    border-radius:10px; padding:11px 14px; margin-bottom:8px;
+  }
+  .hist-dot { width:12px; height:12px; border-radius:50%; flex:none; }
+  .hist-txt { flex:1; font-size:16px; text-decoration:line-through; color:#5a6b80; }
+  .hist-who { font-size:13px; font-weight:700; color:var(--muted); white-space:nowrap; }
+  .hist-when { font-size:13px; color:var(--muted); white-space:nowrap; }
 
-  /* activity */
-  .activity {
-    width:75%; margin:26px auto 0; background:var(--card); border-radius:16px;
-    box-shadow:0 6px 24px rgba(40,60,90,0.07); overflow:hidden;
-  }
-  @media (max-width:760px){ .activity{ width:auto; } }
-  .act-head {
-    display:flex; align-items:center; gap:8px; padding:14px 18px; cursor:pointer;
-    font-size:16px; font-weight:700; user-select:none;
-  }
-  .act-head .caret { transition:transform .15s; color:var(--muted); }
-  .act-head.open .caret { transform:rotate(90deg); }
-  .act-body { padding:0 18px 14px; max-height:300px; overflow-y:auto; }
-  .act-body.hide { display:none; }
-  .act-item { display:flex; gap:10px; align-items:baseline; padding:7px 0; border-top:1px solid var(--line); font-size:15px; }
+  /* ---- right rail activity ---- */
+  .act-item { display:flex; gap:9px; align-items:baseline; padding:9px 0; border-top:1px solid var(--line); font-size:14px; }
   .act-item:first-child { border-top:none; }
   .act-ico { flex:none; }
-  .act-txt { flex:1; color:var(--ink); }
+  .act-txt { flex:1; color:var(--ink); line-height:1.4; }
   .act-txt b { font-weight:700; }
-  .act-time { flex:none; color:var(--muted); font-size:13px; }
-  .act-empty { color:var(--muted); font-size:14px; padding:10px 0; }
+  .act-time { flex:none; color:var(--muted); font-size:12px; }
+  .act-empty { color:var(--muted); font-size:14px; padding:8px 0; }
 
-  .status { text-align:center; font-size:14px; color:var(--muted); margin-top:22px; }
+  /* ---- footer ---- */
+  .footbar {
+    grid-area:footer; display:flex; align-items:center; gap:20px;
+    padding:9px 22px; background:#fff; border-top:1px solid var(--line); font-size:13px; color:var(--muted);
+  }
+  .footbar b { color:var(--ink); }
+  .credit { margin-left:auto; opacity:.7; }
   .err { color:#e0556b; }
+
+  /* ---- person modal ---- */
+  .modal { position:fixed; inset:0; background:rgba(9,30,66,.45); display:grid; place-items:center; z-index:50; overflow:auto; padding:20px 0; }
+  .modal.hide { display:none; }
+  .modal-card { background:#fff; border-radius:16px; padding:22px; width:340px; max-width:92vw; max-height:90vh; overflow:auto; box-shadow:0 18px 50px rgba(9,30,66,.3); }
+  .modal-title { font-size:20px; font-weight:800; margin-bottom:16px; }
+  #pmName { width:100%; border:1.5px solid var(--line); border-radius:10px; padding:11px 13px; font-size:17px; outline:none; }
+  #pmName:focus { border-color:#4c9aff; }
+  .swatches { display:flex; flex-wrap:wrap; gap:9px; margin:16px 0 6px; }
+  .swatch { width:30px; height:30px; border-radius:50%; cursor:pointer; border:3px solid transparent; transition:transform .1s; }
+  .swatch:hover { transform:scale(1.1); }
+  .swatch.sel { border-color:#172b4d; }
+  .modal-actions { display:flex; align-items:center; gap:9px; margin-top:18px; }
+  .modal-actions .hide { display:none; }
+  .modal-actions button { border:none; border-radius:9px; padding:9px 16px; font-size:15px; font-weight:700; cursor:pointer; }
+  .modal-actions .primary { background:#0c66e4; color:#fff; }
+  .modal-actions .ghost { background:#eef1f5; color:var(--ink); }
+  .modal-actions .danger { background:#fdeaed; color:#d23f57; }
+  .pm-err { color:#e0556b; font-size:13px; margin-top:10px; min-height:16px; }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <h1>🗂️ PERMAI TASK LIST</h1>
-    <div class="sub">Drag a card between people · due dates, priority &amp; repeats · syncs live</div>
+<div class="app">
+  <header class="topbar">
+    <span class="brand">🗂️ PERMAI</span>
+    <span class="today" id="today"></span>
+    <div class="search-wrap"><input type="text" id="search" placeholder="Search tasks…" autocomplete="off" /></div>
   </header>
-  <div class="board" id="board"></div>
+
+  <aside class="left">
+    <nav class="nav">
+      <button class="navbtn active" id="nav-board">📋 Board</button>
+      <button class="navbtn" id="nav-history">🗄️ History</button>
+    </nav>
+    <div class="rail-sec">
+      <div class="rail-h">Members</div>
+      <div id="memberList"></div>
+      <button class="addperson" id="addPersonBtn">+ Add person</button>
+    </div>
+    <div class="rail-sec">
+      <div class="rail-h">Priority</div>
+      <div class="prifilter" id="priFilter">
+        <button data-p="all" class="active">All</button>
+        <button data-p="high">High</button>
+        <button data-p="med">Med</button>
+        <button data-p="low">Low</button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="board" id="board"></div>
+    <section class="history hide" id="history"></section>
+  </main>
+
+  <aside class="right">
+    <div class="rail-h">📋 Activity</div>
+    <div id="act-body"></div>
+  </aside>
+
+  <footer class="footbar">
+    <span id="footCounts">—</span>
+    <span id="status">Connecting…</span>
+    <span class="credit">family board · syncs live</span>
+  </footer>
 </div>
 
-<div class="activity">
-  <div class="act-head open" id="act-head"><span class="caret">▶</span><span>📋 Recent activity</span></div>
-  <div class="act-body" id="act-body"></div>
+<div class="modal hide" id="personModal">
+  <div class="modal-card">
+    <div class="modal-title" id="pmTitle">Add person</div>
+    <input type="text" id="pmName" placeholder="Name" autocomplete="off" />
+    <div class="swatches" id="pmSwatches"></div>
+    <div class="modal-actions">
+      <button class="danger hide" id="pmRemove">Remove</button>
+      <span style="flex:1"></span>
+      <button class="ghost" id="pmCancel">Cancel</button>
+      <button class="primary" id="pmSave">Save</button>
+    </div>
+    <div class="pm-err" id="pmErr"></div>
+  </div>
 </div>
-
-<div id="status" class="status">Connecting…</div>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
-  getFirestore, collection, addDoc, deleteDoc, updateDoc, doc,
+  getFirestore, collection, addDoc, deleteDoc, updateDoc, setDoc, doc,
   onSnapshot, query, orderBy, limit, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -175,13 +316,10 @@ const firebaseConfig = {
   appId: "1:1050539460224:web:0357111582c97d31b98865"
 };
 
-const PEOPLE = [
-  { id:"NICK", name:"Nick", c:"#3b82f6", cs:"rgba(59,130,246,.35)",  csoft:"#e8f0fe" },
-  { id:"IVY",  name:"Ivy",  c:"#10b981", cs:"rgba(16,185,129,.35)",  csoft:"#e3f7ef" },
-  { id:"FYB",  name:"FYB",  c:"#8b5cf6", cs:"rgba(139,92,246,.35)",  csoft:"#efe9fd" }
-];
 const PRIO = { high:0, med:1, low:2 };
-const nameOf = (id) => (PEOPLE.find(p => p.id === id) || {}).name || id;
+const PALETTE = ["#3b82f6","#10b981","#8b5cf6","#ef4444","#f59e0b","#ec4899","#14b8a6","#6366f1","#0ea5e9","#84cc16"];
+const DONE_WINDOW = 7 * 86400; // seconds
+const esc = (s) => String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 
 const statusEl = document.getElementById("status");
 const boardEl  = document.getElementById("board");
@@ -189,10 +327,38 @@ const boardEl  = document.getElementById("board");
 let db;
 try { db = getFirestore(initializeApp(firebaseConfig)); }
 catch (e) { statusEl.innerHTML = '<span class="err">Firebase init failed.</span>'; }
-const tasksCol = () => collection(db, "tasks");
-const actCol   = () => collection(db, "activity");
+const tasksCol  = () => collection(db, "tasks");
+const actCol    = () => collection(db, "activity");
+const peopleCol = () => collection(db, "people");
 
-// ---- celebration: confetti + soft chime ----
+// ---- color helpers (one color stored per person; derive the rest) ----
+function hexToRgba(h, a) {
+  h = h.replace("#", "");
+  if (h.length === 3) h = h.split("").map(c => c + c).join("");
+  const n = parseInt(h, 16);
+  return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`;
+}
+const vCS    = (hex) => hexToRgba(hex, .35);
+const vCSOFT = (hex) => hexToRgba(hex, .12);
+
+// ---- state ----
+let people = [];                 // [{id,name,color,order}]
+let peopleLoaded = false;
+let seeded = false;
+let lastItems = [];
+const drawerOpen = {};
+const editing = new Set();
+const completing = new Set();
+const sortables = {};
+const filters = { search: "", person: null, priority: "all" };
+let showHistory = false;
+let lastAct = [];
+let lastColSig = null;
+
+const personById = (id) => people.find(p => p.id === id) || { id, name: "Removed member", color: "#9aa6b2" };
+const nameOf = (id) => personById(id).name;
+
+// ---- celebration ----
 let actx;
 function chime() {
   try {
@@ -216,92 +382,17 @@ function celebrate() {
   chime();
 }
 
-// ---- activity log ----
+// ---- activity ----
 function addActivity(action, text, person) {
   addDoc(actCol(), { action, text, person, ts: serverTimestamp() }).catch(() => {});
 }
 
-// per-column UI state (not persisted)
-const drawerOpen = { NICK:false, IVY:false, FYB:false };
-const editing = new Set();
-const sortables = {};
-let lastItems = [];
-
-const activeEls = {}, drawerHeadEls = {}, drawerBodyEls = {}, countEls = {}, overEls = {};
-for (const p of PEOPLE) {
-  const col = document.createElement("div");
-  col.className = "col";
-  col.style.setProperty("--c", p.c);
-  col.style.setProperty("--cs", p.cs);
-  col.style.setProperty("--csoft", p.csoft);
-  col.innerHTML = `
-    <div class="col-head">
-      <div class="avatar">${p.name.charAt(0)}</div>
-      <div class="col-name">${p.name}</div>
-      <div class="count" id="count-${p.id}">0</div>
-      <div class="over-pill" id="over-${p.id}" style="display:none"></div>
-    </div>
-    <div class="add">
-      <input type="text" placeholder="Add task for ${p.name}…" autocomplete="off" id="in-${p.id}" />
-      <button id="btn-${p.id}">+</button>
-    </div>
-    <div class="tasks" id="list-${p.id}" data-owner="${p.id}"></div>
-    <div class="drawer">
-      <div class="drawer-head" id="dh-${p.id}"><span class="caret">▶</span><span id="dl-${p.id}">Done</span></div>
-      <div class="drawer-body hide" id="db-${p.id}"></div>
-    </div>`;
-  boardEl.appendChild(col);
-
-  activeEls[p.id]     = col.querySelector(`#list-${p.id}`);
-  drawerHeadEls[p.id] = col.querySelector(`#dh-${p.id}`);
-  drawerBodyEls[p.id] = col.querySelector(`#db-${p.id}`);
-  countEls[p.id]      = col.querySelector(`#count-${p.id}`);
-  overEls[p.id]       = col.querySelector(`#over-${p.id}`);
-
-  const input = col.querySelector(`#in-${p.id}`);
-  const addFn = async () => {
-    const text = input.value.trim();
-    if (!text || !db) return;
-    input.value = "";
-    try {
-      await addDoc(tasksCol(), { text, done:false, by:p.id, priority:"med", due:null, repeat:null, created:serverTimestamp() });
-      addActivity("add", text, p.id);
-    } catch (e) { statusEl.innerHTML = '<span class="err">Could not save — check Firestore rules.</span>'; }
-  };
-  col.querySelector(`#btn-${p.id}`).onclick = addFn;
-  input.addEventListener("keydown", e => { if (e.key === "Enter") addFn(); });
-
-  drawerHeadEls[p.id].onclick = () => { drawerOpen[p.id] = !drawerOpen[p.id]; renderBoard(lastItems); };
-
-  sortables[p.id] = new Sortable(activeEls[p.id], {
-    group: "tasks", animation: 150, draggable: ".task",
-    filter: ".check,.icbtn,.editor,.editor *,.due,input,button",
-    preventOnFilter: false,
-    onAdd: (evt) => {
-      const id = evt.item.dataset.id;
-      const owner = evt.to.dataset.owner;
-      if (id && owner) {
-        updateDoc(doc(db, "tasks", id), { by: owner });
-        const it = lastItems.find(x => x.id === id);
-        if (it) addActivity("move", it.t.text, owner);
-      }
-    }
-  });
-}
-
-document.getElementById("act-head").onclick = (e) => {
-  const h = e.currentTarget, b = document.getElementById("act-body");
-  const open = !h.classList.contains("open");
-  h.classList.toggle("open", open);
-  b.classList.toggle("hide", !open);
-};
-
-// ---- task ops ----
-const remove   = (id) => deleteDoc(doc(db,"tasks",id));
-const setDue   = (id, v) => updateDoc(doc(db,"tasks",id), { due: v || null });
-const setPrio  = (id, p) => updateDoc(doc(db,"tasks",id), { priority: p });
-const setRepeat= (id, r) => updateDoc(doc(db,"tasks",id), { repeat: r === "none" ? null : r });
-const uncomplete = (id) => updateDoc(doc(db,"tasks",id), { done:false });
+// ---- task ops (NO delete — completing is the only way to clear a task) ----
+const setDue    = (id, v) => updateDoc(doc(db,"tasks",id), { due: v || null });
+const setPrio   = (id, p) => updateDoc(doc(db,"tasks",id), { priority: p });
+const setRepeat = (id, r) => updateDoc(doc(db,"tasks",id), { repeat: r === "none" ? null : r });
+const setText   = (id, v) => updateDoc(doc(db,"tasks",id), { text: v });
+const uncomplete = (id) => updateDoc(doc(db,"tasks",id), { done:false, doneAt:null });
 
 function nextDue(due, repeat) {
   let base = due ? new Date(due + "T00:00:00") : new Date(new Date().setHours(0,0,0,0));
@@ -313,15 +404,19 @@ function nextDue(due, repeat) {
 }
 
 async function completeTask(id, t) {
+  if (completing.has(id)) return;     // guard against double-click double-spawn
+  completing.add(id);
   celebrate();
   addActivity("done", t.text, t.by);
-  if (t.repeat === "daily" || t.repeat === "weekly") {
-    await addDoc(tasksCol(), {
-      text:t.text, done:false, by:t.by, priority:t.priority || "med",
-      due: nextDue(t.due, t.repeat), repeat:t.repeat, created:serverTimestamp()
-    });
-  }
-  await updateDoc(doc(db,"tasks",id), { done:true });
+  try {
+    if (t.repeat === "daily" || t.repeat === "weekly") {
+      await addDoc(tasksCol(), {
+        text:t.text, done:false, by:t.by, priority:t.priority || "med",
+        due: nextDue(t.due, t.repeat), repeat:t.repeat, created:serverTimestamp()
+      });
+    }
+    await updateDoc(doc(db,"tasks",id), { done:true, doneAt:serverTimestamp() });
+  } finally { completing.delete(id); }
 }
 
 function dueInfo(due) {
@@ -346,6 +441,12 @@ function sortKey(a, b) {
   return (a.t.created?.seconds || 0) - (b.t.created?.seconds || 0);
 }
 
+const isRecentDone = (t) => t.done && (t.doneAt?.seconds || 0) >= (Date.now()/1000 - DONE_WINDOW);
+const matchActive = (t) =>
+  (!filters.search || (t.text || "").toLowerCase().includes(filters.search)) &&
+  (filters.priority === "all" || (t.priority || "med") === filters.priority);
+
+// ---- card nodes ----
 function activeNode(id, t) {
   const row = document.createElement("div");
   row.className = "task";
@@ -360,7 +461,6 @@ function activeNode(id, t) {
       <div class="check"></div>
       <div class="txt"></div>
       <button class="icbtn edit ${isEd ? "editing" : ""}" title="${isEd ? "Done editing" : "Edit"}">${isEd ? "✓" : "✎"}</button>
-      <button class="icbtn del" title="Delete">&times;</button>
     </div>
     <div class="badges">
       ${di ? `<span class="due ${di.cls}">${di.label}</span>` : ""}
@@ -368,11 +468,15 @@ function activeNode(id, t) {
     </div>
     <div class="editor ${isEd ? "" : "hide"}">
       <div class="erow">
+        <label>Text</label>
+        <input type="text" class="edtext" />
+      </div>
+      <div class="erow">
         <label>Due</label>
         <input type="date" value="${t.due || ""}" />
         <button class="clr">clear</button>
       </div>
-      <div class="erow" style="margin-top:8px">
+      <div class="erow">
         <label>Priority</label>
         <div class="pri">
           <button data-p="high" class="${pr==="high"?"sel-high":""}">High</button>
@@ -380,7 +484,7 @@ function activeNode(id, t) {
           <button data-p="low"  class="${pr==="low" ?"sel-low" :""}">Low</button>
         </div>
       </div>
-      <div class="erow" style="margin-top:8px">
+      <div class="erow">
         <label>Repeat</label>
         <div class="pri rep">
           <button data-r="none"   class="${rep==="none"  ?"sel-rep":""}">None</button>
@@ -390,11 +494,21 @@ function activeNode(id, t) {
       </div>
     </div>`;
   row.querySelector(".txt").textContent = t.text;
+  const edt = row.querySelector(".edtext");
+  edt.value = t.text;
+  const commitText = () => {
+    const v = edt.value.trim();
+    if (v && v !== t.text) setText(id, v);
+    else edt.value = t.text; // no blanking — delete is gone
+  };
+  edt.addEventListener("change", commitText);
+  edt.addEventListener("blur", commitText);
+  edt.addEventListener("keydown", e => { if (e.key === "Enter") edt.blur(); });
+
   row.querySelector(".check").onclick = () => completeTask(id, t);
-  row.querySelector(".del").onclick = () => remove(id);
   row.querySelector(".edit").onclick = () => {
     if (editing.has(id)) editing.delete(id); else editing.add(id);
-    renderBoard(lastItems);
+    renderBoard();
   };
   row.querySelector('input[type=date]').onchange = (e) => setDue(id, e.target.value);
   row.querySelector(".clr").onclick = () => setDue(id, "");
@@ -410,48 +524,301 @@ function doneNode(id, t) {
     <div class="task-main">
       <div class="check on"></div>
       <div class="txt"></div>
-      <button class="icbtn del" title="Delete">&times;</button>
     </div>`;
   row.querySelector(".txt").textContent = t.text;
   row.querySelector(".check").onclick = () => uncomplete(id);
-  row.querySelector(".del").onclick = () => remove(id);
   return row;
 }
 
-function renderBoard(items) {
-  const active = {}, done = {};
-  PEOPLE.forEach(p => { active[p.id] = []; done[p.id] = []; });
-  items.forEach(({ id, t }) => {
-    if (!active[t.by]) return;
-    (t.done ? done[t.by] : active[t.by]).push({ id, t });
+// ---- column shell (rebuilt whenever people change) ----
+const colEls = {}, activeEls = {}, drawerHeadEls = {}, drawerBodyEls = {}, countEls = {}, overEls = {};
+function renderColumns() {
+  Object.values(sortables).forEach(s => { try { s.destroy(); } catch (e) {} });
+  [sortables, colEls, activeEls, drawerHeadEls, drawerBodyEls, countEls, overEls]
+    .forEach(m => { for (const k in m) delete m[k]; });
+  Object.keys(drawerOpen).forEach(id => { if (!people.some(p => p.id === id)) delete drawerOpen[id]; });
+  boardEl.innerHTML = "";
+
+  for (const p of people) {
+    if (!(p.id in drawerOpen)) drawerOpen[p.id] = false;
+    const col = document.createElement("div");
+    col.className = "col";
+    col.style.setProperty("--c", p.color);
+    col.style.setProperty("--cs", vCS(p.color));
+    col.style.setProperty("--csoft", vCSOFT(p.color));
+    col.innerHTML = `
+      <div class="col-head">
+        <div class="avatar">${esc((p.name.charAt(0) || "?").toUpperCase())}</div>
+        <div class="col-name">${esc(p.name)}</div>
+        <div class="count" id="count-${p.id}">0</div>
+        <div class="over-pill" id="over-${p.id}" style="display:none"></div>
+      </div>
+      <div class="tasks" id="list-${p.id}" data-owner="${p.id}"></div>
+      <div class="addcard">
+        <button class="addcard-btn" id="addbtn-${p.id}">+ Add a card</button>
+        <div class="addcard-form" id="addform-${p.id}">
+          <input type="text" placeholder="What needs doing?" autocomplete="off" id="in-${p.id}" />
+          <button id="addsave-${p.id}">+</button>
+        </div>
+      </div>
+      <div class="drawer">
+        <div class="drawer-head" id="dh-${p.id}"><span class="caret">▶</span><span id="dl-${p.id}">Done</span></div>
+        <div class="drawer-body hide" id="db-${p.id}"></div>
+      </div>`;
+    boardEl.appendChild(col);
+
+    colEls[p.id]        = col;
+    activeEls[p.id]     = col.querySelector(`#list-${p.id}`);
+    drawerHeadEls[p.id] = col.querySelector(`#dh-${p.id}`);
+    drawerBodyEls[p.id] = col.querySelector(`#db-${p.id}`);
+    countEls[p.id]      = col.querySelector(`#count-${p.id}`);
+    overEls[p.id]       = col.querySelector(`#over-${p.id}`);
+
+    const input  = col.querySelector(`#in-${p.id}`);
+    const form   = col.querySelector(`#addform-${p.id}`);
+    const addBtn = col.querySelector(`#addbtn-${p.id}`);
+    const owner  = p.id;
+    const addFn = async () => {
+      const text = input.value.trim();
+      if (!text || !db) return;
+      try {
+        await addDoc(tasksCol(), { text, done:false, by:owner, priority:"med", due:null, repeat:null, created:serverTimestamp() });
+        addActivity("add", text, owner);
+        input.value = "";
+      } catch (e) { statusEl.innerHTML = '<span class="err">Could not save — check Firestore rules.</span>'; }
+    };
+    addBtn.onclick = () => { addBtn.style.display = "none"; form.classList.add("show"); input.focus(); };
+    col.querySelector(`#addsave-${p.id}`).onclick = addFn;
+    input.addEventListener("keydown", e => { if (e.key === "Enter") addFn(); });
+    input.addEventListener("blur", () => {
+      if (!input.value.trim()) { form.classList.remove("show"); addBtn.style.display = "block"; }
+    });
+
+    drawerHeadEls[p.id].onclick = () => { drawerOpen[p.id] = !drawerOpen[p.id]; renderBoard(); };
+
+    sortables[p.id] = new Sortable(activeEls[p.id], {
+      group: "tasks", animation: 150, draggable: ".task",
+      filter: ".check,.icbtn,.editor,.editor *,.due,input,button",
+      preventOnFilter: false,
+      onAdd: (evt) => {
+        const id = evt.item.dataset.id;
+        const to = evt.to.dataset.owner;
+        if (id && to) {
+          updateDoc(doc(db, "tasks", id), { by: to });
+          const it = lastItems.find(x => x.id === id);
+          if (it) addActivity("move", it.t.text, to);
+        }
+      }
+    });
+  }
+}
+
+function syncColumns() {
+  // full rebuild only when the set/order of people changes; otherwise patch name/color in place
+  const sig = people.map(p => p.id).join("|");
+  if (sig !== lastColSig) { lastColSig = sig; renderColumns(); }
+  else updateColMeta();
+}
+function updateColMeta() {
+  for (const p of people) {
+    const col = colEls[p.id];
+    if (!col) continue;
+    col.style.setProperty("--c", p.color);
+    col.style.setProperty("--cs", vCS(p.color));
+    col.style.setProperty("--csoft", vCSOFT(p.color));
+    const av = col.querySelector(".avatar");
+    if (av) av.textContent = (p.name.charAt(0) || "?").toUpperCase();
+    const nm = col.querySelector(".col-name");
+    if (nm) nm.textContent = p.name;
+  }
+}
+
+function renderBoard() {
+  if (!peopleLoaded) return;
+  // preserve focus + caret of an inline text editor across the rebuild
+  const ae = document.activeElement;
+  const focusId = (ae && ae.classList && ae.classList.contains("edtext")) ? (ae.closest(".task")?.dataset.id) : null;
+  const caret = focusId ? ae.selectionStart : null;
+
+  const active = {}, done = {}, activeCount = {}, overdue = {};
+  people.forEach(p => { active[p.id] = []; done[p.id] = []; activeCount[p.id] = 0; overdue[p.id] = 0; });
+  const matchSearch = (t) => !filters.search || (t.text || "").toLowerCase().includes(filters.search);
+  lastItems.forEach(({ id, t }) => {
+    if (active[t.by] == null) return;
+    if (t.done) {
+      if (isRecentDone(t) && matchSearch(t)) done[t.by].push({ id, t });
+    } else {
+      activeCount[t.by]++;                                          // true (unfiltered) count for badge
+      if ((dueInfo(t.due) || {}).cls === "over") overdue[t.by]++;   // overdue stays accurate under filters
+      if (matchActive(t)) active[t.by].push({ id, t });
+    }
   });
 
-  for (const p of PEOPLE) {
+  for (const p of people) {
     const a = active[p.id].sort(sortKey);
-    const d = done[p.id].sort((x,y) => (y.t.created?.seconds||0)-(x.t.created?.seconds||0));
+    const d = done[p.id].sort((x,y) => (y.t.doneAt?.seconds||0)-(x.t.doneAt?.seconds||0));
+
+    if (colEls[p.id]) colEls[p.id].classList.toggle("dim", filters.person && p.id !== filters.person);
 
     const el = activeEls[p.id];
+    const keep = {};   // reuse the DOM node of a card being edited so typed text + open editor survive
+    el.querySelectorAll(".task[data-id]").forEach(n => { if (editing.has(n.dataset.id)) keep[n.dataset.id] = n; });
     el.innerHTML = "";
-    if (!a.length) el.innerHTML = '<div class="col-empty">No tasks — drag one here or add above</div>';
-    else a.forEach(({ id, t }) => el.appendChild(activeNode(id, t)));
+    if (!a.length) el.innerHTML = '<div class="col-empty">No tasks — drag one here or add below</div>';
+    else a.forEach(({ id, t }) => el.appendChild(keep[id] || activeNode(id, t)));
 
-    countEls[p.id].textContent = a.length;
-    const overdue = a.filter(x => { const di = dueInfo(x.t.due); return di && di.cls === "over"; }).length;
-    overEls[p.id].style.display = overdue ? "inline-block" : "none";
-    overEls[p.id].textContent = overdue ? overdue + " overdue" : "";
+    countEls[p.id].textContent = activeCount[p.id];
+    overEls[p.id].style.display = overdue[p.id] ? "inline-block" : "none";
+    overEls[p.id].textContent = overdue[p.id] ? overdue[p.id] + " overdue" : "";
 
-    drawerHeadEls[p.id].querySelector(`#dl-${p.id}`).textContent = "Done (" + d.length + ")";
+    document.getElementById(`dl-${p.id}`).textContent = "Done · last 7 days (" + d.length + ")";
     drawerHeadEls[p.id].classList.toggle("open", drawerOpen[p.id]);
     const body = drawerBodyEls[p.id];
     body.classList.toggle("hide", !drawerOpen[p.id]);
     body.innerHTML = "";
     if (drawerOpen[p.id]) {
-      if (!d.length) body.innerHTML = '<div class="col-empty">Nothing done yet</div>';
+      if (!d.length) body.innerHTML = '<div class="col-empty">Nothing done in the last 7 days</div>';
       else d.forEach(({ id, t }) => body.appendChild(doneNode(id, t)));
     }
   }
+
+  if (focusId) {
+    const inp = boardEl.querySelector(`.task[data-id="${focusId}"] .edtext`);
+    if (inp) { inp.focus(); if (caret != null) { try { inp.setSelectionRange(caret, caret); } catch (e) {} } }
+  }
+  renderMembers();
 }
 
+// ---- history (completed > 7 days ago, kept in DB, read-only) ----
+function renderHistory() {
+  const sec = (t) => t.doneAt?.seconds || t.created?.seconds || 0;
+  const rows = lastItems
+    .filter(({ t }) => t.done && !isRecentDone(t))
+    .filter(({ t }) => !filters.search || (t.text || "").toLowerCase().includes(filters.search))
+    .sort((x, y) => sec(y.t) - sec(x.t));
+  const host = document.getElementById("history");
+  let html = `<div class="hist-h">🗄️ History</div>
+    <div class="hist-sub">Completed tasks older than 7 days. Kept here so the board stays clear — read-only.</div>`;
+  if (!rows.length) {
+    html += `<div class="col-empty">Nothing archived yet.</div>`;
+  } else {
+    html += rows.map(({ t }) => {
+      const pr = personById(t.by);
+      const when = sec(t) ? new Date(sec(t) * 1000).toLocaleDateString(undefined, { day:"numeric", month:"short", year:"numeric" }) : "";
+      return `<div class="hist-row">
+        <span class="hist-dot" style="background:${pr.color}"></span>
+        <span class="hist-txt">${esc(t.text)}</span>
+        <span class="hist-who">${esc(pr.name)}</span>
+        <span class="hist-when">${when}</span>
+      </div>`;
+    }).join("");
+  }
+  host.innerHTML = html;
+}
+
+// ---- left rail members ----
+function renderMembers() {
+  const host = document.getElementById("memberList");
+  host.innerHTML = "";
+  people.forEach(p => {
+    const activeCount = lastItems.filter(x => x.t.by === p.id && !x.t.done).length;
+    const row = document.createElement("div");
+    row.className = "member" + (filters.person === p.id ? " sel" : "");
+    row.innerHTML = `
+      <span class="m-dot" style="background:${p.color}"></span>
+      <span class="m-name">${esc(p.name)}</span>
+      <span class="m-count">${activeCount}</span>
+      <button class="m-edit" title="Edit">✎</button>`;
+    row.onclick = (e) => {
+      if (e.target.classList.contains("m-edit")) { openPersonModal(p.id); return; }
+      filters.person = filters.person === p.id ? null : p.id;
+      refresh();
+    };
+    host.appendChild(row);
+  });
+}
+
+// ---- person modal ----
+const modal = document.getElementById("personModal");
+const pmName = document.getElementById("pmName");
+const pmErr  = document.getElementById("pmErr");
+const pmRemove = document.getElementById("pmRemove");
+let pmEditId = null;
+let pmColor = PALETTE[0];
+
+function buildSwatches() {
+  const host = document.getElementById("pmSwatches");
+  host.innerHTML = "";
+  PALETTE.forEach(c => {
+    const s = document.createElement("div");
+    s.className = "swatch" + (c === pmColor ? " sel" : "");
+    s.style.background = c;
+    s.onclick = () => { pmColor = c; buildSwatches(); };
+    host.appendChild(s);
+  });
+}
+function openPersonModal(id) {
+  pmEditId = id || null;
+  pmErr.textContent = "";
+  if (id) {
+    const p = personById(id);
+    document.getElementById("pmTitle").textContent = "Edit person";
+    pmName.value = p.name;
+    pmColor = p.color;
+    pmRemove.classList.remove("hide");
+  } else {
+    document.getElementById("pmTitle").textContent = "Add person";
+    pmName.value = "";
+    pmColor = PALETTE[people.length % PALETTE.length];
+    pmRemove.classList.add("hide");
+  }
+  buildSwatches();
+  modal.classList.remove("hide");
+  pmName.focus();
+}
+function closePersonModal() { modal.classList.add("hide"); }
+
+async function savePerson() {
+  const name = pmName.value.trim();
+  if (!name) { pmErr.textContent = "Name can't be empty."; return; }
+  try {
+    if (pmEditId) {
+      await updateDoc(doc(db, "people", pmEditId), { name, color: pmColor });
+    } else {
+      await addDoc(peopleCol(), { name, color: pmColor, order: people.length, created: serverTimestamp() });
+    }
+    closePersonModal();
+  } catch (e) { pmErr.textContent = "Could not save — check Firestore rules for /people."; }
+}
+async function removePerson() {
+  if (!pmEditId) return;
+  const activeCount = lastItems.filter(x => x.t.by === pmEditId && !x.t.done).length;
+  if (activeCount > 0) {
+    pmErr.textContent = `Complete or move this person's ${activeCount} active task${activeCount===1?"":"s"} first.`;
+    return;
+  }
+  try { await deleteDoc(doc(db, "people", pmEditId)); closePersonModal(); }
+  catch (e) { pmErr.textContent = "Could not remove."; }
+}
+
+document.getElementById("addPersonBtn").onclick = () => openPersonModal(null);
+document.getElementById("pmSave").onclick = savePerson;
+document.getElementById("pmRemove").onclick = removePerson;
+document.getElementById("pmCancel").onclick = closePersonModal;
+modal.onclick = (e) => { if (e.target === modal) closePersonModal(); };
+pmName.addEventListener("keydown", e => { if (e.key === "Enter") savePerson(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !modal.classList.contains("hide")) closePersonModal(); });
+
+// ---- footer ----
+function updateFooter() {
+  const total = lastItems.length;
+  const done = lastItems.filter(x => x.t.done).length;
+  const active = total - done;
+  document.getElementById("footCounts").innerHTML =
+    `<b>${active}</b> active · <b>${done}</b> done · <b>${total}</b> total`;
+}
+
+// ---- activity rail ----
 function relTime(sec) {
   if (!sec) return "just now";
   const diff = Math.floor(Date.now()/1000 - sec);
@@ -475,8 +842,9 @@ function renderActivity(rows) {
     item.className = "act-item";
     const txt = document.createElement("div");
     txt.className = "act-txt";
-    txt.innerHTML = `${meta.verb} <b></b> ${meta.prep} ${nameOf(a.person)}`;
+    txt.innerHTML = `${meta.verb} <b></b> ${meta.prep} <span class="act-name"></span>`;
     txt.querySelector("b").textContent = '"' + a.text + '"';
+    txt.querySelector(".act-name").textContent = nameOf(a.person);
     item.innerHTML = `<span class="act-ico">${meta.ico}</span>`;
     item.appendChild(txt);
     const time = document.createElement("span");
@@ -487,18 +855,73 @@ function renderActivity(rows) {
   });
 }
 
+// ---- view + filter wiring ----
+function refresh() { renderBoard(); if (showHistory) renderHistory(); }
+
+document.getElementById("today").textContent =
+  new Date().toLocaleDateString(undefined, { weekday:"long", day:"numeric", month:"long" });
+
+document.getElementById("search").addEventListener("input", (e) => {
+  filters.search = e.target.value.trim().toLowerCase();
+  refresh();
+});
+document.querySelectorAll("#priFilter button").forEach(b => {
+  b.onclick = () => {
+    filters.priority = b.dataset.p;
+    document.querySelectorAll("#priFilter button").forEach(x => x.classList.toggle("active", x === b));
+    renderBoard();
+  };
+});
+function setView(history) {
+  showHistory = history;
+  document.getElementById("board").style.display = history ? "none" : "flex";
+  document.getElementById("history").classList.toggle("hide", !history);
+  document.getElementById("nav-board").classList.toggle("active", !history);
+  document.getElementById("nav-history").classList.toggle("active", history);
+  if (history) renderHistory();
+}
+document.getElementById("nav-board").onclick = () => setView(false);
+document.getElementById("nav-history").onclick = () => setView(true);
+
+// ---- seeding (first run only) ----
+const LEGACY = [
+  { id:"NICK", name:"Nick", color:"#3b82f6", order:0 },
+  { id:"IVY",  name:"Ivy",  color:"#10b981", order:1 },
+  { id:"FYB",  name:"FYB",  color:"#8b5cf6", order:2 }
+];
+async function seedLegacy() {
+  try {
+    for (const p of LEGACY) {
+      await setDoc(doc(db, "people", p.id), { name:p.name, color:p.color, order:p.order, created:serverTimestamp() });
+    }
+  } catch (e) { seeded = false; statusEl.innerHTML = '<span class="err">Could not seed members — check Firestore rules for /people.</span>'; }
+}
+
+// ---- listeners ----
 if (db) {
-  onSnapshot(query(tasksCol(), orderBy("created","asc")), snap => {
+  onSnapshot(query(peopleCol(), orderBy("order","asc")), snap => {
+    if (snap.empty && !seeded) { seeded = true; seedLegacy(); return; }
+    people = [];
+    snap.forEach(d => people.push({ id:d.id, ...d.data() }));
+    peopleLoaded = true;
+    syncColumns();
+    refresh();
+    renderActivity(lastAct);   // re-resolve member names now that people are loaded/changed
+  }, err => { statusEl.innerHTML = '<span class="err">People sync error: ' + err.code + '</span>'; });
+
+  // NOTE: no orderBy — orderBy(F) silently drops docs missing F; we sort client-side (sortKey/history)
+  onSnapshot(tasksCol(), snap => {
     lastItems = [];
     snap.forEach(dd => lastItems.push({ id: dd.id, t: dd.data() }));
-    renderBoard(lastItems);
+    updateFooter();
+    refresh();
     const n = snap.size;
-    statusEl.textContent = "Live · " + n + " task" + (n === 1 ? "" : "s") + " total";
+    statusEl.textContent = "Live · " + n + " task" + (n === 1 ? "" : "s");
   }, err => { statusEl.innerHTML = '<span class="err">Connection error: ' + err.code + '</span>'; });
 
   onSnapshot(query(actCol(), orderBy("ts","desc"), limit(25)), snap => {
-    const rows = []; snap.forEach(d => rows.push(d.data()));
-    renderActivity(rows);
+    lastAct = []; snap.forEach(d => lastAct.push(d.data()));
+    renderActivity(lastAct);
   }, () => {});
 }
 </script>
