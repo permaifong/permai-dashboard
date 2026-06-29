@@ -9,10 +9,10 @@
 <style>
   :root { --bg:#f4f5f7; --card:#fff; --ink:#172b4d; --muted:#6b778c; --line:#e4e8ee; --rail:#fbfcfd; --orb:#6a9bff; }
   #orb {
-    position:fixed; top:0; left:0; width:360px; height:360px; margin:-180px 0 0 -180px;
-    border-radius:50%; pointer-events:none; z-index:0; opacity:.5;
-    background:radial-gradient(circle, var(--orb) 0%, transparent 68%);
-    filter:blur(40px); will-change:transform; transition:opacity .3s;
+    position:fixed; top:0; left:0; width:620px; height:620px; margin:-310px 0 0 -310px;
+    border-radius:50%; pointer-events:none; z-index:0; opacity:.3;
+    background:radial-gradient(circle, var(--orb) 0%, transparent 70%);
+    filter:blur(90px); will-change:transform; transition:opacity .3s;
   }
   * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
   html, body { height:100%; }
@@ -343,7 +343,7 @@
 
   /* ---- dark mode ---- */
   body.dark { --bg:#1d2125; --card:#22272b; --ink:#c7d1db; --muted:#8c9bab; --line:#2c333a; --rail:#1b1f23; --orb:#4f7cff; color-scheme:dark; }
-  body.dark #orb { opacity:.6; }
+  body.dark #orb { opacity:.42; }
   body.dark .col { background:#15191c; }
   body.dark .task { box-shadow:0 1px 2px rgba(0,0,0,.45); }
   body.dark .navbtn.active, body.dark .member.sel, body.dark .prifilter button.active, body.dark .lchip.active { background:#15395f; color:#9cc2ff; border-color:#15395f; }
@@ -1287,19 +1287,20 @@ document.getElementById("actToggle").onclick  = () => { localStorage.setItem("pe
 document.getElementById("actReopen").onclick = () => { localStorage.setItem("permai_act", "on");  applyAct(); };
 applyAct();
 
-// ---- ambient cursor-glow orb (subtle, trailing, behind the board) ----
+// ---- ambient orb: big, translucent, drifts slowly + bounces off the edges (behind the board) ----
 const orb = document.getElementById("orb");
 const orbBtn = document.getElementById("orbBtn");
-let ox = innerWidth/2, oy = innerHeight/2, tx = ox, ty = oy, orbRaf = null;
-addEventListener("mousemove", (e) => { tx = e.clientX; ty = e.clientY; });
+let ox = innerWidth * 0.3, oy = innerHeight * 0.4, vx = 0.4, vy = 0.32, orbRaf = null;
 function orbLoop() {
-  ox += (tx - ox) * 0.12; oy += (ty - oy) * 0.12;   // lerp = smooth trailing follow
+  ox += vx; oy += vy;
+  if (ox < 0 || ox > innerWidth)  vx = -vx;   // slow bounce off the viewport edges
+  if (oy < 0 || oy > innerHeight) vy = -vy;
   orb.style.transform = `translate(${ox}px, ${oy}px)`;
   orbRaf = requestAnimationFrame(orbLoop);
 }
 function applyOrb() {
   const pref = localStorage.getItem("permai_orb") !== "off";   // user preference (default on)
-  const canRun = pref && matchMedia("(pointer: fine)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const canRun = pref && !matchMedia("(prefers-reduced-motion: reduce)").matches;
   orb.style.display = canRun ? "block" : "none";
   orbBtn.classList.toggle("off", !pref);
   document.getElementById("orbState").textContent = pref ? "On" : "Off";
