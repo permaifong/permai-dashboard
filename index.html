@@ -261,7 +261,7 @@ tr.ru td{background:rgba(255,165,2,.03)}
       <button onclick="exportOrderingExcel()" style="background:rgba(10,124,110,.1);border:1px solid rgba(10,124,110,.3);border-radius:7px;padding:6px 14px;color:var(--accent);font-family:var(--fb);font-size:12px;cursor:pointer;font-weight:500;white-space:nowrap">⬇ Download PO</button>
     </div>
     <div class="panel"><div class="ts"><table class="dt">
-      <thead><tr><th>Priority</th><th>Medicine</th><th>Stock</th><th>Days Left</th><th>Usage (2 weeks)</th><th>Order Qty (2 weeks)</th><th>Est. Cost</th></tr></thead>
+      <thead><tr><th>Priority</th><th>Medicine</th><th>Supplier</th><th>Stock</th><th>Days Left</th><th>Usage (2 weeks)</th><th>Order Qty (2 weeks)</th><th>Est. Cost</th></tr></thead>
       <tbody id="t-ordering"></tbody>
     </table></div></div>
   </div>
@@ -1393,13 +1393,14 @@ function rOrdering(){
     return`<tr class="${i.urgency==='critical'?'rc':i.urgency==='urgent'?'ru':''}">
       <td data-sort="${urgN[i.urgency]??4}">${up[i.urgency]||'<span class="p pm">Low</span>'}</td>
       <td><div class="mn">${esc(tr(i.description,50))}<small>${esc(i.brand||'')}</small></div></td>
+      ${supCell(i)}
       <td><span class="qn" style="${i.available_stock===0?'color:var(--danger)':''}">${i.available_stock}</span></td>
       <td data-sort="${d===999?9999:d}">${dl}</td>
       <td><span class="qn">${usage2wk} in 2 weeks</span></td>
       <td><span class="p pt2" style="font-size:12px;font-weight:700">${oq}</span></td>
       <td class="cost">MYR ${fmt(ec)}</td>
     </tr>`;
-  }).join(''):'<tr><td colspan="7" class="empty">Nothing to order 🎉</td></tr>';
+  }).join(''):'<tr><td colspan="8" class="empty">Nothing to order 🎉</td></tr>';
   mkSortable('t-ordering');
 }
 function exportOrderingExcel(){
@@ -1413,8 +1414,8 @@ function exportOrderingExcel(){
   const poRef='PO-'+new Date().toISOString().slice(0,10).replace(/-/g,'');
   const grandTotal=items.reduce((s,i)=>s+(i.order_qty||0)*(i.latest_cost_price||0),0);
   const fmt2=v=>v.toLocaleString('en-MY',{minimumFractionDigits:2,maximumFractionDigits:2});
-  const N=11;
-  const COL=['#','Medicine','Brand','UOM','Days Left','Curr. Stock','Usage/2wk','Order Qty (2wk)','Unit Cost (MYR)','Est. Total (MYR)','Notes'];
+  const N=13;
+  const COL=['#','Medicine','Brand','UOM','Days Left','Curr. Stock','Usage/2wk','Order Qty (2wk)','Unit Cost (MYR)','Est. Total (MYR)','Notes','Supplier','Contact'];
   const aoa=[];const smap={};const merges=[];let rr=0;
   function row(...vals){const r=vals.slice();while(r.length<N)r.push('');aoa.push(r);rr++;}
   function blank(){aoa.push(Array(N).fill(''));rr++;}
@@ -1488,7 +1489,7 @@ function exportOrderingExcel(){
       const oq=i.order_qty||0;
       const cost=i.latest_cost_price||0;
       const stripe=rowNum%2!==0?'F0F7FF':null;
-      row(++rowNum,i.description||'',i.brand||'',i.uom||'',dLabel,i.available_stock,Math.round((i.recommended_monthly||0)/2),oq,cost,Math.round(oq*cost*100)/100,'');
+      row(++rowNum,i.description||'',i.brand||'',i.uom||'',dLabel,i.available_stock,Math.round((i.recommended_monthly||0)/2),oq,cost,Math.round(oq*cost*100)/100,'',i.supplier||'',i.supplier_contact||'');
       const ri=rr-1;
       const ctr=fillSt(stripe,{alignment:{horizontal:'center',vertical:'center'}});
       const lft=fillSt(stripe,{alignment:{horizontal:'left',vertical:'center',wrapText:true}});
@@ -1496,7 +1497,7 @@ function exportOrderingExcel(){
       const num=fillSt(stripe,{alignment:{horizontal:'right',vertical:'center'},numFmt:'#,##0.00'});
       st(ri,0,ctr);st(ri,1,lft);st(ri,2,lftNW);st(ri,3,ctr);st(ri,4,ctr);st(ri,5,ctr);st(ri,6,ctr);
       st(ri,7,{fill:{patternType:'solid',fgColor:{rgb:'FFB6C1'}},font:{bold:true,color:{rgb:'880E4F'}},alignment:{horizontal:'center',vertical:'center'}});
-      st(ri,8,num);st(ri,9,num);st(ri,10,lftNW);
+      st(ri,8,num);st(ri,9,num);st(ri,10,lftNW);st(ri,11,lftNW);st(ri,12,lft);
     });
     blank();
   });
@@ -1717,7 +1718,7 @@ function fAS(){
   const groups=Object.fromEntries(catOrder.map(c=>[c,[]]));
   items.forEach(i=>{const c=getCategory(i.description);(groups[c]||groups['Uncategorized']).push(i);});
 
-  const COLS=['Medicine','Available','Required','Days Left','Usage/Mo','Cost','Sell','Margin','Expiry','Status','🔥 Pop.'];
+  const COLS=['Medicine','Available','Required','Days Left','Usage/Mo','Cost','Sell','Margin','Expiry','Status','🔥 Pop.','Supplier'];
   const sortGrp=(grp,cat)=>{
     const ss=asSortState[cat];
     if(!ss||ss.col<0)return grp;
@@ -1735,6 +1736,7 @@ function fAS(){
         case 8:av=a.nearest_expiry||'9999';bv=b.nearest_expiry||'9999';break;
         case 9:av=a.available_stock===0?0:a.needs_reorder?1:2;bv=b.available_stock===0?0:b.needs_reorder?1:2;break;
         case 10:av=pLvl(a);bv=pLvl(b);break;
+        case 11:av=(a.supplier||'zzz');bv=(b.supplier||'zzz');break;
         default:return 0;
       }
       if(typeof av==='string')return ss.asc?av.localeCompare(bv):bv.localeCompare(av);
@@ -1756,7 +1758,7 @@ function fAS(){
     <td>${m!==null?`<span class="p ${mc}">${m}%</span>`:'<span class="p pm">—</span>'}</td>
     <td style="font-family:var(--fm);font-size:10px;color:var(--muted)">${i.nearest_expiry||'—'}</td>
     <td><span class="p ${sc}">${i.available_stock===0?'OOS':i.needs_reorder?'Reorder':'OK'}</span></td>
-    <td data-sort="${lv}" style="white-space:nowrap">${pDots(lv)}</td></tr>`;
+    <td data-sort="${lv}" style="white-space:nowrap">${pDots(lv)}</td>${supCell(i)}</tr>`;
   };
 
   const thS='background:var(--bg);font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:.06em;padding:5px 11px;cursor:pointer;user-select:none;white-space:nowrap;border-bottom:1px solid var(--border);';
@@ -1769,11 +1771,11 @@ function fAS(){
       const act=ss.col===ci;
       return`<td onclick='sortCat(${JSON.stringify(cat)},${ci})' style="${thS}color:${act?'var(--accent)':'var(--muted)'}">${esc(lbl)}${act?`<span style="margin-left:2px">${ss.asc?'↑':'↓'}</span>`:''}</td>`;
     }).join('');
-    html+=`<tr><td colspan="11" style="background:rgba(10,124,110,.09);padding:9px 14px 8px;font-family:var(--fh);font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;border-top:2px solid rgba(10,124,110,.18);border-bottom:1px solid rgba(10,124,110,.12)">${esc(cat)}<span style="font-weight:500;font-family:var(--fm);margin-left:7px;color:var(--muted);font-size:10px">(${grp.length})</span></td></tr>`;
+    html+=`<tr><td colspan="12" style="background:rgba(10,124,110,.09);padding:9px 14px 8px;font-family:var(--fh);font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;border-top:2px solid rgba(10,124,110,.18);border-bottom:1px solid rgba(10,124,110,.12)">${esc(cat)}<span style="font-weight:500;font-family:var(--fm);margin-left:7px;color:var(--muted);font-size:10px">(${grp.length})</span></td></tr>`;
     html+=`<tr>${mhdr}</tr>`;
     html+=grp.map(mkRow).join('');
   });
-  document.getElementById('t-as').innerHTML=html||'<tr><td colspan="11" class="empty">No items.</td></tr>';
+  document.getElementById('t-as').innerHTML=html||'<tr><td colspan="12" class="empty">No items.</td></tr>';
 }
 function sAF(f,btn){asFilter=f;document.querySelectorAll('#view-allstock .fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');fAS();}
 
@@ -2175,6 +2177,15 @@ function tS(){return{backgroundColor:'#ffffff',titleColor:'#1a1a1a',bodyColor:'#
 function fmt(n){if(!n&&n!==0)return'—';return Number(n).toLocaleString('en-MY',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function tr(s,n){return s&&s.length>n?s.substring(0,n)+'…':(s||'');}
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+// Supplier table cell: name in cell, contact on hover (tooltip). Blank/TBD -> dash.
+function supCell(i){
+  const s=(i.supplier||'').trim();
+  if(!s||s==='TBD')return '<td data-sort="zzz"><span style="color:var(--muted)">—</span></td>';
+  const c=(i.supplier_contact||'').trim();
+  const info=c?` <small style="color:var(--muted)">ⓘ</small>`:'';
+  const tip=c?` title="${esc(c)}"`:'';
+  return `<td data-sort="${esc(s)}"${tip}><span style="${c?'cursor:help':''}">${esc(s)}${info}</span></td>`;
+}
 function patientId(name){let h=5381;const s=String(name||'');for(let i=0;i<s.length;i++)h=((h<<5)+h)^s.charCodeAt(i);return'PT-'+(((h>>>0)%9000)+1000);}
 function _norm(s){return String(s||'').trim().toUpperCase().replace(/\s+/g,' ');}
 let _catNorm=null;
