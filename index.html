@@ -506,7 +506,7 @@ tr.ru td{background:rgba(255,165,2,.03)}
     <div class="sh"><h2>Stock Discrepancies</h2><span class="sub" id="sk-sub">unexplained stock loss</span></div>
     <div class="ab ab-r"><div class="ab-icon">🔍</div><div>
       <div class="ab-title">Stock that left the shelf but was never dispensed</div>
-      <div class="ab-body">For every medicine we compare each morning's stock count against the next morning's, minus what the dispensary recorded in between: <b>expected = opening − dispensed</b>. When the shelf ends up <b>lower</b> than expected, that gap is unexplained loss. A shelf that ends <b>higher</b> just means stock was received, so it is never flagged — receiving can only hide a loss, never invent one. These are <b>leads to investigate, not proof</b>: expired or damaged write-offs, manual stock-count corrections, branch returns/transfers, or a sale logged under a slightly different name all look the same. The full day-by-day math is shown per item (click a row) so a human can verify each one.</div>
+      <div class="ab-body">For every medicine we compare each morning's stock count against the next morning's, minus what the dispensary recorded in between: <b>expected = opening − dispensed</b>. A shortfall is a lead. But most shortfalls are <b>not</b> loss, so we now cross-check every one against Remedi's <b>Inventory Movement Report</b> (its own transactional ledger) and split them: a shortfall is <b>explained</b> when the movement log confirms the stock was dispensed under a slightly different name, when a snapshot count was simply wrong (the ledger never held that many), when it lands on the very first snapshot, or when it is tiny rounding. What remains after all that is a genuine <b>real lead</b> worth physically counting — and controlled/abusable drugs are flagged 💊. Still leads, not proof: click any row for the full day-by-day math and the reason each day was classified the way it was.</div>
     </div></div>
     <div id="sk-lock" class="panel" style="max-width:390px;margin:24px auto;text-align:center;padding:30px 26px">
       <div style="font-size:30px;margin-bottom:8px">🔒</div>
@@ -518,22 +518,53 @@ tr.ru td{background:rgba(255,165,2,.03)}
     </div>
     <div id="sk-content" style="display:none">
     <div class="sg" id="sk-stats"></div>
+    <details class="panel" style="margin-bottom:14px;padding:0">
+      <summary style="cursor:pointer;padding:12px 16px;font-weight:600;font-size:13px;list-style:none;display:flex;align-items:center;gap:8px">
+        <span style="color:var(--accent)">📋</span> How did we get to this number? <span style="font-weight:400;color:var(--muted);font-size:11.5px">(what records we used, and how the "real" figure is worked out)</span>
+      </summary>
+      <div style="padding:2px 18px 16px;font-size:12.5px;line-height:1.65;color:var(--text)">
+        <div style="color:var(--muted);margin-bottom:10px">Three Remedi exports are cross-checked. All are pulled fresh every morning by the pipeline:</div>
+        <ol style="margin:0 0 12px 18px;padding:0">
+          <li style="margin-bottom:7px"><b>Daily stock counts</b> — <code style="font-family:var(--fm);font-size:11px">allstock_YYYYMMDD</code> (one file per day). Each is a morning photo of every medicine's <b>Available Stock</b>. Comparing one morning to the next tells us how much the shelf moved.</li>
+          <li style="margin-bottom:7px"><b>Dispensary sales</b> — <code style="font-family:var(--fm);font-size:11px">dispensary_YYYY_MM</code>. Every unit actually handed to a patient, with the date. This is what <i>should</i> explain the shelf going down.</li>
+          <li style="margin-bottom:0"><b>Inventory Movement Report</b> — <code style="font-family:var(--fm);font-size:11px">movement_YYYY_MM</code>. Remedi's own stock ledger (goods received + consumed per batch). We use it to <b>explain away false alarms</b>, not to flag loss.</li>
+        </ol>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:11px 13px;margin-bottom:12px">
+          <div style="font-family:var(--fm);font-size:12px;margin-bottom:6px"><b>Step 1 — find every shortfall.</b> For each medicine, each day:</div>
+          <div style="font-family:var(--fm);font-size:12px;color:var(--accent);margin-bottom:4px">should be left = yesterday's stock − units dispensed</div>
+          <div style="font-family:var(--fm);font-size:12px;color:var(--danger)">shortfall = should be left − today's actual stock &nbsp;&nbsp;(only when positive)</div>
+        </div>
+        <div style="margin-bottom:6px"><b>Step 2 — throw out the false alarms.</b> Every shortfall is checked against the movement ledger and labelled:</div>
+        <ul style="margin:0 0 12px 18px;padding:0;color:var(--muted)">
+          <li><b style="color:var(--ok)">Dispensed (movement log)</b> — the ledger shows it left the shelf as a sale logged under a slightly different name. Not loss.</li>
+          <li><b style="color:var(--warning)">Data correction</b> — the count was simply wrong (the ledger's running balance was never anywhere near that high). Not loss.</li>
+          <li><b style="color:var(--muted)">First-day baseline</b> — a one-off jump on the very first snapshot (stale opening figure). Not loss.</li>
+          <li><b style="color:var(--muted)">Tiny rounding / usage timing</b> — a few units, or normal usage that landed on a different day. Not loss.</li>
+          <li><b style="color:var(--danger)">Unexplained</b> — survives every check above. <b>This is the only part we count as a real lead.</b></li>
+        </ul>
+        <div><b>Step 3 — the number you see.</b> The <b style="color:var(--danger)">Needs Checking</b> total is the value of only the <b>Unexplained</b> units, added up. Everything the records explain is stripped out first, so the figure is a short, honest to-check list — not the raw shelf-vs-sales gap. Click any medicine row to see its day-by-day math and how each day was labelled.</div>
+      </div>
+    </details>
     <div class="panel">
-      <div class="ph"><span class="pt">Unexplained Loss by Medicine</span><span class="pb" id="sk-range">—</span>
-        <span style="margin-left:auto;display:flex;gap:6px" id="sk-filter-btns">
-          <span class="fb active" onclick="sSK('all',this)">All</span>
+      <div class="ph"><span class="pt">Stock Discrepancies by Medicine</span><span class="pb" id="sk-range">—</span>
+        <span style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap" id="sk-filter-btns">
+          <span class="fb active" onclick="sSK('real',this)">Needs checking</span>
+          <span class="fb" onclick="sSK('controlled',this)">💊 Controlled</span>
+          <span class="fb" onclick="sSK('explained',this)">Explained</span>
           <span class="fb" onclick="sSK('nodisp',this)">No dispensing record</span>
+          <span class="fb" onclick="sSK('all',this)">All</span>
         </span>
       </div>
       <div class="ts"><table class="dt">
         <thead><tr>
           <th>Medicine</th>
-          <th title="Units that left the shelf but were never dispensed, over the whole period. = opening stock − units sold − actual stock left.">Missing (unaccounted)</th>
-          <th title="Total units the dispensary recorded handing out over the WHOLE audited period — not just the flagged day(s). Shown for context: compare it to Missing. A big Missing next to a tiny Sold means the loss dwarfs normal usage.">Sold / Given Out<br><span style="font-weight:400;font-size:9px;color:var(--muted)">(whole period)</span></th>
+          <th title="Why this shortfall was classified the way it was. 'Unexplained' = a real lead worth checking. Everything else is explained by the records (data correction, confirmed dispensing, first-day baseline, or rounding).">Why</th>
+          <th title="For a real lead: the genuinely unexplained units left after netting out data noise. For an explained row: the total shortfall that the records account for. = opening stock − units sold − actual stock left.">Unaccounted</th>
+          <th title="Total units the dispensary recorded handing out over the WHOLE audited period — not just the flagged day(s). Shown for context: compare it to Unaccounted.">Sold / Given Out<br><span style="font-weight:400;font-size:9px;color:var(--muted)">(whole period)</span></th>
           <th title="How many SEPARATE days this medicine came up short. Many days = a recurring leak; 1 day = a one-off (often a stock correction or write-off).">Days Affected</th>
           <th title="Cost price per unit (what the clinic pays to buy it).">Unit Cost</th>
-          <th title="Missing units × cost price — what it costs to REPLACE the missing stock.">Capital Lost</th>
-          <th title="Missing units × selling price — the REVENUE those units would have earned if sold.">Sales Lost</th>
+          <th title="Unaccounted units × cost price — what it would cost to REPLACE them. For a real lead this is the unexplained portion only.">Capital</th>
+          <th title="Unaccounted units × selling price — the REVENUE those units would have earned. For a real lead this is the unexplained portion only.">Sales Value</th>
           <th></th>
         </tr></thead>
         <tbody id="t-sk"></tbody>
@@ -1042,8 +1073,9 @@ function applySKLock(){
   if(!lock||!content)return;
   if(skUnlocked){
     lock.style.display='none';content.style.display='';
-    if(sub)sub.textContent=(a&&a.available)?`${a.items_flagged} medicine${a.items_flagged===1?'':'s'} with unexplained loss`:'unavailable';
-    if(badge)badge.textContent=(a&&a.available)?(a.items_flagged||0):'0';
+    const rl=(a&&a.real_leads_count!=null)?a.real_leads_count:(a?a.items_flagged:0);
+    if(sub)sub.textContent=(a&&a.available)?`${rl} medicine${rl===1?'':'s'} worth checking`:'unavailable';
+    if(badge)badge.textContent=(a&&a.available)?(rl||0):'0';
   }else{
     lock.style.display='';content.style.display='none';
     if(sub)sub.textContent='🔒 password protected';
@@ -1102,7 +1134,7 @@ function render(){
 }
 
 // ── STOCK DISCREPANCIES (LOSS CONTROL) ────────────────────────────
-let skFilter='all';
+let skFilter='real';
 function sSK(f,btn){
   skFilter=f;
   document.querySelectorAll('#sk-filter-btns .fb').forEach(b=>b.classList.remove('active'));
@@ -1125,53 +1157,87 @@ function rShrinkage(){
     if(sub)sub.textContent='unavailable';
     document.getElementById('sk-stats').innerHTML='';
     document.getElementById('sk-range').textContent='';
-    document.getElementById('t-sk').innerHTML=`<tr><td colspan="8" class="empty">${esc(a.reason||'Not enough daily stock snapshots yet to reconcile. Need at least 2 days of allstock downloads.')}</td></tr>`;
+    document.getElementById('t-sk').innerHTML=`<tr><td colspan="9" class="empty">${esc(a.reason||'Not enough daily stock snapshots yet to reconcile. Need at least 2 days of allstock downloads.')}</td></tr>`;
     return;
   }
-  if(badge)badge.textContent=a.items_flagged||0;
-  if(sub)sub.textContent=`${a.items_flagged} medicine${a.items_flagged===1?'':'s'} with unexplained loss`;
+  const real=a.real_leads_count!=null?a.real_leads_count:a.items_flagged;
+  const ctrl=a.controlled_leads_count||0;
+  if(badge)badge.textContent=real||0;
+  if(sub)sub.textContent=`${real} medicine${real===1?'':'s'} worth checking`;
   document.getElementById('sk-range').textContent=`${a.date_from} → ${a.date_to} · ${a.snapshots} daily snapshots`;
+  const realSales=a.real_missing_sales!=null?a.real_missing_sales:a.total_missing_sales;
+  const realVal=a.real_missing_value!=null?a.real_missing_value:a.total_missing_value;
+  const realUnits=a.real_missing_units!=null?a.real_missing_units:a.total_missing_units;
   document.getElementById('sk-stats').innerHTML=`
-    <div class="sc sc-r"><div class="sl">Sales / Revenue Lost</div><div class="sv sv-r" style="font-size:20px;margin-top:4px">MYR ${fmt(a.total_missing_sales)}</div><div class="ss">missing stock valued at selling price</div></div>
-    <div class="sc sc-o"><div class="sl">Capital Lost (at cost)</div><div class="sv sv-o" style="font-size:20px;margin-top:4px">MYR ${fmt(a.total_missing_value)}</div><div class="ss">what it costs to replace it</div></div>
-    <div class="sc sc-r"><div class="sl">Units Unaccounted For</div><div class="sv sv-r">${(a.total_missing_units||0).toLocaleString('en-MY')}</div><div class="ss">across ${a.items_flagged} medicines</div></div>
+    <div class="sc sc-r"><div class="sl">Needs Checking (real leads)</div><div class="sv sv-r" style="font-size:20px;margin-top:4px">MYR ${fmt(realSales)}</div><div class="ss">${real} medicine${real===1?'':'s'}${ctrl?` · <b style="color:var(--danger)">💊 ${ctrl} controlled</b>`:''}</div></div>
+    <div class="sc sc-o"><div class="sl">Capital to Replace (real)</div><div class="sv sv-o" style="font-size:20px;margin-top:4px">MYR ${fmt(realVal)}</div><div class="ss">${(realUnits||0).toLocaleString('en-MY')} unexplained units, at cost</div></div>
+    <div class="sc sc-r"><div class="sl">Units to Account For</div><div class="sv sv-r">${(realUnits||0).toLocaleString('en-MY')}</div><div class="ss">genuinely unexplained, across ${real} medicines</div></div>
     <div class="sc sc-t"><div class="sl">Period Audited</div><div class="sv sv-t">${a.snapshots} days</div><div class="ss">${a.date_from} → ${a.date_to}</div></div>`;
   rShrinkageTable();
+}
+// Colour a "Why" reason badge: real leads red, everything else muted/neutral.
+function skReasonBadge(it){
+  const k=it.reason_key||(it.is_real_lead?'real':'timing_noise');
+  const map={
+    real:{c:'pr',t:'Unexplained'},
+    movement_confirmed:{c:'pg',t:'Dispensed (movement log)'},
+    baseline_error:{c:'po',t:'Data correction'},
+    first_snapshot:{c:'pm',t:'First-day baseline'},
+    rounding_tiny:{c:'pm',t:'Tiny rounding'},
+    timing_noise:{c:'pm',t:'Usage timing'}
+  };
+  const m=map[k]||map.timing_noise;
+  return`<span class="p ${m.c}" style="font-size:9.5px;padding:1px 6px">${m.t}</span>`;
 }
 function rShrinkageTable(){
   const a=D.stock_audit||{};
   let items=(a.items||[]).slice();
-  if(skFilter==='nodisp')items=items.filter(i=>i.dispensed_total===0);
+  if(skFilter==='real')items=items.filter(i=>i.is_real_lead);
+  else if(skFilter==='controlled')items=items.filter(i=>i.is_real_lead&&i.controlled);
+  else if(skFilter==='explained')items=items.filter(i=>!i.is_real_lead);
+  else if(skFilter==='nodisp')items=items.filter(i=>i.dispensed_total===0);
   const tb=document.getElementById('t-sk');
-  if(!items.length){tb.innerHTML='<tr><td colspan="8" class="empty">No items match this filter.</td></tr>';return;}
+  if(!items.length){tb.innerHTML='<tr><td colspan="9" class="empty">No items match this filter.</td></tr>';return;}
   tb.innerHTML=items.map((it,i)=>{
+    const real=it.is_real_lead;
+    // Figures shown are those attributable to THIS row's classification:
+    const units=real?(it.real_units!=null?it.real_units:it.missing_units):it.missing_units;
+    const val=real?(it.real_value!=null?it.real_value:it.missing_value):it.missing_value;
+    const sales=real?(it.real_sales!=null?it.real_sales:it.missing_sales):it.missing_sales;
+    const ctrlTag=it.controlled?' <span class="p pr" style="font-size:9px;padding:1px 5px">💊 controlled</span>':'';
     const inact=it.status&&it.status.toLowerCase()==='inactive'
       ?' <span class="p pm" style="font-size:9px;padding:1px 5px">inactive</span>':'';
     const noDisp=it.dispensed_total===0
-      ?' <span class="p pr" style="font-size:9px;padding:1px 5px">0 dispensed</span>':'';
-    const ev=it.events.map(e=>`<tr>
+      ?' <span class="p pm" style="font-size:9px;padding:1px 5px">0 dispensed</span>':'';
+    const dim=real?'':'opacity:.62';
+    const ev=it.events.map(e=>{
+      const er=e.real?'<span class="p pr" style="font-size:8.5px;padding:0 5px">lead</span>'
+                     :`<span class="p pm" style="font-size:8.5px;padding:0 5px">${esc(e.reason||'')}</span>`;
+      return`<tr>
         <td style="font-family:var(--fm);font-size:11px">${e.from} → ${e.to}</td>
         <td class="qn">${e.opening}</td><td class="qn">${e.dispensed}</td>
         <td class="qn">${e.expected}</td><td class="qn">${e.closing}</td>
-        <td style="font-weight:700;color:var(--danger)">−${e.missing}</td></tr>`).join('');
-    const flaggedDisp=Math.round(it.events.reduce((s,e)=>s+(e.dispensed||0),0)*10)/10;
+        <td style="font-weight:700;color:${e.real?'var(--danger)':'var(--muted)'}">−${e.missing}</td>
+        <td>${er}</td></tr>`;}).join('');
     const u=esc(it.uom||'units');
-    const ctx=`Over the whole audited period, <b>${it.dispensed_total} ${u}</b> were legitimately sold/given out`
-      +` — of which <b>${flaggedDisp}</b> on the flagged day(s) below. The <b style="color:var(--danger)">${it.missing_units} ${u}</b> missing is ON TOP of that, and unexplained.`;
-    return`<tr onclick="toggleSK(${i})" style="cursor:pointer">
-      <td><div class="mn">${esc(tr(it.description,46))}${inact}${noDisp}<small>${esc(it.code||'')}</small></div></td>
-      <td><span class="p pr">${it.missing_units} ${esc(it.uom||'')}</span></td>
+    const ctx=real
+      ? `After netting out data corrections, confirmed dispensing and rounding, <b style="color:var(--danger)">${units} ${u}</b> remain genuinely unexplained${it.controlled?' <b style="color:var(--danger)">(controlled substance — physically count this)</b>':''}. Rows tagged <b>lead</b> below are the unexplained days; the rest are already explained.`
+      : `This medicine's shortfall is <b>explained</b> as: <b>${esc(it.reason||'')}</b>. Not counted as loss. The day-by-day math is shown for verification.`;
+    return`<tr onclick="toggleSK(${i})" style="cursor:pointer;${dim}">
+      <td><div class="mn">${esc(tr(it.description,44))}${ctrlTag}${inact}${noDisp}<small>${esc(it.code||'')}</small></div></td>
+      <td>${skReasonBadge(it)}</td>
+      <td><span class="p ${real?'pr':'pm'}">${units} ${esc(it.uom||'')}</span></td>
       <td class="qn">${it.dispensed_total}</td>
       <td class="qn">${it.days_flagged}</td>
       <td class="qn">${it.unit_cost?('MYR '+fmt(it.unit_cost)):'—'}</td>
-      <td style="font-weight:700;color:var(--warning)">MYR ${fmt(it.missing_value)}</td>
-      <td style="font-weight:700;color:var(--danger)">MYR ${fmt(it.missing_sales)}</td>
+      <td style="font-weight:700;color:${real?'var(--warning)':'var(--muted)'}">MYR ${fmt(val)}</td>
+      <td style="font-weight:700;color:${real?'var(--danger)':'var(--muted)'}">MYR ${fmt(sales)}</td>
       <td><span id="sk-c-${i}" style="color:var(--muted);font-size:13px">▸</span></td>
     </tr>
-    <tr id="sk-d-${i}" style="display:none"><td colspan="8" style="background:var(--surface);padding:0">
+    <tr id="sk-d-${i}" style="display:none"><td colspan="9" style="background:var(--surface);padding:0">
       <div style="padding:10px 16px">
         <div style="font-size:11.5px;color:var(--text);margin-bottom:8px;line-height:1.5;background:var(--card);border:1px solid var(--border);border-radius:7px;padding:8px 11px">${ctx}</div>
-        <div style="font-size:11px;color:var(--muted);margin-bottom:7px;font-family:var(--fm)">Day-by-day reconciliation &mdash; <b>stock at start − units sold = what should be left</b>, compared to the next morning's actual count. The gap is what's missing.</div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:7px;font-family:var(--fm)">Day-by-day reconciliation &mdash; <b>stock at start − units sold = what should be left</b>, compared to the next morning's actual count. The gap is the shortfall; the last column says how we classified it.</div>
         <table class="dt" style="width:100%">
           <thead><tr>
             <th title="The overnight gap between two morning stock counts.">Stock count (from → to)</th>
@@ -1179,7 +1245,8 @@ function rShrinkageTable(){
             <th title="Units the dispensary recorded handing out during that gap.">Sold / Given Out</th>
             <th title="What should be left = stock at start − sold.">Should be left</th>
             <th title="Units actually on the shelf at the next morning's count.">Actually left</th>
-            <th title="The shortfall = should be left − actually left.">Missing</th>
+            <th title="The shortfall = should be left − actually left.">Shortfall</th>
+            <th title="How this day was classified: a real lead, or the reason it is explained.">Why</th>
           </tr></thead>
           <tbody>${ev}</tbody>
         </table>
