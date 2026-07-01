@@ -548,11 +548,10 @@ tr.ru td{background:rgba(255,165,2,.03)}
     <div class="panel">
       <div class="ph"><span class="pt">Stock Discrepancies by Medicine</span><span class="pb" id="sk-range">—</span>
         <span style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap" id="sk-filter-btns">
-          <span class="fb active" onclick="sSK('real',this)">Needs checking</span>
+          <span class="fb active" onclick="sSK('real',this)">Missing (to check)</span>
           <span class="fb" onclick="sSK('controlled',this)">💊 Controlled</span>
-          <span class="fb" onclick="sSK('explained',this)">Explained</span>
           <span class="fb" onclick="sSK('nodisp',this)">No dispensing record</span>
-          <span class="fb" onclick="sSK('all',this)">All</span>
+          <span class="fb" onclick="sSK('all',this)">Show all</span>
         </span>
       </div>
       <div class="ts"><table class="dt">
@@ -1168,12 +1167,10 @@ function rShrinkage(){
   const realSales=a.real_missing_sales!=null?a.real_missing_sales:a.total_missing_sales;
   const realVal=a.real_missing_value!=null?a.real_missing_value:a.total_missing_value;
   const realUnits=a.real_missing_units!=null?a.real_missing_units:a.total_missing_units;
-  const totalSales=a.total_missing_sales||0;
-  const explAway=a.explained_sales!=null?a.explained_sales:Math.max(0,totalSales-realSales);
   document.getElementById('sk-stats').innerHTML=`
-    <div class="sc sc-r"><div class="sl">Needs Checking (real leads)</div><div class="sv sv-r" style="font-size:20px;margin-top:4px">MYR ${fmt(realSales)}</div><div class="ss">${real} medicine${real===1?'':'s'}${ctrl?` · <b style="color:var(--danger)">💊 ${ctrl} controlled</b>`:''}</div></div>
-    <div class="sc sc-o"><div class="sl">Capital to Replace (real)</div><div class="sv sv-o" style="font-size:20px;margin-top:4px">MYR ${fmt(realVal)}</div><div class="ss">${(realUnits||0).toLocaleString('en-MY')} unexplained units, at cost</div></div>
-    <div class="sc sc-t"><div class="sl">Total Flagged (before cross-check)</div><div class="sv sv-t" style="font-size:20px;margin-top:4px">MYR ${fmt(totalSales)}</div><div class="ss">${a.items_flagged} items · <b style="color:var(--ok)">MYR ${fmt(explAway)} explained away</b> as data noise</div></div>
+    <div class="sc sc-r"><div class="sl">Medicines Missing Stock</div><div class="sv sv-r" style="font-size:22px;margin-top:4px">${real}</div><div class="ss">${ctrl?`<b style="color:var(--danger)">💊 ${ctrl} controlled</b> · `:''}worth physically counting</div></div>
+    <div class="sc sc-o"><div class="sl">Units Missing</div><div class="sv sv-o" style="font-size:22px;margin-top:4px">${(realUnits||0).toLocaleString('en-MY')}</div><div class="ss">unaccounted for across the period</div></div>
+    <div class="sc sc-r"><div class="sl">Total Value Affected</div><div class="sv sv-r" style="font-size:20px;margin-top:4px">MYR ${fmt(realSales)}</div><div class="ss">at selling price · MYR ${fmt(realVal)} at cost</div></div>
     <div class="sc sc-t"><div class="sl">Period Audited</div><div class="sv sv-t">${a.snapshots} days</div><div class="ss">${a.date_from} → ${a.date_to}</div></div>`;
   rShrinkageTable();
 }
