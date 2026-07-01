@@ -1168,10 +1168,12 @@ function rShrinkage(){
   const realSales=a.real_missing_sales!=null?a.real_missing_sales:a.total_missing_sales;
   const realVal=a.real_missing_value!=null?a.real_missing_value:a.total_missing_value;
   const realUnits=a.real_missing_units!=null?a.real_missing_units:a.total_missing_units;
+  const totalSales=a.total_missing_sales||0;
+  const explAway=a.explained_sales!=null?a.explained_sales:Math.max(0,totalSales-realSales);
   document.getElementById('sk-stats').innerHTML=`
     <div class="sc sc-r"><div class="sl">Needs Checking (real leads)</div><div class="sv sv-r" style="font-size:20px;margin-top:4px">MYR ${fmt(realSales)}</div><div class="ss">${real} medicine${real===1?'':'s'}${ctrl?` · <b style="color:var(--danger)">💊 ${ctrl} controlled</b>`:''}</div></div>
     <div class="sc sc-o"><div class="sl">Capital to Replace (real)</div><div class="sv sv-o" style="font-size:20px;margin-top:4px">MYR ${fmt(realVal)}</div><div class="ss">${(realUnits||0).toLocaleString('en-MY')} unexplained units, at cost</div></div>
-    <div class="sc sc-r"><div class="sl">Units to Account For</div><div class="sv sv-r">${(realUnits||0).toLocaleString('en-MY')}</div><div class="ss">genuinely unexplained, across ${real} medicines</div></div>
+    <div class="sc sc-t"><div class="sl">Total Flagged (before cross-check)</div><div class="sv sv-t" style="font-size:20px;margin-top:4px">MYR ${fmt(totalSales)}</div><div class="ss">${a.items_flagged} items · <b style="color:var(--ok)">MYR ${fmt(explAway)} explained away</b> as data noise</div></div>
     <div class="sc sc-t"><div class="sl">Period Audited</div><div class="sv sv-t">${a.snapshots} days</div><div class="ss">${a.date_from} → ${a.date_to}</div></div>`;
   rShrinkageTable();
 }
