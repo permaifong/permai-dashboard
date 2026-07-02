@@ -261,7 +261,7 @@ tr.ru td{background:rgba(255,165,2,.03)}
       <button onclick="exportOrderingExcel()" style="background:rgba(10,124,110,.1);border:1px solid rgba(10,124,110,.3);border-radius:7px;padding:6px 14px;color:var(--accent);font-family:var(--fb);font-size:12px;cursor:pointer;font-weight:500;white-space:nowrap">⬇ Download PO</button>
     </div>
     <div class="panel"><div class="ts"><table class="dt">
-      <thead><tr><th>Priority</th><th>Medicine</th><th>Supplier</th><th>Stock</th><th>Days Left</th><th>Usage (2 weeks)</th><th>Order Qty (2 weeks)</th><th>Est. Cost</th></tr></thead>
+      <thead><tr><th>Priority</th><th>Medicine</th><th>Supplier</th><th>Stock</th><th>Days Left</th><th>Usage (2 weeks)</th><th>Usage (3 months)</th><th>Order Qty (2 weeks)</th><th>Est. Cost</th></tr></thead>
       <tbody id="t-ordering"></tbody>
     </table></div></div>
   </div>
@@ -1453,6 +1453,7 @@ function rOrdering(){
     const d=i.days_of_stock;
     const dl=`<span style="color:var(--${d===0||d<7?'danger':d<14?'warning':'ok'});font-family:var(--fm);font-weight:600">${d===999?'∞':d.toFixed(0)+'d'}</span>`;
     const usage2wk=Math.round((i.recommended_monthly||0)/2);
+    const usage3mo=Math.round((i.recommended_monthly||0)*3);
     const oq=i.order_qty||0;
     const ec=oq*(i.latest_cost_price||0);
     const urgN={critical:0,urgent:1,high:2,medium:3,low:4};
@@ -1463,10 +1464,11 @@ function rOrdering(){
       <td><span class="qn" style="${i.available_stock===0?'color:var(--danger)':''}">${i.available_stock}</span></td>
       <td data-sort="${d===999?9999:d}">${dl}</td>
       <td><span class="qn">${usage2wk} in 2 weeks</span></td>
+      <td><span class="qn">${usage3mo} in 3 months</span></td>
       <td><span class="p pt2" style="font-size:12px;font-weight:700">${oq}</span></td>
       <td class="cost">MYR ${fmt(ec)}</td>
     </tr>`;
-  }).join(''):'<tr><td colspan="8" class="empty">Nothing to order 🎉</td></tr>';
+  }).join(''):'<tr><td colspan="9" class="empty">Nothing to order 🎉</td></tr>';
   mkSortable('t-ordering');
 }
 function exportOrderingExcel(){
