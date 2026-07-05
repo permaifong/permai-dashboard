@@ -1046,7 +1046,7 @@ async function loadData(){
     document.getElementById('views').style.display='block';
     render();
   }catch(e){
-    document.getElementById('ls').innerHTML=`<div class="eb"><h3>⚠ Could not load data</h3><p>Make sure analysis_latest.json is available.</p><p style="margin-top:8px;font-family:var(--fm);font-size:11px;color:var(--danger)">${e.message}</p></div>`;
+    document.getElementById('ls').innerHTML=`<div class="eb"><h3>⚠ Could not load data</h3><p>Make sure analysis_latest.json is available.</p><p style="margin-top:8px;font-family:var(--fm);font-size:11px;color:var(--danger)">${esc(e.message)}</p></div>`;
   }
 }
 
@@ -2335,119 +2335,6 @@ function checkPassword(){
 // Don't auto-load — wait for password
 // loadData();
 
-// ── CHATBOT ───────────────────────────────────────────────────────
-let chatHistory=[];
-function toggleChat(){
-  const panel=document.getElementById('chat-panel');
-  const isOpen=panel.style.display==='flex';
-  panel.style.display=isOpen?'none':'flex';
-  if(!isOpen) initChatPanel();
-}
-function initChatPanel(){
-  const key=localStorage.getItem('claude_api_key');
-  document.getElementById('chat-key-setup').style.display=key?'none':'flex';
-  document.getElementById('chat-interface').style.display=key?'flex':'none';
-  if(key&&!chatHistory.length){
-    const el=document.getElementById('chat-messages');
-    el.innerHTML=`<div style="max-width:88%;padding:8px 11px;border-radius:11px 11px 11px 2px;font-size:12px;line-height:1.5;background:var(--card);border:1px solid var(--border);color:var(--muted)">Hi! I have your clinic data loaded — stock levels, revenue, patients, spikes. Ask me anything.</div>`;
-  }
-}
-function saveChatKey(){
-  const key=document.getElementById('chat-api-key-input').value.trim();
-  if(!key.startsWith('sk-')){alert('Enter a valid Anthropic API key (starts with sk-ant-)');return;}
-  localStorage.setItem('claude_api_key',key);
-  initChatPanel();
-}
-function clearChatKey(){
-  if(!confirm('Remove stored API key?'))return;
-  localStorage.removeItem('claude_api_key');
-  chatHistory=[];
-  document.getElementById('chat-messages').innerHTML='';
-  initChatPanel();
-}
-function addChatMsg(role,text){
-  chatHistory.push({role,content:text});
-  const el=document.getElementById('chat-messages');
-  const isUser=role==='user';
-  const d=document.createElement('div');
-  d.style.cssText=`max-width:88%;padding:8px 11px;border-radius:${isUser?'11px 11px 2px 11px':'11px 11px 11px 2px'};font-size:12px;line-height:1.5;white-space:pre-wrap;word-break:break-word;align-self:${isUser?'flex-end':'flex-start'};background:${isUser?'var(--accent)':'var(--card)'};color:${isUser?'#fff':'var(--text)'};border:${isUser?'none':'1px solid var(--border)'}`;
-  d.textContent=text;
-  el.appendChild(d);
-  el.scrollTop=el.scrollHeight;
-}
-async function sendChat(){
-  const key=localStorage.getItem('claude_api_key');
-  if(!key)return;
-  const inp=document.getElementById('chat-input-field');
-  const msg=inp.value.trim();
-  if(!msg)return;
-  inp.value='';
-  addChatMsg('user',msg);
-  const s=D?.summary||{};
-  const itemLines=(D?.all_items||[]).map(i=>`${i.description}|stock:${i.available_stock}|days:${i.days_of_stock??'∞'}|cost:${i.latest_cost_price??0}|sell:${i.selling_price??0}|margin:${i.margin_pct??''}%|order:${i.order_qty??0}|urgency:${i.urgency||'ok'}|expiry:${i.nearest_expiry||''}|usage/mo:${i.recommended_monthly??0}`).join('\n');
-  const an=D?.analytics||{};
-  const drLines=(an.doctors||[]).map(d=>`${d.doctor}|visits:${d.visits}|revenue:MYR${fmt(d.revenue)}`).join('; ');
-  const comboLines=(an.combos||[]).slice(0,20).map(c=>`${c.a}+${c.b}(${c.count}x)`).join('; ');
-  const revLines=Object.entries(an.monthly_revenue||{}).map(([m,v])=>`${m}:MYR${fmt(v)}`).join(', ');
-  const sys=`You are an AI assistant for ${D?.clinic_name||'Permai Polyclinics Fortuna'}, a Malaysian GP clinic in Kota Kinabalu, Sabah. Answer in concise, actionable language. All currency in MYR.
-
-SUMMARY: ${s.total_medicines||0} medicines | Critical/OOS: ${s.critical_items||0} | Needs reorder: ${s.needing_reorder||0} | Est. monthly revenue: MYR${fmt(s.estimated_monthly_revenue||0)} | Revenue at risk: MYR${fmt(s.revenue_at_risk||0)} | Patients: ${s.total_patients||0} | Retention: ${s.retention_rate||0}% | Months: ${(D?.months_analyzed||[]).join(', ')}
-
-MONTHLY REVENUE: ${revLines}
-
-DOCTORS: ${drLines}
-
-TOP MEDICINE COMBOS (co-prescribed): ${comboLines}
-
-FULL STOCK (name|stock|days left|cost price|sell price|margin|order qty|urgency|nearest expiry|usage/mo):
-${itemLines}`;
-  const loading=document.createElement('div');
-  loading.style.cssText='max-width:88%;padding:8px 11px;border-radius:11px 11px 11px 2px;font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);align-self:flex-start';
-  loading.textContent='Thinking…';
-  document.getElementById('chat-messages').appendChild(loading);
-  document.getElementById('chat-messages').scrollTop=99999;
-  try{
-    const resp=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'x-api-key':key,'anthropic-version':'2023-06-01','content-type':'application/json','anthropic-dangerous-direct-browser-access':'true'},
-      body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:1024,system:sys,messages:chatHistory.slice(-12)})
-    });
-    loading.remove();
-    if(!resp.ok){const e=await resp.json();addChatMsg('assistant',`Error: ${e.error?.message||resp.status}`);return;}
-    const data=await resp.json();
-    addChatMsg('assistant',data.content?.[0]?.text||'No response');
-  }catch(e){loading.remove();addChatMsg('assistant',`Error: ${e.message}`);}
-}
-document.addEventListener('DOMContentLoaded',()=>{
-  const inp=document.getElementById('chat-input-field');
-  if(inp) inp.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChat();}});
-});
 </script>
-
-<!-- Chat widget -->
-<button id="chat-toggle-btn" onclick="toggleChat()" title="AI Assistant" style="position:fixed;bottom:24px;right:24px;width:52px;height:52px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 16px rgba(10,124,110,.35);z-index:5000;transition:transform .2s">💬</button>
-
-<div id="chat-panel" style="display:none;position:fixed;bottom:88px;right:24px;width:360px;height:500px;background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.15);z-index:4999;flex-direction:column;overflow:hidden">
-  <div style="padding:11px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--card)">
-    <div style="font-family:var(--fh);font-size:13px;font-weight:600">🤖 Clinic AI Assistant</div>
-    <div style="display:flex;gap:6px;align-items:center">
-      <button onclick="clearChatKey()" title="Change API key" style="font-size:11px;color:var(--muted);background:none;border:none;cursor:pointer;padding:2px 5px">🔑</button>
-      <button onclick="toggleChat()" style="color:var(--muted);background:none;border:none;cursor:pointer;font-size:16px;line-height:1">✕</button>
-    </div>
-  </div>
-  <div id="chat-key-setup" style="padding:20px;flex:1;display:flex;flex-direction:column;gap:12px;justify-content:center">
-    <div style="font-family:var(--fh);font-weight:600;font-size:14px">Enter your Anthropic API Key</div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.5">Get your key at <b>console.anthropic.com</b>. Stored in your browser only — never sent anywhere except Anthropic.</div>
-    <input id="chat-api-key-input" type="password" placeholder="sk-ant-..." style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:7px;padding:8px 12px;color:var(--text);font-family:var(--fm);font-size:12px;outline:none;box-sizing:border-box">
-    <button onclick="saveChatKey()" style="background:rgba(10,124,110,.1);border:1px solid rgba(10,124,110,.3);border-radius:7px;padding:9px;color:var(--accent);font-family:var(--fb);font-size:13px;cursor:pointer;font-weight:500">Save &amp; Start Chatting</button>
-  </div>
-  <div id="chat-interface" style="display:none;flex:1;flex-direction:column;min-height:0">
-    <div id="chat-messages" style="flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px;min-height:0"></div>
-    <div style="padding:10px;border-top:1px solid var(--border);display:flex;gap:8px">
-      <input id="chat-input-field" type="text" placeholder="Ask about stock, revenue, patients…" style="flex:1;background:var(--card);border:1px solid var(--border);border-radius:7px;padding:7px 10px;color:var(--text);font-family:var(--fb);font-size:12px;outline:none;min-width:0">
-      <button onclick="sendChat()" style="background:var(--accent);border:none;border-radius:7px;padding:7px 13px;color:#fff;cursor:pointer;font-size:16px;flex-shrink:0">↑</button>
-    </div>
-  </div>
-</div>
 </body>
 </html>
