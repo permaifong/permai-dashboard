@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T05:02:42.353111",
+  "generated_at": "2026-07-10T08:04:33.008487",
   "inventory_date": "2026-07-10",
   "months_analyzed": [
     "2026-02",
@@ -10,22 +10,22 @@
     "2026-07"
   ],
   "summary": {
-    "total_medicines": 280,
-    "needing_reorder": 47,
+    "total_medicines": 283,
+    "needing_reorder": 48,
     "out_of_stock": 15,
     "critical_items": 14,
     "expiring_soon": 4,
     "overstock_items": 49,
-    "never_dispensed_count": 60,
+    "never_dispensed_count": 63,
     "revenue_at_risk": 2869.95,
-    "estimated_monthly_revenue": 46092.55,
-    "total_stock_value": 45550.69,
+    "estimated_monthly_revenue": 46749.0,
+    "total_stock_value": 45269.82,
     "dead_capital": 5857.27,
-    "total_patients": 801,
+    "total_patients": 808,
     "returning_patients": 156,
-    "retention_rate": 19.5,
+    "retention_rate": 19.3,
     "spike_count": 45,
-    "total_monthly_dispensed": 29153.8
+    "total_monthly_dispensed": 29420.4
   },
   "monthly_totals": {
     "2026-02": 1678.0,
@@ -33,7 +33,7 @@
     "2026-04": 4358.0,
     "2026-05": 4691.0,
     "2026-06": 7747.5,
-    "2026-07": 6612.3
+    "2026-07": 6878.9
   },
   "recently_added": [
     {
@@ -55,34 +55,16 @@
       "new_stock": 210
     },
     {
+      "description": "TAB LIPITOR (ATORVASTATIN) 20MG VIATRIS",
+      "added": 150,
+      "old_stock": 0,
+      "new_stock": 150
+    },
+    {
       "description": "MAC DUAL (HEXYLRESORCINOL 2.4MG) ACTION LOZENGES ZIWELL",
       "added": 114,
       "old_stock": 24,
       "new_stock": 138
-    },
-    {
-      "description": "TAB UNASYN (SULTAMICILLIN) 375MG PFIZER",
-      "added": 90,
-      "old_stock": 360,
-      "new_stock": 450
-    },
-    {
-      "description": "SMECTA (DIOSMECTITE 3G) ORANGE-VANILLA POWDER SACHETS ZUELLIG",
-      "added": 84,
-      "old_stock": 60,
-      "new_stock": 144
-    },
-    {
-      "description": "TAB GLUCOPHAGE XR 1000MG METFORMIN",
-      "added": 60,
-      "old_stock": 60,
-      "new_stock": 120
-    },
-    {
-      "description": "CAP VYLEX UC-II 40MG & AFLAPIN 100MG VIVITAL PHARMA",
-      "added": 60,
-      "old_stock": 0,
-      "new_stock": 60
     },
     {
       "description": "TAB NORCOLUT (NORETHISTERONE) 5MG PAHANG PHARMACY",
@@ -104,9 +86,9 @@
     },
     {
       "description": "SYR RETORIN (ERYTHROMYCIN) 200MG/5ML 60ML SM PHARMA",
-      "added": 16,
-      "old_stock": 7,
-      "new_stock": 23
+      "added": 15,
+      "old_stock": 5,
+      "new_stock": 20
     },
     {
       "description": "AEVA THYMOL GARGLE 120ML APEX",
@@ -116,18 +98,24 @@
     },
     {
       "description": "CIPMAX (CIPROFLOXACIN 0.3%) EYE DROPS 5ML SAMCHUNDANG",
-      "added": 9,
-      "old_stock": 4,
+      "added": 10,
+      "old_stock": 3,
       "new_stock": 13
     },
     {
-      "description": "SYR ENHANCIN (AMOXYCILLIN AND CLAVULANIC ACID 312.5MG/5ML ) 60ML RANBAXY",
-      "added": 6,
-      "old_stock": 13,
-      "new_stock": 19
+      "description": "REPARIL GEL N 20G",
+      "added": 3,
+      "old_stock": 0,
+      "new_stock": 3
+    },
+    {
+      "description": "REPARIL ICE-SPRAY 200ML VOLCKE AEROSOL ITALY SRL",
+      "added": 1,
+      "old_stock": 0,
+      "new_stock": 1
     }
   ],
-  "recently_added_from": "2026-07-06",
+  "recently_added_from": "2026-07-07",
   "recently_added_window_days": 3,
   "analytics": {
     "dow": {
@@ -144,12 +132,12 @@
         "revenue": 34702.46
       },
       "Thursday": {
-        "visits": 188,
-        "revenue": 23877.56
+        "visits": 195,
+        "revenue": 24541.56
       },
       "Friday": {
-        "visits": 185,
-        "revenue": 32006.55
+        "visits": 186,
+        "revenue": 32176.55
       },
       "Saturday": {
         "visits": 197,
@@ -166,8 +154,8 @@
         "revenue": 2028.6
       },
       "1": {
-        "visits": 12,
-        "revenue": 1476.4
+        "visits": 13,
+        "revenue": 1646.4
       },
       "2": {
         "visits": 7,
@@ -194,16 +182,16 @@
         "revenue": 1605.0
       },
       "8": {
-        "visits": 47,
-        "revenue": 7725.53
+        "visits": 48,
+        "revenue": 7825.53
       },
       "9": {
-        "visits": 52,
-        "revenue": 6861.85
+        "visits": 53,
+        "revenue": 6981.85
       },
       "10": {
-        "visits": 87,
-        "revenue": 10297.22
+        "visits": 88,
+        "revenue": 10363.22
       },
       "11": {
         "visits": 70,
@@ -234,8 +222,8 @@
         "revenue": 7207.24
       },
       "18": {
-        "visits": 93,
-        "revenue": 20641.99
+        "visits": 95,
+        "revenue": 20776.99
       },
       "19": {
         "visits": 123,
@@ -250,12 +238,12 @@
         "revenue": 12100.75
       },
       "22": {
-        "visits": 73,
-        "revenue": 9015.32
+        "visits": 74,
+        "revenue": 9168.32
       },
       "23": {
-        "visits": 53,
-        "revenue": 4043.44
+        "visits": 54,
+        "revenue": 4133.44
       }
     },
     "doctors": {
@@ -298,9 +286,9 @@
         ]
       },
       "NICHOLAS JEREMIAH (71394)": {
-        "visits": 1044,
-        "total_revenue": 165235.49,
-        "avg_revenue_per_visit": 158.27,
+        "visits": 1051,
+        "total_revenue": 166064.49,
+        "avg_revenue_per_visit": 158.01,
         "avg_meds_per_visit": 3.41,
         "top_medicines": [
           "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
@@ -324,10 +312,10 @@
         ]
       },
       "OTC": {
-        "visits": 263,
-        "total_revenue": 18225.36,
-        "avg_revenue_per_visit": 69.3,
-        "avg_meds_per_visit": 1.46,
+        "visits": 264,
+        "total_revenue": 18230.36,
+        "avg_revenue_per_visit": 69.05,
+        "avg_meds_per_visit": 1.45,
         "top_medicines": [
           "TAB UNASYN (SULTAMICILLIN) 375MG PFIZER",
           "MABRON (TRAMADOL) CAPSULES 50MG MEDOCHEMIE LTD",
@@ -339,14 +327,14 @@
     },
     "staff": {
       "ABYGAIL ELAINE ALOYSIUS": {
-        "dispensing_count": 794,
-        "unique_visits": 253,
-        "total_units": 5087
+        "dispensing_count": 804,
+        "unique_visits": 257,
+        "total_units": 5115
       },
       "CHIN CHUAN YEE": {
-        "dispensing_count": 1582,
-        "unique_visits": 535,
-        "total_units": 11078
+        "dispensing_count": 1587,
+        "unique_visits": 536,
+        "total_units": 11084
       },
       "EDWINA IVY ANTHONIUS": {
         "dispensing_count": 3,
@@ -364,9 +352,9 @@
         "total_units": 812
       },
       "NICHOLAS JEREMIAH": {
-        "dispensing_count": 161,
-        "unique_visits": 43,
-        "total_units": 967
+        "dispensing_count": 166,
+        "unique_visits": 44,
+        "total_units": 972
       },
       "NURUL IZZATI BINTI ALIAS": {
         "dispensing_count": 70,
@@ -379,9 +367,9 @@
         "total_units": 270
       },
       "SITI HAMIDABEE BINTI ENGGUAN": {
-        "dispensing_count": 1078,
-        "unique_visits": 346,
-        "total_units": 7260
+        "dispensing_count": 1085,
+        "unique_visits": 348,
+        "total_units": 7307
       },
       "TRAIAGE": {
         "dispensing_count": 36,
@@ -390,18 +378,18 @@
       }
     },
     "patients": {
-      "total_unique": 801,
-      "new_single_month": 645,
+      "total_unique": 808,
+      "new_single_month": 652,
       "returning_multi_month": 156,
-      "retention_rate": 19.5,
-      "avg_revisit_days": 2.8,
+      "retention_rate": 19.3,
+      "avg_revisit_days": 2.7,
       "new_by_month": {
         "2026-02": 79,
         "2026-03": 184,
         "2026-04": 154,
         "2026-05": 160,
         "2026-06": 185,
-        "2026-07": 39
+        "2026-07": 46
       },
       "top_patients": [
         {
@@ -503,18 +491,18 @@
           "last_visit": "2026-06-17"
         },
         {
+          "name": "DR NICHOLAS JEREMIAH",
+          "mrn": "1000000",
+          "visits": 91,
+          "total_spend": 1595.07,
+          "last_visit": "2026-07-09"
+        },
+        {
           "name": "SHARIFAH SARI BINTI DATU ASAL",
           "mrn": "1000503",
           "visits": 6,
           "total_spend": 1593.0,
           "last_visit": "2026-06-13"
-        },
-        {
-          "name": "DR NICHOLAS JEREMIAH",
-          "mrn": "1000000",
-          "visits": 90,
-          "total_spend": 1590.07,
-          "last_visit": "2026-07-08"
         },
         {
           "name": "DATIN ALIMAH BINTI JUBAR@RAISAH",
@@ -555,16 +543,16 @@
       {
         "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
         "med_b": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
-        "count": 76
-      },
-      {
-        "med_a": "INJ BUFENCON (BETAMETHASONE 7MG/ML) 1ML Y.S.P.",
-        "med_b": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
-        "count": 58
+        "count": 78
       },
       {
         "med_a": "INJ BUFENCON (BETAMETHASONE 7MG/ML) 1ML Y.S.P.",
         "med_b": "TABS BETAMETHASONE 0.5MG Y.S.P.",
+        "count": 59
+      },
+      {
+        "med_a": "INJ BUFENCON (BETAMETHASONE 7MG/ML) 1ML Y.S.P.",
+        "med_b": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
         "count": 58
       },
       {
@@ -575,7 +563,7 @@
       {
         "med_a": "TAB CLARINASE (PSEUDOEPHEDRINE 120MG, LORATADINE 5MG) BAYER",
         "med_b": "TABS BETAMETHASONE 0.5MG Y.S.P.",
-        "count": 45
+        "count": 46
       },
       {
         "med_a": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
@@ -603,13 +591,18 @@
         "count": 34
       },
       {
+        "med_a": "SYR RETORIN (ERYTHROMYCIN) 200MG/5ML 60ML SM PHARMA",
+        "med_b": "SYR UPHAMOL (PARACETAMOL) 250MG/5ML (ORANGE FLAVOURED) DUOPHARMA",
+        "count": 34
+      },
+      {
         "med_a": "TAB PARACAP 500MG HEALTH PHARM",
         "med_b": "TABS BETAMETHASONE 0.5MG Y.S.P.",
         "count": 32
       },
       {
-        "med_a": "SYR RETORIN (ERYTHROMYCIN) 200MG/5ML 60ML SM PHARMA",
-        "med_b": "SYR UPHAMOL (PARACETAMOL) 250MG/5ML (ORANGE FLAVOURED) DUOPHARMA",
+        "med_a": "DUOVENT NEBULE (IPRATROPIUM + FENOTEROL) 4ML UNITHER",
+        "med_b": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
         "count": 32
       },
       {
@@ -618,8 +611,8 @@
         "count": 31
       },
       {
-        "med_a": "DUOVENT NEBULE (IPRATROPIUM + FENOTEROL) 4ML UNITHER",
-        "med_b": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
+        "med_a": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
+        "med_b": "SYR UPHAMOL (PARACETAMOL) 250MG/5ML (ORANGE FLAVOURED) DUOPHARMA",
         "count": 31
       },
       {
@@ -628,18 +621,13 @@
         "count": 30
       },
       {
-        "med_a": "SYR SEDILIX-RX LINCTUS (DEXTROMETHORPHAN 15MG/ PROMETHAZINE 3.125MG/ PHENYLEPHRINE 5MG EVERY 5ML)  90ML XEPA",
-        "med_b": "TABS BETAMETHASONE 0.5MG Y.S.P.",
-        "count": 29
-      },
-      {
-        "med_a": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
-        "med_b": "SYR UPHAMOL (PARACETAMOL) 250MG/5ML (ORANGE FLAVOURED) DUOPHARMA",
-        "count": 29
-      },
-      {
         "med_a": "DUOVENT NEBULE (IPRATROPIUM + FENOTEROL) 4ML UNITHER",
         "med_b": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
+        "count": 30
+      },
+      {
+        "med_a": "SYR SEDILIX-RX LINCTUS (DEXTROMETHORPHAN 15MG/ PROMETHAZINE 3.125MG/ PHENYLEPHRINE 5MG EVERY 5ML)  90ML XEPA",
+        "med_b": "TABS BETAMETHASONE 0.5MG Y.S.P.",
         "count": 29
       },
       {
@@ -648,8 +636,23 @@
         "count": 28
       },
       {
+        "med_a": "PULMICORT (BUDESONIDE) RESPULE 1MG ASTRAZENECA",
+        "med_b": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
+        "count": 28
+      },
+      {
         "med_a": "TAB AXCEL ERYTHROMYCIN 400MG KOTRA PHARMA",
         "med_b": "TAB MUCOSOLVAN (AMBROXOL) 30MG DKSH",
+        "count": 28
+      },
+      {
+        "med_a": "INJ BUFENCON (BETAMETHASONE 7MG/ML) 1ML Y.S.P.",
+        "med_b": "INJ VOREN ( DICLOFENAC SODIUM ) 75MG/3ML Y.S.P.",
+        "count": 28
+      },
+      {
+        "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
+        "med_b": "SYR UPHAMOL (PARACETAMOL) 250MG/5ML (ORANGE FLAVOURED) DUOPHARMA",
         "count": 28
       },
       {
@@ -663,28 +666,13 @@
         "count": 27
       },
       {
-        "med_a": "PULMICORT (BUDESONIDE) RESPULE 1MG ASTRAZENECA",
-        "med_b": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
-        "count": 27
-      },
-      {
         "med_a": "INJ PIRIMAT (CHLORPHENIRAMINE) 10MG/ML DUOPHARMA",
         "med_b": "TAB BILAXTEN (BILASTINE) 20MG MENARINI",
         "count": 27
       },
       {
         "med_a": "INJ BUFENCON (BETAMETHASONE 7MG/ML) 1ML Y.S.P.",
-        "med_b": "INJ VOREN ( DICLOFENAC SODIUM ) 75MG/3ML Y.S.P.",
-        "count": 27
-      },
-      {
-        "med_a": "INJ BUFENCON (BETAMETHASONE 7MG/ML) 1ML Y.S.P.",
         "med_b": "TAB BILAXTEN (BILASTINE) 20MG MENARINI",
-        "count": 26
-      },
-      {
-        "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
-        "med_b": "SYR UPHAMOL (PARACETAMOL) 250MG/5ML (ORANGE FLAVOURED) DUOPHARMA",
         "count": 26
       },
       {
@@ -703,6 +691,11 @@
         "count": 23
       },
       {
+        "med_a": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
+        "med_b": "SYR RETORIN (ERYTHROMYCIN) 200MG/5ML 60ML SM PHARMA",
+        "count": 23
+      },
+      {
         "med_a": "TAB MEXOMIDE (METOCLOPRAMIDE) 10MG DYNAPHARM",
         "med_b": "ZELLOX-II LIQUID ANTACID (ALUMINIUM H'XIDE 800MG, MAGNESIUM H'XIDE 800MG & SIMETHICONE 60MG) 100ML HOE PHARMA",
         "count": 22
@@ -718,8 +711,8 @@
         "count": 22
       },
       {
-        "med_a": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
-        "med_b": "SYR RETORIN (ERYTHROMYCIN) 200MG/5ML 60ML SM PHARMA",
+        "med_a": "PULMICORT (BUDESONIDE) RESPULE 1MG ASTRAZENECA",
+        "med_b": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
         "count": 22
       },
       {
@@ -748,13 +741,18 @@
         "count": 21
       },
       {
+        "med_a": "GENTAMICIN 0.3% CREAM W/W 10G NORIPHARMA",
+        "med_b": "INJ TT VACCINE (TETANUS) 0.5ML SM PHARMA",
+        "count": 21
+      },
+      {
         "med_a": "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
         "med_b": "TAB SPASIL (DIPHENOXYLATE 2.5MG/ATROPINE 0.025MG) IMEKS",
         "count": 21
       },
       {
-        "med_a": "PULMICORT (BUDESONIDE) RESPULE 1MG ASTRAZENECA",
-        "med_b": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
+        "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
+        "med_b": "SYR RETORIN (ERYTHROMYCIN) 200MG/5ML 60ML SM PHARMA",
         "count": 21
       },
       {
@@ -763,13 +761,8 @@
         "count": 20
       },
       {
-        "med_a": "GENTAMICIN 0.3% CREAM W/W 10G NORIPHARMA",
-        "med_b": "INJ TT VACCINE (TETANUS) 0.5ML SM PHARMA",
-        "count": 20
-      },
-      {
-        "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
-        "med_b": "SYR RETORIN (ERYTHROMYCIN) 200MG/5ML 60ML SM PHARMA",
+        "med_a": "PULMICORT (BUDESONIDE) RESPULE 1MG ASTRAZENECA",
+        "med_b": "SYR UPHAMOL (PARACETAMOL) 250MG/5ML (ORANGE FLAVOURED) DUOPHARMA",
         "count": 20
       },
       {
@@ -780,11 +773,6 @@
       {
         "med_a": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
         "med_b": "TAB MUCOSOLVAN (AMBROXOL) 30MG DKSH",
-        "count": 19
-      },
-      {
-        "med_a": "PULMICORT (BUDESONIDE) RESPULE 1MG ASTRAZENECA",
-        "med_b": "SYR UPHAMOL (PARACETAMOL) 250MG/5ML (ORANGE FLAVOURED) DUOPHARMA",
         "count": 19
       },
       {
@@ -799,182 +787,181 @@
       }
     ],
     "dead_90": [
-      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
-      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
       "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
-      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
-      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
+      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
       "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
-      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
-      "TAB TREN (TRANEXAMIC ACID) 250MG",
+      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
+      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
       "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
-      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
+      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
+      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
+      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
       "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
       "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
-      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
-      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
-      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
       "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
       "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
-      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
+      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
+      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "TAB TREN (TRANEXAMIC ACID) 250MG",
+      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
       "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
-      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE"
+      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
+      "TAB HOVASC (AMLODIPINE) 10MG HOVID"
     ],
     "dead_60": [
-      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
-      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "NASONEX AQUEOUS NASAL SPRAY 0.05% 60D (MOMETASONE FUROATE) SCENT-FREE ORGANON HEIST BV",
-      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
-      "TAB DUPHASTON (DYDROGESTERONE) 10MG ABBOTT",
-      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
-      "WELLMEX ATOMIC ENEMA 20ML NGL TRADING",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
-      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
-      "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
-      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
-      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
-      "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
-      "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
       "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
+      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
+      "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
       "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
-      "TAB ROSUVASTATIN 20MG SYNERRV",
-      "TAB TREN (TRANEXAMIC ACID) 250MG",
-      "DYNA CALAMINE LOTION (CALAMINE POWDER 15% W/V / MENTHOL 0.15% W/V) 100ML DYNAPHARM (M)",
-      "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
-      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
-      "SKYCELLFLU QUADRIVALENT PREFILLED INFLUENZA VACCINE PHARMANIAGA",
-      "INJ PRIORIX (MMR) 0.5ML GSK",
-      "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
-      "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
-      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
-      "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
-      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
-      "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
-      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
       "TAB NORVASC (AMLODIPINE) 5MG PFIZER",
-      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
-      "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
-      "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
-      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
-      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
-      "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
-      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
-      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
-      "TAB METSWIFT XR (METFORMIN HCL) 1000MG SYNERRV",
-      "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
-      "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
-      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
-      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
-      "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
-      "INJ SENSOVISC 1% 20MG (HYALURONIC ACID) ADVANCE PHARMA",
-      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
-      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
-      "TAB GOUTRIC ( FEBUXOSTAT) NOVUGEN",
-      "SYR MUCOPROM (CARBOCISTEINE 100MG/ PROMETHAZINE 2.5MG /5ML) 90ML XEPA",
-      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
-      "LOCOA ( ESFLURBIPROFEN ) 40MG TRANSDERMAL PATCH 7'S"
-    ],
-    "dead_30": [
-      "NASAL DROPS ILIADIN 0.01% (OXYMETHAZOLINE) DECONGESTANT (< 12MTHS ) P&G",
-      "VOREN (DICLOFENAC SODIUM 1%W/W) GEL PLUS 20G Y.SP.",
       "WELLMEX ATOMIC ENEMA 20ML NGL TRADING",
-      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
-      "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
-      "SYR CEFUROXIME-125 (125MG/5ML) 50ML AXCEL KOTRA PHARMA",
-      "ARTIBEST INTRA-ARTICULAR INJECTION BREGGO",
-      "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
-      "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
-      "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
-      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
-      "AXCEL UREA (UREA 10% W/W) CREAM 20G KOTRA PHARMA",
-      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
-      "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
-      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
-      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
-      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
-      "INJ GARASENT (GENTAMICIN SULPHATE  80MG/2ML AMP) DUOPHARMA",
-      "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
-      "TAB VELOXIN (MECLOZINE 25MG/PYRIDOXINE 50MG) PHARM-D",
-      "DERIVA SCAR LIPOGEL 15ML GLENMARK",
-      "SYR MUCOPROM (CARBOCISTEINE 100MG/ PROMETHAZINE 2.5MG /5ML) 90ML XEPA",
-      "TAB HOVASC (AMLODIPINE) 5MG HOVID",
-      "CANDACORT CREAM (CLOTRIMAZOLE 1% / HYDROCORTISONE 1% ) 15G HOE",
-      "CAP BIOZOLE (FLUCANAZOLE) 150MG MEDISPEC",
-      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
-      "ZYNOMAX ( AZITHROMYCIN ) POWDER FOR ORAL SUSPENSION 200MG/5ML 20ML DUOPHARMA",
-      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
-      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
-      "LOZENGES DIFFLAM (BENZYDAMINE HYDROCHLORIDE 3MG) MINT FLAVOURED INOVA",
-      "ORS PLUS (TRISODIUM CITRATE 725MG, DEXTROSE ANHYDROUS 3375MG, SODIUM CHLORIDE 650MG, POTASSIUM CHLORIDE 375MG) SACHET PHARMANIAGA",
-      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
-      "SUPP VOREN (DICLOFENAC SODIUM) 50MG Y.S.P.",
-      "CANDAZOLE LOTION (CLOTRIMAZOLE 1% W/W) 10ML HOE",
-      "TAB CAFFOX ( ERGOTAMINE TARTRATE 1MG + CAFFINE 100MG ) IMEKS",
-      "DYNAVATE-N (BETAMETHASONE 0.1 % | NEOMYCIN SULPHATE 0.5%) CREAM 15G DYNAPHARM",
-      "KLORAXIN EYE OINTMENT ( CHLORAMPHENICOL 1%) 5G UNIMED",
-      "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
-      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
-      "TAB NORVASC (AMLODIPINE) 5MG PFIZER",
-      "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
-      "SYRUP NOVOMIN (DIMENHYDRINATE) 15MG/5ML 60ML (ORANGE FLV) XEPA",
-      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
-      "DEXALTIN (DEXAMETHASONE 1MG/G) ORALPASTE 2G PHARMAFORTE",
-      "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
-      "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
-      "INFUSOL N/S 250ML (SODIUM CHLORIDE 0.9% ) AIN MEDICARE",
-      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
-      "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
-      "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
-      "TAB GLIT (PIOGLITAZONE) 15MG SYNERRV",
-      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
-      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
       "NASONEX AQUEOUS NASAL SPRAY 0.05% 60D (MOMETASONE FUROATE) SCENT-FREE ORGANON HEIST BV",
-      "TAB ZIOMYCIN (AZITHROMYCIN) 250MG SYNERRV",
-      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
-      "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
-      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
-      "TAB ZIOMYCIN (AZITHROMYCIN) 500MG SYNERRV",
-      "TAB INOX (ITRACONAZOLE)100MG HOVID",
-      "TAB ROSUVASTATIN 20MG SYNERRV",
-      "KEZORAL (KETOCONAZOLE 2% W/W) CREAM 15G DUOPHARMA",
+      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
+      "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
+      "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
+      "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
+      "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
+      "SYR MUCOPROM (CARBOCISTEINE 100MG/ PROMETHAZINE 2.5MG /5ML) 90ML XEPA",
+      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
       "DYNA CALAMINE LOTION (CALAMINE POWDER 15% W/V / MENTHOL 0.15% W/V) 100ML DYNAPHARM (M)",
+      "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
+      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
+      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
+      "TAB ROSUVASTATIN 20MG SYNERRV",
       "INJ PRIORIX (MMR) 0.5ML GSK",
-      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/5MG SERVIER",
-      "APPETON MV LYSINE SYRUP 120ML (VITAMIN A 1000IU + VITAMIN D3 200IU + VITAMIN B1 0.5MG + VITAMIN B2 0.5MG + VITAMIN B6 0.5MG + VITAMIN E 5IU + NICOTINAMIDE 6MG + PANTOTHENIC ACID 2MG + LYSINE 80MG) KOTRA PHARMA",
-      "SCABOMA LOTION  ( LINDANE 1% ) GLENMARK",
-      "TAB DEXALONE ( DEXAMETHASONE ) 0.5MG DUOPHARMA",
+      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
+      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
       "SKYCELLFLU QUADRIVALENT PREFILLED INFLUENZA VACCINE PHARMANIAGA",
-      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
+      "TAB METSWIFT XR (METFORMIN HCL) 1000MG SYNERRV",
+      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER",
+      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
+      "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
+      "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
+      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
+      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
+      "TAB GOUTRIC ( FEBUXOSTAT) NOVUGEN",
+      "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
+      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
+      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
+      "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
+      "INJ SENSOVISC 1% 20MG (HYALURONIC ACID) ADVANCE PHARMA",
+      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
+      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
       "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
       "LOCOA ( ESFLURBIPROFEN ) 40MG TRANSDERMAL PATCH 7'S",
-      "CEFUROXIME 500MG ALTACEF GLENMARK",
-      "TAB DUPHASTON (DYDROGESTERONE) 10MG ABBOTT",
-      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
-      "TABLET COZAAR XQ 5/50MG ORGANON",
-      "DYFAZINE CREAM (SILVER SULPHADIAZINE 1%) 50G DYNAPHARM",
-      "TAB ATORVASTATIN 20MG SYNERRV",
-      "TAB PANTOPRAZOLE 40MG (GASTRO-RESISTANT) SANDOZ",
-      "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
-      "CAP APO-PIROXICAM 20MG APOTEX INC",
+      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
+      "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
       "TAB TREN (TRANEXAMIC ACID) 250MG",
-      "INJ AMSUBAC (AMPICILLIN 1000MG/ SULBACTAM 500MG) 1.5 G AVERROES PHARMACEUTICALS SDN. BHD.",
-      "PORO (PARACETAMOL) SUPPOSITORY 250MG Y.S.P.",
-      "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
-      "INJ TYPHIM IV ( TYPHOID VACCINE ) SANOFI",
-      "CAP TRACIDOL (TRAMADOL) 50MG Y.S.P.",
-      "PROCTOSEDYL OINTMENT (FRAMYCETIN SULPHATE 1% W/W, HYDROCORTISONE 0.5% W/W, CINCHOCAINE.5% W/W, AESCULIN 1% W/W) 15G ZUELLIG PHARMA",
+      "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
+      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
+      "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
+      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
+      "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
       "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
       "TAB HOVASC (AMLODIPINE) 10MG HOVID",
-      "SUPP DIMENHYDRINATE 50MG DRIMINATE Y.S.P",
-      "INJ TACARLINE (ADRENALINE 1MG/ML) 1ML DUOPHARMA",
-      "TAB ULTRACET (TRAMADOL 37.5MG/PARACETAMOL 325MG) J&J",
-      "ORREPASTE (TRIAMCINOLONE ACETONIDE 0.1% W/W) 5G HOE",
+      "TAB DUPHASTON (DYDROGESTERONE) 10MG ABBOTT"
+    ],
+    "dead_30": [
+      "TAB PROBITOR ( OMEPRAZOLE ) 20MG SANDOZ",
+      "AXCEL UREA (UREA 10% W/W) CREAM 20G KOTRA PHARMA",
+      "INJ HYALGAN ( HYALURONIC ACID ) 20MG/2ML PE PHARMA",
+      "TAB DIAPO (DIAZEPAM) 5MG DUOPHARMA",
+      "TAB GLIT (PIOGLITAZONE) 30MG SYNERRV",
+      "TAB NORVASC (AMLODIPINE) 5MG PFIZER",
+      "WELLMEX ATOMIC ENEMA 20ML NGL TRADING",
+      "LOZENGES DIFFLAM (BENZYDAMINE HYDROCHLORIDE 3MG) MINT FLAVOURED INOVA",
+      "CHAMPS D-WORMS SUSPENSION (ALBENDAZOLE 200MG/5ML) 10ML DUOPHARMA",
+      "VOREN (DICLOFENAC SODIUM 1%W/W) GEL PLUS 20G Y.SP.",
+      "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
+      "PORO (PARACETAMOL) SUPPOSITORY 250MG Y.S.P.",
+      "SUPP VOREN (DICLOFENAC SODIUM) 12.5MG Y.SP.",
+      "SYR MUCOPROM (CARBOCISTEINE 100MG/ PROMETHAZINE 2.5MG /5ML) 90ML XEPA",
+      "TAB ROSUVASTATIN 20MG SYNERRV",
+      "INJ NON-PREG (MEDROXYPROGESTERONE ACETATE IM 150MG/3ML) VIAL HEALOL PHARMA",
+      "KLORAXIN EYE OINTMENT ( CHLORAMPHENICOL 1%) 5G UNIMED",
+      "ARTIBEST INTRA-ARTICULAR INJECTION BREGGO",
+      "APPETON MV LYSINE SYRUP 120ML (VITAMIN A 1000IU + VITAMIN D3 200IU + VITAMIN B1 0.5MG + VITAMIN B2 0.5MG + VITAMIN B6 0.5MG + VITAMIN E 5IU + NICOTINAMIDE 6MG + PANTOTHENIC ACID 2MG + LYSINE 80MG) KOTRA PHARMA",
+      "TAB CRESTOR ( ROSUVASTATIN ) 20MG ASTRAZENECA",
+      "TAB APROVASC ( IRBESARTAN150MG / AMLODIPINE 5MG) SANOFI",
+      "TAB INOX (ITRACONAZOLE)100MG HOVID",
+      "SYR CHLORAMINE (CHLORPHENIRAMINE) 2.5MG/5ML 90ML DUOPHARMA",
+      "TAB ANTAROL (PROPRANOLOL) 20MG IMEKS",
+      "TAB CONCOR (BISOPROLOL) 5MG MERCKS",
+      "FOBAN CREAM (FUSIDIC ACID 2% W/W) 15G HOE",
+      "ORS PLUS (TRISODIUM CITRATE 725MG, DEXTROSE ANHYDROUS 3375MG, SODIUM CHLORIDE 650MG, POTASSIUM CHLORIDE 375MG) SACHET PHARMANIAGA",
+      "IVD SODIUM LACTATE (HARTMANN SOLUTION) 500ML AIN MEDICARE",
+      "SYR NUROFEN (IBUPROFEN) 100MG/5ML 60ML RB HEALTH",
+      "SCABOMA LOTION  ( LINDANE 1% ) GLENMARK",
+      "INJ AMSUBAC (AMPICILLIN 1000MG/ SULBACTAM 500MG) 1.5 G AVERROES PHARMACEUTICALS SDN. BHD.",
+      "CAP TRACIDOL (TRAMADOL) 50MG Y.S.P.",
       "CREAM LAMISIL (TERBINAFINE HYDROCHLORIDE) 10MG/G 15G ZUELLIG",
+      "ELLGY CORNS & WARTS  (SALICYLIC ACID 17% W/V) 10ML HOE",
+      "TAB NORMATEN (ATENOLOL) 50MG XEPA",
+      "TAB EUTHYROX (LEVOTHYROXINE SODIUM) 100MCG MERCK",
+      "INJ PRIORIX (MMR) 0.5ML GSK",
+      "SKYCELLFLU QUADRIVALENT PREFILLED INFLUENZA VACCINE PHARMANIAGA",
+      "TAB VELOXIN (MECLOZINE 25MG/PYRIDOXINE 50MG) PHARM-D",
+      "TAB GLIT (PIOGLITAZONE) 15MG SYNERRV",
+      "CAP BIOZOLE (FLUCANAZOLE) 150MG MEDISPEC",
+      "DEXALTIN (DEXAMETHASONE 1MG/G) ORALPASTE 2G PHARMAFORTE",
+      "INFUSOL N/S 250ML (SODIUM CHLORIDE 0.9% ) AIN MEDICARE",
+      "TAB SYNFLEX (NAPROXEN SODIUM) 550MG DKSH",
+      "FOBANCORT CREAM (FUSIDIC ACID 2% W/W, BETAMETHASONE 0.05% W/W) 15G HOE",
+      "CANDACORT CREAM (CLOTRIMAZOLE 1% / HYDROCORTISONE 1% ) 15G HOE",
+      "TAB JARDIANCE ( EMPAGLIFLOZIN ) 25MG BOEHRINGER",
+      "TEARS NATURALE II (DEXTRAN 70 0.1% W/V + HYPROMELLOSE 0.3% W/V) 15ML ALCON",
+      "DYNAVATE-N (BETAMETHASONE 0.1 % | NEOMYCIN SULPHATE 0.5%) CREAM 15G DYNAPHARM",
+      "TAB HOVASC (AMLODIPINE) 10MG HOVID",
+      "DERIVA SCAR LIPOGEL 15ML GLENMARK",
+      "CEFUROXIME 500MG ALTACEF GLENMARK",
+      "NASAL DROPS ILIADIN 0.01% (OXYMETHAZOLINE) DECONGESTANT (< 12MTHS ) P&G",
+      "INJ TACARLINE (ADRENALINE 1MG/ML) 1ML DUOPHARMA",
+      "DYNA CALAMINE LOTION (CALAMINE POWDER 15% W/V / MENTHOL 0.15% W/V) 100ML DYNAPHARM (M)",
+      "TAB ESOZ (ESOMEPRAZOLE) 40MG RANBAXY",
+      "TAB ATORVASTATIN 20MG SYNERRV",
+      "TAB ZENTEL (ALBENDAZOLE) 200MG 2'S HALEON",
       "TAB METSWIFT XR (METFORMIN HCL) 1000MG SYNERRV",
+      "INJ MENQUADFI (MENINGOCOCCAL VACCINE) 0.5ML 1D SANOFI",
+      "INJ MOUNJARO 10MG (TIRZEPATIDE 16.7MG/ML ) BSP PHARMACEUTICALS S.P.A.",
+      "SYRUP NOVOMIN (DIMENHYDRINATE) 15MG/5ML 60ML (ORANGE FLV) XEPA",
+      "SUPP VOREN (DICLOFENAC SODIUM) 50MG Y.S.P.",
+      "ZYNOMAX ( AZITHROMYCIN ) POWDER FOR ORAL SUSPENSION 200MG/5ML 20ML DUOPHARMA",
+      "CANDID EARDROPS (CLOTRIMAZOLE 1%) 15ML GLENMARK",
+      "SUSP CURAM (AMOXYCILLIN + CLAVULANIC ACID) 312.5MG/5ML 60ML SANDOZ",
+      "TAB ULTRACET (TRAMADOL 37.5MG/PARACETAMOL 325MG) J&J",
+      "ORAL SUSPENSION TYSTATIN (NYSTATIN) 100,000 UNITS/ML 30ML IMEKS",
+      "TAB TREN (TRANEXAMIC ACID) 250MG",
+      "TAB VOZAN (VONOPRAZAN) 20MG NOVUGEN",
+      "TAB DUPHASTON (DYDROGESTERONE) 10MG ABBOTT",
       "INJ LAKAN 1% ( LIGNOCAINE ) ML VIAL DUOPHARMA",
+      "TAB ZIOMYCIN (AZITHROMYCIN) 500MG SYNERRV",
+      "ORREPASTE (TRIAMCINOLONE ACETONIDE 0.1% W/W) 5G HOE",
+      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/5MG SERVIER",
+      "NASONEX AQUEOUS NASAL SPRAY 0.05% 60D (MOMETASONE FUROATE) SCENT-FREE ORGANON HEIST BV",
+      "TAB DULCOLAX ( BISACODYL ) 5MG SANOFI",
+      "INJ GARASENT (GENTAMICIN SULPHATE  80MG/2ML AMP) DUOPHARMA",
+      "KEZORAL (KETOCONAZOLE 2% W/W) CREAM 15G DUOPHARMA",
+      "PNEUMOVAX 23 ( PNEUMOCOCCAL VACCINE POLYVALENT) MSD",
+      "TAB PANTOPRAZOLE 40MG (GASTRO-RESISTANT) SANDOZ",
+      "TAB DEXALONE ( DEXAMETHASONE ) 0.5MG DUOPHARMA",
+      "PRISTINE SHAMPOO (KETOCONAZOLE 2%) 20MG 120ML XEPA",
+      "SUPP DIMENHYDRINATE 50MG DRIMINATE Y.S.P",
+      "DYFAZINE CREAM (SILVER SULPHADIAZINE 1%) 50G DYNAPHARM",
+      "PROCTOSEDYL OINTMENT (FRAMYCETIN SULPHATE 1% W/W, HYDROCORTISONE 0.5% W/W, CINCHOCAINE.5% W/W, AESCULIN 1% W/W) 15G ZUELLIG PHARMA",
+      "TAB CAFFOX ( ERGOTAMINE TARTRATE 1MG + CAFFINE 100MG ) IMEKS",
+      "CAP APO-PIROXICAM 20MG APOTEX INC",
+      "TAB ZIOMYCIN (AZITHROMYCIN) 250MG SYNERRV",
+      "TAB GOUTRIC ( FEBUXOSTAT) NOVUGEN",
+      "TABLET COZAAR XQ 5/50MG ORGANON",
+      "SYR CEFUROXIME-125 (125MG/5ML) 50ML AXCEL KOTRA PHARMA",
       "INJ SENSOVISC 1% 20MG (HYALURONIC ACID) ADVANCE PHARMA",
-      "TAB GOUTRIC ( FEBUXOSTAT) NOVUGEN"
+      "CANDAZOLE LOTION (CLOTRIMAZOLE 1% W/W) 10ML HOE",
+      "LOCOA ( ESFLURBIPROFEN ) 40MG TRANSDERMAL PATCH 7'S",
+      "TAB HOVASC (AMLODIPINE) 5MG HOVID",
+      "TAB DAFLON (DIOSMIN 900MG, HESPERIDIN 100MG) 1000MG SERVIER",
+      "TAB COVERAM (PERINDOPRIL/AMLODIPINE) 5MG/10MG SERVIER"
     ],
     "never_dispensed": [
       "TAB CASPRIN (ASPIRIN) 100MG",
@@ -1036,7 +1023,10 @@
       "TAB APPETON MY LYSINE + PREBIOTIC 60'S KOTRA PHARMA",
       "TAB APPETON MV OPTIGROW PLUS 60'S KOTRA PHARMA",
       "DERMOPLEX CALAMINE CREAM 25G DUOPHARMA",
-      "CAP VYLEX UC-II 40MG & AFLAPIN 100MG VIVITAL PHARMA"
+      "CAP VYLEX UC-II 40MG & AFLAPIN 100MG VIVITAL PHARMA",
+      "TAB LIPITOR (ATORVASTATIN) 20MG VIATRIS",
+      "REPARIL GEL N 20G",
+      "REPARIL ICE-SPRAY 200ML VOLCKE AEROSOL ITALY SRL"
     ],
     "spikes": [
       {
@@ -1125,9 +1115,9 @@
       },
       {
         "medicine": "TAB ZOLTEROL SR (DICLOFENAC SODIUM) 100MG DUOPHARMA",
-        "qty_14d": 30,
-        "monthly_equiv": 64,
-        "monthly_avg": 30,
+        "qty_14d": 40,
+        "monthly_equiv": 86,
+        "monthly_avg": 40,
         "change_pct": 114
       },
       {
@@ -1257,6 +1247,13 @@
         "change_pct": 71
       },
       {
+        "medicine": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
+        "qty_14d": 14,
+        "monthly_equiv": 30,
+        "monthly_avg": 18,
+        "change_pct": 67
+      },
+      {
         "medicine": "TAB NEXIUM MUPS (ESOMEPRAZOLE) 40MG ASTRAZENECA",
         "qty_14d": 14,
         "monthly_equiv": 30,
@@ -1278,7 +1275,7 @@
         "change_pct": -62
       },
       {
-        "medicine": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
+        "medicine": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
         "qty_14d": 12,
         "monthly_equiv": 26,
         "monthly_avg": 16,
@@ -1299,18 +1296,18 @@
         "change_pct": 61
       },
       {
+        "medicine": "SYR RETORIN (ERYTHROMYCIN) 200MG/5ML 60ML SM PHARMA",
+        "qty_14d": 17,
+        "monthly_equiv": 36,
+        "monthly_avg": 23,
+        "change_pct": 58
+      },
+      {
         "medicine": "TAB DYNIDAZOL (METRONIDAZOLE) 400MG DYNAPHARM",
         "qty_14d": 80,
         "monthly_equiv": 171,
         "monthly_avg": 110,
         "change_pct": 56
-      },
-      {
-        "medicine": "SYR PREDSOLONE (PREDNISOLONE 2.5MG/5ML) 100ML DYNAPHARM",
-        "qty_14d": 10,
-        "monthly_equiv": 21,
-        "monthly_avg": 14,
-        "change_pct": 53
       },
       {
         "medicine": "TAB LOVIR ( ACYCLOVIR ) 400MG RANBAXY",
@@ -1341,13 +1338,6 @@
         "change_pct": -51
       },
       {
-        "medicine": "SYR RETORIN (ERYTHROMYCIN) 200MG/5ML 60ML SM PHARMA",
-        "qty_14d": 14,
-        "monthly_equiv": 30,
-        "monthly_avg": 20,
-        "change_pct": 50
-      },
-      {
         "medicine": "TAB DELTACARBON (CHARCOAL) 250MG IMEKS",
         "qty_14d": 70,
         "monthly_equiv": 150,
@@ -1361,7 +1351,7 @@
       "2026-04": 201,
       "2026-05": 211,
       "2026-06": 260,
-      "2026-07": 82
+      "2026-07": 89
     },
     "monthly_visits": {
       "2026-02": 99,
@@ -1369,7 +1359,7 @@
       "2026-04": 284,
       "2026-05": 266,
       "2026-06": 384,
-      "2026-07": 94
+      "2026-07": 102
     },
     "monthly_revenue": {
       "2026-02": 9929.0,
@@ -1377,7 +1367,7 @@
       "2026-04": 41814.94,
       "2026-05": 31645.78,
       "2026-06": 49439.81,
-      "2026-07": 11589.72
+      "2026-07": 12423.72
     },
     "monthly_cogs": {
       "2026-02": 2419.28,
@@ -1385,7 +1375,7 @@
       "2026-04": 11175.15,
       "2026-05": 10085.02,
       "2026-06": 17821.97,
-      "2026-07": 4005.46
+      "2026-07": 4286.33
     },
     "daily_revenue": {
       "2026-07-01": 1177.0,
@@ -1395,7 +1385,9 @@
       "2026-07-05": 2580.37,
       "2026-07-06": 1039.75,
       "2026-07-07": 1675.6,
-      "2026-07-08": 1018.0
+      "2026-07-08": 1018.0,
+      "2026-07-09": 664.0,
+      "2026-07-10": 170.0
     }
   },
   "fast_movers": [
@@ -1406,13 +1398,13 @@
       "manufacturer": "Y.S.P.",
       "category": "ANTI-INFLAMMATORY",
       "uom": "TABLET",
-      "available_stock": 220.0,
+      "available_stock": 200.0,
       "required_stock": 300.0,
       "nearest_expiry": "31/12/2026",
       "latest_cost_price": 0.11,
       "avg_cost_price": 0.10541666666667,
       "selling_price": 1.5,
-      "recommended_monthly": 342.0,
+      "recommended_monthly": 360.6,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 220.0,
@@ -1420,15 +1412,15 @@
         "2026-04": 260.0,
         "2026-05": 350.0,
         "2026-06": 450.0,
-        "2026-07": 310.0
+        "2026-07": 372.0
       },
       "needs_reorder": true,
-      "order_qty": 140,
+      "order_qty": 160,
       "supplier": "UMH Pharmacy",
       "supplier_contact": "088-215317  |  umhpharmacy@gmail.com",
-      "monthly_revenue": 513.0,
+      "monthly_revenue": 540.9,
       "dead_stock": 0,
-      "days_of_stock": 19.3,
+      "days_of_stock": 16.6,
       "urgency": "high",
       "expiry_days": 174,
       "months_supply": 0.6,
@@ -1514,13 +1506,13 @@
       "manufacturer": "PFIZER",
       "category": "ANTIBIOTICS",
       "uom": "TABLET",
-      "available_stock": 450.0,
+      "available_stock": 440.0,
       "required_stock": 50.0,
       "nearest_expiry": "31/12/2027",
       "latest_cost_price": 4.07,
       "avg_cost_price": 4.114,
       "selling_price": 9.0,
-      "recommended_monthly": 314.3,
+      "recommended_monthly": 323.6,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 10.0,
@@ -1528,15 +1520,15 @@
         "2026-04": 40.0,
         "2026-05": 210.0,
         "2026-06": 810.0,
-        "2026-07": 341.0
+        "2026-07": 372.0
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Pahang Pharmacy",
       "supplier_contact": "016-2160526  |  account2@pahangpharmacy.com.my",
-      "monthly_revenue": 2828.7,
+      "monthly_revenue": 2912.4,
       "dead_stock": 0,
-      "days_of_stock": 43.0,
+      "days_of_stock": 40.8,
       "urgency": "ok",
       "expiry_days": 539,
       "months_supply": 1.4,
@@ -1658,13 +1650,13 @@
       "manufacturer": "BAYER",
       "category": "BLOCKED NOSE",
       "uom": "TABLET",
-      "available_stock": 440.0,
+      "available_stock": 430.0,
       "required_stock": 300.0,
       "nearest_expiry": "31/07/2027",
       "latest_cost_price": 1.81,
       "avg_cost_price": 1.6933333333333,
       "selling_price": 4.0,
-      "recommended_monthly": 194.4,
+      "recommended_monthly": 203.7,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 60.0,
@@ -1672,18 +1664,18 @@
         "2026-04": 200.0,
         "2026-05": 150.0,
         "2026-06": 220.0,
-        "2026-07": 248.0
+        "2026-07": 279.0
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Zuellig Pharma",
       "supplier_contact": "088-423500",
-      "monthly_revenue": 777.6,
+      "monthly_revenue": 814.8,
       "dead_stock": 0,
-      "days_of_stock": 67.9,
+      "days_of_stock": 63.3,
       "urgency": "ok",
       "expiry_days": 386,
-      "months_supply": 2.3,
+      "months_supply": 2.1,
       "is_overstock": false,
       "margin_pct": 54.8
     },
@@ -1766,13 +1758,13 @@
       "manufacturer": "SANDOZ",
       "category": "ANTIBIOTICS",
       "uom": "TABLET",
-      "available_stock": 220.0,
+      "available_stock": 210.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/04/2028",
       "latest_cost_price": 0.98,
       "avg_cost_price": 0.86266666666667,
       "selling_price": 3.5,
-      "recommended_monthly": 167.5,
+      "recommended_monthly": 176.8,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 60.0,
@@ -1780,18 +1772,18 @@
         "2026-04": 240.0,
         "2026-05": 190.0,
         "2026-06": 200.0,
-        "2026-07": 155.0
+        "2026-07": 186.0
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Pharmex",
       "supplier_contact": "088-724989",
-      "monthly_revenue": 586.25,
+      "monthly_revenue": 618.8,
       "dead_stock": 0,
-      "days_of_stock": 39.4,
+      "days_of_stock": 35.6,
       "urgency": "ok",
       "expiry_days": 660,
-      "months_supply": 1.3,
+      "months_supply": 1.2,
       "is_overstock": false,
       "margin_pct": 72.0
     },
@@ -2524,13 +2516,13 @@
       "manufacturer": "PFIZER",
       "category": "ANTIBIOTICS",
       "uom": "TABLET",
-      "available_stock": 450.0,
+      "available_stock": 440.0,
       "required_stock": 50.0,
       "nearest_expiry": "31/12/2027",
       "latest_cost_price": 4.07,
       "avg_cost_price": 4.114,
       "selling_price": 9.0,
-      "recommended_monthly": 314.3,
+      "recommended_monthly": 323.6,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 10.0,
@@ -2538,15 +2530,15 @@
         "2026-04": 40.0,
         "2026-05": 210.0,
         "2026-06": 810.0,
-        "2026-07": 341.0
+        "2026-07": 372.0
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Pahang Pharmacy",
       "supplier_contact": "016-2160526  |  account2@pahangpharmacy.com.my",
-      "monthly_revenue": 2828.7,
+      "monthly_revenue": 2912.4,
       "dead_stock": 0,
-      "days_of_stock": 43.0,
+      "days_of_stock": 40.8,
       "urgency": "ok",
       "expiry_days": 539,
       "months_supply": 1.4,
@@ -2668,13 +2660,13 @@
       "manufacturer": "Y.S.P.",
       "category": "ANTI-INFLAMMATORY",
       "uom": "ML",
-      "available_stock": 42.0,
+      "available_stock": 41.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/05/2028",
       "latest_cost_price": 11.92,
       "avg_cost_price": 10.967142857143,
       "selling_price": 35.0,
-      "recommended_monthly": 30.6,
+      "recommended_monthly": 31.5,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 12.0,
@@ -2682,18 +2674,18 @@
         "2026-04": 28.0,
         "2026-05": 34.0,
         "2026-06": 36.0,
-        "2026-07": 31.0
+        "2026-07": 34.1
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Pharmex",
       "supplier_contact": "088-724989",
-      "monthly_revenue": 1071.0,
+      "monthly_revenue": 1102.5,
       "dead_stock": 0,
-      "days_of_stock": 41.2,
+      "days_of_stock": 39.0,
       "urgency": "ok",
       "expiry_days": 691,
-      "months_supply": 1.4,
+      "months_supply": 1.3,
       "is_overstock": false,
       "margin_pct": 65.9
     },
@@ -2848,13 +2840,13 @@
       "manufacturer": "BAYER",
       "category": "BLOCKED NOSE",
       "uom": "TABLET",
-      "available_stock": 440.0,
+      "available_stock": 430.0,
       "required_stock": 300.0,
       "nearest_expiry": "31/07/2027",
       "latest_cost_price": 1.81,
       "avg_cost_price": 1.6933333333333,
       "selling_price": 4.0,
-      "recommended_monthly": 194.4,
+      "recommended_monthly": 203.7,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 60.0,
@@ -2862,18 +2854,18 @@
         "2026-04": 200.0,
         "2026-05": 150.0,
         "2026-06": 220.0,
-        "2026-07": 248.0
+        "2026-07": 279.0
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Zuellig Pharma",
       "supplier_contact": "088-423500",
-      "monthly_revenue": 777.6,
+      "monthly_revenue": 814.8,
       "dead_stock": 0,
-      "days_of_stock": 67.9,
+      "days_of_stock": 63.3,
       "urgency": "ok",
       "expiry_days": 386,
-      "months_supply": 2.3,
+      "months_supply": 2.1,
       "is_overstock": false,
       "margin_pct": 54.8
     },
@@ -2884,13 +2876,13 @@
       "manufacturer": "nan",
       "category": "HYDRATION",
       "uom": "UNIT",
-      "available_stock": 33.0,
+      "available_stock": 32.0,
       "required_stock": 0.0,
       "nearest_expiry": "13/01/2031",
       "latest_cost_price": 4.85,
       "avg_cost_price": 3.985,
       "selling_price": 30.0,
-      "recommended_monthly": 24.9,
+      "recommended_monthly": 26.4,
       "velocity_method": "avg_present_months",
       "monthly_breakdown": {
         "2026-02": 0,
@@ -2898,18 +2890,18 @@
         "2026-04": 0,
         "2026-05": 0,
         "2026-06": 28.0,
-        "2026-07": 21.7
+        "2026-07": 24.8
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "PharmaExpress",
       "supplier_contact": "088-393227  |  info@pharmaexpress.com.my",
-      "monthly_revenue": 747.0,
+      "monthly_revenue": 792.0,
       "dead_stock": 0,
-      "days_of_stock": 39.8,
+      "days_of_stock": 36.4,
       "urgency": "ok",
       "expiry_days": 1648,
-      "months_supply": 1.3,
+      "months_supply": 1.2,
       "is_overstock": false,
       "margin_pct": 83.8
     },
@@ -3022,6 +3014,42 @@
       "margin_pct": 84.0
     },
     {
+      "description": "TAB CURAM (AMOXYCILLIN + CLAVULANIC ACID) 625MG SANDOZ",
+      "code": "MAL05090013ASRZ",
+      "brand": "nan",
+      "manufacturer": "SANDOZ",
+      "category": "ANTIBIOTICS",
+      "uom": "TABLET",
+      "available_stock": 210.0,
+      "required_stock": 100.0,
+      "nearest_expiry": "30/04/2028",
+      "latest_cost_price": 0.98,
+      "avg_cost_price": 0.86266666666667,
+      "selling_price": 3.5,
+      "recommended_monthly": 176.8,
+      "velocity_method": "weighted_recent",
+      "monthly_breakdown": {
+        "2026-02": 60.0,
+        "2026-03": 130.0,
+        "2026-04": 240.0,
+        "2026-05": 190.0,
+        "2026-06": 200.0,
+        "2026-07": 186.0
+      },
+      "needs_reorder": false,
+      "order_qty": 0,
+      "supplier": "Pharmex",
+      "supplier_contact": "088-724989",
+      "monthly_revenue": 618.8,
+      "dead_stock": 0,
+      "days_of_stock": 35.6,
+      "urgency": "ok",
+      "expiry_days": 660,
+      "months_supply": 1.2,
+      "is_overstock": false,
+      "margin_pct": 72.0
+    },
+    {
       "description": "TAB LUSEFI ( LUSEOGLIFLOZIN ) 5MG TAISHO",
       "code": "MAL18091002AZ",
       "brand": "nan",
@@ -3094,42 +3122,6 @@
       "margin_pct": 90.0
     },
     {
-      "description": "TAB CURAM (AMOXYCILLIN + CLAVULANIC ACID) 625MG SANDOZ",
-      "code": "MAL05090013ASRZ",
-      "brand": "nan",
-      "manufacturer": "SANDOZ",
-      "category": "ANTIBIOTICS",
-      "uom": "TABLET",
-      "available_stock": 220.0,
-      "required_stock": 100.0,
-      "nearest_expiry": "30/04/2028",
-      "latest_cost_price": 0.98,
-      "avg_cost_price": 0.86266666666667,
-      "selling_price": 3.5,
-      "recommended_monthly": 167.5,
-      "velocity_method": "weighted_recent",
-      "monthly_breakdown": {
-        "2026-02": 60.0,
-        "2026-03": 130.0,
-        "2026-04": 240.0,
-        "2026-05": 190.0,
-        "2026-06": 200.0,
-        "2026-07": 155.0
-      },
-      "needs_reorder": false,
-      "order_qty": 0,
-      "supplier": "Pharmex",
-      "supplier_contact": "088-724989",
-      "monthly_revenue": 586.25,
-      "dead_stock": 0,
-      "days_of_stock": 39.4,
-      "urgency": "ok",
-      "expiry_days": 660,
-      "months_supply": 1.3,
-      "is_overstock": false,
-      "margin_pct": 72.0
-    },
-    {
       "description": "IVD N/S 0.9% 500ML B. BRAUN",
       "code": "MAL19921434AZ",
       "brand": "nan",
@@ -3166,40 +3158,40 @@
       "margin_pct": 92.4
     },
     {
-      "description": "TAB NEXIUM MUPS (ESOMEPRAZOLE) 40MG ASTRAZENECA",
-      "code": "MAL20020239ARZ",
+      "description": "TABS BETAMETHASONE 0.5MG Y.S.P.",
+      "code": "MAL19940031AZ",
       "brand": "nan",
-      "manufacturer": "ASTRAZENECA",
-      "category": "GASTRITIS",
+      "manufacturer": "Y.S.P.",
+      "category": "ANTI-INFLAMMATORY",
       "uom": "TABLET",
-      "available_stock": 175.0,
-      "required_stock": 30.0,
-      "nearest_expiry": "30/06/2027",
-      "latest_cost_price": 6.78,
-      "avg_cost_price": 6.7658157142857,
-      "selling_price": 12.0,
-      "recommended_monthly": 44.0,
+      "available_stock": 200.0,
+      "required_stock": 300.0,
+      "nearest_expiry": "31/12/2026",
+      "latest_cost_price": 0.11,
+      "avg_cost_price": 0.10541666666667,
+      "selling_price": 1.5,
+      "recommended_monthly": 360.6,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
-        "2026-02": 0,
-        "2026-03": 42.0,
-        "2026-04": 42.0,
-        "2026-05": 14.0,
-        "2026-06": 77.0,
-        "2026-07": 43.4
+        "2026-02": 220.0,
+        "2026-03": 410.0,
+        "2026-04": 260.0,
+        "2026-05": 350.0,
+        "2026-06": 450.0,
+        "2026-07": 372.0
       },
-      "needs_reorder": false,
-      "order_qty": 0,
-      "supplier": "Permai Polyclinics KK",
-      "supplier_contact": "",
-      "monthly_revenue": 528.0,
+      "needs_reorder": true,
+      "order_qty": 160,
+      "supplier": "UMH Pharmacy",
+      "supplier_contact": "088-215317  |  umhpharmacy@gmail.com",
+      "monthly_revenue": 540.9,
       "dead_stock": 0,
-      "days_of_stock": 119.3,
-      "urgency": "ok",
-      "expiry_days": 355,
-      "months_supply": 4.0,
+      "days_of_stock": 16.6,
+      "urgency": "high",
+      "expiry_days": 174,
+      "months_supply": 0.6,
       "is_overstock": false,
-      "margin_pct": 43.5
+      "margin_pct": 92.7
     }
   ],
   "reorder_items": [
@@ -3744,6 +3736,78 @@
       "margin_pct": 62.2
     },
     {
+      "description": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
+      "code": "MAL19987356AZ",
+      "brand": "nan",
+      "manufacturer": "Y.S.P.",
+      "category": "BRONCHOSPASM",
+      "uom": "BOTTLE",
+      "available_stock": 5.0,
+      "required_stock": 30.0,
+      "nearest_expiry": "31/10/2027",
+      "latest_cost_price": 3.7,
+      "avg_cost_price": 2.4844444444444,
+      "selling_price": 15.0,
+      "recommended_monthly": 16.3,
+      "velocity_method": "weighted_recent",
+      "monthly_breakdown": {
+        "2026-02": 5.0,
+        "2026-03": 23.0,
+        "2026-04": 23.0,
+        "2026-05": 10.0,
+        "2026-06": 18.0,
+        "2026-07": 18.6
+      },
+      "needs_reorder": true,
+      "order_qty": 28,
+      "supplier": "Permai Polyclinics KK",
+      "supplier_contact": "",
+      "monthly_revenue": 244.5,
+      "dead_stock": 0,
+      "days_of_stock": 9.2,
+      "urgency": "urgent",
+      "expiry_days": 478,
+      "months_supply": 0.3,
+      "is_overstock": false,
+      "margin_pct": 75.3
+    },
+    {
+      "description": "SYR BENA EXPECTORANT(DIPHENHYDRAMINE 14MG, AMMONIUM CHLORIDE 135MG/5ML) 90ML XEPA",
+      "code": "MAL16105026AZ",
+      "brand": "nan",
+      "manufacturer": "XEPA",
+      "category": "WET COUGH",
+      "uom": "BOTTLE",
+      "available_stock": 5.0,
+      "required_stock": 5.0,
+      "nearest_expiry": "30/09/2027",
+      "latest_cost_price": 3.4,
+      "avg_cost_price": 2.72,
+      "selling_price": 20.0,
+      "recommended_monthly": 13.5,
+      "velocity_method": "weighted_recent",
+      "monthly_breakdown": {
+        "2026-02": 1.0,
+        "2026-03": 3.0,
+        "2026-04": 24.0,
+        "2026-05": 12.0,
+        "2026-06": 0,
+        "2026-07": 18.6
+      },
+      "needs_reorder": true,
+      "order_qty": 3,
+      "supplier": "Permai Polyclinics KK",
+      "supplier_contact": "",
+      "monthly_revenue": 270.0,
+      "dead_stock": 0,
+      "days_of_stock": 11.1,
+      "urgency": "urgent",
+      "expiry_days": 447,
+      "months_supply": 0.4,
+      "is_overstock": false,
+      "margin_pct": 83.0
+    },
+    {
       "description": "INFUSOL N/S 500ML ( SODIUM CHLORIDE 0.9% W/V ) AIN MEDICARE",
       "code": "MAL19962087AZ-500",
       "brand": "nan",
@@ -3822,13 +3886,13 @@
       "manufacturer": "Y.S.P.",
       "category": "ANTI-INFLAMMATORY",
       "uom": "TABLET",
-      "available_stock": 220.0,
+      "available_stock": 200.0,
       "required_stock": 300.0,
       "nearest_expiry": "31/12/2026",
       "latest_cost_price": 0.11,
       "avg_cost_price": 0.10541666666667,
       "selling_price": 1.5,
-      "recommended_monthly": 342.0,
+      "recommended_monthly": 360.6,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 220.0,
@@ -3836,15 +3900,15 @@
         "2026-04": 260.0,
         "2026-05": 350.0,
         "2026-06": 450.0,
-        "2026-07": 310.0
+        "2026-07": 372.0
       },
       "needs_reorder": true,
-      "order_qty": 140,
+      "order_qty": 160,
       "supplier": "UMH Pharmacy",
       "supplier_contact": "088-215317  |  umhpharmacy@gmail.com",
-      "monthly_revenue": 513.0,
+      "monthly_revenue": 540.9,
       "dead_stock": 0,
-      "days_of_stock": 19.3,
+      "days_of_stock": 16.6,
       "urgency": "high",
       "expiry_days": 174,
       "months_supply": 0.6,
@@ -3960,40 +4024,40 @@
       "margin_pct": null
     },
     {
-      "description": "SYR BUCANIL (TERBUTALINE SULPHATE 1.5MG/5ML) 100ML Y.S.P.",
-      "code": "MAL19987356AZ",
+      "description": "PULMICORT (BUDESONIDE) RESPULE 1MG ASTRAZENECA",
+      "code": "MAL19940088ARZ",
       "brand": "nan",
-      "manufacturer": "Y.S.P.",
-      "category": "BRONCHOSPASM",
-      "uom": "BOTTLE",
-      "available_stock": 7.0,
-      "required_stock": 30.0,
-      "nearest_expiry": "31/10/2027",
-      "latest_cost_price": 3.7,
-      "avg_cost_price": 2.4844444444444,
-      "selling_price": 15.0,
-      "recommended_monthly": 14.4,
+      "manufacturer": "ASTRAZENECA",
+      "category": "ASTHMA",
+      "uom": "RESPULE",
+      "available_stock": 16.0,
+      "required_stock": 20.0,
+      "nearest_expiry": "31/08/2027",
+      "latest_cost_price": 10.26,
+      "avg_cost_price": 10.435,
+      "selling_price": 32.0,
+      "recommended_monthly": 16.1,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
-        "2026-02": 5.0,
-        "2026-03": 23.0,
-        "2026-04": 23.0,
-        "2026-05": 10.0,
-        "2026-06": 18.0,
-        "2026-07": 12.4
+        "2026-02": 7.0,
+        "2026-03": 19.0,
+        "2026-04": 18.0,
+        "2026-05": 6.0,
+        "2026-06": 20.0,
+        "2026-07": 21.7
       },
       "needs_reorder": true,
-      "order_qty": 26,
+      "order_qty": 6,
       "supplier": "Permai Polyclinics KK",
       "supplier_contact": "",
-      "monthly_revenue": 216.0,
+      "monthly_revenue": 515.2,
       "dead_stock": 0,
-      "days_of_stock": 14.6,
+      "days_of_stock": 29.8,
       "urgency": "medium",
-      "expiry_days": 478,
-      "months_supply": 0.5,
+      "expiry_days": 417,
+      "months_supply": 1.0,
       "is_overstock": false,
-      "margin_pct": 75.3
+      "margin_pct": 67.9
     },
     {
       "description": "TAB BETASERC (BETAHISTINE) 24MG ABBOTT",
@@ -4066,42 +4130,6 @@
       "months_supply": 1.0,
       "is_overstock": false,
       "margin_pct": 49.0
-    },
-    {
-      "description": "SYR BENA EXPECTORANT(DIPHENHYDRAMINE 14MG, AMMONIUM CHLORIDE 135MG/5ML) 90ML XEPA",
-      "code": "MAL16105026AZ",
-      "brand": "nan",
-      "manufacturer": "XEPA",
-      "category": "WET COUGH",
-      "uom": "BOTTLE",
-      "available_stock": 6.0,
-      "required_stock": 5.0,
-      "nearest_expiry": "30/09/2027",
-      "latest_cost_price": 3.4,
-      "avg_cost_price": 2.72,
-      "selling_price": 20.0,
-      "recommended_monthly": 12.3,
-      "velocity_method": "weighted_recent",
-      "monthly_breakdown": {
-        "2026-02": 1.0,
-        "2026-03": 3.0,
-        "2026-04": 24.0,
-        "2026-05": 12.0,
-        "2026-06": 0,
-        "2026-07": 15.5
-      },
-      "needs_reorder": true,
-      "order_qty": 2,
-      "supplier": "Permai Polyclinics KK",
-      "supplier_contact": "",
-      "monthly_revenue": 246.0,
-      "dead_stock": 0,
-      "days_of_stock": 14.6,
-      "urgency": "medium",
-      "expiry_days": 447,
-      "months_supply": 0.5,
-      "is_overstock": false,
-      "margin_pct": 83.0
     },
     {
       "description": "TAB STORVAS C (ATORVASTATIN) 20MG RANBAXY",
@@ -5050,13 +5078,13 @@
       "manufacturer": "PFIZER",
       "category": "ANTIBIOTICS",
       "uom": "TABLET",
-      "available_stock": 450.0,
+      "available_stock": 440.0,
       "required_stock": 50.0,
       "nearest_expiry": "31/12/2027",
       "latest_cost_price": 4.07,
       "avg_cost_price": 4.114,
       "selling_price": 9.0,
-      "recommended_monthly": 314.3,
+      "recommended_monthly": 323.6,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 10.0,
@@ -5064,15 +5092,15 @@
         "2026-04": 40.0,
         "2026-05": 210.0,
         "2026-06": 810.0,
-        "2026-07": 341.0
+        "2026-07": 372.0
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Pahang Pharmacy",
       "supplier_contact": "016-2160526  |  account2@pahangpharmacy.com.my",
-      "monthly_revenue": 2828.7,
+      "monthly_revenue": 2912.4,
       "dead_stock": 0,
-      "days_of_stock": 43.0,
+      "days_of_stock": 40.8,
       "urgency": "ok",
       "expiry_days": 539,
       "months_supply": 1.4,
@@ -5641,13 +5669,13 @@
       "manufacturer": "SANDOZ",
       "category": "ANTIBIOTICS",
       "uom": "TABLET",
-      "available_stock": 220.0,
+      "available_stock": 210.0,
       "required_stock": 100.0,
       "nearest_expiry": "30/04/2028",
       "latest_cost_price": 0.98,
       "avg_cost_price": 0.86266666666667,
       "selling_price": 3.5,
-      "recommended_monthly": 167.5,
+      "recommended_monthly": 176.8,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 60.0,
@@ -5655,18 +5683,18 @@
         "2026-04": 240.0,
         "2026-05": 190.0,
         "2026-06": 200.0,
-        "2026-07": 155.0
+        "2026-07": 186.0
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Pharmex",
       "supplier_contact": "088-724989",
-      "monthly_revenue": 586.25,
+      "monthly_revenue": 618.8,
       "dead_stock": 0,
-      "days_of_stock": 39.4,
+      "days_of_stock": 35.6,
       "urgency": "ok",
       "expiry_days": 660,
-      "months_supply": 1.3,
+      "months_supply": 1.2,
       "is_overstock": false,
       "margin_pct": 72.0
     },
@@ -5821,13 +5849,13 @@
       "manufacturer": "Y.S.P.",
       "category": "ANALGESIC",
       "uom": "VIAL",
-      "available_stock": 96.0,
+      "available_stock": 95.0,
       "required_stock": 10.0,
       "nearest_expiry": "30/03/2030",
       "latest_cost_price": 1.38,
       "avg_cost_price": 1.436,
       "selling_price": 30.0,
-      "recommended_monthly": 5.7,
+      "recommended_monthly": 6.6,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 2.0,
@@ -5835,18 +5863,18 @@
         "2026-04": 9.0,
         "2026-05": 3.0,
         "2026-06": 7.0,
-        "2026-07": 6.2
+        "2026-07": 9.3
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "PharmaExpress",
       "supplier_contact": "088-393227  |  info@pharmaexpress.com.my",
-      "monthly_revenue": 171.0,
+      "monthly_revenue": 198.0,
       "dead_stock": 0,
-      "days_of_stock": 505.3,
+      "days_of_stock": 431.8,
       "urgency": "ok",
       "expiry_days": 1359,
-      "months_supply": 16.8,
+      "months_supply": 14.4,
       "is_overstock": true,
       "margin_pct": 95.4
     },
@@ -5893,13 +5921,13 @@
       "manufacturer": "UNITHER",
       "category": "ASTHMA",
       "uom": "RESPULE",
-      "available_stock": 26.0,
+      "available_stock": 25.0,
       "required_stock": 20.0,
       "nearest_expiry": "31/07/2027",
       "latest_cost_price": 3.94,
       "avg_cost_price": 3.351556,
       "selling_price": 30.0,
-      "recommended_monthly": 14.1,
+      "recommended_monthly": 15.1,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 4.0,
@@ -5907,18 +5935,18 @@
         "2026-04": 16.0,
         "2026-05": 12.0,
         "2026-06": 21.0,
-        "2026-07": 12.4
+        "2026-07": 15.5
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Pahang Pharmacy",
       "supplier_contact": "016-2160526  |  account2@pahangpharmacy.com.my",
-      "monthly_revenue": 423.0,
+      "monthly_revenue": 453.0,
       "dead_stock": 0,
-      "days_of_stock": 55.3,
+      "days_of_stock": 49.7,
       "urgency": "ok",
       "expiry_days": 386,
-      "months_supply": 1.8,
+      "months_supply": 1.7,
       "is_overstock": false,
       "margin_pct": 86.9
     },
@@ -5929,13 +5957,13 @@
       "manufacturer": "ASTRAZENECA",
       "category": "ASTHMA",
       "uom": "RESPULE",
-      "available_stock": 17.0,
+      "available_stock": 16.0,
       "required_stock": 20.0,
       "nearest_expiry": "31/08/2027",
       "latest_cost_price": 10.26,
       "avg_cost_price": 10.435,
       "selling_price": 32.0,
-      "recommended_monthly": 15.2,
+      "recommended_monthly": 16.1,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 7.0,
@@ -5943,18 +5971,18 @@
         "2026-04": 18.0,
         "2026-05": 6.0,
         "2026-06": 20.0,
-        "2026-07": 18.6
+        "2026-07": 21.7
       },
-      "needs_reorder": false,
-      "order_qty": 0,
+      "needs_reorder": true,
+      "order_qty": 6,
       "supplier": "Permai Polyclinics KK",
       "supplier_contact": "",
-      "monthly_revenue": 486.4,
+      "monthly_revenue": 515.2,
       "dead_stock": 0,
-      "days_of_stock": 33.6,
-      "urgency": "ok",
+      "days_of_stock": 29.8,
+      "urgency": "medium",
       "expiry_days": 417,
-      "months_supply": 1.1,
+      "months_supply": 1.0,
       "is_overstock": false,
       "margin_pct": 67.9
     },
@@ -6037,13 +6065,13 @@
       "manufacturer": "SM PHARMA",
       "category": "ANTIBIOTICS",
       "uom": "BOTTLE",
-      "available_stock": 23.0,
+      "available_stock": 20.0,
       "required_stock": 10.0,
       "nearest_expiry": "28/02/2029",
       "latest_cost_price": 4.0,
       "avg_cost_price": 4.0,
       "selling_price": 25.0,
-      "recommended_monthly": 14.5,
+      "recommended_monthly": 17.3,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 7.0,
@@ -6051,18 +6079,18 @@
         "2026-04": 18.0,
         "2026-05": 1.0,
         "2026-06": 13.0,
-        "2026-07": 24.8
+        "2026-07": 34.1
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Pharmex",
       "supplier_contact": "088-724989",
-      "monthly_revenue": 362.5,
+      "monthly_revenue": 432.5,
       "dead_stock": 0,
-      "days_of_stock": 47.6,
+      "days_of_stock": 34.7,
       "urgency": "ok",
       "expiry_days": 964,
-      "months_supply": 1.6,
+      "months_supply": 1.2,
       "is_overstock": false,
       "margin_pct": 84.0
     },
@@ -6181,13 +6209,13 @@
       "manufacturer": "Y.S.P.",
       "category": "nan",
       "uom": "SUPPOSITORIES",
-      "available_stock": 11.0,
+      "available_stock": 10.0,
       "required_stock": 10.0,
       "nearest_expiry": "30/11/2026",
       "latest_cost_price": 1.66,
       "avg_cost_price": 1.66,
       "selling_price": 6.0,
-      "recommended_monthly": 3.5,
+      "recommended_monthly": 4.5,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 1.0,
@@ -6195,18 +6223,18 @@
         "2026-04": 1.0,
         "2026-05": 2.0,
         "2026-06": 6.0,
-        "2026-07": 3.1
+        "2026-07": 6.2
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Permai Polyclinics KK",
       "supplier_contact": "",
-      "monthly_revenue": 21.0,
+      "monthly_revenue": 27.0,
       "dead_stock": 0,
-      "days_of_stock": 94.3,
+      "days_of_stock": 66.7,
       "urgency": "ok",
       "expiry_days": 143,
-      "months_supply": 3.1,
+      "months_supply": 2.2,
       "is_overstock": false,
       "margin_pct": 72.3
     },
@@ -6577,13 +6605,13 @@
       "manufacturer": "NORIPHARMA",
       "category": "IMPETIGO",
       "uom": "TUBE",
-      "available_stock": 60.0,
+      "available_stock": 59.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/07/2027",
       "latest_cost_price": 2.76,
       "avg_cost_price": 2.9242857142857,
       "selling_price": 20.0,
-      "recommended_monthly": 13.3,
+      "recommended_monthly": 14.2,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 7.0,
@@ -6591,18 +6619,18 @@
         "2026-04": 14.0,
         "2026-05": 20.0,
         "2026-06": 18.0,
-        "2026-07": 6.2
+        "2026-07": 9.3
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Pahang Pharmacy",
       "supplier_contact": "016-2160526  |  account2@pahangpharmacy.com.my",
-      "monthly_revenue": 266.0,
+      "monthly_revenue": 284.0,
       "dead_stock": 0,
-      "days_of_stock": 135.3,
+      "days_of_stock": 124.6,
       "urgency": "ok",
       "expiry_days": 386,
-      "months_supply": 4.5,
+      "months_supply": 4.2,
       "is_overstock": false,
       "margin_pct": 86.2
     },
@@ -6685,13 +6713,13 @@
       "manufacturer": "Y.S.P.",
       "category": "ANTI-INFLAMMATORY",
       "uom": "TABLET",
-      "available_stock": 220.0,
+      "available_stock": 200.0,
       "required_stock": 300.0,
       "nearest_expiry": "31/12/2026",
       "latest_cost_price": 0.11,
       "avg_cost_price": 0.10541666666667,
       "selling_price": 1.5,
-      "recommended_monthly": 342.0,
+      "recommended_monthly": 360.6,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 220.0,
@@ -6699,15 +6727,15 @@
         "2026-04": 260.0,
         "2026-05": 350.0,
         "2026-06": 450.0,
-        "2026-07": 310.0
+        "2026-07": 372.0
       },
       "needs_reorder": true,
-      "order_qty": 140,
+      "order_qty": 160,
       "supplier": "UMH Pharmacy",
       "supplier_contact": "088-215317  |  umhpharmacy@gmail.com",
-      "monthly_revenue": 513.0,
+      "monthly_revenue": 540.9,
       "dead_stock": 0,
-      "days_of_stock": 19.3,
+      "days_of_stock": 16.6,
       "urgency": "high",
       "expiry_days": 174,
       "months_supply": 0.6,
@@ -7074,13 +7102,13 @@
       "manufacturer": "Y.S.P.",
       "category": "BRONCHOSPASM",
       "uom": "BOTTLE",
-      "available_stock": 7.0,
+      "available_stock": 5.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/10/2027",
       "latest_cost_price": 3.7,
       "avg_cost_price": 2.4844444444444,
       "selling_price": 15.0,
-      "recommended_monthly": 14.4,
+      "recommended_monthly": 16.3,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 5.0,
@@ -7088,18 +7116,18 @@
         "2026-04": 23.0,
         "2026-05": 10.0,
         "2026-06": 18.0,
-        "2026-07": 12.4
+        "2026-07": 18.6
       },
       "needs_reorder": true,
-      "order_qty": 26,
+      "order_qty": 28,
       "supplier": "Permai Polyclinics KK",
       "supplier_contact": "",
-      "monthly_revenue": 216.0,
+      "monthly_revenue": 244.5,
       "dead_stock": 0,
-      "days_of_stock": 14.6,
-      "urgency": "medium",
+      "days_of_stock": 9.2,
+      "urgency": "urgent",
       "expiry_days": 478,
-      "months_supply": 0.5,
+      "months_supply": 0.3,
       "is_overstock": false,
       "margin_pct": 75.3
     },
@@ -7290,13 +7318,13 @@
       "manufacturer": "DYNAPHARM",
       "category": "nan",
       "uom": "BOTTLE",
-      "available_stock": 22.0,
+      "available_stock": 20.0,
       "required_stock": 15.0,
       "nearest_expiry": "31/03/2029",
       "latest_cost_price": 3.0,
       "avg_cost_price": 1.9166666666667,
       "selling_price": 15.0,
-      "recommended_monthly": 14.3,
+      "recommended_monthly": 16.1,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 7.0,
@@ -7304,18 +7332,18 @@
         "2026-04": 22.0,
         "2026-05": 16.0,
         "2026-06": 19.0,
-        "2026-07": 6.2
+        "2026-07": 12.4
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Permai Polyclinics KK",
       "supplier_contact": "",
-      "monthly_revenue": 214.5,
+      "monthly_revenue": 241.5,
       "dead_stock": 0,
-      "days_of_stock": 46.2,
+      "days_of_stock": 37.3,
       "urgency": "ok",
       "expiry_days": 995,
-      "months_supply": 1.5,
+      "months_supply": 1.2,
       "is_overstock": false,
       "margin_pct": 80.0
     },
@@ -9077,13 +9105,13 @@
       "manufacturer": "BAYER",
       "category": "BLOCKED NOSE",
       "uom": "TABLET",
-      "available_stock": 440.0,
+      "available_stock": 430.0,
       "required_stock": 300.0,
       "nearest_expiry": "31/07/2027",
       "latest_cost_price": 1.81,
       "avg_cost_price": 1.6933333333333,
       "selling_price": 4.0,
-      "recommended_monthly": 194.4,
+      "recommended_monthly": 203.7,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 60.0,
@@ -9091,18 +9119,18 @@
         "2026-04": 200.0,
         "2026-05": 150.0,
         "2026-06": 220.0,
-        "2026-07": 248.0
+        "2026-07": 279.0
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Zuellig Pharma",
       "supplier_contact": "088-423500",
-      "monthly_revenue": 777.6,
+      "monthly_revenue": 814.8,
       "dead_stock": 0,
-      "days_of_stock": 67.9,
+      "days_of_stock": 63.3,
       "urgency": "ok",
       "expiry_days": 386,
-      "months_supply": 2.3,
+      "months_supply": 2.1,
       "is_overstock": false,
       "margin_pct": 54.8
     },
@@ -9329,13 +9357,13 @@
       "manufacturer": "XEPA",
       "category": "WET COUGH",
       "uom": "BOTTLE",
-      "available_stock": 6.0,
+      "available_stock": 5.0,
       "required_stock": 5.0,
       "nearest_expiry": "30/09/2027",
       "latest_cost_price": 3.4,
       "avg_cost_price": 2.72,
       "selling_price": 20.0,
-      "recommended_monthly": 12.3,
+      "recommended_monthly": 13.5,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 1.0,
@@ -9343,18 +9371,18 @@
         "2026-04": 24.0,
         "2026-05": 12.0,
         "2026-06": 0,
-        "2026-07": 15.5
+        "2026-07": 18.6
       },
       "needs_reorder": true,
-      "order_qty": 2,
+      "order_qty": 3,
       "supplier": "Permai Polyclinics KK",
       "supplier_contact": "",
-      "monthly_revenue": 246.0,
+      "monthly_revenue": 270.0,
       "dead_stock": 0,
-      "days_of_stock": 14.6,
-      "urgency": "medium",
+      "days_of_stock": 11.1,
+      "urgency": "urgent",
       "expiry_days": 447,
-      "months_supply": 0.5,
+      "months_supply": 0.4,
       "is_overstock": false,
       "margin_pct": 83.0
     },
@@ -9473,13 +9501,13 @@
       "manufacturer": "nan",
       "category": "TAHAN SAKIT",
       "uom": "TABLET",
-      "available_stock": 85.0,
+      "available_stock": 80.0,
       "required_stock": 50.0,
       "nearest_expiry": "03/06/2028",
       "latest_cost_price": 4.93,
       "avg_cost_price": 3.54325,
       "selling_price": 7.0,
-      "recommended_monthly": 24.3,
+      "recommended_monthly": 28.9,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 20.0,
@@ -9487,18 +9515,18 @@
         "2026-04": 30.0,
         "2026-05": 25.0,
         "2026-06": 10.0,
-        "2026-07": 31.0
+        "2026-07": 46.5
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Pharmex",
       "supplier_contact": "088-724989",
-      "monthly_revenue": 170.1,
+      "monthly_revenue": 202.3,
       "dead_stock": 0,
-      "days_of_stock": 104.9,
+      "days_of_stock": 83.0,
       "urgency": "ok",
       "expiry_days": 694,
-      "months_supply": 3.5,
+      "months_supply": 2.8,
       "is_overstock": false,
       "margin_pct": 29.6
     },
@@ -9834,13 +9862,13 @@
       "manufacturer": "Y.S.P.",
       "category": "ANTI-INFLAMMATORY",
       "uom": "ML",
-      "available_stock": 42.0,
+      "available_stock": 41.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/05/2028",
       "latest_cost_price": 11.92,
       "avg_cost_price": 10.967142857143,
       "selling_price": 35.0,
-      "recommended_monthly": 30.6,
+      "recommended_monthly": 31.5,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 12.0,
@@ -9848,18 +9876,18 @@
         "2026-04": 28.0,
         "2026-05": 34.0,
         "2026-06": 36.0,
-        "2026-07": 31.0
+        "2026-07": 34.1
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Pharmex",
       "supplier_contact": "088-724989",
-      "monthly_revenue": 1071.0,
+      "monthly_revenue": 1102.5,
       "dead_stock": 0,
-      "days_of_stock": 41.2,
+      "days_of_stock": 39.0,
       "urgency": "ok",
       "expiry_days": 691,
-      "months_supply": 1.4,
+      "months_supply": 1.3,
       "is_overstock": false,
       "margin_pct": 65.9
     },
@@ -10461,13 +10489,13 @@
       "manufacturer": "nan",
       "category": "HYDRATION",
       "uom": "UNIT",
-      "available_stock": 33.0,
+      "available_stock": 32.0,
       "required_stock": 0.0,
       "nearest_expiry": "13/01/2031",
       "latest_cost_price": 4.85,
       "avg_cost_price": 3.985,
       "selling_price": 30.0,
-      "recommended_monthly": 24.9,
+      "recommended_monthly": 26.4,
       "velocity_method": "avg_present_months",
       "monthly_breakdown": {
         "2026-02": 0,
@@ -10475,18 +10503,18 @@
         "2026-04": 0,
         "2026-05": 0,
         "2026-06": 28.0,
-        "2026-07": 21.7
+        "2026-07": 24.8
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "PharmaExpress",
       "supplier_contact": "088-393227  |  info@pharmaexpress.com.my",
-      "monthly_revenue": 747.0,
+      "monthly_revenue": 792.0,
       "dead_stock": 0,
-      "days_of_stock": 39.8,
+      "days_of_stock": 36.4,
       "urgency": "ok",
       "expiry_days": 1648,
-      "months_supply": 1.3,
+      "months_supply": 1.2,
       "is_overstock": false,
       "margin_pct": 83.8
     },
@@ -11096,13 +11124,13 @@
       "manufacturer": "DUOPHARMA",
       "category": "FEVER",
       "uom": "1",
-      "available_stock": 40.0,
+      "available_stock": 37.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/10/2028",
       "latest_cost_price": 3.3,
       "avg_cost_price": 3.075,
       "selling_price": 15.0,
-      "recommended_monthly": 17.4,
+      "recommended_monthly": 20.1,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 5.0,
@@ -11110,18 +11138,18 @@
         "2026-04": 18.0,
         "2026-05": 18.0,
         "2026-06": 24.0,
-        "2026-07": 15.5
+        "2026-07": 24.8
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "UMH Pharmacy",
       "supplier_contact": "088-215317  |  umhpharmacy@gmail.com",
-      "monthly_revenue": 261.0,
+      "monthly_revenue": 301.5,
       "dead_stock": 0,
-      "days_of_stock": 69.0,
+      "days_of_stock": 55.2,
       "urgency": "ok",
       "expiry_days": 844,
-      "months_supply": 2.3,
+      "months_supply": 1.8,
       "is_overstock": false,
       "margin_pct": 78.0
     },
@@ -11168,13 +11196,13 @@
       "manufacturer": "SM PHARMA",
       "category": "nan",
       "uom": "0.5ML",
-      "available_stock": 13.0,
+      "available_stock": 12.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/07/2027",
       "latest_cost_price": 3.75,
       "avg_cost_price": 3.75,
       "selling_price": 25.0,
-      "recommended_monthly": 5.0,
+      "recommended_monthly": 4.4,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 3.0,
@@ -11182,18 +11210,18 @@
         "2026-04": 6.0,
         "2026-05": 7.0,
         "2026-06": 3.0,
-        "2026-07": 0
+        "2026-07": 3.1
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Pharmex",
       "supplier_contact": "088-724989",
-      "monthly_revenue": 125.0,
+      "monthly_revenue": 110.0,
       "dead_stock": 0,
-      "days_of_stock": 78.0,
+      "days_of_stock": 81.8,
       "urgency": "ok",
       "expiry_days": 386,
-      "months_supply": 2.6,
+      "months_supply": 2.7,
       "is_overstock": false,
       "margin_pct": 85.0
     },
@@ -11204,13 +11232,13 @@
       "manufacturer": "SANOFI",
       "category": "THYPHOID VACCINE",
       "uom": "DOSE",
-      "available_stock": 5.0,
+      "available_stock": 4.0,
       "required_stock": 5.0,
       "nearest_expiry": "30/06/2027",
       "latest_cost_price": 59.0,
       "avg_cost_price": 60.666666666667,
       "selling_price": 110.0,
-      "recommended_monthly": 1.8,
+      "recommended_monthly": 2.3,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 0,
@@ -11218,18 +11246,18 @@
         "2026-04": 1.0,
         "2026-05": 0,
         "2026-06": 2.0,
-        "2026-07": 0
+        "2026-07": 3.1
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "Zuellig Pharma",
       "supplier_contact": "088-423500",
-      "monthly_revenue": 198.0,
-      "dead_stock": 30,
-      "days_of_stock": 83.3,
+      "monthly_revenue": 253.0,
+      "dead_stock": 0,
+      "days_of_stock": 52.2,
       "urgency": "ok",
       "expiry_days": 355,
-      "months_supply": 2.8,
+      "months_supply": 1.7,
       "is_overstock": false,
       "margin_pct": 46.4
     },
@@ -12105,7 +12133,7 @@
       "manufacturer": "LUPIN",
       "category": "ANTIBIOTICS",
       "uom": "BOTTLE",
-      "available_stock": 11.0,
+      "available_stock": 10.0,
       "required_stock": 10.0,
       "nearest_expiry": "31/07/2027",
       "latest_cost_price": 44.0,
@@ -12119,7 +12147,7 @@
         "2026-04": 2.0,
         "2026-05": 3.0,
         "2026-06": 4.0,
-        "2026-07": 0
+        "2026-07": 3.1
       },
       "needs_reorder": false,
       "order_qty": 0,
@@ -12127,10 +12155,10 @@
       "supplier_contact": "088-724989",
       "monthly_revenue": 240.0,
       "dead_stock": 0,
-      "days_of_stock": 103.1,
+      "days_of_stock": 93.8,
       "urgency": "ok",
       "expiry_days": 386,
-      "months_supply": 3.4,
+      "months_supply": 3.1,
       "is_overstock": false,
       "margin_pct": 41.3
     },
@@ -12799,13 +12827,13 @@
       "manufacturer": "DUOPHARMA",
       "category": "nan",
       "uom": "TABLET",
-      "available_stock": 50.0,
+      "available_stock": 40.0,
       "required_stock": 30.0,
       "nearest_expiry": "31/07/2028",
       "latest_cost_price": 0.32,
       "avg_cost_price": 0.315,
       "selling_price": 2.0,
-      "recommended_monthly": 35.1,
+      "recommended_monthly": 48.4,
       "velocity_method": "weighted_recent",
       "monthly_breakdown": {
         "2026-02": 0,
@@ -12813,18 +12841,18 @@
         "2026-04": 0,
         "2026-05": 20.0,
         "2026-06": 10.0,
-        "2026-07": 62.0
+        "2026-07": 93.0
       },
       "needs_reorder": false,
       "order_qty": 0,
       "supplier": "UMH Pharmacy",
       "supplier_contact": "088-215317  |  umhpharmacy@gmail.com",
-      "monthly_revenue": 70.2,
+      "monthly_revenue": 96.8,
       "dead_stock": 0,
-      "days_of_stock": 42.7,
+      "days_of_stock": 24.8,
       "urgency": "ok",
       "expiry_days": 752,
-      "months_supply": 1.4,
+      "months_supply": 0.8,
       "is_overstock": false,
       "margin_pct": 84.0
     },
@@ -14493,25 +14521,112 @@
       "months_supply": null,
       "is_overstock": false,
       "margin_pct": null
+    },
+    {
+      "description": "TAB LIPITOR (ATORVASTATIN) 20MG VIATRIS",
+      "code": "MAL20034211ARZ",
+      "brand": "nan",
+      "manufacturer": "VIATRIS",
+      "category": "HYPERLIDEMIA",
+      "uom": "TABLET",
+      "available_stock": 150.0,
+      "required_stock": 30.0,
+      "nearest_expiry": "31/01/2027",
+      "latest_cost_price": 0.0,
+      "avg_cost_price": 0.0,
+      "selling_price": 8.4,
+      "recommended_monthly": 0,
+      "velocity_method": "no_data",
+      "monthly_breakdown": {},
+      "needs_reorder": false,
+      "order_qty": 0,
+      "supplier": "TBD",
+      "supplier_contact": "",
+      "monthly_revenue": 0.0,
+      "dead_stock": 0,
+      "days_of_stock": 999,
+      "urgency": "ok",
+      "expiry_days": 205,
+      "months_supply": null,
+      "is_overstock": false,
+      "margin_pct": null
+    },
+    {
+      "description": "REPARIL GEL N 20G",
+      "code": "MAL06030857X",
+      "brand": "nan",
+      "manufacturer": "nan",
+      "category": "NSAIDS",
+      "uom": "TUBE",
+      "available_stock": 3.0,
+      "required_stock": 1.0,
+      "nearest_expiry": "30/04/2027",
+      "latest_cost_price": 0.0,
+      "avg_cost_price": 0.0,
+      "selling_price": 20.0,
+      "recommended_monthly": 0,
+      "velocity_method": "no_data",
+      "monthly_breakdown": {},
+      "needs_reorder": false,
+      "order_qty": 0,
+      "supplier": "TBD",
+      "supplier_contact": "",
+      "monthly_revenue": 0.0,
+      "dead_stock": 0,
+      "days_of_stock": 999,
+      "urgency": "ok",
+      "expiry_days": 294,
+      "months_supply": null,
+      "is_overstock": false,
+      "margin_pct": null
+    },
+    {
+      "description": "REPARIL ICE-SPRAY 200ML VOLCKE AEROSOL ITALY SRL",
+      "code": "GA10329224-159863",
+      "brand": "nan",
+      "manufacturer": "VOLCKE AEROSOL ITALY SRL",
+      "category": "nan",
+      "uom": "BOTTLE",
+      "available_stock": 1.0,
+      "required_stock": 1.0,
+      "nearest_expiry": "30/04/2028",
+      "latest_cost_price": 0.0,
+      "avg_cost_price": 0.0,
+      "selling_price": 32.0,
+      "recommended_monthly": 0,
+      "velocity_method": "no_data",
+      "monthly_breakdown": {},
+      "needs_reorder": false,
+      "order_qty": 0,
+      "supplier": "TBD",
+      "supplier_contact": "",
+      "monthly_revenue": 0.0,
+      "dead_stock": 0,
+      "days_of_stock": 999,
+      "urgency": "ok",
+      "expiry_days": 660,
+      "months_supply": null,
+      "is_overstock": false,
+      "margin_pct": null
     }
   ],
   "stock_audit": {
     "available": true,
     "date_from": "2026-05-28",
-    "date_to": "2026-07-09",
-    "snapshots": 43,
+    "date_to": "2026-07-10",
+    "snapshots": 44,
     "event_floor": 1.0,
-    "total_missing_units": 2802.0,
-    "total_missing_value": 5976.87,
-    "total_missing_sales": 28579.5,
-    "items_flagged": 133,
-    "real_leads_count": 48,
+    "total_missing_units": 2825.0,
+    "total_missing_value": 6058.77,
+    "total_missing_sales": 28774.5,
+    "items_flagged": 135,
+    "real_leads_count": 50,
     "controlled_leads_count": 4,
-    "real_missing_units": 1596.0,
-    "real_missing_value": 1163.06,
-    "real_missing_sales": 4754.5,
-    "explained_value": 4813.81,
-    "explained_sales": 23825.0,
+    "real_missing_units": 1611.0,
+    "real_missing_value": 1229.72,
+    "real_missing_sales": 4879.5,
+    "explained_value": 4829.05,
+    "explained_sales": 23895.0,
     "items": [
       {
         "description": "TAB NEXIUM MUPS (ESOMEPRAZOLE) 40MG ASTRAZENECA",
@@ -14768,7 +14883,7 @@
         "reason": "Unexplained (worth checking)",
         "reason_key": "real",
         "days_flagged": 3,
-        "dispensed_total": 300.0,
+        "dispensed_total": 310.0,
         "matched": true,
         "events": [
           {
@@ -14886,7 +15001,7 @@
         "reason": "Unexplained (worth checking)",
         "reason_key": "real",
         "days_flagged": 6,
-        "dispensed_total": 49.0,
+        "dispensed_total": 50.0,
         "matched": true,
         "events": [
           {
@@ -15164,6 +15279,41 @@
         ]
       },
       {
+        "description": "TAB UNASYN (SULTAMICILLIN) 375MG PFIZER",
+        "code": "MAL19910104ARZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 4.2,
+        "unit_sell": 9.0,
+        "missing_units": 10.0,
+        "missing_value": 42.0,
+        "missing_sales": 90.0,
+        "real_units": 10.0,
+        "real_value": 42.0,
+        "real_sales": 90.0,
+        "is_real_lead": true,
+        "controlled": false,
+        "reason": "Unexplained (worth checking)",
+        "reason_key": "real",
+        "days_flagged": 1,
+        "dispensed_total": 1010.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-07-09",
+            "to": "2026-07-10",
+            "opening": 450.0,
+            "dispensed": 0.0,
+            "expected": 450.0,
+            "closing": 440.0,
+            "missing": 10.0,
+            "reason": "Unexplained (worth checking)",
+            "reason_key": "real",
+            "real": true
+          }
+        ]
+      },
+      {
         "description": "TAB LOVIR ( ACYCLOVIR ) 400MG RANBAXY",
         "code": "MAL19984402AZ",
         "uom": "TABLET",
@@ -15274,6 +15424,41 @@
             "expected": 130.0,
             "closing": 120.0,
             "missing": 10.0,
+            "reason": "Unexplained (worth checking)",
+            "reason_key": "real",
+            "real": true
+          }
+        ]
+      },
+      {
+        "description": "TAB ARCOXIA ( ETORICOXIB ) 90MG ORGANON",
+        "code": "MAL12065065ACRZ",
+        "uom": "TABLET",
+        "status": "Active",
+        "unit_cost": 4.93,
+        "unit_sell": 7.0,
+        "missing_units": 5.0,
+        "missing_value": 24.66,
+        "missing_sales": 35.0,
+        "real_units": 5.0,
+        "real_value": 24.66,
+        "real_sales": 35.0,
+        "is_real_lead": true,
+        "controlled": false,
+        "reason": "Unexplained (worth checking)",
+        "reason_key": "real",
+        "days_flagged": 1,
+        "dispensed_total": 20.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-07-09",
+            "to": "2026-07-10",
+            "opening": 85.0,
+            "dispensed": 0.0,
+            "expected": 85.0,
+            "closing": 80.0,
+            "missing": 5.0,
             "reason": "Unexplained (worth checking)",
             "reason_key": "real",
             "real": true
@@ -15428,7 +15613,7 @@
         "reason": "Unexplained (worth checking)",
         "reason_key": "real",
         "days_flagged": 5,
-        "dispensed_total": 260.0,
+        "dispensed_total": 270.0,
         "matched": true,
         "events": [
           {
@@ -16396,7 +16581,7 @@
         "reason": "Unexplained (worth checking)",
         "reason_key": "real",
         "days_flagged": 6,
-        "dispensed_total": 610.0,
+        "dispensed_total": 630.0,
         "matched": true,
         "events": [
           {
@@ -16820,7 +17005,7 @@
         "reason": "Unexplained (worth checking)",
         "reason_key": "real",
         "days_flagged": 1,
-        "dispensed_total": 30.0,
+        "dispensed_total": 40.0,
         "matched": true,
         "events": [
           {
@@ -17126,9 +17311,9 @@
         "status": "Active",
         "unit_cost": 0,
         "unit_sell": 5.0,
-        "missing_units": 100.0,
+        "missing_units": 103.0,
         "missing_value": 0.0,
-        "missing_sales": 500.0,
+        "missing_sales": 515.0,
         "real_units": 45.0,
         "real_value": 0.0,
         "real_sales": 225.0,
@@ -17136,7 +17321,7 @@
         "controlled": false,
         "reason": "Unexplained (worth checking)",
         "reason_key": "real",
-        "days_flagged": 38,
+        "days_flagged": 39,
         "dispensed_total": 0.0,
         "matched": true,
         "events": [
@@ -17291,6 +17476,18 @@
             "dispensed": 0.0,
             "expected": 9725.0,
             "closing": 9722.0,
+            "missing": 3.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-07-09",
+            "to": "2026-07-10",
+            "opening": 9715.0,
+            "dispensed": 0.0,
+            "expected": 9715.0,
+            "closing": 9712.0,
             "missing": 3.0,
             "reason": "Tiny rounding (under 5 units)",
             "reason_key": "rounding_tiny",
@@ -18503,7 +18700,7 @@
         "reason": "Tiny rounding (under 5 units)",
         "reason_key": "rounding_tiny",
         "days_flagged": 2,
-        "dispensed_total": 6.0,
+        "dispensed_total": 7.0,
         "matched": true,
         "events": [
           {
@@ -18533,6 +18730,101 @@
         ]
       },
       {
+        "description": "VASOFIX BRAUNULE (LL) 22GX1\"(BLUE) B.BRAUN",
+        "code": "GB8366674516",
+        "uom": "PIECES",
+        "status": "Active",
+        "unit_cost": 5.9,
+        "unit_sell": 10.0,
+        "missing_units": 6.0,
+        "missing_value": 35.4,
+        "missing_sales": 60.0,
+        "real_units": 0.0,
+        "real_value": 0.0,
+        "real_sales": 0.0,
+        "is_real_lead": false,
+        "controlled": false,
+        "reason": "Tiny rounding (under 5 units)",
+        "reason_key": "rounding_tiny",
+        "days_flagged": 6,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-30",
+            "to": "2026-07-01",
+            "opening": 179.0,
+            "dispensed": 0.0,
+            "expected": 179.0,
+            "closing": 178.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-07-01",
+            "to": "2026-07-02",
+            "opening": 178.0,
+            "dispensed": 0.0,
+            "expected": 178.0,
+            "closing": 177.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-07-02",
+            "to": "2026-07-03",
+            "opening": 177.0,
+            "dispensed": 0.0,
+            "expected": 177.0,
+            "closing": 176.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-07-05",
+            "to": "2026-07-06",
+            "opening": 176.0,
+            "dispensed": 0.0,
+            "expected": 176.0,
+            "closing": 175.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-07-06",
+            "to": "2026-07-07",
+            "opening": 175.0,
+            "dispensed": 0.0,
+            "expected": 175.0,
+            "closing": 174.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-07-09",
+            "to": "2026-07-10",
+            "opening": 174.0,
+            "dispensed": 0.0,
+            "expected": 174.0,
+            "closing": 173.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          }
+        ]
+      },
+      {
         "description": "PULMICORT (BUDESONIDE) RESPULE 1MG ASTRAZENECA",
         "code": "MAL19940088ARZ",
         "uom": "RESPULE",
@@ -18550,7 +18842,7 @@
         "reason": "Dispensed (confirmed by stock-movement log)",
         "reason_key": "movement_confirmed",
         "days_flagged": 3,
-        "dispensed_total": 28.0,
+        "dispensed_total": 29.0,
         "matched": true,
         "events": [
           {
@@ -18674,89 +18966,6 @@
         ]
       },
       {
-        "description": "VASOFIX BRAUNULE (LL) 22GX1\"(BLUE) B.BRAUN",
-        "code": "GB8366674516",
-        "uom": "PIECES",
-        "status": "Active",
-        "unit_cost": 5.9,
-        "unit_sell": 10.0,
-        "missing_units": 5.0,
-        "missing_value": 29.5,
-        "missing_sales": 50.0,
-        "real_units": 0.0,
-        "real_value": 0.0,
-        "real_sales": 0.0,
-        "is_real_lead": false,
-        "controlled": false,
-        "reason": "Tiny rounding (under 5 units)",
-        "reason_key": "rounding_tiny",
-        "days_flagged": 5,
-        "dispensed_total": 0.0,
-        "matched": true,
-        "events": [
-          {
-            "from": "2026-06-30",
-            "to": "2026-07-01",
-            "opening": 179.0,
-            "dispensed": 0.0,
-            "expected": 179.0,
-            "closing": 178.0,
-            "missing": 1.0,
-            "reason": "Tiny rounding (under 5 units)",
-            "reason_key": "rounding_tiny",
-            "real": false
-          },
-          {
-            "from": "2026-07-01",
-            "to": "2026-07-02",
-            "opening": 178.0,
-            "dispensed": 0.0,
-            "expected": 178.0,
-            "closing": 177.0,
-            "missing": 1.0,
-            "reason": "Tiny rounding (under 5 units)",
-            "reason_key": "rounding_tiny",
-            "real": false
-          },
-          {
-            "from": "2026-07-02",
-            "to": "2026-07-03",
-            "opening": 177.0,
-            "dispensed": 0.0,
-            "expected": 177.0,
-            "closing": 176.0,
-            "missing": 1.0,
-            "reason": "Tiny rounding (under 5 units)",
-            "reason_key": "rounding_tiny",
-            "real": false
-          },
-          {
-            "from": "2026-07-05",
-            "to": "2026-07-06",
-            "opening": 176.0,
-            "dispensed": 0.0,
-            "expected": 176.0,
-            "closing": 175.0,
-            "missing": 1.0,
-            "reason": "Tiny rounding (under 5 units)",
-            "reason_key": "rounding_tiny",
-            "real": false
-          },
-          {
-            "from": "2026-07-06",
-            "to": "2026-07-07",
-            "opening": 175.0,
-            "dispensed": 0.0,
-            "expected": 175.0,
-            "closing": 174.0,
-            "missing": 1.0,
-            "reason": "Tiny rounding (under 5 units)",
-            "reason_key": "rounding_tiny",
-            "real": false
-          }
-        ]
-      },
-      {
         "description": "SYR RHINATIOL (2% CARBOCISTINE) CHILDREN 100MG/5ML 125ML UNITHER LIQUID MANUFACTURING",
         "code": "MAL19910914X",
         "uom": "BOTTLE",
@@ -18868,7 +19077,7 @@
         "reason": "Tiny rounding (under 5 units)",
         "reason_key": "rounding_tiny",
         "days_flagged": 2,
-        "dispensed_total": 27.0,
+        "dispensed_total": 28.0,
         "matched": true,
         "events": [
           {
@@ -18891,6 +19100,125 @@
             "expected": 45.0,
             "closing": 43.0,
             "missing": 2.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          }
+        ]
+      },
+      {
+        "description": "UNIGLOVES INFUSION SET WITH NEEDLE (GREEN)  1PCS",
+        "code": "GMD37273628418A",
+        "uom": "PIECES",
+        "status": "Active",
+        "unit_cost": 2.8,
+        "unit_sell": 0,
+        "missing_units": 8.0,
+        "missing_value": 22.4,
+        "missing_sales": 0.0,
+        "real_units": 0.0,
+        "real_value": 0.0,
+        "real_sales": 0.0,
+        "is_real_lead": false,
+        "controlled": false,
+        "reason": "Tiny rounding (under 5 units)",
+        "reason_key": "rounding_tiny",
+        "days_flagged": 8,
+        "dispensed_total": 0.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-23",
+            "to": "2026-06-24",
+            "opening": 30.0,
+            "dispensed": 0.0,
+            "expected": 30.0,
+            "closing": 29.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-06-27",
+            "to": "2026-06-28",
+            "opening": 29.0,
+            "dispensed": 0.0,
+            "expected": 29.0,
+            "closing": 28.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-06-30",
+            "to": "2026-07-01",
+            "opening": 48.0,
+            "dispensed": 0.0,
+            "expected": 48.0,
+            "closing": 47.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-07-01",
+            "to": "2026-07-02",
+            "opening": 47.0,
+            "dispensed": 0.0,
+            "expected": 47.0,
+            "closing": 46.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-07-02",
+            "to": "2026-07-03",
+            "opening": 46.0,
+            "dispensed": 0.0,
+            "expected": 46.0,
+            "closing": 45.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-07-05",
+            "to": "2026-07-06",
+            "opening": 45.0,
+            "dispensed": 0.0,
+            "expected": 45.0,
+            "closing": 44.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-07-06",
+            "to": "2026-07-07",
+            "opening": 44.0,
+            "dispensed": 0.0,
+            "expected": 44.0,
+            "closing": 43.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-07-09",
+            "to": "2026-07-10",
+            "opening": 43.0,
+            "dispensed": 0.0,
+            "expected": 43.0,
+            "closing": 42.0,
+            "missing": 1.0,
             "reason": "Tiny rounding (under 5 units)",
             "reason_key": "rounding_tiny",
             "real": false
@@ -19034,7 +19362,7 @@
         "reason": "Tiny rounding (under 5 units)",
         "reason_key": "rounding_tiny",
         "days_flagged": 3,
-        "dispensed_total": 22.0,
+        "dispensed_total": 25.0,
         "matched": true,
         "events": [
           {
@@ -19068,113 +19396,6 @@
             "dispensed": 0.0,
             "expected": 23.0,
             "closing": 22.0,
-            "missing": 1.0,
-            "reason": "Tiny rounding (under 5 units)",
-            "reason_key": "rounding_tiny",
-            "real": false
-          }
-        ]
-      },
-      {
-        "description": "UNIGLOVES INFUSION SET WITH NEEDLE (GREEN)  1PCS",
-        "code": "GMD37273628418A",
-        "uom": "PIECES",
-        "status": "Active",
-        "unit_cost": 2.8,
-        "unit_sell": 0,
-        "missing_units": 7.0,
-        "missing_value": 19.6,
-        "missing_sales": 0.0,
-        "real_units": 0.0,
-        "real_value": 0.0,
-        "real_sales": 0.0,
-        "is_real_lead": false,
-        "controlled": false,
-        "reason": "Tiny rounding (under 5 units)",
-        "reason_key": "rounding_tiny",
-        "days_flagged": 7,
-        "dispensed_total": 0.0,
-        "matched": true,
-        "events": [
-          {
-            "from": "2026-06-23",
-            "to": "2026-06-24",
-            "opening": 30.0,
-            "dispensed": 0.0,
-            "expected": 30.0,
-            "closing": 29.0,
-            "missing": 1.0,
-            "reason": "Tiny rounding (under 5 units)",
-            "reason_key": "rounding_tiny",
-            "real": false
-          },
-          {
-            "from": "2026-06-27",
-            "to": "2026-06-28",
-            "opening": 29.0,
-            "dispensed": 0.0,
-            "expected": 29.0,
-            "closing": 28.0,
-            "missing": 1.0,
-            "reason": "Tiny rounding (under 5 units)",
-            "reason_key": "rounding_tiny",
-            "real": false
-          },
-          {
-            "from": "2026-06-30",
-            "to": "2026-07-01",
-            "opening": 48.0,
-            "dispensed": 0.0,
-            "expected": 48.0,
-            "closing": 47.0,
-            "missing": 1.0,
-            "reason": "Tiny rounding (under 5 units)",
-            "reason_key": "rounding_tiny",
-            "real": false
-          },
-          {
-            "from": "2026-07-01",
-            "to": "2026-07-02",
-            "opening": 47.0,
-            "dispensed": 0.0,
-            "expected": 47.0,
-            "closing": 46.0,
-            "missing": 1.0,
-            "reason": "Tiny rounding (under 5 units)",
-            "reason_key": "rounding_tiny",
-            "real": false
-          },
-          {
-            "from": "2026-07-02",
-            "to": "2026-07-03",
-            "opening": 46.0,
-            "dispensed": 0.0,
-            "expected": 46.0,
-            "closing": 45.0,
-            "missing": 1.0,
-            "reason": "Tiny rounding (under 5 units)",
-            "reason_key": "rounding_tiny",
-            "real": false
-          },
-          {
-            "from": "2026-07-05",
-            "to": "2026-07-06",
-            "opening": 45.0,
-            "dispensed": 0.0,
-            "expected": 45.0,
-            "closing": 44.0,
-            "missing": 1.0,
-            "reason": "Tiny rounding (under 5 units)",
-            "reason_key": "rounding_tiny",
-            "real": false
-          },
-          {
-            "from": "2026-07-06",
-            "to": "2026-07-07",
-            "opening": 44.0,
-            "dispensed": 0.0,
-            "expected": 44.0,
-            "closing": 43.0,
             "missing": 1.0,
             "reason": "Tiny rounding (under 5 units)",
             "reason_key": "rounding_tiny",
@@ -19235,7 +19456,7 @@
         "reason": "Tiny rounding (under 5 units)",
         "reason_key": "rounding_tiny",
         "days_flagged": 4,
-        "dispensed_total": 27.0,
+        "dispensed_total": 29.0,
         "matched": true,
         "events": [
           {
@@ -19353,7 +19574,7 @@
         "reason": "Tiny rounding (under 5 units)",
         "reason_key": "rounding_tiny",
         "days_flagged": 4,
-        "dispensed_total": 31.0,
+        "dispensed_total": 34.0,
         "matched": true,
         "events": [
           {
@@ -19506,7 +19727,7 @@
         "reason": "Tiny rounding (under 5 units)",
         "reason_key": "rounding_tiny",
         "days_flagged": 1,
-        "dispensed_total": 7.0,
+        "dispensed_total": 8.0,
         "matched": true,
         "events": [
           {
@@ -19541,7 +19762,7 @@
         "reason": "Tiny rounding (under 5 units)",
         "reason_key": "rounding_tiny",
         "days_flagged": 3,
-        "dispensed_total": 26.0,
+        "dispensed_total": 28.0,
         "matched": true,
         "events": [
           {
@@ -19713,6 +19934,77 @@
         ]
       },
       {
+        "description": "GENTAMICIN 0.3% CREAM W/W 10G NORIPHARMA",
+        "code": "MAL19970614AZ",
+        "uom": "TUBE",
+        "status": "Active",
+        "unit_cost": 2.76,
+        "unit_sell": 20.0,
+        "missing_units": 5.0,
+        "missing_value": 13.8,
+        "missing_sales": 100.0,
+        "real_units": 0.0,
+        "real_value": 0.0,
+        "real_sales": 0.0,
+        "is_real_lead": false,
+        "controlled": false,
+        "reason": "Tiny rounding (under 5 units)",
+        "reason_key": "rounding_tiny",
+        "days_flagged": 4,
+        "dispensed_total": 24.0,
+        "matched": true,
+        "events": [
+          {
+            "from": "2026-06-17",
+            "to": "2026-06-18",
+            "opening": 21.0,
+            "dispensed": 3.0,
+            "expected": 18.0,
+            "closing": 16.0,
+            "missing": 2.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-06-27",
+            "to": "2026-06-28",
+            "opening": 14.0,
+            "dispensed": 0.0,
+            "expected": 14.0,
+            "closing": 13.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-06-30",
+            "to": "2026-07-01",
+            "opening": 13.0,
+            "dispensed": 0.0,
+            "expected": 13.0,
+            "closing": 12.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-07-09",
+            "to": "2026-07-10",
+            "opening": 60.0,
+            "dispensed": 0.0,
+            "expected": 60.0,
+            "closing": 59.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          }
+        ]
+      },
+      {
         "description": "TAB ESCAPELLE (LEVONORGESTREL) 1.5MG 1'S PAHANG PHARMACY",
         "code": "MAL06030792AZ",
         "uom": "TABLET",
@@ -19795,15 +20087,15 @@
         ]
       },
       {
-        "description": "GENTAMICIN 0.3% CREAM W/W 10G NORIPHARMA",
-        "code": "MAL19970614AZ",
-        "uom": "TUBE",
+        "description": "INJ TT VACCINE (TETANUS) 0.5ML SM PHARMA",
+        "code": "MAL13035064AZ",
+        "uom": "0.5ML",
         "status": "Active",
-        "unit_cost": 2.76,
-        "unit_sell": 20.0,
-        "missing_units": 4.0,
-        "missing_value": 11.04,
-        "missing_sales": 80.0,
+        "unit_cost": 3.75,
+        "unit_sell": 25.0,
+        "missing_units": 3.0,
+        "missing_value": 11.25,
+        "missing_sales": 75.0,
         "real_units": 0.0,
         "real_value": 0.0,
         "real_sales": 0.0,
@@ -19812,24 +20104,24 @@
         "reason": "Tiny rounding (under 5 units)",
         "reason_key": "rounding_tiny",
         "days_flagged": 3,
-        "dispensed_total": 24.0,
+        "dispensed_total": 3.0,
         "matched": true,
         "events": [
           {
-            "from": "2026-06-17",
-            "to": "2026-06-18",
-            "opening": 21.0,
-            "dispensed": 3.0,
-            "expected": 18.0,
-            "closing": 16.0,
-            "missing": 2.0,
-            "reason": "Tiny rounding (under 5 units)",
-            "reason_key": "rounding_tiny",
+            "from": "2026-05-31",
+            "to": "2026-06-01",
+            "opening": 8.0,
+            "dispensed": 0.0,
+            "expected": 8.0,
+            "closing": 7.0,
+            "missing": 1.0,
+            "reason": "Dispensed (confirmed by stock-movement log)",
+            "reason_key": "movement_confirmed",
             "real": false
           },
           {
-            "from": "2026-06-27",
-            "to": "2026-06-28",
+            "from": "2026-06-30",
+            "to": "2026-07-01",
             "opening": 14.0,
             "dispensed": 0.0,
             "expected": 14.0,
@@ -19840,8 +20132,8 @@
             "real": false
           },
           {
-            "from": "2026-06-30",
-            "to": "2026-07-01",
+            "from": "2026-07-09",
+            "to": "2026-07-10",
             "opening": 13.0,
             "dispensed": 0.0,
             "expected": 13.0,
@@ -20194,53 +20486,6 @@
         ]
       },
       {
-        "description": "INJ TT VACCINE (TETANUS) 0.5ML SM PHARMA",
-        "code": "MAL13035064AZ",
-        "uom": "0.5ML",
-        "status": "Active",
-        "unit_cost": 3.75,
-        "unit_sell": 25.0,
-        "missing_units": 2.0,
-        "missing_value": 7.5,
-        "missing_sales": 50.0,
-        "real_units": 0.0,
-        "real_value": 0.0,
-        "real_sales": 0.0,
-        "is_real_lead": false,
-        "controlled": false,
-        "reason": "Dispensed (confirmed by stock-movement log)",
-        "reason_key": "movement_confirmed",
-        "days_flagged": 2,
-        "dispensed_total": 3.0,
-        "matched": true,
-        "events": [
-          {
-            "from": "2026-05-31",
-            "to": "2026-06-01",
-            "opening": 8.0,
-            "dispensed": 0.0,
-            "expected": 8.0,
-            "closing": 7.0,
-            "missing": 1.0,
-            "reason": "Dispensed (confirmed by stock-movement log)",
-            "reason_key": "movement_confirmed",
-            "real": false
-          },
-          {
-            "from": "2026-06-30",
-            "to": "2026-07-01",
-            "opening": 14.0,
-            "dispensed": 0.0,
-            "expected": 14.0,
-            "closing": 13.0,
-            "missing": 1.0,
-            "reason": "Tiny rounding (under 5 units)",
-            "reason_key": "rounding_tiny",
-            "real": false
-          }
-        ]
-      },
-      {
         "description": "LA DERMOPLEX CALAMINE LOTION 120ML DUOPHARMA",
         "code": "MAL19912629XZ",
         "uom": "BOTTLE",
@@ -20528,7 +20773,7 @@
         "reason": "Tiny rounding (under 5 units)",
         "reason_key": "rounding_tiny",
         "days_flagged": 2,
-        "dispensed_total": 7.0,
+        "dispensed_total": 8.0,
         "matched": true,
         "events": [
           {
@@ -20798,7 +21043,7 @@
         "reason": "Tiny rounding (under 5 units)",
         "reason_key": "rounding_tiny",
         "days_flagged": 2,
-        "dispensed_total": 9.0,
+        "dispensed_total": 10.0,
         "matched": true,
         "events": [
           {
@@ -21219,7 +21464,7 @@
         "reason": "Tiny rounding (under 5 units)",
         "reason_key": "rounding_tiny",
         "days_flagged": 2,
-        "dispensed_total": 7.0,
+        "dispensed_total": 8.0,
         "matched": true,
         "events": [
           {
@@ -21640,8 +21885,8 @@
         "status": "Active",
         "unit_cost": 0.03,
         "unit_sell": 0,
-        "missing_units": 3.0,
-        "missing_value": 0.1,
+        "missing_units": 4.0,
+        "missing_value": 0.13,
         "missing_sales": 0.0,
         "real_units": 0.0,
         "real_value": 0.0,
@@ -21650,7 +21895,7 @@
         "controlled": false,
         "reason": "Tiny rounding (under 5 units)",
         "reason_key": "rounding_tiny",
-        "days_flagged": 3,
+        "days_flagged": 4,
         "dispensed_total": 0.0,
         "matched": true,
         "events": [
@@ -21685,6 +21930,18 @@
             "dispensed": 0.0,
             "expected": 1099.0,
             "closing": 1098.0,
+            "missing": 1.0,
+            "reason": "Tiny rounding (under 5 units)",
+            "reason_key": "rounding_tiny",
+            "real": false
+          },
+          {
+            "from": "2026-07-09",
+            "to": "2026-07-10",
+            "opening": 1098.0,
+            "dispensed": 0.0,
+            "expected": 1098.0,
+            "closing": 1097.0,
             "missing": 1.0,
             "reason": "Tiny rounding (under 5 units)",
             "reason_key": "rounding_tiny",
